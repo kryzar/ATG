@@ -9,3 +9,4 @@
 ## Corrections mathématiques
 
 ## Divers
+- ajout d'un fichier .gitignore permettant de ne pas inclure les fichiers inutiles (issus de la compilation ou du système d'exploitation) dans le dépôt (Naomi)
