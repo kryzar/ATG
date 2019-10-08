@@ -670,7 +670,7 @@ En fait, on peut montrer qu'un anneau est artinien si et seulement si il est noe
 
   \section{Anneaux principaux, euclidiens } 
 
-\subsection{ }\hspace{-0.cm}On dit qu'un anneau commutatif intègre $A$ est \\
+\subsection{ }On dit qu'un anneau commutatif intègre $A$ est \\
 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item \textit{euclidien}\index{Euclidien (Anneau)} s'il est munit d'une application - appelée stathme euclidien - $\sigma:A\setminus \lbrace 0\rbrace\rightarrow \N$ vérifiant la propriété suivante (division euclidienne): pour tout $0\not=a,b\in A$ il existe $q,r\in A$ tels que 
@@ -681,7 +681,7 @@ $r=0$ ou $r\not=0$ et $\sigma(r)<\sigma(a)$.
 \item \textit{principal}\index{Principal (Anneau)} si tout idéal est de la forme $Aa$, $a\in A$.  
 \end{itemize}
 
-\subsection{ }\hspace{-0.cm}\label{Ex}\textbf{Exemples} \\
+\subsection{ }\label{Ex}\textbf{Exemples} \\
 
     \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
      \item  La valeur absolue usuelle   $|-|:\Z\setminus\lbrace 0\rbrace\rightarrow \N$ sur $\Z$ est un stathme euclidien. En effet, pour tout $0\not= a,b\in \Z$ notons $R:=\lbrace b-qa\;|\; q\in \Z\rbrace $. On a évidemment $R\cap\N\not=\emptyset$  donc on peut poser $r:=\hbox{\rm min} R\cap\N$. Par définition de $R$, $b=qa+r$ et si $|a|\leq  r$ on aurait $r-|a|\in R$: contradiction.  \\
@@ -717,7 +717,7 @@ o\`u $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ d
  
  
 
-\subsection{ }\hspace{-0.cm}\label{EuclIsPrinc}\textbf{Lemme.} \textit{Euclien $\Rightarrow$ Principal.} 
+\subsection{ }\label{EuclIsPrinc}\textbf{Lemme.} \textit{Euclien $\Rightarrow$ Principal.} 
  
  \begin{proof} Soit $A$ un anneau euclidien et soit $I\subset A$ un idéal. Fixons $a\in I$ tel que $\sigma(a)=\hbox{\rm min}\sigma(I)$. Puisque $a\in I$, on a $Aa\subset I$. Réciproquement, pour tout $b\in I$, effectuons la division euclidienne de $b$ par $a$: il existe $q,r\in A$ tels que $b=qa+r$ et $r=0$ ou $\sigma(r)<\sigma(a)$. Mais comme $r=b-qa\in I$, on ne peut pas avoir $\sigma(r)<\sigma(a)$, donc $r=0$.\\
  \end{proof}
