@@ -7,6 +7,7 @@
 \usepackage{amscd}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage[all]{xy}
 
 % Liens cliquables
 \usepackage[hidelinks]{hyperref}
@@ -177,8 +178,12 @@ On remarquera que l'application identité $Id:A\rightarrow A$ est un morphisme d
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux, et $A'\subset A$ (resp. $B'\subset B$) est un sous-anneau alors $\phi(A')\subset B$ (resp. $\phi^{-1}(B')\subset A$) est un sous-anneau. En particulier, $\im(\phi)\subset B$ est un sous-anneau mais  $\ker(\phi)\subset A$ n'est un sous-anneau que si $A$ ou $B$ est l'anneau nul, sinon il ne contient pas $1$ (on verra un peu plus loin que $\ker(\phi)$ est ce qu'on appelle un idéal).
 \end{itemize}
 
-\subsubsection{}Soit $A$ un anneau commutatif. Une $A$-algèbre\index{Algèbre sur un anneau commutatif} est un couple $(B,\phi)$ o\`u $B$ est  un anneau et  $\phi:A\rightarrow B$ est un morphisme d'anneaux tel que $\hbox{\rm im}(\phi)\subset Z(B)$.   On notera en général $\phi:A\rightarrow B$ ou simplement  (lorsque la donnée de $\phi:A\rightarrow B$ ne peut prêter à confusion) $B$  la $A$-algèbre $(B,\phi)$.
-  Etant donnés deux $A$-algèbres $\phi_B:A\rightarrow B$, $\phi_C:A\rightarrow C$, un morphisme de $A$-algèbres est un morphisme d'anneaux $\phi:B\rightarrow C$ tel que $\phi\circ \phi_B=\phi_C$. On remarquera que l'application identité $Id:B\rightarrow B$ est un morphisme de $A$-algèbres et que si $\phi:B\rightarrow C$ et $\psi:C\rightarrow D$ sont des morphismes de $A$-algèbres alors $\psi\circ \phi:B\rightarrow D$ est un morphisme de $A$-algèbres. On notera $Hom_A(B,C)$ l'ensemble des morphismes de $A$-algèbres $\phi:B\rightarrow C$ et, si $B=C$, $End_A(B):=Hom_A(B,C)$. On dit encore qu'un morphisme de $A$-algèbres $\phi:B\rightarrow C$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est  injective (resp. surjective, resp. bijective). On vérifie que si $\phi:B\rightarrow C$ est un isomorphisme de $A$-algèbres l'application inverse $\phi^{-1}:C\rightarrow B$ est automatiquement un morphisme de $A$-algèbres.\\
+\subsubsection{}Soit $A$ un anneau commutatif. Une $A$-algèbre\index{Algèbre sur un anneau commutatif} est un couple $(B,\phi)$ où $B$ est  un anneau et  $\phi:A\rightarrow B$ est un morphisme d'anneaux tel que $\hbox{\rm im}(\phi)\subset Z(B)$.   On notera en général $\phi:A\rightarrow B$ ou simplement  (lorsque la donnée de $\phi:A\rightarrow B$ ne peut prêter à confusion) $B$  la $A$-algèbre $(B,\phi)$.
+Étant données deux $A$-algèbres $\phi_B:A\rightarrow B$, $\phi_C:A\rightarrow C$, un morphisme de $A$-algèbres est un morphisme d'anneaux $\phi:B\rightarrow C$ tel que $\phi\circ \phi_B=\phi_C$.
+
+	$$ \xymatrix{ & B \ar[dd]^\Phi \\ A \ar[ru]^{\Phi_B} \ar[rd]_{\Phi_C} \\ & C } $$
+
+On remarquera que l'application identité $Id:B\rightarrow B$ est un morphisme de $A$-algèbres et que si $\phi:B\rightarrow C$ et $\psi:C\rightarrow D$ sont des morphismes de $A$-algèbres alors $\psi\circ \phi:B\rightarrow D$ est un morphisme de $A$-algèbres. On notera $Hom_A(B,C)$ l'ensemble des morphismes de $A$-algèbres $\phi:B\rightarrow C$ et, si $B=C$, $End_A(B):=Hom_A(B,C)$. On dit encore qu'un morphisme de $A$-algèbres $\phi:B\rightarrow C$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est  injective (resp. surjective, resp. bijective). On vérifie que si $\phi:B\rightarrow C$ est un isomorphisme de $A$-algèbres l'application inverse $\phi^{-1}:C\rightarrow B$ est automatiquement un morphisme de $A$-algèbres.\\
 
  \textbf{Remarque.} On verra dans la partie II du cours, qu'une $A$-algèbre $\phi:A\rightarrow B$ est aussi la même chose qu'un anneau $B$ muni d'une structure de $A$-module  et qu'avec cette terminologie un morphisme de $A$-algèbres est un morphisme d'anneaux qui est aussi un morphisme de $A$-modules.  \\  
 
@@ -211,6 +216,8 @@ On a alors $0 =(0_{A_i})_{i\in I}$, $1 =(1_{A_i})_{i\in I}$. De plus, les projec
 
 \ref{Produit}.1 \textbf{Lemme.} (Propriété universelle du produit) \textit{Pour toute famille d'anneaux $A_i$, $i\in I$ il existe un anneau $\Pi$ et une famille de morphisme d'anneaux $p_i:\Pi\rightarrow A_i$, $i\in I$ tels que pour tout anneau $A$ et famille de morphisme d'anneaux $\phi_i:A\rightarrow A_i$, $i\in I$, il existe un unique morphisme d'anneaux $\phi:A\rightarrow \Pi$ tel que $p_i\circ \phi=\phi_i$, $i\in I$. }
 
+	$$ \xymatrix{ A \ar[rr]^{\Phi_i} \ar[rd]_\Phi && A_i \\ & \Pi  \ar[ru]_{p_i}} $$
+
 \begin{proof} Vérifions que $\Pi:= \prod_{i\in I}A_i$ et les $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $\underline{a}\rightarrow a_i$, $i\in I$ conviennent. Si $\phi:A\rightarrow \prod_{i\in I}A_i$ existe, la condition $p_i\circ \phi =\phi_i$, $i\in I$ force  
 $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$. Cela montre l'unicité de $\phi$  sous réserve de son existence. Pour conclure, il faut vérifier que $\phi$ défini par  $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$ est bien un morphisme d'anneaux, ce qui résulte immédiatement des définitions.
 \end{proof}
@@ -235,6 +242,7 @@ A\ar@{.>}[r]^{\exists ! \phi}\ar@/^1pc/[urr]^{\phi_i}\ar@/_1pc/[drr]_{\phi_j}&\p
 $$ \prod_{i\in I}A_i\stackrel{p_j}{\rightarrow}A_j\stackrel{\phi_j}{\rightarrow} B_j,\; j\in I$$
 on obtient un unique morphisme d'anneaux $\phi:=\prod_{i\in I}\phi_i:\prod_{i\in I}A_i\rightarrow \prod_{i\in I} B_i$ tel que $p_i\circ \phi=\phi_i\circ p_i$, $i\in I$. \\
 
+	$$ \xymatrix{ A_i \ar[r]^{\Phi_i} & B_i \\ \prod_{i\in I} A_i \ar[u]^{\pi^A_i} \ar[r]^\Phi & \prod_{i\in I}B_i \ar[u]_{\pi^B_i} } $$
 
 \ref{Produit}.3 Si $A_i=A$, $i\in I$, on note $\prod_{i\in I}A_i=A^I$. On peut  voir $A^I$ comme l'anneau des fonctions $a:I\rightarrow A$ muni de $(a+b)(i)=a(i)+b(i)$  et $(a\cdot b)(i)=a(i)\cdot b(i)$  de zéro l'application nulle et d'unité l'application constante de valeur $1_A$. On notera qu'on a un morphisme d'anneaux injectif canonique $\Delta_A:A\hookrightarrow A^I$, $a\rightarrow (i\rightarrow a(i)=a)$ appelé morphisme diagonal (et qui, si $A$ est commutatif,   fait de $A^I$  une $A$-algèbre de fa\c{c}on canonique).\\
 
@@ -252,9 +260,11 @@ On vérifie facilement que $(A^{(\N)},+,*)$ est un anneau commutatif ayant pour 
  
  \ref{Poly}.3 \textbf{Lemme.} (Propriété universelle de la $A$-algèbre des polynômes à une indéterminée) \textit{Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ munie d'un élément $p\in P$ tels que pour toute $A$-algèbre $\phi: A\rightarrow B$ et  $b\in B$, il existe un unique  morphisme de $A$-algèbres $ev^\phi_b:P\rightarrow B$  tel que $ ev^\phi_b(p)=b$. }
 
+	$$ \xymatrix{A \ar[rd]_{\iota_A} \ar[rr]^\varphi && (B, b) \\ & (P, p) \ar[ru]_{ev_b^\Phi}} $$
+
 \begin{proof} Vérifions que $\iota_A:A\rightarrow A[X]$ munie de $X$ conviennent. Si $ev_b^\phi:A[X]\rightarrow B$ existe,  on a par définition d'un morphisme de $A$-algèbres:
 $$ev^\phi_b(\sum_{n\geq 0}a_nX^n)=\sum_{n\geq 0}ev_b^\phi(a_n)ev_b^\phi(X)^n=\sum_{n\geq 0}\phi(a_n)b^n,$$
-d'o\`u l'unicité de $ev_b^\phi$ sous réserve d'existence.  Pour conclure, il faut vérifier que $ev_b^\phi$ défini par  $ev^\phi_b(\sum_{n\geq 0}a_nX^n)= \sum_{n\geq 0}\phi(a_n)b^n,$ est bien un morphisme d'anneaux, ce qui là encore résulte immédiatement des définitions.
+d'où l'unicité de $ev_b^\phi$ sous réserve d'existence.  Pour conclure, il faut vérifier que $ev_b^\phi$ défini par  $ev^\phi_b(\sum_{n\geq 0}a_nX^n)= \sum_{n\geq 0}\phi(a_n)b^n,$ est bien un morphisme d'anneaux, ce qui là encore résulte immédiatement des définitions.
 \end{proof}
 
   Le même argument  formel que celui utilisé dans \ref{Produit}.2 montre que la $A$-algèbre $\iota_A:A\rightarrow A[X]$ est unique à unique isomorphisme  près.\\
@@ -266,6 +276,8 @@ $$\hbox{\rm Hom}_A(A[X],B)\rightarrow B,\; f\rightarrow f(X)$$
  Soit $\phi:A  \rightarrow B $ un morphisme  d'anneaux commutatifs. En appliquant la propriété universelle des $\iota_A:A\rightarrow A[X]$  à la $A$-algèbre
 $$A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow}B[X]$$
 on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ tel que $\iota_B\circ \phi=\phi\circ \iota_A$; explicitement $\tilde{\phi}(\sum_{n\geq 0}a_xX^n)=\sum_{n\geq 0}\phi(a_n)X^n$.\\ 
+
+	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[X]\ar[r]_{\tilde{\Phi}} & B[X] } $$
  
  
    \ref{Poly}.4 \textbf{Remarque.} Ce qui nous a permis de définir le produit $*$ sur $A^{(\N)}$ et le fait que $(\N,+)$ est un monoïde: on a utilisé l'addition pour définir $e_n*e_m=e_{n+m}$, l'associativité de $*$ résulte de celle de $+$ sur $\N$ et le fait que $e_0$ soit l'unité de $A^{(\N)}$ du fait que $0$ est l'unité de $\N$.  Pour un monoïde $(M,\cdot)$ quelconque, l'application
@@ -273,6 +285,8 @@ on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ te
  est bijective d'inverse l'application qui à $m\in M$ associe le morphisme de monoïdes $f_m:(\N,+)\rightarrow (M,\cdot)$, $n\rightarrow m^n(=m\cdots m$ $n$ fois). Dans \ref{Poly}.3, se donner $p\in P$ et $b\in B$ revient donc à se donner des morphismes de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$, $n\rightarrow p^n$ et $\nu:(\N,+)\rightarrow (B,\cdot)$, $n\rightarrow b^n$ et la condition $ev^\phi_b(p)=b$ signifie que $ev^\phi_b\circ \nu_A=\nu$. Avec ce point de vue, on peut reformuler \ref{Poly}.3 comme suit. \\
  
   \ref{Poly}.3' \textbf{Lemme.} (Propriété universelle de la $A$-algèbre des polynômes à une indéterminée) \textit{Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ et un morphisme de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$ tels que pour toute $A$-algèbre $\phi: A\rightarrow B$ et tout morphisme de monoïdes $\nu:(\N,+)\rightarrow (B,\cdot)$, il existe un unique  morphisme de $A$-algèbres $ev^\phi_b:P\rightarrow B$  tel que $ ev^\phi_b\circ \nu_A=\nu$. }\\
+
+  $$ \xymatrix{ & B \\ A \ar[ru]^\Phi \ar[rd]_{\iota_A} & & \mathbb{N} \ar[lu]_\nu \ar[ld]^{\nu_A} \\ & P \ar[uu]_{ev} } $$
 
  Ou encore: pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
 $$\hbox{\rm Hom}_A(A[X],B)\rightarrow \hbox{\rm Hom}_{Mono}(\N,B),\; f\rightarrow f\circ \nu_A.$$
@@ -289,6 +303,8 @@ on obtient un anneau (commutatif si $(N,\cdot)$ est commutatif) $(A^{(N)},+,*)$ 
 
  \ref{Poly}.8 \textbf{Lemme.} (Propriété universelle de la $A$-algèbre du monoïde $(N,\cdot)$) \textit{Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ et un  morphisme de monoïdes $\nu_A:(N,\cdot)\rightarrow (P  ,\cdot)$ tels que pour toute $A$-algèbre   $\phi: A\rightarrow B$ et tout morphisme de monoïdes $\nu:(N,\cdot)\rightarrow (B  ,\cdot)$  il existe un unique  morphisme de $A$-algèbres $\tilde{\nu}:P\rightarrow B$  tel que $ \tilde{\nu}\circ \nu_A=\nu$. }
 
+	$$ \xymatrix{ & B \\ A \ar[ru]^\Phi \ar[rd]_\iota & & N \ar[lu]_\nu \ar[ld]^{\nu_A} \\ & P \ar[uu]_{\tilde{\nu} } } $$
+
 \begin{proof} Similaire à celle de \ref{Poly}.3 en vérifiant que $\iota_A:A\rightarrow A[N]$ convient. \end{proof}
 
   Le même argument  formel que celui utilisé dans \ref{Produit}.2 montre que la $A$-algèbre $\iota_A: A\rightarrow A[N]$ est unique à unique isomorphisme  près.\\
@@ -302,7 +318,7 @@ $$\hbox{\rm Hom}_A(A[N],B)\rightarrow\hbox{\rm Hom}_{Mono}(N,B),\; f\rightarrow 
   \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
  \item  $(N,\cdot)=(\N,+)$ on retrouve $A[\N]=A[X]$.\\
  % (observer que se donner un morphisme de monoïdes $\nu:(\N,+)\rightarrow (B ,\cdot)$ revient à se donner l'image $b\in B$ de $1\in \N$).\\
- \item $(N,\cdot)=(\N^r,+)$ o\`u $+$ est l'addition termes à termes (pour $\underline{m}=(m_1,\dots,m_r), \underline{n}:=(n_1,\dots, n_r)\in \N^r$,   $\underline{m}+\underline{n}=(m_1+n_1,\dots,m_r+n_r)\in \N^r$). Dans ce cas, on note $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \N^r$ avec la convention $X_i^0=1$, $i=1,\dots, r$,  et $1:=\underline{X}^{\underline{0}}$ de sorte que (\ref{Poly}.5) se réécrit de fa\c{c}on plus intuitive sous la forme
+ \item $(N,\cdot)=(\N^r,+)$ où $+$ est l'addition termes à termes (pour $\underline{m}=(m_1,\dots,m_r), \underline{n}:=(n_1,\dots, n_r)\in \N^r$,   $\underline{m}+\underline{n}=(m_1+n_1,\dots,m_r+n_r)\in \N^r$). Dans ce cas, on note $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \N^r$ avec la convention $X_i^0=1$, $i=1,\dots, r$,  et $1:=\underline{X}^{\underline{0}}$ de sorte que (\ref{Poly}.5) se réécrit de fa\c{c}on plus intuitive sous la forme
  $$ (\sum_{\underline{n}\in\N^r}a_{\underline{n}}\underline{X}^{\underline{n}}) (\sum_{\underline{n}\in \N^r}b_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N}(\sum_{\underline{i},\underline{j}\in \N^r, \underline{i}+\underline{j}=\underline{n}}a_{\underline{i}}b_{\underline{j}})\underline{X}^{\underline{n}}.$$
 On note également $A[X_1,\dots, X_r]:=A[\N^r]$ et on dit que $\iota_A:A\rightarrow A[X_1,\dots, X_r]$ est la $A$-algèbre des polynômes à $r$ inderminées. Comme se donner un morphisme de monoïdes $\nu:(\N^r,+)\rightarrow (B ,\cdot)$ revient à se donner les images $b_i\in B $ de $(\delta_{i,j})_{1\leq j\leq r}\in \N^r$, on peut reformuler \ref{Poly}.7 de la fa\c{c}on suivante.\\
 
@@ -338,6 +354,8 @@ $$\hbox{\rm Hom}_A(A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}],B)\rightarrow \frak{B}_r
 
  
   (\ref{Poly}.9)  Soit $(N,\cdot)$ un monoïde et $\phi: A\rightarrow B$ un morphisme d'anneaux commutatifs. La propriété universelle de $\iota_A:A\rightarrow A[N]$ appliquée avec $A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow} B[N]$ donne un unique morphisme de $A$-algèbres $\tilde{\phi}:A[N]\rightarrow B[N]$ tel que $\nu_B=\tilde{\phi}\circ \nu_A$. Explicitement $\tilde{\phi}(\sum_{n\geq 0}a_ne_n)=\sum_{n\geq 0}\phi(a_n)e_n$.  Par construction, im$(\phi)=\hbox{\rm im}(\phi)[N]\subset B[N]$ et $\ker(\tilde{\phi})$ est l'ensemble des éléments de la forme $\sum_{n\geq 0}a_ne_n\in A[N]$ tels que $a_n\in \ker(\phi)$, $n\geq 0$. On notera $\ker(\phi)[N]:=\ker(\tilde{\phi})\subset A[N]$.\\
+
+	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[N]\ar[r]_{\tilde{\Phi} } & B[N] } $$
  
  \ref{Poly}.10 \textbf{Exercice.} \\
  
@@ -424,7 +442,7 @@ Cela résulte de la relation $(a+I)(b+I)=ab+aI+Ib+I^2\subset ab+I$, $a,b\in I$. 
  
  \begin{proof} Montrons que  $A/I$ muni de la structure d'anneau ci-dessus et la projection canonique $\overline{-}:A\twoheadrightarrow A/I$ conviennent. Soit $\phi:A\rightarrow B$  un morphisme d'anneaux tel que $I\subset \ker(\phi)$. Si 
  $\overline{\phi}:A/I\rightarrow B$ existe, la condition $\phi=  \overline{\phi}\circ p$ force $\overline{\phi}(\overline{a})=\phi(a)$, $a\in A$. Cela montre l'unicité de $\overline{\phi}$ sous réserve de son existence.   Il reste à voir que  $\overline{\phi}:A/I\rightarrow B$ est automatiquement un morphisme d'anneaux. On sait déjà que c'est un morphisme de groupes additifs, donc il suffit de vérifier la compatibilité au produit. Cela résulte des définitions: $$\overline{\phi}(\overline{a}\overline{b})\stackrel{(1)}{=}\overline{\phi}(\overline{a b})\stackrel{(2)}{=} \phi(ab)\stackrel{(3)}{=} \phi(a)\phi(b)\stackrel{(4)}{=}\overline{\phi}(\overline{a})\overline{\phi}(\overline{b}),$$
- o\`u (1) est par construction du produit sur $A/I$, (2) et (4) est la relation  $\phi=  \overline{\phi}\circ \overline{-}$ et (3) est le fait que $\phi$ est un morphisme d'anneaux. \end{proof}
+ où (1) est par construction du produit sur $A/I$, (2) et (4) est la relation  $\phi=  \overline{\phi}\circ \overline{-}$ et (3) est le fait que $\phi$ est un morphisme d'anneaux. \end{proof}
  
   Comme d'habitude, la $A$-algèbre quotient   $p_I:=\overline{-}:A\twoheadrightarrow A/I$ est unique à unique isomorphisme près.  Par construction $p_I: A\twoheadrightarrow A/I$ est surjectif de noyau $I$. \\
  
@@ -437,7 +455,7 @@ $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\
   
    En particulier, tout  morphisme d'anneaux $\phi:A\rightarrow B$ se décompose de fa\c{c}on canonique sous la forme 
   $$\xymatrix{A\ar@{->>}[r]^{\phi|^{\hbox{\rm \small im}(\phi)}}\ar@{->>}[d]_{\overline{-}}&\im(\phi)\ar@{^{(}->}[r]&B\\
-  A/\ker(\phi)\ar[ur]^\simeq_{\overline{\phi}}&&}$$
+  A/\ker(\phi)\ar@{^{(}->>}[ur]^\simeq_{\overline{\phi}}&&}$$
   
   \textbf{Exemples.}\index{Caractéristique} (Caractéristique d'un anneau) Le noyau du morphisme caractéristique $c_A:\Z\rightarrow A$ est un idéal de $\Z$ donc de la forme $\ker(c_A)=n\Z$ pour un unique entier $n\geq 0$, appelé la caractéristique de $A$. 
   \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
@@ -608,8 +626,12 @@ Premier&Intègre\\
 Radiciel&Réduit
 \end{tabular}$$
 $$\hbox{\rm\small Classification grossière des idéaux}$$
+
 \subsubsection{} Tout morphisme $\phi:A\rightarrow B$  d'anneaux commutatifs induit une application $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ préservant $\subset$.  De plus, si $I\in \mathcal{I}_B$, le noyau de 
-$A\stackrel{\phi}{\rightarrow}B\stackrel{p_I}{\twoheadrightarrow}B/I$ est $\phi^{-1}(I)$, d'o\`u un morphisme d'anneaux injectifs $A/\phi^{-1}(I)\hookrightarrow B/I$. Comme un sous-anneau d'un anneau intègre (resp. réduit) est intègre (resp. réduit), on en déduit que  $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ se restreint en des applications  
+$A\stackrel{\phi}{\rightarrow}B\stackrel{p_I}{\twoheadrightarrow}B/I$ est $\phi^{-1}(I)$, d'où un morphisme d'anneaux injectifs $A/\phi^{-1}(I)\hookrightarrow B/I$. Comme un sous-anneau d'un anneau intègre (resp. réduit) est intègre (resp. réduit), on en déduit que  $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ se restreint en des applications  
+
+	$$ \xymatrix{A \ar[r]^\Phi \ar[rd]_{\pi_A} & B \ar@{->>}[r]^{p_I} & B\big/ J \\ & A\big/\Phi^{-1}(J) \ar@{^{(}->}[ru]^{\tilde{p_i \circ\Phi}} & } $$
+
  $$\begin{tabular}[t]{ccc}
  $(\mathcal{I}_B,\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A,\subset)$\\
 $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
@@ -634,7 +656,7 @@ $(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
     
     \subsection{Exemples}\label{NoethEx}
       \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-     \item  Les anneaux principaux (\textit{e.g.} $k$, $\Z$, $k[X]$, o\`u $k$ est un corps commutatif) sont noetheriens. 
+     \item  Les anneaux principaux (\textit{e.g.} $k$, $\Z$, $k[X]$, où $k$ est un corps commutatif) sont noetheriens. 
      \item  Si $k$ est un corps commutatif, une  $k$-algèbre $\phi:k\rightarrow A$ est toujours munie d'une structure de $k$-espace vectoriel: $k\times A\rightarrow A$, $(\lambda,a)\rightarrow \phi(\lambda)a$. Avec cette structure de $k$-espace vectoriel, les idéaux de $A$ sont automatiquement des sous-$k$-espace vectoriel. Si $A$ est de dimension finie sur $k$, elle est donc noetherienne. Par exemple l'anneau $k[X]/X^nk[X]$ est un  noetherien. 
      \item  Tout quotient d'un anneau noetherien est noetherien. En effet, soit $A$ est un anneau noetherien et $I\subset A$  un idéal; notons $p_I:A\twoheadrightarrow A/I$ la projection canonique. Si $J\subset A/I$ est un idéal, $p_I^{-1}(J)\subset A$ est un idéal donc, en particulier, il est engendré par un nombre fini $a_1,\dots, a_r$ d'éléments. Mais alors, $J=p_Ip_I^{-1}(J)$ est engendré par les  $p_I(a_1),\dots, p_I(a_r)$.
      \item Par contre un sous-anneau d'un anneau noetherien n'est pas forcément noetherien. Par exemple, on va voir (\ref{NoethTransfert}) que si $k$ est un corps commutatif, l'anneau $k[X_1,X_2]$ est noetherien mais la sous-$k$-algèbre engendrée par les $  X_1X_2^n$, $n\geq 0$ n'est pas un anneau noetherien.\\
@@ -706,10 +728,10 @@ La définition du produit dans $A[X]$ montre que $deg(fg)\leq deg(f)+deg(g)$ et 
  
 \textbf{Lemme} \textit{Soit $0\not=f,g\in A[X]$ et supposons que $CD(f)\in A^\times$. Alors il existe un unique couple $q,r\in A[X]$ tel que $g=fq+r$ et $r=0$ ou $deg(r)<deg(f)$.}\\
 
-\begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Ecrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, o\`u $d_f:=deg(f)$, $d_g:=deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennet. Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire 
+\begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Ecrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, où $d_f:=deg(f)$, $d_g:=deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennet. Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire 
 $$g=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f+(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f).$$
 Par construction, $g_1:=(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f)$ est de degré $\leq d_g-1$. Par hypothèse de récurrence il existe donc $q_1,r_1\in A[X]$ tels que $g_1=q_1f+r_1$ et $r_1=0$ ou $deg(r_1)<deg(f)$; $q:=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}+q_1$, $r:=r_1$ conviennent. Il reste à prouver l'unicité. Si $q',r'\in A[X]$ est un autre couple tel que $g=fq'+r'$ et $r'=0$ ou $deg(r')<deg(f)$, on a $f(q-q')=r'-r$. Si $r-r'\not= 0$, en prenant le degré $$deg(f)\geq deg(f)+deg(q-q')\stackrel{(1)}{=}deg(f(q-q')=deg(r-r')<deg(f),$$
-o\`u $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
+où $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
 
  En particulier, si $A=k$ est un corps, le degré $deg:k[X]\setminus\lbrace 0\rbrace\rightarrow \N$  est un stathme euclidien sur $k[X]$.\\
 
@@ -835,8 +857,8 @@ Puisque $I$ est un idéal, $I\subset J$ et $J $ est un idéal de $A$. De plus $I
 
 \ref{Implications}.2 \textbf{(Contre-)Exemples.} Les implications de \ref{Implications}  ne sont pas des équivalences. Par exemple,
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
-\item Anneau noetherien $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$ non principal: $k[X_1,X_2]$, o\`u $k$ est un corps commutatif;
-\item Anneau factoriel  non noetherien: $k[X_1,\dots,X_n,\dots, X_{n+1},\dots]$, o\`u $k$ est un corps commutatif.
+\item Anneau noetherien $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$ non principal: $k[X_1,X_2]$, où $k$ est un corps commutatif;
+\item Anneau factoriel  non noetherien: $k[X_1,\dots,X_n,\dots, X_{n+1},\dots]$, où $k$ est un corps commutatif.
 \end{itemize}
 
 
@@ -941,7 +963,7 @@ Noter que comme $P$ n'a qu'un nombre fini de coefficients non nuls, les $v_p(P)$
 \item $F\in A[X]$;
 \item  Pour tout $p\in\mathcal{P}_A$, $\overline{F}\not=0$ in $A/pA[X]$, 
 \end{enumerate}
-o\`u $\overline{F}$ est l'image de $F$ par le morphisme canonique $A[X]\rightarrow A[X]/pA[X]\tilde{\rightarrow} (A/pA)[X]$. La propriété (1) est  stable par produit puisque $A[X]$ est un anneau et la propriété (2) est stable par produit car $(A/pA)[X]$ est aussi un anneau intègre; ici on utilise que $p$ est irréductible donc premier puisque $A$ est factoriel.\end{proof}
+où $\overline{F}$ est l'image de $F$ par le morphisme canonique $A[X]\rightarrow A[X]/pA[X]\tilde{\rightarrow} (A/pA)[X]$. La propriété (1) est  stable par produit puisque $A[X]$ est un anneau et la propriété (2) est stable par produit car $(A/pA)[X]$ est aussi un anneau intègre; ici on utilise que $p$ est irréductible donc premier puisque $A$ est factoriel.\end{proof}
 %Ecrivons
 %$$\begin{tabular}[t]{ll}
 %$P=a_0+\cdots+a_mX^m$&, $a_m\not=0$\\
@@ -1036,7 +1058,7 @@ avec $u\in A^\times$ et comme $F$ est par définition non inversible et ne peut 
 
  Notons $A_v:=v^{-1}([0,\infty])\subset K$. On dit qu'un anneau   est \textit{local}\index{Local (Anneau)} s'il possède un unique idéal maximal.
  
- \subsubsection{}\label{AVD}\textbf{Lemme.} \textit{L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v$, $n\in\Z_{\geq 0}$, o\`u $\pi\in A$ est tel que $v(\pi)=1$.}
+ \subsubsection{}\label{AVD}\textbf{Lemme.} \textit{L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v$, $n\in\Z_{\geq 0}$, où $\pi\in A$ est tel que $v(\pi)=1$.}
  \begin{proof} Montrons d'abord que $A_v\subset K$ est un sous-anneau. D'après la propriété (1) d'une valuation, $1\in A$ (utiliser $1^2=1$) et $a,b\in A_v$ implique $ab\in A$. De plus, pour tout $x\in K^\times$  la relation $(-x)^2=x^2$ et la propriété (1) d'une valuation montrent que $v(x)=v(-x)$ ce qui, combiné à la propriété (2) d'une valuation montre que $a,b\in A_v$ implique $a-b\in A_v$. Observons également que la propriété (1) d'une valuation implique $$A_v^\times=\lbrace x\in K^\times\;|\; x,x^{-1}\in A_v\rbrace =  v^{-1}( 0  ).$$ 
  Les propriétés (1) (respectivement (2)) assurent également que $\frak{m}_v$ est stable par multiplication par les éléments de $A$ (respectivement par différence) donc que $\frak{m}_v\subset A_v$ est un idéal. C'est automatiquement l'unique idéal maximal de $A_v$ puisque $A_v\setminus \frak{m}_v=A_v^\times$. 
  Soit $\pi\in A$ tel que $v(\pi)=1$ (on utilise ici la surjectivité de $v$). Pour un idéal $I\subset A_v$ arbitraire, notons $n:=\hbox{\rm min}v(I)$. On a alors pour tout $a\in I$, $v(\pi^{-n}a)\geq 0$ donc $a\in A_v\pi^n$. Cela montre que $I\subset A\pi^n$. Inversement, soit $a\in I$ tel que $v(a)=n$. On a alors $v(\pi^{-n}a)=0$ \textit{i.e.} $A^\times a=A^\times \pi^n$ donc $A\pi^n=Aa\subset I$. Il reste à voir que $K$ est le corps des fractions de $A_v$; cela résulte du fait que tout $x\in A$ s'écrit sous la forme $x=(x\pi^{-v(x)})\pi^{v(x)}$ avec $ x\pi^{-v(x)}\in A_v^\times$.
@@ -1259,7 +1281,7 @@ une suite décroissante d'idéaux  tels que $I_m I_n\subset I_{m+n}$.
 Par définition, la projection canonique $p_n:A\rightarrow A/I_n$ se factorise en 
 $$\xymatrix{A\ar[r]^{p_n}\ar[d]^{p_{n+1}}&A/I_n\\
 A/I_{n+1}\ar[ur]_{\pi_{n+1}}&}$$
-d'o\`u un système projectif de morphismes d'anneaux 
+d'où un système projectif de morphismes d'anneaux 
 $$\cdots  A/I_{n+1}\stackrel{\pi_{n+1}}{\rightarrow} A/I_n\stackrel{\pi_{n }}{\rightarrow}A/I_{n-1}\stackrel{\pi_{n-1}}{\rightarrow}\cdots \stackrel{\pi_1}{\rightarrow}A/I$$
 et, par propriété universelle de la limite projective, un unique morphisme d'anneaux $$c_I:A\rightarrow \widehat{A}:=\lim A/I_n.$$
  On note $$\widehat{I}_n:=\lbrace \underline{a}\in \widehat{A}\; |\; a_m=0,\; m\leq n\rbrace $$
@@ -1283,7 +1305,7 @@ et, par propriété universelle de la limite projective, un unique morphisme d'a
  
  
  
-   \textbf{Exercice.} Montrer que si $n\in \Z$ est premier à $p$ alors $c_{p\Z}(n)\in \Z_p^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{\Z_{p\Z}}\tilde{\rightarrow} \Z_p$, o\`u $\widehat{\Z_{p\Z}}\rightarrow \widehat{\Z_{p\Z}}$ est la complétion $p\Z_{p\Z}$-adique de $\Z_{p\Z}$.\\
+   \textbf{Exercice.} Montrer que si $n\in \Z$ est premier à $p$ alors $c_{p\Z}(n)\in \Z_p^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{\Z_{p\Z}}\tilde{\rightarrow} \Z_p$, où $\widehat{\Z_{p\Z}}\rightarrow \widehat{\Z_{p\Z}}$ est la complétion $p\Z_{p\Z}$-adique de $\Z_{p\Z}$.\\
  
  \item Soit $A$ un anneau commutatif intègre. $A=A[X]Z$, $I=XA[X]$. Plus précisément, reprenons les notations du paragraphe \ref{Poly}.   On munit $A^\N$ des lois $+,\cdot: A^\N\times A^\N\rightarrow A^\N$ définies par 
  $$\underline{a}+\underline{b}=(a_n+b_n)_{n\geq 0},\;\; \underline{a}\cdot\underline{b}=(\sum_{0\leq k\leq n}a_kb_{n-k}).$$
@@ -1291,7 +1313,7 @@ et, par propriété universelle de la limite projective, un unique morphisme d'a
  
  
  
-   \textbf{Exercice.} Montrer que si $P\in A[X]$ est premier à $X$ alors $c_{XA[X]}(P)\in A[[X]]^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{A[X]_{XA[X]}}\tilde{\rightarrow} A[[X]]$, o\`u $A[X]\rightarrow  A[[X]]$ est la complétion $XA[X]_{XA[X]}$-adique de $A[X]_{XA[X]}$.\\
+   \textbf{Exercice.} Montrer que si $P\in A[X]$ est premier à $X$ alors $c_{XA[X]}(P)\in A[[X]]^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{A[X]_{XA[X]}}\tilde{\rightarrow} A[[X]]$, où $A[X]\rightarrow  A[[X]]$ est la complétion $XA[X]_{XA[X]}$-adique de $A[X]_{XA[X]}$.\\
 
  \end{enumerate}
  \section{Un peu de géométrie (Hors programme)}
@@ -1331,7 +1353,7 @@ On remarquera que l'application identité $Id:M\rightarrow M$ est un morphisme d
 \item On peut toujours voir un anneau $A$ comme un $A$-module sur lui-même en prenant pour multiplication extérieure le produit $\cdot:A\times A\rightarrow A$. Cet exemple qui semble tautologique est en fait fondamental! On va s'en rendre compte rapidement. Plus généralement, tout idéal $I\subset A$ muni de $\cdot:A\times I\rightarrow I$ induite par le produit de $A$ est un $A$-module.
 \item Si $N,N$ sont deux $A$-modules, $Hom_A(M,N)$ est naturellement muni d'une structure de $A$-module pour les lois $(f+g)(m)=f(m)+g(m)$, $(a\cdot f)(m)=a\cdot (f(m))$.  
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux tout $B$-module $M$ est naturellement un $A$-module pour la multiplication extérieure $ A\times M\rightarrow M$, $(a,n)\rightarrow \phi(a)\cdot n$. On notera $\phi^*M$ ou $M|_A$ lorsqu'il n'y a pas d'ambiguité sur $\phi:A\rightarrow B$ le $A$-module ainsi obtenu à partir du $B$-module $N$. On notera que tout morphisme de $B$-modules $f:M\rightarrow N$ est automatiquement un morphisme de $A$-modules $f|_A=f:M|_A\rightarrow N_A$. En particulier,  une structure de $A$-algèbre $\phi:A\rightarrow B$ sur un anneau $B$ détermine une structure de $A$-module $\phi^*B$ sur $B$. Inversement, une structure de $A$-module $\cdot:A\times B\rightarrow B$ sur le   groupe abélien sous-jacent $(B,+)$ d'un anneau  $B$ détermine une structure de $A$-algèbre $\phi:A\rightarrow B$ sur $B$ en posant $\phi(a)=a\cdot 1_B$. En particulier, si $M$ est un $A$-module, $End_A(M)$ est naturellement muni d'une structure de $A$-algèbre.  
-\item Soit $A$ un anneau commutatif. Par la propriété universelle de $\iota_A:A\rightarrow A[X_1,\dots, X_n]$, la donnée d'un $A[X_1,\dots,X_1]$-module est équivalente à la donnée d'un couple $(M,\underline{\phi})$, o\`u $M$ est un $A$-module et $\underline{\phi}:=(\phi_{1},\dots,\phi_{n})$ est un $n$-uplet d'endomorphismes $A$-linéaires de $M$ qui commutent deux à deux. Par exemple, si $V$ est un $k$-espace vectoriel de dimension finie, et $u\in \hbox{\rm End}_k(V)$, on peut munir $V$ de la structure $V_u$ de $k[X]$-module définie par $P(X)\cdot v=P(u)(v)$. Si $u,u'\in\hbox{\rm End}_k(V) $, on a 
+\item Soit $A$ un anneau commutatif. Par la propriété universelle de $\iota_A:A\rightarrow A[X_1,\dots, X_n]$, la donnée d'un $A[X_1,\dots,X_1]$-module est équivalente à la donnée d'un couple $(M,\underline{\phi})$, où $M$ est un $A$-module et $\underline{\phi}:=(\phi_{1},\dots,\phi_{n})$ est un $n$-uplet d'endomorphismes $A$-linéaires de $M$ qui commutent deux à deux. Par exemple, si $V$ est un $k$-espace vectoriel de dimension finie, et $u\in \hbox{\rm End}_k(V)$, on peut munir $V$ de la structure $V_u$ de $k[X]$-module définie par $P(X)\cdot v=P(u)(v)$. Si $u,u'\in\hbox{\rm End}_k(V) $, on a 
 $$\hbox{\rm Hom}_{k[X]}(V_u,V_{u'})=\lbrace \varphi:V\rightarrow V\; |\; \varphi\circ u=u'\circ \varphi\rbrace.$$
 Un certain nombre de résultats d'algèbre lin\'raire s'interprètent (et deviennent bien plus naturels!) en termes de $k[X]$-modules.\\
 \end{itemize} 
@@ -1398,7 +1420,7 @@ on obtient un unique morphisme de $A$-modules $f:=\oplus_{i\in I}f_i:\oplus_{i\i
 
  Si $X\subset M$ est un sous-ensemble, on note
 $\langle X\rangle$ l'intersection de tous les sous $A$-modules $M'\subset M$ contenant $X$. D'après ce qui précède, c'est encore un sous $A$-module de $M$
-et, par construction, c'est le plus petit sous $A$-module de $M$ contenant $X$. On dit que $\langle X\rangle$ est le \textit{sous $A$-module} engendré par $X$ et on vérifie qu'il coincide avec l'ensemble des éléments de la forme $\sum_{x\in X}a(x)x$, o\`u $a:X\rightarrow A$ est une application à support fini. La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $-\dot x: A\rightarrow M$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propri\ 'etés suivantes sont équivalentes:
+et, par construction, c'est le plus petit sous $A$-module de $M$ contenant $X$. On dit que $\langle X\rangle$ est le \textit{sous $A$-module} engendré par $X$ et on vérifie qu'il coincide avec l'ensemble des éléments de la forme $\sum_{x\in X}a(x)x$, où $a:X\rightarrow A$ est une application à support fini. La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $-\dot x: A\rightarrow M$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propri\ 'etés suivantes sont équivalentes:
 \begin{enumerate}
 \item  $M=\langle X\rangle$;
 \item Le morphsime de $A$-modules $p:A^{(X)}\rightarrow M$ est surjectif.
@@ -1507,7 +1529,7 @@ est exacte.
 \item On suppose de plus que $u':M'\rightarrow M$ est injective et $v:N\rightarrow N''$ est surjective. Montrer que si deux des trois morphismes $\alpha$, $\alpha'$, $\alpha''$ sont des isomorphismes alors le troisième l'est aussi. 
 \item Soit $0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0$ une suite exacte courte de groupes abéliens et soit $p$ un nombre premier. Montrer qu'on a une suite exacte longue canonique de groupes abéliens
 $$M'[p]\rightarrow M[p]\rightarrow M''[p]\rightarrow\rightarrow M'/p\rightarrow M/p\rightarrow M''/p\rightarrow 0,$$
-(o\`u on a noté $M[p]:=\lbrace m\in M\; |\; pm=0\rbrace$ et $M/p:=M/(pM)$).
+(où on a noté $M[p]:=\lbrace m\in M\; |\; pm=0\rbrace$ et $M/p:=M/(pM)$).
 \end{enumerate}
 \item  Soit  
 $$\xymatrix{M_{1}\ar[r]\ar[d]^{\alpha_{1}}&M_{2}\ar[r]\ar[d]^{\alpha_{2}}&M_{3}\ar[r]\ar[d]^{\alpha_{3}}&M_{4}\ar[r]\ar[d]^{\alpha_{4}}&M_{5}\ar[d]^{\alpha_{5}}\\
@@ -1693,7 +1715,7 @@ deux suites exactes de $A$-modules. Alors $\beta'\alpha$ est surjectif si et seu
 
 \subsection{}\label{Strategy}Soit $M$ un $A$-module. Un élément $m\in M$ est dit \textit{de torsion}\index{Torsion (module)} s'il existe $0\not=a \in A$ tel que $am=0$. On note $T_{M}\subset M$ l'ensemble des éléments de torsion de $M$. On vérifie immédiatement que c'est un sous $A$-module et que le $A$-module $M/T_{M}$ est sans torsion. Le $A$-module $M$ s'insère donc dans la suite exacte courte
 $$(*)\;\; 0\rightarrow T_{M}\rightarrow M\rightarrow M/T_{M}\rightarrow 0,$$
-o\`u $T_{M}$ est de torsion et $M/T_{M}$ est sans torsion. Cela indique la voie pour classifier les $A$-modules de type fini: montrer que la suite exacte courte $(*)$ se scinde, ce qui par  le Lemme \ref{SuiteExacte}.1 impliquera automatiquement que $$M\tilde{\rightarrow }T_{M}\oplus M/T_{M}$$ et réduit donc le problème de la classification des $A$-modules de type fini à 
+où $T_{M}$ est de torsion et $M/T_{M}$ est sans torsion. Cela indique la voie pour classifier les $A$-modules de type fini: montrer que la suite exacte courte $(*)$ se scinde, ce qui par  le Lemme \ref{SuiteExacte}.1 impliquera automatiquement que $$M\tilde{\rightarrow }T_{M}\oplus M/T_{M}$$ et réduit donc le problème de la classification des $A$-modules de type fini à 
 \begin{itemize}
 \item la classification des $A$-modules de type fini sans torsion;
 \item la classification des $A$-modules de type fini de torsion.\\
@@ -1719,7 +1741,7 @@ Chacun de ces idéaux est de la forme $I_{n}=Aa_{n}$ avec $0\not= a_{n}\in A$ et
 \ref{Strategy}.2 \textbf{Lemme.} \textit{Si $M''$ est un $A$-module libre alors toute suite exacte courte de $A$-modules $0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0$ est scindée.}
 \begin{proof}On construit une section en utilisant la propriété universelle de la somme directe. Plus précisément, quitte à composer $v$ par un isomorphisme,  on peut supposer que $M''=A^{(I)}$. Pour chaque $i\in I$ notons $e_i=(\delta_{i,j})_{j\in I}\in A^{(I)}$ et choisissons   $m_i\in I$ tel que $v(m_i)=e_i$. Le choix de $m_i$ définit un   morphisme de $A$-module $s_i:Ae_i\stackrel{e_i\rightarrow m_i}{\rightarrow}Am_i\hookrightarrow M $. Par proprièté universelle des $\iota_i:Ae_i\rightarrow A^{(I)}$, $i\in I$, on en déduit un unique morphisme $s:A^{(I)}\rightarrow M$ tel que $s\circ \iota_i=s_i$, $i\in I$. Par construction $v\circ s=Id$. On conclut par l'Exercice \ref{SuiteExacte}.1. 
 \end{proof}
-\item D'après  le Lemme \ref{Strategy}.1 et le Théorème de Krull-Schmidt \ref{KS}, $T_M$ est totalement décomposable; le point sera donc de classifier les modules indécomposables de torsion sur un anneau principal $A$. On montrera que ce sont exactement les $A$-modules de la forme $A/\frak{p}^n$, o\`u $\frak{p}$ est un idéal premier (=maximal) de $A$ et $n\geq 0$.
+\item D'après  le Lemme \ref{Strategy}.1 et le Théorème de Krull-Schmidt \ref{KS}, $T_M$ est totalement décomposable; le point sera donc de classifier les modules indécomposables de torsion sur un anneau principal $A$. On montrera que ce sont exactement les $A$-modules de la forme $A/\frak{p}^n$, où $\frak{p}$ est un idéal premier (=maximal) de $A$ et $n\geq 0$.
  
 \end{enumerate}
 
@@ -1744,7 +1766,7 @@ est injectif, puisque $M$ est sans torsion. \end{proof}
 \end{enumerate} }
 \begin{proof}L'idée est de se ramener au cas des espaces vectoriels sur un corps pour lesquels le lemme est connu. Soit donc $M$ un $A$-module libre de type fini et $\frak{m}\subset A$ un idéal maximal. Comme $M$ est de type fini, le $k:=A/\frak{m}$ espace vectoriel $M/\frak{m}M$ est de dimension finie - disons $r$ - sur $k$. Soit $I$ un ensemble pour lequel on a un isomorphisme de $A$-modules 
 $$f:A^{(I)}\tilde{\rightarrow}M.$$
-Posons $m_{i}:=f(e_{i})$, o\`u $e_{i}$ est le '$i$-ème vecteur de la base canonique', $i\in I$. On va montrer que $|I|=r$. Pour cela, il suffit de montrer que les images $\overline{m}_{i}$, $i\in I$ des $m_{i}$, $i\in I$ dans $M/\frak{m}M$ forment une $k$-base de $M/\frak{m}M$. Puisque $f$ est surjective, les $\overline{m}_{i}$, $i\in I$ forment une famille génératrice. Montrons qu'elle est libre. Soit $a:I\rightarrow A$ à support fini telle que 
+Posons $m_{i}:=f(e_{i})$, où $e_{i}$ est le '$i$-ème vecteur de la base canonique', $i\in I$. On va montrer que $|I|=r$. Pour cela, il suffit de montrer que les images $\overline{m}_{i}$, $i\in I$ des $m_{i}$, $i\in I$ dans $M/\frak{m}M$ forment une $k$-base de $M/\frak{m}M$. Puisque $f$ est surjective, les $\overline{m}_{i}$, $i\in I$ forment une famille génératrice. Montrons qu'elle est libre. Soit $a:I\rightarrow A$ à support fini telle que 
 $$\sum_{i\in I}a(i)m_{i}\in \frak{m}M.$$
 Comme $M=\oplus_{i\in I}Am_{i}$ et $A\tilde{\rightarrow} Am_i$, $a\rightarrow am_i$, $i\in I$, cela implique $a(i)\in \frak{m}$ donc $\overline{a}_{i}=0$, $i\in I$. \end{proof}
 
@@ -1770,7 +1792,7 @@ Comme $M=\oplus_{i\in I}Am_{i}$ et $A\tilde{\rightarrow} Am_i$, $a\rightarrow am
 
 \subsubsection{}\textbf{Théorème.}\label{IndecompPrinc}\textit{Les $A$-modules de type fini de torsion qui sont indécomposables sont exactement les $A$-modules de la forme
 $A/\frak{p}^{n}$,
-o\`u $\frak{p}\subset A$ est un idéal premier non nul et $n\in\mathbb{Z}_{\geq 0}$.}
+où $\frak{p}\subset A$ est un idéal premier non nul et $n\in\mathbb{Z}_{\geq 0}$.}
 \begin{proof} Vérifions d'abord qu'un $A$-module de la forme $A/\frak{p}^{n}$ est indécomposable. Observons que 
 $$\hbox{\rm End}_{A}(A/\frak{p}^{n})\simeq \hbox{\rm End}_{A/\frak{p}^{n}}(A/\frak{p}^{n})\simeq A/\frak{p}^{n}$$
 a un unique idéal maximal  (c'est par exemple la factorialité de $A$) - $\frak{p}/\frak{p}^{n}$, donc est local (ici $A/\frak{p}^n$ est commutatif). Le fait que $A/\frak{p}^{n}$ est indécomposable résulte alors du lemme \ref{EndoIndecomp}.\\
@@ -1803,7 +1825,7 @@ Ecrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant
 $$a\beta_{1}m_{1}=(u\alpha_{1}+v\alpha_{2})a\beta_{1}m_{1}=au\underbrace{a_{1}m_{1}}_{=0}+v\alpha_{2}a\beta_{1}m_{1}= -av\underbrace{a_{2}m_{2}}_{=0}=0.$$
 Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{2}$ en particulier $a$ est un multiple commun de $\alpha_{1}$ et $\alpha_{2}$ donc de $\alpha_{1}\alpha_{2}=ppcm(a_{1},a_{2})$. Donc $a\in Ann_{A}(m_{1})\cap Ann_{A}(m_{2})$. $\square$\\
 
-\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ o\`u $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Bm$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
+\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Bm$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
 ensemble ordonné inductif donc admet un élément maximal $(u,N)$ (en fait, ici, on peut invoquer le fait que $M$ est noetherien, ce qui permet d'éviter le Lemme de Zorn). Montrons que $N=M$. Sinon, soit $\mu\in M\setminus N$ et montrons qu'on peut étendre $u:N\rightarrow B$ en $u_1:N+B\mu\rightarrow B$. Pour cela, il faut `deviner' la bonne valeur de $u_1(\mu)$. Introduisons l'idéal 
 $$\frak{i}:=\lbrace b\in B\; |\; b\mu\in N\rbrace\subset B.$$
 Ecrivons $Ann_A(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \textit{i.e.}
@@ -1819,7 +1841,7 @@ telle que $$M\simeq A/I_{1}\oplus\dots\oplus A/I_{r}.$$}
 \begin{proof} Comme $M$ est artinien et noetherien, d'après le Théorème de Krull-Schmidt   \ref{KS}, $M$ se décompose de fa\c{c}on unique comme somme directe de modules indécomposables. D'après le Théorème \ref{IndecompPrinc}, cette décomposition s'écrit
 
 $$M\simeq \bigoplus_{\frak{p}}\bigoplus_{n\geq 0}A/\frak{p}^{\alpha_{M,\frak{p}}(n)},$$
-o\`u la première somme est indexée par l'ensemble spec$(A)$ des idéaux premiers non nuls de $A$ et $$\alpha_{M,-}:\hbox{\rm spec}(A)\rightarrow \mathbb{Z}_{\geq 0}^{(\mathbb{Z}_{\geq 0})}$$ est une application à support fini telle que $ \alpha_{M,\frak{p}}=(\alpha_{M,\frak{p}}(n))_{n\geq 0}$ est une suite décroissante dont les termes sont nuls pour $n\gg 0$. Pour chaque $\frak{p}\in \hbox{\rm spec}(A)$ choisissons un générateur $p$ de $\frak{p}$ comme $A$-module. Soit $n\geq 0$ le plus grand des entiers tels qu'il existe $\frak{p}\in$spec$(A)$ pour lequel $\alpha_{M,\frak{p}}(n)\not=0$ et posons $$a_{n+1-j}:=\prod_{\frak{p}}p^{\alpha_{M,\frak{p}}(j)},\; j=1,\dots, n.$$
+où la première somme est indexée par l'ensemble spec$(A)$ des idéaux premiers non nuls de $A$ et $$\alpha_{M,-}:\hbox{\rm spec}(A)\rightarrow \mathbb{Z}_{\geq 0}^{(\mathbb{Z}_{\geq 0})}$$ est une application à support fini telle que $ \alpha_{M,\frak{p}}=(\alpha_{M,\frak{p}}(n))_{n\geq 0}$ est une suite décroissante dont les termes sont nuls pour $n\gg 0$. Pour chaque $\frak{p}\in \hbox{\rm spec}(A)$ choisissons un générateur $p$ de $\frak{p}$ comme $A$-module. Soit $n\geq 0$ le plus grand des entiers tels qu'il existe $\frak{p}\in$spec$(A)$ pour lequel $\alpha_{M,\frak{p}}(n)\not=0$ et posons $$a_{n+1-j}:=\prod_{\frak{p}}p^{\alpha_{M,\frak{p}}(j)},\; j=1,\dots, n.$$
 La suite d'idéaux $I_{i}:=Aa_{j}$, $j=1,\dots, n$ vérifie alors la propriété de l'énoncé. Leur unicité résulte de l'unicité dans le théorème de Krull-Schmidt. \end{proof}
 
  On dit que la suite $A\supsetneq  I_{1}\supset I_{2}\supset\dots\supset I_{r}\supsetneq 0$ est la \textit{suite des invariants}\index{Invariants (Modules)} du $A$-module $M$.\\
@@ -1853,7 +1875,7 @@ $U$&$C(P_i)$&&$0$&$0$\\
 $0$&&$\cdots$&&\\
 $0$&&&$U$&$C(P_i)$\\
 \end{tabular}\right),$$
-o\`u   $U$ est ma matrice carrée de taille $d_i\times d_i$ avec $u_{1,d_i}=1$ et $u_{i,j}=0$ sinon.\\  
+où   $U$ est ma matrice carrée de taille $d_i\times d_i$ avec $u_{1,d_i}=1$ et $u_{i,j}=0$ sinon.\\  
  
 \subsubsection{}\textbf{Base adaptée}\label{BA} La forme suivante du théorème de structure est aussi très utile en pratique. \\
 
@@ -1861,7 +1883,7 @@ o\`u   $U$ est ma matrice carrée de taille $d_i\times d_i$ avec $u_{1,d_i}=1$ e
 \paragraph{}\textbf{Théorème. } (Base adaptée) \textit{Soit $A$ un anneau principal, $M$ un $A$-module libre de rang $r$ et $N\subset M$ un sous-$A$-module. Il existe un unique entier $0\leq s\leq r$, une unique suite $Ad_1\supset Ad_2\supset\cdots \supset Ad_s$ d'idéaux de $A$ et $m_1,\dots,m_r\in M$ tels que }
 $$N=\bigoplus_{1\leq i\leq s}Ad_i m_i\subset \bigoplus_{1\leq i\leq r}Am_i=M.$$
 
-\begin{proof} L'unicité de $s$ et de la suite  $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ résulte du Corollaire \ref{StructureTors} car $r-s$ est le rang de la partie libre de $M/N$ et $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ est la suite des invariants de la partie de torsion de  $M/N$. L'existence est un peu plus délicate. On procède par reccurence sur $r$. Si $r=1$, c'est la traduction du fait que $A$ est principal. Si $r\geq 1$, l'idée est de construire $d_1, e_1$ à partir de l'inclusion $N\hookrightarrow M$. Pour cela, on introduit l'ensemble $\mathcal{E}$ des idéaux de la forme $f(N)\subset A$, o\`u $f:M\rightarrow A$ est un morphisme de $A$-module. Comme $A$ est noetherien, $\mathcal{E}$ contient au moins un élément maximal $f(N)=Ad=Af(n)$. 
+\begin{proof} L'unicité de $s$ et de la suite  $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ résulte du Corollaire \ref{StructureTors} car $r-s$ est le rang de la partie libre de $M/N$ et $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ est la suite des invariants de la partie de torsion de  $M/N$. L'existence est un peu plus délicate. On procède par reccurence sur $r$. Si $r=1$, c'est la traduction du fait que $A$ est principal. Si $r\geq 1$, l'idée est de construire $d_1, e_1$ à partir de l'inclusion $N\hookrightarrow M$. Pour cela, on introduit l'ensemble $\mathcal{E}$ des idéaux de la forme $f(N)\subset A$, où $f:M\rightarrow A$ est un morphisme de $A$-module. Comme $A$ est noetherien, $\mathcal{E}$ contient au moins un élément maximal $f(N)=Ad=Af(n)$. 
 \begin{enumerate}
 \item En fait, pour tout $g:M\rightarrow A$ on a $g(N)\subset f(N)$. En effet, si $\delta$ est le pgcd de $d$ et $g(n)$ il existe $u,v\in A$ tels que $ud+vg(n)=\delta$. Donc $$f(N)=Ad\subset A\delta=A(uf+vg)(n)\subset (uf+vg)(N)$$
 Par maximalité de $f(N)$, cela implique $f(N)= Ad=A\delta=(uf+vg)(N)$. En particulier, pour tout $n'\in N$, $d$ divise $ (uf+vg)(n')$. Mais $f(N)=Ad$, donc $d$ divise aussi $f(n')$. On en déduit que $d$ divise $vg(n')$ et comme $d$ est premier avec $v$, que $d$ divise $g(n')$. \textit{In fine}, on a $g(N)\subset Ad=f(N)$ comme annoncé.\\
@@ -1887,7 +1909,7 @@ $0$&&&$d_n$&$0$\\
 \end{tabular}\right).$$
 On a donc montré que si $f,g:M\rightarrow N$ sont des morphismes de $A$-modules tels que $N/f(M)\simeq N/g(M)$ alors $f,g$ sont équivalents. La réciproque est presque immédiate car s'il existe des automorphismes $\phi\in Aut_A(M)$, $\psi\in Aut_A(N)$ tels que $f\circ \phi=\psi\circ g $ alors $\psi:N\tilde{\rightarrow}N$ se restreint en un isomorphisme de $A$-modules $\psi:g(M)\tilde{\rightarrow}f(\phi(M))=f(M)$ donc induit un isomorphisme de $A$-modules $\overline{\psi}:N/g(M)\tilde{\rightarrow} N/f(M)$. \end{proof}
 
-\textbf{Remarque.} Dans le cas o\`u $A=k$ est un corps commutatif, on retrouve le thèorème de classification des classes d'équivalence par le rang de la matrice. \\
+\textbf{Remarque.} Dans le cas où $A=k$ est un corps commutatif, on retrouve le thèorème de classification des classes d'équivalence par le rang de la matrice. \\
  
 
 
@@ -2059,7 +2081,7 @@ $$C\otimes_B(B\otimes_AM)\tilde{\rightarrow} C\otimes_AN.$$
  
  \textbf{Lemme.} (Propriété universelle de  $M\rightarrow M/IM$) \textit{Pour tout  $A$-module $M$ et idéal $I\subset A$, il existe un $A/I$-module $Q$ et un morphisme de $A$-modules $p:M\rightarrow (p_I)_*Q$ tel que pour tout $A$ pour tout $A/I$-module $N$ et tout morphisme de $A$-module $\phi:M\rightarrow (p_I)_*N$ il existe un unique morphisme de $A/I$-module $\overline{\phi}:Q\rightarrow N$ tel que $  \overline{\phi}\circ p=\phi$. }\\
  
-\begin{proof}On vérifie que $p_{IM}:M\rightarrow M/IM$ convient. Si $\overline{\phi}:M/IM\rightarrow N$ existe la condition  $  \overline{\phi}\circ p_{IM}=\phi$  impose $  \overline{\phi}(\overline{m})=\phi(m)$, $m\in M$, d'o\`u l'unicité de $\overline{\phi}$ sous réserve de son existence. Par ailleurs, pour tout $a\in I$, $m\in M$, $\phi(am)=p_I(a)\phi(m)=0$ donc $IM\subset \ker(\phi)$ et $\phi:M\rightarrow N$ se factorise en un morphisme de $A$-modules $\overline{\phi}:M/IM\rightarrow (p_I)_*M$ qui induit tautologiquement un morphisme $ \overline{\phi}:M/IM\rightarrow  N$ de $A/I$-modules. \end{proof} 
+\begin{proof}On vérifie que $p_{IM}:M\rightarrow M/IM$ convient. Si $\overline{\phi}:M/IM\rightarrow N$ existe la condition  $  \overline{\phi}\circ p_{IM}=\phi$  impose $  \overline{\phi}(\overline{m})=\phi(m)$, $m\in M$, d'où l'unicité de $\overline{\phi}$ sous réserve de son existence. Par ailleurs, pour tout $a\in I$, $m\in M$, $\phi(am)=p_I(a)\phi(m)=0$ donc $IM\subset \ker(\phi)$ et $\phi:M\rightarrow N$ se factorise en un morphisme de $A$-modules $\overline{\phi}:M/IM\rightarrow (p_I)_*M$ qui induit tautologiquement un morphisme $ \overline{\phi}:M/IM\rightarrow  N$ de $A/I$-modules. \end{proof} 
 
  On peut réécrire le Lemme en disant que pour tout $A/I$-module $N$ l'application canonique
 $$\SHom_{A/I}(M/IM,N)\rightarrow \SHom_{ A}(M ,N) ,\; \phi\rightarrow (\phi\circ p_{IM})$$
@@ -2121,7 +2143,7 @@ $$S^{-1}A\otimes_A  M\tilde{\rightarrow} S^{-1}M.$$
 
   
  \textbf{Exemple.} Si pour tout $m\in M$ il existe $s\in S$ tel que $sm=0$, $S^{-1}M=0$. Si pour tout $s\in S$ l'application $s\cdot -:M\rightarrow M$ de multiplication par $s$
-est bijective, $\iota_S:M\rightarrow S^{-1}M$ est un isomorphisme de $A$-modules. En particulier, si $A$ est un anneau principal de corps des fractions $K$ et $M $ est un $A$-module de type fini,   $K\otimes_AM=K^{\oplus r}$ et pour tout $\frak{p}\in spec(A)\setminus \lbrace 0\rbrace$, $A_{\frak{p}}\otimes_AM=A_{\frak{p}}^{\oplus r}\oplus M(\frak{p})$, o\`u on a noté $M(\frak{p})$  la $\frak{p}$-partie de $M$ et $r$ le rang de $M$. Par exemple 
+est bijective, $\iota_S:M\rightarrow S^{-1}M$ est un isomorphisme de $A$-modules. En particulier, si $A$ est un anneau principal de corps des fractions $K$ et $M $ est un $A$-module de type fini,   $K\otimes_AM=K^{\oplus r}$ et pour tout $\frak{p}\in spec(A)\setminus \lbrace 0\rbrace$, $A_{\frak{p}}\otimes_AM=A_{\frak{p}}^{\oplus r}\oplus M(\frak{p})$, où on a noté $M(\frak{p})$  la $\frak{p}$-partie de $M$ et $r$ le rang de $M$. Par exemple 
 $\Q\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=0$, $\Z_{2\Z}\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=\Z/4\times \Z/2\times \Z/2$,  $\Z_{3\Z}\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=\Z/3\times \Z/3$, $\Z_{p\Z}\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=0$ pour $p\not=2,3$.
 
 \subsection{Produit tensoriel de $A$-algèbres} Soit $\phi:A\rightarrow B$ et $\psi: A\rightarrow C$ deux $A$-algèbres. Les applications produits $B\times B\rightarrow B$ et $C\times C\rightarrow C$ sont $2$-$A$-bilinéaires donc se factorisent en des morphismes de $A$-modules $\mu_B:B\otimes_A B\rightarrow B$ et $\mu_C:C\otimes_A C\rightarrow C$. On en déduit une application 
@@ -2129,7 +2151,7 @@ $$(B\otimes_A C)\otimes_A (B\otimes_A C)\tilde{\rightarrow} (B\otimes_A B)\otime
 dont on vérifie qu'elle munit le $A$-module $B\otimes_AC$ d'une structure de $A$-algèbre telle que les  applications $\iota_B:B\rightarrow B\otimes_AC$, $b\rightarrow b\otimes 1$ et $\iota_C:C\rightarrow B\otimes_AC$, $c\rightarrow 1\otimes c$ sont des morphismes de $A$-algèbres. \\
 
 \subsubsection{}\label{PTAlgUniv}\textbf{Lemme.} (Propriété universelle du produit tensoriel de $A$-algèbres) \textit{Pour toutes $A$-algèbres $ A\rightarrow B$ et $ A\rightarrow C$, il existe une $A$-algèbre $T$ et des morphismes de $A$-algèbres $\iota_B:B\rightarrow T$, $\iota_C:C\rightarrow T$ tels que pour toute $A$-algèbre $A\rightarrow D$ et morphismes de $A$-algèbres $\phi_B:B\rightarrow D$, $\phi_C:C\rightarrow D$ il existe un unique morphisme de $A$-algèbres $\phi:T\rightarrow D$ tel que $\phi\circ \iota_B=\phi_B$ et $\phi\circ \iota_C=\phi_C$}
-\begin{proof}On  vérifie comme d'habitude que  $B\otimes_AC$ et $\iota_B:B\rightarrow B\otimes_AC$, $\iota_C:C\rightarrow B\otimes_AC$ conviennent. Si $\phi:B\otimes_AC\rightarrow D$ existe les conditions $\phi\circ \iota_B=\phi_B$ et $\phi\circ \iota_C=\phi_C$ forcent $\phi(b\otimes c)=\phi_B(b)\phi_C(c)$, d'o\`u l'unicité de $\phi$ sous réserve de son existence. Considérons   l'application $ B\times C\rightarrow D$, $(b,c)\rightarrow \phi_B(b)\phi_C(c)$. Elle est $2$-$A$-bilinéaire donc se factorise en un morphisme de $A$-modules $\phi:B\otimes_A C\rightarrow D$ tel que $\phi(b\otimes c)=\phi_B(b)\phi_C(c)$ et on vérifie sur la construction que c'est automatiquement un morphisme de $A$-algèbres.  \end{proof}
+\begin{proof}On  vérifie comme d'habitude que  $B\otimes_AC$ et $\iota_B:B\rightarrow B\otimes_AC$, $\iota_C:C\rightarrow B\otimes_AC$ conviennent. Si $\phi:B\otimes_AC\rightarrow D$ existe les conditions $\phi\circ \iota_B=\phi_B$ et $\phi\circ \iota_C=\phi_C$ forcent $\phi(b\otimes c)=\phi_B(b)\phi_C(c)$, d'où l'unicité de $\phi$ sous réserve de son existence. Considérons   l'application $ B\times C\rightarrow D$, $(b,c)\rightarrow \phi_B(b)\phi_C(c)$. Elle est $2$-$A$-bilinéaire donc se factorise en un morphisme de $A$-modules $\phi:B\otimes_A C\rightarrow D$ tel que $\phi(b\otimes c)=\phi_B(b)\phi_C(c)$ et on vérifie sur la construction que c'est automatiquement un morphisme de $A$-algèbres.  \end{proof}
 
 
  
@@ -2279,7 +2301,7 @@ $$[k(a-b):k], [k(ab^{-1}):k]\leq [k(a,b):k]\leq [k(a)(b):k(a)][k(a):k]\leq [k(b)
 
 \subsubsection{}\label{Hilbert1}\textbf{Proposition.} (Nullstellensatz) \textit{Soit $  K/k$ une extension de corps. Si $K$ est une $k$-algèbre de type finie alors $K$ est une extension finie de $k$.}
 
-\begin{proof} Commen\c{c}ons par observer que le corps des fractions $k(X)$ de l'anneau des polynômes à une indéterminée sur $k$ n'est pas une $k$-algèbre de type fini. Sinon, on aurait   $k(X)=k[a_1,\dots, a_n]$ o\`u $a_i=P_i/Q_i$ avec $0\not= P_i,Q_i\in k[X]$, $i=1,\dots, n$. Posons  $Q:=Q_1,\dots Q_n\in k[X]$. Par construction $k(X)\subset k[X]_{Q}$. Mais si $P\in k[X]$ est premier avec $Q$, $1/P\notin k[X]_Q$: contradiction.\\
+\begin{proof} Commen\c{c}ons par observer que le corps des fractions $k(X)$ de l'anneau des polynômes à une indéterminée sur $k$ n'est pas une $k$-algèbre de type fini. Sinon, on aurait   $k(X)=k[a_1,\dots, a_n]$ où $a_i=P_i/Q_i$ avec $0\not= P_i,Q_i\in k[X]$, $i=1,\dots, n$. Posons  $Q:=Q_1,\dots Q_n\in k[X]$. Par construction $k(X)\subset k[X]_{Q}$. Mais si $P\in k[X]$ est premier avec $Q$, $1/P\notin k[X]_Q$: contradiction.\\
 \indent On procède par récurrence sur le nombre $n$ de générateurs de $K$ comme $k$-algèbre. Plus précisément, pour tout $n\geq 0$ considérons l'assertion suivante
 $$\begin{tabular}[t]{ll}
  H(n)&Pour tout corps $k$, toute $k$-algèbre  $K=k[a_1,\dots, a_n]$ qui est un corps est une extension finie de $k$
@@ -2305,7 +2327,7 @@ La composée $V\tilde{\rightarrow} spm(\C[V])$ est donnée explicitement par $\u
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item\textbf{Lemme 1.} \textit{$A_a$ est une $k$-algèbre de type fini.}
  
- \begin{proof} Par la propriété universelle de $ A\rightarrow A[T]$, on a un unique morphisme de $A$-algèbres $ev_{1/a}:A[T]\rightarrow A_a$ tel que $ev_{1/a}(T)=1/a$. Par construction,  $(Ta-1)A[T]\subset \ker(ev_{1/a})$, d'o\`u une factorisation $\phi :=\overline{ev}_{1/a}:A[T]/(Ta-1)\rightarrow A_a$. Inversement, par la propriété universelle de $ A\rightarrow A_a$, le morphisme canonique $ A\stackrel{\iota_A}{\rightarrow}A[T]\twoheadrightarrow A[T]/(Ta-1)$ se factorise en un morphisme $\psi:A_a\rightarrow A[T]/(Ta-1)$ et on vérifie sur les constructions que $\phi: A[T]/(Ta-1)\rightarrow A_a$, $\psi:A_a\rightarrow A[T]/(Ta-1)$ sont inverses l'un de l'autre.\end{proof}
+ \begin{proof} Par la propriété universelle de $ A\rightarrow A[T]$, on a un unique morphisme de $A$-algèbres $ev_{1/a}:A[T]\rightarrow A_a$ tel que $ev_{1/a}(T)=1/a$. Par construction,  $(Ta-1)A[T]\subset \ker(ev_{1/a})$, d'où une factorisation $\phi :=\overline{ev}_{1/a}:A[T]/(Ta-1)\rightarrow A_a$. Inversement, par la propriété universelle de $ A\rightarrow A_a$, le morphisme canonique $ A\stackrel{\iota_A}{\rightarrow}A[T]\twoheadrightarrow A[T]/(Ta-1)$ se factorise en un morphisme $\psi:A_a\rightarrow A[T]/(Ta-1)$ et on vérifie sur les constructions que $\phi: A[T]/(Ta-1)\rightarrow A_a$, $\psi:A_a\rightarrow A[T]/(Ta-1)$ sont inverses l'un de l'autre.\end{proof}
  
  \item\textbf{Lemme 2.}  \textit{Toute $k$-agèbre intègre de $k$-dimension finie est un corps.}
  
@@ -2364,7 +2386,7 @@ avec $ \overline{k}^K/k$ algébrique, $ \overline{k}^K(\mathcal{B})/ \overline{k
 
  Dans la suite du cours, nous allons nous intéresser au cas de degré de transcendance $0$, qui est déjà très riche  dès lors que le corps de base $k$ est suffisamment 'compliqué' (on verra   ce que compliqué veut dire plus loin...). Il s'agit donc de comprendre les variétés algébriques de dimension $0$ sur un corps $k$ \textit{i.e.} les solutions d'une equation polynômiale à une indéterminée et à coefficients dans $k$. Ce problème concret remonte au 19ème siècle. A cette époque, on savait déjà depuis longtemps résoudre par radicaux (\textit{i.e.} en n'utilisant que les opérations $+,-,\times, -/-,^n\sqrt{-}$) des équations de degré $\leq 4$ (les formules de Cardan en degré $3$ et Ferrari en degré 4 remontent au milieu du 16ème siècle) mais pas au-delà.  Ruffini et Abel, au tout début du 19ème siècle, ont annoncé  qu'il `n'existait pas de formule universelle pour résoudre une équation de degré donné $\geq 5$'. Mais c'est Galois, dans son \textit{Mémoire sur les conditions de résolubilité des équations par radicaux} (écrit en 1831; Galois avait $20$ ans et devait mourir tué en duel l'année d'après), qui a eu l'intuition prodigieuse pour l'époque de relier le problème de la résolubilité d'une équation polynomiale aux symétries de ses zéros. Plus précisément, si $P\in \Q[T]$ est de degré $n$ et se factorise en $n$ facteurs de degré $1$ distincts  (ce que l'on appelera un polynôme séparable) dans $\C$
 $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \C[T]$$
- on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de fa\c{c}on limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\C$ si et seulement si le groupe $G_P$ est résoluble (\textit{i.e.} si $D^nG_P=1$ pour $n\gg 0$ o\`u les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\  
+ on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de fa\c{c}on limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\C$ si et seulement si le groupe $G_P$ est résoluble (\textit{i.e.} si $D^nG_P=1$ pour $n\gg 0$ où les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\  
  
  Mais encore faut-il pouvoir calculer ces groupes $G_P$. Sur des exemples simples, on peut deviner intuitivement ce à quoi ressemble ces groupes. Par exemple, les solutions de  $P=(T^2+1)(T^2-2)=0$ sont $\pm i$, $\pm \sqrt{2}$ et si on peut échanger $i$ avec $-i$ (ce sont les racines de $T^2+1$) et $\sqrt{2}$ avec $-\sqrt{2}$ (ce sont les racines de $T^2-2$), on ne peut pas échanger $i$ et $\sqrt{2}$. Dans ce cas, $G_P$ est le sous-groupe de $\mathcal{S}_4$ engendré par les transpositions $(1,2)$ et $(3,4)$ \textit{i.e.}  $\Z/2\times \Z/2$. Cependant, très vite  cette approche empirique ne suffit plus. La résolution conceptuelle du problème est donnée par ce qu'on appelle maintenant la correspondance de Galois. Dans le cas particulier considéré ici - $P\in \Q[T]$ est de degré $n$ et a $n$ zéros distincts $\alpha_1,\dots,\alpha_n$ dans  $\C$ - $G_P$ est isomorphe au groupe $\SAut(K_P/\Q)$  des $\Q$-automorphismes de l'extension de corps $K_P:=\Q(\alpha_1,\dots,\alpha_n)/\Q$ et les sous-groupes    $H\subset \SAut(K_P/\Q)$ correspondent bijectivement aux  sous-extensions $\Q\subset L\subset K_P $ par $H\rightarrow K_P^H:=\lbrace x\in K_P\;|\; \sigma (x)=x;\; \sigma\in H\rbrace$ et $L\rightarrow \SAut(K_P/L)$. Par exemple, 
 \begin{itemize}
@@ -2435,7 +2457,7 @@ d'inverse $x\rightarrow \overline{ev}_x$.}\\
  
 
 \paragraph{}\label{CloAlgPlonge}[Utilise le Lemme de Zorn] \textbf{Lemme.} \textit{Soit $k$ un corps et $  \overline{k}/k$ une clôture algébrique de $k$. Alors pour  toute extension algébrique $  K/k $ il existe un $k$-plongement $K \rightarrow \overline{k} $.}
-\begin{proof}  Considérons l'ensemble $\mathcal{E}$ des couples $(K',\phi)$, o\`u $k\subset K'\subset K$ est une sous-extension et $\phi:K'\rightarrow \overline{k}$ un $k$-plongement. On munit $\mathcal{E}$ de la relation d'ordre partiel $(K'_1,\phi_1)\leq (K'_2,\phi_2))$ si  $ K_1'\subset K_2'$ et $\phi_2|_{K_1'}=\phi_1$. L'ensemble $\mathcal{E}$ est non vide   puisqu'il contient $(k,k\subset \overline{k})$ et $(\mathcal{E},\leq)$ est ordonné inductif. Par le Lemme de Zorn, il contient donc un élément maximal $(K',\phi)$. Mais si $K'\subsetneq K$, en appliquant \ref{MonoPlonge} à l'extension $\phi:K'\rightarrow \overline{k}$ (qui est une clôture algébrique de $K'$) et à $x\in K\setminus K'$, on construit un $K'$-plongement $\iota:K'(x)\rightarrow \overline{k}$. Par construction $(K',\phi)\leq (K'(x),\iota\circ \phi)$, ce qui contredit la maximalité de $(K',\phi)$. \end{proof}
+\begin{proof}  Considérons l'ensemble $\mathcal{E}$ des couples $(K',\phi)$, où $k\subset K'\subset K$ est une sous-extension et $\phi:K'\rightarrow \overline{k}$ un $k$-plongement. On munit $\mathcal{E}$ de la relation d'ordre partiel $(K'_1,\phi_1)\leq (K'_2,\phi_2))$ si  $ K_1'\subset K_2'$ et $\phi_2|_{K_1'}=\phi_1$. L'ensemble $\mathcal{E}$ est non vide   puisqu'il contient $(k,k\subset \overline{k})$ et $(\mathcal{E},\leq)$ est ordonné inductif. Par le Lemme de Zorn, il contient donc un élément maximal $(K',\phi)$. Mais si $K'\subsetneq K$, en appliquant \ref{MonoPlonge} à l'extension $\phi:K'\rightarrow \overline{k}$ (qui est une clôture algébrique de $K'$) et à $x\in K\setminus K'$, on construit un $K'$-plongement $\iota:K'(x)\rightarrow \overline{k}$. Par construction $(K',\phi)\leq (K'(x),\iota\circ \phi)$, ce qui contredit la maximalité de $(K',\phi)$. \end{proof}
 
 \paragraph{}\label{CloAlgUni}\textbf{Lemme.} \textit{Soit $K_1/k$, $K_2/k$ deux  clôtures algébriques de $k$. Alors $Hom_{Alg/k}(K_1,K_2)=Aut_{Alg/k}(K_1,K_2)$}
 
@@ -2465,7 +2487,7 @@ ar (1), pour tout $x,y\in k_\infty$, on peut choisir $n\geq 0$ tel que $x,y\in i
 $$i_{n+1}(i_{n+1}^{-1}(x)i_{n+1}^{-1}(y))=i_{n+1}(\phi_n(i_n^{-1}(x))\phi_n(i_n^{-1}(x)))=i_{n+1}(\phi_n(i_n^{-1}(x) i_n^{-1}(x)))=i_n(i_n^{-1}(x)i_n^{-1}(y)). $$
 Enfin, on vérifie facilement qu'avec cette loi, $k_\infty$ est un corps et que   $i_n:k_n\rightarrow k_\infty$ est un morphisme  de corps, $n\geq 0$. 
 \end{enumerate}
- Il reste à vérifier que les morphismes de corps $i_n:k_n\rightarrow k_\infty$, $n\geq 0$ ainsi construits vérifient bien la propriété universelle de l'énoncé. Si  $j:k_\infty\rightarrow K$ existe, les conditions $j\circ i_n=j_n$, $n\geq 0$ impose que $j(\overline{(x_n)}_{n\geq 0})=\sum_{n\geq 0}j_n(x_n) $, d'o\`u l'unicité de $j:k_\infty\rightarrow K$ sous réserve de son existence. Par propriété universelle de la somme directe, il existe un unique morphisme de $k_0$-modules $\Sigma \rightarrow K$, $(x_n)_{n\geq 0}\rightarrow \sum_{n\geq 0}j_n(x_n) $ et les conditions $j_{n+1}\circ \phi_n = j_n$, $n\geq 0$ montrent que $R$ est contenu dans le noyau de ce morphisme donc qu'il passe au quotient en un morphisme de $k_0$-module $j:k_\infty\rightarrow K$ tel que $j(\overline{(x_n)}_{n\geq 0})=\sum_{n\geq 0}j_n(x_n) $. Par construction, $j\circ i_n(x_n)=j_n(x_n)$, $n\geq 0$ et on vérifie sur les définitions que $j:k_\infty\rightarrow K$
+ Il reste à vérifier que les morphismes de corps $i_n:k_n\rightarrow k_\infty$, $n\geq 0$ ainsi construits vérifient bien la propriété universelle de l'énoncé. Si  $j:k_\infty\rightarrow K$ existe, les conditions $j\circ i_n=j_n$, $n\geq 0$ impose que $j(\overline{(x_n)}_{n\geq 0})=\sum_{n\geq 0}j_n(x_n) $, d'où l'unicité de $j:k_\infty\rightarrow K$ sous réserve de son existence. Par propriété universelle de la somme directe, il existe un unique morphisme de $k_0$-modules $\Sigma \rightarrow K$, $(x_n)_{n\geq 0}\rightarrow \sum_{n\geq 0}j_n(x_n) $ et les conditions $j_{n+1}\circ \phi_n = j_n$, $n\geq 0$ montrent que $R$ est contenu dans le noyau de ce morphisme donc qu'il passe au quotient en un morphisme de $k_0$-module $j:k_\infty\rightarrow K$ tel que $j(\overline{(x_n)}_{n\geq 0})=\sum_{n\geq 0}j_n(x_n) $. Par construction, $j\circ i_n(x_n)=j_n(x_n)$, $n\geq 0$ et on vérifie sur les définitions que $j:k_\infty\rightarrow K$
  est bien un morphisme de corps.\end{proof}
  
   Comme d'habitude les $i_n:k_n\rightarrow k_\infty(=:\displaystyle{\lim_{\longrightarrow}k_n})$, $n\geq 0$ sont uniques à unique isomorphisme près et on dit que c'est la limite inductive (ou la limite directe ou simplement la limite) des $k_0\stackrel{\phi_0}{\rightarrow} k_1\stackrel{\phi_1}{\rightarrow} k_2\stackrel{\phi_2}{\rightarrow}\cdots$.\\ 
@@ -2504,7 +2526,7 @@ $$(*)\;\; 1=\sum_{P\in\mathcal{F}}F_P P(X_P)$$ avec $F_P\in k[X_Q,\; Q\in \mathc
  $$\phi\circ ev_{x_1}=ev_{\phi(x_1)}\circ \phi:K_1[T]\rightarrow K_2[T].$$
  En particulier, $\phi:K_1\tilde{\rightarrow }K_2$  se restreint en une bijection 
  $$\phi:Z_{K_1}(P)\tilde{\rightarrow} Z_{K_2}(\phi(P)).$$
- Dans le cas particulier o\`u $K_1=K_2=K/k$, $\phi\in \SAut(K/k)$ et
+ Dans le cas particulier où $K_1=K_2=K/k$, $\phi\in \SAut(K/k)$ et
  $P\in k[T]$, $\phi P=P$, $\phi\in \SAut(K/k)$ induit une perm
  utation $\phi: Z_K(P)\tilde{\rightarrow} Z_K(P)$. En d'autres termes, $ \SAut(K/k)$ agit sur $ Z_K(P)$ \textit{i.e.} on a un morphisme de groupes 
  $$\SAut(K/k)\rightarrow \mathcal{S}(Z_K(P)).$$
@@ -2533,7 +2555,7 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
 
 \textbf{Exemple.}\begin{enumerate}
 \item  $  \C/\R$: les conjugués sur $\R$ de $z\in \C$ sont $z$ et $\overline{z}$.    \\
-\item $\overline{\Q}/\Q$: les conjugués sur $Q$ de $^3\sqrt{5}$  sont $^3\sqrt{5}$, $j^3\sqrt{5}$, $j^2\;^3\sqrt{5}$ (o\`u $j$ est une racine de $T^2+T+1$ \textit{i.e.} une racine primitive $3$ième de l'unité).
+\item $\overline{\Q}/\Q$: les conjugués sur $Q$ de $^3\sqrt{5}$  sont $^3\sqrt{5}$, $j^3\sqrt{5}$, $j^2\;^3\sqrt{5}$ (où $j$ est une racine de $T^2+T+1$ \textit{i.e.} une racine primitive $3$ième de l'unité).
 \end{enumerate}
 
  \paragraph{}\label{Normale3} \textbf{Lemme.} \textit{Soit $k\subset K\subset \overline{k}$ une sous-extension. Les propriétés suivantes sont équivalentes.
@@ -2604,7 +2626,7 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
   \begin{proof}Soit $\overline{k}/k$ une clôture algébrique de $k$ alors $K_0=k(Z_{\overline{k}}(P))/k$ est un corps de décomposition de $P$ sur $k$. Soit $K/k$ un corps de décomposition de $P$ sur $k$.  Par \ref{CloAlgPlonge}, il existe un $k$-plongement $\phi:K\rightarrow  \overline{k} $. Or par $(*)$ et comme $P$ est totalement décomposé sur $K$ donc sur $\phi(K)\subset \overline{k}$, 
    $\phi(K)=\phi(k(Z_K(P)))=k(Z_{\overline{k}}(P))=K_0$.  En particulier, $\phi:K\rightarrow \overline{k}$ induit un $k$-isomorphisme $\phi:K=k(Z_K(P))\tilde{\rightarrow} k(\phi(Z_K(P)))=k(Z_{\overline{k}}(P))=K_0$. Enfin, pour tout   $\sigma\in \SAut(\overline{k}/k)$, $\sigma_{K_0}:K_0\rightarrow \overline{k}$ est un $k$-plongement et l'argument qui précède appliqué avec $K=K_0$ montre que $\sigma(K_0)=K_0$. Donc $K_0/k$ est une sous-extension normale de $\overline{k}/k$ donc une extension normale.  \end{proof}
   
-   Si $K/k$ est un corps de décomposition de $P$, on a une action naturelle $\SAut(K/k)\times Z_K(P)\rightarrow Z_K(P)$ qui est fidèle puisque $K=k(Z_K(P))$ d'o\`u un morphisme de groupes injectif $\SAut(K/k)\hookrightarrow \mathcal{S}(Z_K(P))$. C'est essentiellement ce groupe $\SAut(K/k)$  qui va reflèter  les `symétries' des racines de $P$. \\
+   Si $K/k$ est un corps de décomposition de $P$, on a une action naturelle $\SAut(K/k)\times Z_K(P)\rightarrow Z_K(P)$ qui est fidèle puisque $K=k(Z_K(P))$ d'où un morphisme de groupes injectif $\SAut(K/k)\hookrightarrow \mathcal{S}(Z_K(P))$. C'est essentiellement ce groupe $\SAut(K/k)$  qui va reflèter  les `symétries' des racines de $P$. \\
   
   \textbf{Remarque.} Le Lemme \ref{Normale6} montre qu'une extension $K/k$ finie est normale si et seulement si c'est le corps de décomposition d'un polynôme $P\in k[T]$ sur $k$.\\
   
@@ -2612,7 +2634,7 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
   $$1\rightarrow \SAut(\Q(^3\sqrt{5}, j)/\Q(j))\rightarrow \SAut(\Q(^3\sqrt{5}, j)/\Q)\rightarrow \SAut(\Q(j)/\Q)\rightarrow 1.$$ 
  Or la bijection $\SAut(\Q(^3\sqrt{5}, j)/\Q(j))\tilde{\rightarrow} Z_{\Q(^3\sqrt{5},j)}(X^3-5)$ montre que  $\SAut(\Q(^3\sqrt{5}, j)/\Q(j))$ est d'ordre $3$ donc cyclique et engendré par $\Q(^3\sqrt{5}, j)=\Q(j)[T]/T^3-5\tilde{\rightarrow} \Q(^3\sqrt{5}, j)$, $\overline{T}=^3\sqrt{5}\rightarrow j\;^3\sqrt{5}$. De même,  la bijection $\SAut(\Q(  j)/\Q )\tilde{\rightarrow} Z_{\Q( j)}(X^2+X+1)$ montre que  $\SAut(\Q(j)/\Q )$ est d'ordre $2$ donc cyclique et engendré par $\Q(  j)=\Q [T]/T^2+T+1\tilde{\rightarrow} \Q( j)$, $\overline{T}=J\rightarrow j^2$. Donc $\SAut(\Q(^3\sqrt{5}, j)/\Q)$ est un sous-groupe d'ordre $6$ de $\mathcal{S}_3$; c'est $\mathcal{S}_3$... On verra bientôt comment mener de fa\c{c}on plus systématique  ce type de calculs.\\
   
-   A ce stade, on aimerait poser, pour un polynôme $P\in k[T]$, $G_P:=\SAut(K/k)$, o\`u $K$ est un corps de décomposition de $P$ sur $k$ et étudier les racines $\alpha_1,\dots , \alpha_n$ de $P$ dans $K$ - ou plutôt les sous-corps $k(\alpha_i)$, $i=1,\dots, n$ de $K$ engendrés par les  racines \textit{via} la structure du groupe $G_P$ en montrant qu'on a une correspondance bijective entre  les sous-groupes $H\subset G_P$ et les sous-corps $k\subset L\subset K$ donnée par $H\rightarrow K^{H}$, $L\rightarrow \SAut(K/L)$. Cependant, ce n'est pas toujours vrai que les applications  $H\rightarrow K^{H}$, $L\rightarrow \SAut(K/L)$ sont bijectives comme le montre l'exemple suivant. Prenons $k:=\F_p(X)$, $P=T^{p^2}-X\in k[T]$ et notons $K/\F_p(X)$ un corps de décomposition. Soit $\alpha\in K$ une racine de $P$. On a alors $P=(T-\alpha)^{p^2}$ sur $K[T]$. En particulier, $K=k(\alpha)=k[T]/P$. Mais comme $P$ n'a qu'une seule racine sur $k$, $\SAut(K/k)=1$ alors que $K/k$ contient est non triviale (et même contient une sous-extension stricte: $k\subsetneq k(\alpha^p)\subsetneq k(\alpha)=K$). Pour faire marcher cette approche, il va falloir imposer une condition supplémentaire sur $P$, celle d'être séparable.\\
+   A ce stade, on aimerait poser, pour un polynôme $P\in k[T]$, $G_P:=\SAut(K/k)$, où $K$ est un corps de décomposition de $P$ sur $k$ et étudier les racines $\alpha_1,\dots , \alpha_n$ de $P$ dans $K$ - ou plutôt les sous-corps $k(\alpha_i)$, $i=1,\dots, n$ de $K$ engendrés par les  racines \textit{via} la structure du groupe $G_P$ en montrant qu'on a une correspondance bijective entre  les sous-groupes $H\subset G_P$ et les sous-corps $k\subset L\subset K$ donnée par $H\rightarrow K^{H}$, $L\rightarrow \SAut(K/L)$. Cependant, ce n'est pas toujours vrai que les applications  $H\rightarrow K^{H}$, $L\rightarrow \SAut(K/L)$ sont bijectives comme le montre l'exemple suivant. Prenons $k:=\F_p(X)$, $P=T^{p^2}-X\in k[T]$ et notons $K/\F_p(X)$ un corps de décomposition. Soit $\alpha\in K$ une racine de $P$. On a alors $P=(T-\alpha)^{p^2}$ sur $K[T]$. En particulier, $K=k(\alpha)=k[T]/P$. Mais comme $P$ n'a qu'une seule racine sur $k$, $\SAut(K/k)=1$ alors que $K/k$ contient est non triviale (et même contient une sous-extension stricte: $k\subsetneq k(\alpha^p)\subsetneq k(\alpha)=K$). Pour faire marcher cette approche, il va falloir imposer une condition supplémentaire sur $P$, celle d'être séparable.\\
    \subsection{Extensions séparables}
  
  \subsubsection{}\label{Derivations}\textbf{Dérivations.} Soit $A$ une $k$-algèbre. Une \textit{$k$-dérivation sur $A$}\index{Dérivation} est un endomorphisme de $k$-module $\partial: A\rightarrow A$ tel que $$\partial (ab)=a\partial b+(\partial a) b,\; a,b\in A.$$ 
@@ -2674,7 +2696,7 @@ $|Z_{\overline{k}}(P)|$&$\leq deg(P)$&$=deg(P)$
         \begin{proof}Il s'agit de la combinaison d'un cas facile du Nullstellensatz et du Lemme des restes chinois. Plus précisément,  comme $A$ est de $k$-dimension finie - donc en particulier de type finie comme $k$-algèbre - et que $k$ est algébriquement clos, le  Nullstellensatz nous donne une bijection canonique 
         $$\SHom_{Alg/k}(A,k)\tilde{\rightarrow} spm(A),\; (\phi:A\rightarrow k)\rightarrow \ker(\phi)$$
         (d'inverse $\frak{m} \rightarrow (A\rightarrow A/\frak{m})=k$). On a vu qu'il résultait aussi du Nullstellensatz
-        que le radical de Jacobson et le nilradical de $A$ coincident, d'o\`u l'assertion sur le noyau.  La surjectivité résultera du Lemme des restes chinois si l'on sait que $A$ n'a qu'un nombre fini d'idéaux maximaux. Mais  en notant $n:=dim_kA$, $A$ a au plus $n$ idéaux maximaux deux à deux distincts. En effet, si on avait $n+1$ idéaux maximaux  $\frak{m}_1,\dots, \frak{m}_{n+1}$ deux à deux distincts, le Lemme des restes chinois nous donnerait un morphisme surjectif de $k$-algèbres (donc de $k$-espaces vectoriels)
+        que le radical de Jacobson et le nilradical de $A$ coincident, d'où l'assertion sur le noyau.  La surjectivité résultera du Lemme des restes chinois si l'on sait que $A$ n'a qu'un nombre fini d'idéaux maximaux. Mais  en notant $n:=dim_kA$, $A$ a au plus $n$ idéaux maximaux deux à deux distincts. En effet, si on avait $n+1$ idéaux maximaux  $\frak{m}_1,\dots, \frak{m}_{n+1}$ deux à deux distincts, le Lemme des restes chinois nous donnerait un morphisme surjectif de $k$-algèbres (donc de $k$-espaces vectoriels)
         $$A\twoheadrightarrow A/\frak{m}_1\times \cdots\times A/\frak{m}_{n+1}=k^{n+1}.$$
         \end{proof}
 
@@ -2705,7 +2727,7 @@ Et comme $[K:k]=dim_{\overline{k}}\overline{k} \otimes_kK$, l'assertion résulte
  $$|\SHom_{Alg/k}(K,\overline{k})|=|Z_{\overline{k}}(P_x)|.$$
  Or   comme $P_x\in k[T]$ est séparable,  $|Z_{\overline{k}}(P_x)|=deg(P_x)(=[k(x):k])$. Si le nombre minimal de générateurs de $K/k$ comme $k$-extension est $n$, on peut écrire $K=k(x_1,\dots, x_n)=k(x_1,\dots, x_{n-1})(x_n)$. Puisque $K'=k(x_1,\dots, x_{n-1})/k$ est engendrée par $\leq n-1$ générateurs comme $k$-extension et vérifie (1), l'hypothèse de récurrence montre que $|\SHom_{Alg/k}(K',\overline{k})|=[K':K]$ alors que par le cas $n=1$, pour tout $k$-plongement $\phi:K'\rightarrow\overline{k}$, on a $|\SHom_{Alg/K',\phi}( K,\overline{k})|=[K:K']$. De $(*)$ on déduit
  $$| \SHom_{Alg/k}( K,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/k}( K',\overline{k}) }[K:K']=[K':k][K:K']=[K:k].$$
- Pour  (2) $\Rightarrow$ (1), on n'a pas besoin de supposer $K/k$ finie. En effet, observons que si $k\subset K'\subset K$ est une sous-$k$-extension, le morphisme de $\overline{k}$-algèbres $\overline{k}\otimes_kK'\rightarrow \overline{k}\otimes_kK$ est injectif. En effet, il suffit pour cela de choisir une $k$-base   $e_i$, $i\in I$ de $K$ telle que $e_i$, $i\in I'$ soit une $k$-base de $K'$ pour un certain sous-ensemble $I'\subset I$ et d'observer que $1\otimes e_i$, $i\in I$ est encore une $\overline{k}$-base de $\overline{k}\otimes K$ (le produit tensoriel commute aux sommes directes). Or, d'après \ref{Separable2}, $x\in K$ est séparable sur $k$ si et seulement si $\overline{k}\otimes_kk(x)$ est réduite.  Comme on vient de voir que $\overline{k}\otimes_kk(x)$  est une sous-$\overline{k}$-algèbre de, cela montre  (2) $\Rightarrow$ (1). Enfin, on sait déjà que (1) $\Rightarrow$ (2) lorsque $K/k$ est finie. Pour le cas général, tout élément  de $\overline{k}\otimes_kK$ s'écrit comme combinaison $k$-linéaire finie d'éléments de la forme $\lambda\otimes x$, $\lambda\in \overline{k}$, $x\in K$ donc il est contenu dans une sous-$\overline{k}$-algèbre de la forme $\overline{k}\otimes_kk(x_1,\dots, x_n)$, o\`u $x_1,\dots, x_n\in K$. Comme les $x_1,\dots, x_n$ sont algébriques sur $k$,  $[k(x_1,\dots, x_n):k]$ est fini et $k(x_1,\dots, x_n)/k$ vérifie  (1) donc l'assertion résulte  de (1) $\Rightarrow$ (2) dans le cas o\`u $K/k$ est finie. \end{proof}
+ Pour  (2) $\Rightarrow$ (1), on n'a pas besoin de supposer $K/k$ finie. En effet, observons que si $k\subset K'\subset K$ est une sous-$k$-extension, le morphisme de $\overline{k}$-algèbres $\overline{k}\otimes_kK'\rightarrow \overline{k}\otimes_kK$ est injectif. En effet, il suffit pour cela de choisir une $k$-base   $e_i$, $i\in I$ de $K$ telle que $e_i$, $i\in I'$ soit une $k$-base de $K'$ pour un certain sous-ensemble $I'\subset I$ et d'observer que $1\otimes e_i$, $i\in I$ est encore une $\overline{k}$-base de $\overline{k}\otimes K$ (le produit tensoriel commute aux sommes directes). Or, d'après \ref{Separable2}, $x\in K$ est séparable sur $k$ si et seulement si $\overline{k}\otimes_kk(x)$ est réduite.  Comme on vient de voir que $\overline{k}\otimes_kk(x)$  est une sous-$\overline{k}$-algèbre de, cela montre  (2) $\Rightarrow$ (1). Enfin, on sait déjà que (1) $\Rightarrow$ (2) lorsque $K/k$ est finie. Pour le cas général, tout élément  de $\overline{k}\otimes_kK$ s'écrit comme combinaison $k$-linéaire finie d'éléments de la forme $\lambda\otimes x$, $\lambda\in \overline{k}$, $x\in K$ donc il est contenu dans une sous-$\overline{k}$-algèbre de la forme $\overline{k}\otimes_kk(x_1,\dots, x_n)$, où $x_1,\dots, x_n\in K$. Comme les $x_1,\dots, x_n$ sont algébriques sur $k$,  $[k(x_1,\dots, x_n):k]$ est fini et $k(x_1,\dots, x_n)/k$ vérifie  (1) donc l'assertion résulte  de (1) $\Rightarrow$ (2) dans le cas où $K/k$ est finie. \end{proof}
 
  On dit qu'une extension algébrique $K/k$ qui vérifie les propriétés équivalentes du Corollaire ci-dessus est \textit{séparable}\index{Séparable (Extension de corps)}. L'équivalence (1) $\Rightarrow$ (3) lorsque $K/k$ est finie montre en particulier que $x\in K$ est séparable sur $k$ si et seulement si $k(x)=k[T]/P_x/k$ est une extension séparable puisque 
 $$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq deg(P_x)=[k(x):k]$$
@@ -2730,7 +2752,7 @@ $$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq deg(P_x)=
     
     \textbf{Lemme 1.} \textit{Soit $k$ un corps infini et $V$ un $k$-espace vectoriel de dimension finie. Si $W_1,\dots, W_r\subsetneq V$ sont des sous-$k$-espaces vectoriels stricts, $V\setminus \cup_{1\leq i\leq r}V_i\not=\emptyset$.}
     
-    \begin{proof}On procède par récurrence sur la $k$-dimension $n$ de $V$. Si $n=1$, c'est immédiat. Si $n\geq 1$, il suffit de montrer l'énoncé dans le cas o\`u les $W_i$, $i=1,\dots, r$ sont des hyperplans deux à deux distincts. Comme $W_1\cap W_i\subsetneq W_1$, par hypothèse de récurrence il existe $w\in W_1\setminus \cup_{2\leq i\leq r}W_1\cap W_i$. Fixons également $v\in V\setminus W_1$ et notons $D:=v+kw\subset V$. Puisque $v\in V\setminus W_1$, $D\cap W_1=\emptyset $ et, pour $i=1,\dots, r$, $ D\cap W_i $ contient au plus un élément  car si $v+aw,v+bw\in W_i$, $(a-b)w\in W_i$ donc, puisque $w\in V\setminus W_i$, $a=b$. Cela montre que $D\cap \cup_{1\leq i\leq r}W_i$ est fini et on conclut en utilisant que $D$ est infini puisque $k$ l'est.    \end{proof}
+    \begin{proof}On procède par récurrence sur la $k$-dimension $n$ de $V$. Si $n=1$, c'est immédiat. Si $n\geq 1$, il suffit de montrer l'énoncé dans le cas où les $W_i$, $i=1,\dots, r$ sont des hyperplans deux à deux distincts. Comme $W_1\cap W_i\subsetneq W_1$, par hypothèse de récurrence il existe $w\in W_1\setminus \cup_{2\leq i\leq r}W_1\cap W_i$. Fixons également $v\in V\setminus W_1$ et notons $D:=v+kw\subset V$. Puisque $v\in V\setminus W_1$, $D\cap W_1=\emptyset $ et, pour $i=1,\dots, r$, $ D\cap W_i $ contient au plus un élément  car si $v+aw,v+bw\in W_i$, $(a-b)w\in W_i$ donc, puisque $w\in V\setminus W_i$, $a=b$. Cela montre que $D\cap \cup_{1\leq i\leq r}W_i$ est fini et on conclut en utilisant que $D$ est infini puisque $k$ l'est.    \end{proof}
     
         \textbf{Lemme 2.} \textit{Soit $k$ un corps. Tout sous-groupe fini $G$ du groupe multiplicatif $k^\times$ est cyclique.}
     
@@ -2791,7 +2813,7 @@ Or $0\not= x\in \F_{p^s}$ $\Rightarrow$ $x^{p^s-1}=1$ $\Rightarrow$ $x^{p^r-1}=(
     $tr_{A/k}(a):=tr_k(L_a:A\rightarrow A)\in k $ sa \textit{trace}\index{Trace} et $N_{A/k}:=det(L_a)\in k$ son déterminant - appelé \textit{norme}\index{Norme (Elément)}. On dispose en particulier 
  d'une forme linéaire $tr_{A/k}:A\rightarrow k$ et d'un morphisme de groupes $N_{A/k}:A^\times\rightarrow k^\times$.\\
  
-    \subsubsection{}\textbf{Lemme.} \textit{Soit $K/k$ une extension finie. Pour tout $x\in K$, on a $\chi_{K/k}(x)=P_x^{[K:k(x)]}$ o\`u $P_x\in k[T]$ est le  polynôme minimal de $x$ sur $k$. En particulier, $tr_{K/k}(x)=[K:k(x)]tr_{k(x)/k}(x)$ et $N_{K/k}(x)=N_{k(x)/k}(x)^{[K:k(x)]}$.}
+    \subsubsection{}\textbf{Lemme.} \textit{Soit $K/k$ une extension finie. Pour tout $x\in K$, on a $\chi_{K/k}(x)=P_x^{[K:k(x)]}$ où $P_x\in k[T]$ est le  polynôme minimal de $x$ sur $k$. En particulier, $tr_{K/k}(x)=[K:k(x)]tr_{k(x)/k}(x)$ et $N_{K/k}(x)=N_{k(x)/k}(x)^{[K:k(x)]}$.}
     \begin{proof} Notons $n:=[K:k]$, $q_x:=[K:k(x)]$,  $n_x:=[k(x):k]$. Fixons une $k(x)$-base $y_1,\dots, y_{q_x}$ de $K$.  On a une décomposition $K=\oplus_{1\leq i\leq q_x}k(x)y_i$ en  $k$-espaces vectoriels $k(x)y_i\subset K$  $L_x$-stables et pour chaque $i=1,\dots, q_x$, la matrice de  $L_x:k(x)y_i\rightarrow k(x)y_i$ dans la $k$-base $x^jy_i$, $j=0,\dots, n_x-1$ est la matrice compagnon $C(P_x)$ de $P_x$. Donc  la matrice de  $L_x:K\rightarrow K$ dans la $k$-base $y_ix^j$, $1\leq i\leq q_x$, $0\leq j\leq n_x-1$  de $K$ est la matrice diagonale par blocs de taille $n\times n$ dont tous les blocs diagonaux valent $C(P_x)$.  On conclut en utilisant que le polynôme minimal et le polynôme caractéristique d'une  matrice compagnon $C(P)$ coïncident et sont égaux à $P$.   \end{proof}
     
 \subsubsection{}\textbf{Lemme.} \textit{Soit $K_3/K_2$ et $K_2/K_1$  des extensions finies. Alors $tr_{K_2/K_1}\circ tr_{K_3/K_2}=tr_{K_3/K_1}$.}
@@ -2811,7 +2833,7 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
  Autrement dit, $ \overline{k}\otimes_k\ker(tr_{K/k}) =  \ker(Id\otimes tr_{K/k}tr_{K/k}) $, $\overline{k}\otimes_k\hbox{\rm im}(tr_{K/k})=\hbox{\rm im}(Id\otimes tr_{K/k}tr_{K/k})$. Il suffit donc de montrer que
   $x\in K$ est séparable si et seulement si $ Id\otimes tr_{K/k}tr_{K/k}: \overline{k}\otimes_kK\rightarrow \overline{k}$ est non nulle. P   en écrivant  $P_x=\prod_{1\leq i\leq r}(T-x_i)^{n_i}$  dans $\overline{k}[T]$ avec les $x_1,\dots, x_n\in\overline{k}$ deux à deux distincts, le lemme des restes Chinois nous donne un isomorphisme de $\overline{k}$-algèbres explicite
   $$ \overline{k}\otimes_kK= \overline{k}\otimes_kk[T]/P_x=  \overline{k}[T]/P_x\tilde{\rightarrow} \prod_{1\leq i\leq r}\overline{k}[T]/(T-x_i)^{n_i}$$
-  et en prenant une $\overline{k}$-base adaptée à cette décomposition, on obtient $ tr_{\overline{k}\otimes_kK/\overline{k} }=\sum_{1\leq i\leq r} tr_{A_i/\overline{k} }$, o\`u $A_i:=\overline{k}[T]/(T-x_i)^{n_i}$, $i=1,\dots ,r$. 
+  et en prenant une $\overline{k}$-base adaptée à cette décomposition, on obtient $ tr_{\overline{k}\otimes_kK/\overline{k} }=\sum_{1\leq i\leq r} tr_{A_i/\overline{k} }$, où $A_i:=\overline{k}[T]/(T-x_i)^{n_i}$, $i=1,\dots ,r$. 
   \begin{itemize}
   \item Si $x$ est séparable sur $k$, $n_1=\dots=n_r=1$ donc $A_i=\overline{k}$ donc t $ tr_{A_i/\overline{k} }= Id$, $i=1,\dots, n$ et $ tr_{\overline{k}\otimes_kK/\overline{k} }:\overline{k}^n\rightarrow \overline{k}$, $(a_1,\dots, a_n)\rightarrow a_1+\cdots+a_n$ est clairement surjective.
   \item Si $x$ n'est pas séparable sur $k$, $k$ est de caractéristique $p>0$ et $P_x=P(T^{p^s})$ avec $P\in k[T]$ séparable et $r\geq 1$ (\textit{cf.} \ref{Derivations}). En écrivant $P=\prod_{1\leq i\leq r}(T-\alpha_i)$ et $\alpha_i=x_i^{p^s}$, $i=1,\dots, r$ dans $\overline{k}$, on en déduit 
@@ -2956,7 +2978,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
    Cette suite exacte se scinde. En effet, considérons le sous-groupe $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\subset  Gal(\Q(\zeta,^n\sqrt{a})/\Q)$.  En effet, on a clairement $$Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\cap Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))=1$$ 
    donc un morphisme de groupe injectif $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\hookrightarrow Gal(\Q(\zeta)/\Q)$.  Mais puisque $\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a})$ est galoisienne, on a aussi
    $$|Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))|=[\Q(\zeta,^n\sqrt{a}):\Q(\zeta)]=\frac{[\Q(\zeta,^n\sqrt{a}:\Q]}{[\Q(^n\sqrt{a}):\Q]}=\frac{n\phi(n)}{n}=\phi(n)=|Gal(\Q(\zeta)/\Q)|$$
-   d'o\`u, en fait, un isomorphisme de groupes $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\tilde{\rightarrow} Gal(\Q(\zeta)/\Q)$. On peut même calculer facilement l'action par conjugaison de $Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$ sur $Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$: soit $\sigma\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$, $\tau\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$ alors $$\frac{\sigma\tau\sigma^{-1}(^n\sqrt{a})}{^n\sqrt{a}}=\sigma(\frac{\tau(\sigma^{-1}(^n\sqrt{a}))}{\sigma^{-1}(^n\sqrt{a})})=\sigma(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})=(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})^{\chi_\Q(\sigma)}=\frac{\tau^{\chi_\Q(\sigma)}(^n\sqrt{a})}{^n\sqrt{a}}$$
+   d'où, en fait, un isomorphisme de groupes $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\tilde{\rightarrow} Gal(\Q(\zeta)/\Q)$. On peut même calculer facilement l'action par conjugaison de $Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$ sur $Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$: soit $\sigma\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$, $\tau\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$ alors $$\frac{\sigma\tau\sigma^{-1}(^n\sqrt{a})}{^n\sqrt{a}}=\sigma(\frac{\tau(\sigma^{-1}(^n\sqrt{a}))}{\sigma^{-1}(^n\sqrt{a})})=\sigma(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})=(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})^{\chi_\Q(\sigma)}=\frac{\tau^{\chi_\Q(\sigma)}(^n\sqrt{a})}{^n\sqrt{a}}$$
    \textit{i.e.} $\sigma\tau\sigma^{-1}=\tau^{\chi_\Q(\sigma)}$. On a donc un isomorphisme de groupes $$Gal(\Q(\zeta,^n\sqrt{a})/\Q)\tilde{\rightarrow} \Z/n\rtimes (\Z/n)^\times,\;\; \sigma\rightarrow (\frac{\sigma(^n\sqrt{a})}{^n\sqrt{a}},\sigma|_{\mu_n})$$
    avec, à gauche, la structure de produit direct `tautologique' (donnée par l'action naturelle de $\Z/n^\times$ sur $\mu_n$ par $u\cdot\zeta=\zeta^u$). 
     \subsection{}\textbf{Clôture normale.} Soit $K/k$ une extension algébrique, $ \overline{k}$ une clôture algébrique (contenant $K$) et $ K_i/k$, $i\in I$ des sous-extensions normales de $\overline{k}/k$ contenant $K$. Alors $\cap_{i\in I}K_i/k$ est encore une extension normale contenant $K$ puisque pour tout $\sigma\in\SAut(\overline{k}/k)$, $\sigma(K_i)=K_i$ et  $\sigma(\cap_{i\in I}K_i)=\cap_{i\in I}\sigma(K_i)$. Il existe donc une plus petit sous-extension normale $\widehat{K}/k$ de $\overline{k}/k$  contenant $K$ appelé \textit{clôture normale}\index{Normale (Clôture)} de $K/k$ dans $\overline{k}/k$.\\
