@@ -8,3 +8,6 @@
 - Utiliser des `\mapsto` là où ils sont nécessaires
 - Coriger les erreurs de typographie
 - Corriger les coquilles mathématiques
+- Indenter le code
+- Éventuellement supprimer les `\textbf` au profit d'environnements, mais faire attention à la notation
+- Ajouter les diagrammes
