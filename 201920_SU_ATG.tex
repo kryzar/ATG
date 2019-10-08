@@ -47,6 +47,7 @@
 \DeclareMathOperator{\SLie}{Lie}
 \DeclareMathOperator{\Sres}{res}
 \DeclareMathOperator{\SCH}{CH}
+\DeclareMathOperator{\Sdim}{dim}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\Scl}{cl}
 \DeclareMathOperator{\Frac}{Frac}
@@ -62,8 +63,6 @@
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\G}{\mathbb{G}}
-\newcommand{\Sdim}{\hbox{\rm dim}}
-
 
 \renewcommand{\labelitemi}{-}
 
@@ -3005,7 +3004,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
  
  $$\xymatrix{K_{n+1}\ar@{=}[d]&\supset&K_n\ar@{_{(}->}[d]&\supset&\cdots&\supset&K_2\ar@{_{(}->}[d]&\supset &K_1\ar@{=}[d]\supset& K_0=k\ar@{=}[d]\\
 K_{n+1} &\supset&\widehat{K}_n&\supset&\cdots&\supset&\widehat{K}_2&\supset & K_1\supset& K_0=k\\}$$
- Il reste à voir que $Gal(\widehat{K}_{i+1}/\widehat{K}_i)$ est abélien, $i=0,\dots, n$. Mais $\widehat{K}_{i+1}$ est engendrée comme $k$-extension par les $x_{i+1},\sigma}:=\sigma(x_{i+1})$, $\sigma\in Gal(K_{n+1}/k)$. Or $\sigma(x_{i+1})^{n_i}=\sigma(x_{i+1}^{n_i})\in \sigma(K_i)\subset \widehat{K}_i$; la conclusion résulte donc de   \ref{RadIt}. Inversement, supposons $G_P$ résoluble. Notons $n:=[K_P:k]$ et $\widetilde{K}_P/K_P$ un corps de décomposition de $T^n-1\in k[T]\subset K_P[T]$ sur $K_P$. L'extension $\widetilde{K}_P/k$ est encore galoisienne car c'est le corps de décomposition du polynôme séparable $P(T^n-1)/pgcd(P,T^n-1)\in k[T]$ sur $k$. En particulier, on a une suite exacte courte de groupes finis 
+ Il reste à voir que $Gal(\widehat{K}_{i+1}/\widehat{K}_i)$ est abélien, $i=0,\dots, n$. Mais $\widehat{K}_{i+1}$ est engendrée comme $k$-extension par les $x_{i+1},\sigma:=\sigma(x_{i+1})$, $\sigma\in Gal(K_{n+1}/k)$. Or $\sigma(x_{i+1})^{n_i}=\sigma(x_{i+1}^{n_i})\in \sigma(K_i)\subset \widehat{K}_i$; la conclusion résulte donc de   \ref{RadIt}. Inversement, supposons $G_P$ résoluble. Notons $n:=[K_P:k]$ et $\widetilde{K}_P/K_P$ un corps de décomposition de $T^n-1\in k[T]\subset K_P[T]$ sur $K_P$. L'extension $\widetilde{K}_P/k$ est encore galoisienne car c'est le corps de décomposition du polynôme séparable $P(T^n-1)/pgcd(P,T^n-1)\in k[T]$ sur $k$. En particulier, on a une suite exacte courte de groupes finis 
  $$1\rightarrow Gal(\widetilde{K}_P/K_P)\rightarrow Gal(\widetilde{K}_P/k)\rightarrow G_P=Gal(K_P/k)\rightarrow 1,$$
  ce qui montre que $Gal(\widetilde{K}_P/k)$ est extension d'un groupe résoluble  par un groupe abélien donc est résoluble.
   \end{proof}
