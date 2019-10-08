@@ -617,7 +617,7 @@ $(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
  
  \noindent Il n'est par contre pas vrai qu'un sous-anneau d'un corps est un corps (\textit{e.g.} $\Z\subset \Q$) donc l'image inverse d'un idéal maximal par un morphisme d'anneau n'est, en général, pas maximal. 
    \section{Anneaux noetheriens}\label{AnneauNoetherien}
-   \subsection{}\label{NoethDef}\textbf{Lemme.} \textit{Soit $A$ un anneau. Les PSSE.
+   \subsection{Lemme}\label{NoethDef} \textit{Soit $A$ un anneau. Les PSSE.
        \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
      \item  Tout idéal $I\subset A$ est de type fini.
      \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
@@ -629,7 +629,7 @@ $(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
     
     \noindent On dit qu'un anneau $A$ qui vérifie les propriétés équivalente du Lemme \ref{NoethDef} est \textit{noetherien}\index{Noetherien (Anneau)}.
     
-    \subsection{}\label{NoethEx}\textbf{Exemples.} 
+    \subsection{Exemples}\label{NoethEx}
       \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
      \item  Les anneaux principaux (\textit{e.g.} $k$, $\Z$, $k[X]$, o\`u $k$ est un corps commutatif) sont noetheriens. 
      \item  Si $k$ est un corps commutatif, une  $k$-algèbre $\phi:k\rightarrow A$ est toujours munie d'une structure de $k$-espace vectoriel: $k\times A\rightarrow A$, $(\lambda,a)\rightarrow \phi(\lambda)a$. Avec cette structure de $k$-espace vectoriel, les idéaux de $A$ sont automatiquement des sous-$k$-espace vectoriel. Si $A$ est de dimension finie sur $k$, elle est donc noetherienne. Par exemple l'anneau $k[X]/X^nk[X]$ est un  noetherien. 
@@ -639,17 +639,17 @@ $(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
     
 \noindent La proposition suivante et son corollaire fournissent un très grand nombre d'exemples d'anneaux noetheriens.   
     
-\subsection{}\label{NoethTransfert}\textbf{Proposition.} (Transfert de noetherianité) \textit{$A$ noetherien $\Rightarrow$ $A[X]$ noetherien.}
+\subsection{Proposition}\label{NoethTransfert} (Transfert de noetherianité) \textit{$A$ noetherien $\Rightarrow$ $A[X]$ noetherien.}
 \begin{proof}Soit $I\subset A[X]$ un idéal. Pour chaque $n\geq 0$ définissons $\frak{I}_n\setminus \lbrace 0\rbrace\subset A$ comme l'ensemble des $a\in A$ qui apparaissent comme coefficient dominant  d'un polynôme de degré $n$ dand $I$ \textit{i.e.} $a\in \frak{I}_n$ si et seulement si il existe $a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I$. Comme $I\subset A[X]$ est un idéal, les $\frak{I}_n\subset A$ sont automatiquement des idéaux. De plus,  $$a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I\Rightarrow a_0X+a_1X^2+\cdots+a_{n-1}X^{n}+aX^{n+1}\in I$$ donc on a 
 $$\frak{I}_0\subset \frak{I}_1\subset \cdots\subset \frak{I}_n\subset \frak{I}_{n+1}\subset \cdots$$
 Comme $A$ est noetherien, cette suite devient stationnaire à partir d'un certain rang, disons $n$. De plus,  chaque $\frak{I}_k$ est de type fini; notons $a_{k,1},\dots, a_{k,r_k}\in \frak{I}_k$ un ensemble fini de générateurs de $\frak{I}_k$ . Enfin,  pour  $k=0,\dots, n$, $l=1,\dots, r_k$, fixons un polynôme $P_{k,l}\in I$ de degré $k$ et de coefficient dominant $a_{k,l}$. Il suffit de montrer que $I$ est engendré par les $P_{k,l}$,  $l=1,\dots, r_k$, $k=0,\dots, n$. Notons donc $I^\circ:=\sum AP_{k,l}\subset I$ et montrons par induction sur le degré $d$ de $P\in I$ que $P\in I^\circ$. Si $d=0$, on a par définition $  \frak{I}_0\subset I^\circ$. Supposons que $I^\circ$ contient tous les   éléments de $I$ de degré $\leq d$. Soit $P=a_0+\cdots+a_dX^d+a_{d+1}X^{d+1}\in I$ de degré $d+1$. Si $d+1\geq n$, on a $a_{d+1}\in \frak{I}_{d+1}=\frak{I}_n$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{n,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_iX^{d+1-n}P_{n,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. Si $d+1\leq n$, $a_{d+1}\in \frak{I}_{d+1}$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{d+1,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_i P_{d+1,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. 
 \end{proof}
 
 
-\subsection{}\label{NoethTransfertCor}\textbf{Corollaire.} \textit{Si $A$ est un anneau noetherien, toute $A$-algèbre de type fini est un anneau noetherien.}
+\subsection{Corollaire}\label{NoethTransfertCor} \textit{Si $A$ est un anneau noetherien, toute $A$-algèbre de type fini est un anneau noetherien.}
 \begin{proof} Observons d'abord qu'en raisonnant par induction sur $n\geq 1$,   l'isomorphisme $$A[X_1,\dots, X_n]\tilde{\rightarrow} A[X_1,\cdots,X_{n-1}] [X_n]$$ et la Proposition \ref{NoethTransfert} impliquent que $A[X_1,\dots, X_n]$ est un anneau noetherien. On conclut oar l'Exemple \ref{NoethEx} (3) puisque toute $A$-algèbre de type fini  est quotient d'une $A$-algèbre de la forme $A[X_1,\dots, X_n]$. \end{proof}
 
-\subsection{}\label{NoethExercices}\textbf{Exercices.}\\
+\subsection{Exercices}\label{NoethExercices}
     \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
      \item  Soit $A$ un anneau noetherien. Montrer que pour tout idéal  $I\subsetneq A$, $\sqrt{I}$ est l'intersection d'un nombre fini d'idéaux premiers. En déduire que $A$ possède un nombre fini d'idéaux premiers minimaux pour $\subset$. \\
      \item   (Anneaux artiniens) Soit $A$ un anneau. Montrer que les PSSE\\
@@ -681,7 +681,7 @@ $r=0$ ou $r\not=0$ et $\sigma(r)<\sigma(a)$.
 \item \textit{principal}\index{Principal (Anneau)} si tout idéal est de la forme $Aa$, $a\in A$.  
 \end{itemize}
 
-\subsection{ }\label{Ex}\textbf{Exemples} \\
+\subsection{Exemples}\label{Ex}\textbf{ } \\
 
     \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
      \item  La valeur absolue usuelle   $|-|:\Z\setminus\lbrace 0\rbrace\rightarrow \N$ sur $\Z$ est un stathme euclidien. En effet, pour tout $0\not= a,b\in \Z$ notons $R:=\lbrace b-qa\;|\; q\in \Z\rbrace $. On a évidemment $R\cap\N\not=\emptyset$  donc on peut poser $r:=\hbox{\rm min} R\cap\N$. Par définition de $R$, $b=qa+r$ et si $|a|\leq  r$ on aurait $r-|a|\in R$: contradiction.  \\
@@ -717,15 +717,15 @@ o\`u $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ d
  
  
 
-\subsection{ }\label{EuclIsPrinc}\textbf{Lemme.} \textit{Euclien $\Rightarrow$ Principal.} 
+\subsection{Lemme}\label{EuclIsPrinc} \textit{Euclien $\Rightarrow$ Principal.} 
  
  \begin{proof} Soit $A$ un anneau euclidien et soit $I\subset A$ un idéal. Fixons $a\in I$ tel que $\sigma(a)=\hbox{\rm min}\sigma(I)$. Puisque $a\in I$, on a $Aa\subset I$. Réciproquement, pour tout $b\in I$, effectuons la division euclidienne de $b$ par $a$: il existe $q,r\in A$ tels que $b=qa+r$ et $r=0$ ou $\sigma(r)<\sigma(a)$. Mais comme $r=b-qa\in I$, on ne peut pas avoir $\sigma(r)<\sigma(a)$, donc $r=0$.\\
  \end{proof}
  
  \noindent\textbf{(Contre-)Exemple.} Les anneaux principaux ne sont pas tous euclidiens. Par exemple  $A=\Z[\frac{1+\sqrt{-19}}{2}]$ est principal non euclidien.\\
  
- \subsection{}\textbf{Exercice.} Montrer que $A[X]$ est principal si et seulement si $A$ est un corps. 
-  \subsection{}\textbf{Lemme.} \textit{Si $A$ est un anneau principal, $spm(A)=spec(A)\setminus \lbrace 0\rbrace$.}
+ \subsection{Exercice} Montrer que $A[X]$ est principal si et seulement si $A$ est un corps. 
+  \subsection{Lemme}\textit{Si $A$ est un anneau principal, $spm(A)=spec(A)\setminus \lbrace 0\rbrace$.}
   
   \begin{proof} On a toujours $spm(A)\subset spec(A)$. Soit $\frak{p}=Ap\in spec(A)$; on veut montrer que $A/Ap$ est un corps. Supposons le contraire. Alors $A/Ap$ contient un idéal maximal $\lbrace \bar{0}\rbrace\subsetneq\frak{m}\subsetneq A/Ap$. Ecrivons $p_{\frak{p}}^{-1}(\frak{m})=Am$. On a des inclusions strictes  $Ap\subsetneq Am\subsetneq A$ donc il existe $a\in A$ tel que $p=am$ donc $\bar{0}=\bar{a}\bar{m}$ dans $A/Ap$. Comme $A/Ap$ est intègre et $\bar{m}\not= 0$, on en déduit $a\in Ap$. Ecrivons donc $a=bp$; on a $p=am=pbm$. Comme $A$ est intègre, on peut simplifier par $p$ pour obtenir $1=bm$, ce qui contredit $ Am\subsetneq A$.   \end{proof}
  \section{Anneaux factoriels}\label{Factoriel} \textit{}\\
@@ -788,7 +788,7 @@ est bijective \textit{i.e.} pour tout $0\not=a\in A $ il existe une unique appli
 
 
  
-\subsection{}\label{Implications}\textbf{Proposition.} \textit{
+\subsection{Proposition}\label{Implications}\textit{
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item Principal $\Rightarrow$ (Noetherien intègre $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$) $\Rightarrow$ factoriel.
 \item {[Utilise le Lemme de Zorn]} Factoriel $+$ $spm(A)=spec(A)\setminus \lbrace 0\rbrace$ $\Rightarrow$ Principal.\\
@@ -1391,7 +1391,7 @@ on obtient un unique morphisme de $A$-modules $f:=\prod_{i\in I}f_i:\prod_{i\in 
 $$ M_j\stackrel{f_j}{\rightarrow}N_j\stackrel{\iota_j}{\rightarrow} \oplus_{i\in I}M_i,\; j\in I$$
 on obtient un unique morphisme de $A$-modules $f:=\oplus_{i\in I}f_i:\oplus_{i\in I}M_i\rightarrow \oplus_{i\in I}N_i$ tel que $  f\circ \iota_i=  \iota_i\circ f$, $i\in I$.  
 
-\subsection{}\textbf{Sous-module engendré par une partie, sommes}  Si $M_{i}\subset M$, $i\in I$ est une famille de sous $A$-modules de $M$, on vérifie immédiatement que l'intersection $$\bigcap_{i\in I}M_{i}\subset M$$ est encore un sous-$A$-module de $M$.\\
+\subsection{Sous-module engendré par une partie, sommes}  Si $M_{i}\subset M$, $i\in I$ est une famille de sous $A$-modules de $M$, on vérifie immédiatement que l'intersection $$\bigcap_{i\in I}M_{i}\subset M$$ est encore un sous-$A$-module de $M$.\\
 
 \noindent Si $X\subset M$ est un sous-ensemble, on note
 $\langle X\rangle$ l'intersection de tous les sous $A$-modules $M'\subset M$ contenant $X$. D'après ce qui précède, c'est encore un sous $A$-module de $M$
@@ -1524,7 +1524,7 @@ un diagramme commutatif de morphismes de $A$-modules dont les lignes horizontale
 
 \noindent Soit $A$ un anneau commutatif. \\
   
-\subsection{}\textbf{Lemme.}\label{Noetherien}\textit{
+\subsection{Lemme}\label{Noetherien}\textit{
 Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item Toute suite croissante de sous $A$-modules $$M_{0}\subset M_{1}\subset\dots\subset M_{n}\subset M_{n+1}\subset\dots\subset M$$
@@ -1546,7 +1546,7 @@ on a $M_{n}=M_{N}$, $n\geq N$. \end{proof}
 \noindent\textbf{Remarque.} Un anneau $A$ est en particulier noetherien au sens de \ref{AnneauNoetherien} s'il l'est comme $A$-module sur lui-même.
 
 
-\subsection{}\textbf{Lemme.}\label{Artinien}\textit{Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
+\subsection{Lemme}\label{Artinien}\textit{Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
 \begin{enumerate}
 \item Toute suite décroissante de sous $A$-modules $$M\supset\dots\supset M_{0}\supset M_{1}\supset\dots\supset M_{n}\supset M_{n+1}\supset\dots $$
 est stationnaire à partir d'un certain rang;
@@ -1558,7 +1558,7 @@ est stationnaire à partir d'un certain rang;
 
   
 
-\subsection{}\textbf{Exemple.} 
+\subsection{Exemple}
 \begin{enumerate}
 \item Le $\mathbb{Z}$-module $\Q$ n'est ni noetherien ni artinien.\\
 \item Le $\mathbb{Z}$-module régulier est noetherien mais pas artinien.\\
@@ -1566,7 +1566,7 @@ est stationnaire à partir d'un certain rang;
 \item Tout $\mathbb{Z}$-module fini est à la fois noetherien et artinien. Si $A$ est une algèbre sur un corps $k$, tout $A$-module de $k$-dimension finie est à la fois noetherien et artinien.
 \end{enumerate} 
 
-\subsection{}\label{Exo1}\textbf{Lemme.}\textit{
+\subsection{Lemme}\label{Exo1}\textit{
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item Soit $0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0$ une suite exacte courte de $A$-modules. Alors $M$ est noetherien (resp. artinien) si et seulement si $M'$ et $M''$ sont noetheriens (resp. artininens). 
 \item Une somme directe finie de $A$-modules noetheriens (resp. artiniens) est encore noetherien (resp. artinien).
@@ -1590,7 +1590,7 @@ $$0\rightarrow \oplus_{1\leq i\leq n}M_i\rightarrow  \oplus_{1\leq i\leq n+1}M_i
  
 
 
-\subsection{}\textbf{Lemme.} (Fitting)\label{ExoFitting} \textit{Soit $f:M\rightarrow M$ un endomorphisme de $A$-module.  
+\subsection{Lemme} (Fitting)\label{ExoFitting} \textit{Soit $f:M\rightarrow M$ un endomorphisme de $A$-module.  
 \begin{enumerate}
 \item Si $M$ est noetherien et $f$ surjectif alors $f$ est un isomorphisme.
 \item Si $M$ est artinien et $f$ injectif alors $f$ est un isomorphisme.
