@@ -30,19 +30,27 @@
 
 \makeindex
 
-\newcommand{\Spec}{\hbox{\rm Spec}}
-\newcommand{\SH}{\hbox{\rm H}}
-\newcommand{\SExt}{\hbox{\rm Ext}}
-\newcommand{\SEnd}{\hbox{\rm End}}
-\newcommand{\SAut}{\hbox{\rm Aut}}
-\newcommand{\SGal}{\hbox{\rm Gal}}
-\newcommand{\SHom}{\hbox{\rm Hom}}
-\newcommand{\SGL}{\hbox{\rm GL}}
-\newcommand{\SLie}{\hbox{\rm Lie}} 
-\newcommand{\Sres}{\hbox{\rm res}} 
-\newcommand{\SCH}{\hbox{\rm CH}}
-\newcommand{\im}{\hbox{\rm im}}
-\newcommand{\Scl}{\hbox{\rm cl}}
+% remplacement des \newcommand par des \DeclaraMathOperator
+% c'est plus adapté
+% voir https://tex.stackexchange.com/questions/67506/newcommand-vs-declaremathoperator
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\SH}{H}
+\DeclareMathOperator{\SExt}{Ext}
+\DeclareMathOperator{\SEnd}{End}
+\DeclareMathOperator{\SGal}{Gal}
+\DeclareMathOperator{\SHom}{Hom}
+\DeclareMathOperator{\SGL}{GL}
+\DeclareMathOperator{\SLie}{Lie}
+\DeclareMathOperator{\Sres}{res}
+\DeclareMathOperator{\SCH}{CH}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Scl}{cl}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\spm}{spm}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -96,7 +104,7 @@
 \subsubsection{}On rappelle qu'un mono\"{i}de\index{Mono\"{i}de}  est un couple $(M,\times)$ formé d'un ensemble $M$ et d'une application $\times:M\times M\rightarrow M$ qui vérifient les axiomes suivants:
 \begin{enumerate}
 \item Associativité: $(l\cdot m)\cdot n=l\cdot (m\cdot n)$, $l,m,n\in M$;
-\item \'Elément neutre: il existe $e_M\in M$ tel que $m\cdot e_M=m=e_M\cdot m$, $m\in M$;
+\item Élément neutre: il existe $e_M\in M$ tel que $m\cdot e_M=m=e_M\cdot m$, $m\in M$;
 \end{enumerate}
 \noindent Et on dit qu'un mono\"{i}de    $(M,\times)$ est un groupe\index{Groupe} si, de plus
 \begin{enumerate}
