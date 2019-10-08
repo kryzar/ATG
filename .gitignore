@@ -1,0 +1,10 @@
+# Fichier indiquant la liste des fichiers et répertoires à ignorer
+
+# On ignore les fichiers .DS_STORE (fichiers administratifs de Max OS X)
+.DS_Store
+
+# Les logs et les fichiers utilitaires propres à LaTeX
+*.log
+*.aux
+*.idx
+*.toc
