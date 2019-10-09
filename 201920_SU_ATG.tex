@@ -242,7 +242,13 @@ on obtient un unique morphisme d'anneaux $\phi:=\prod_{i\in I}\phi_i:\prod_{i\in
 
 	$$ \xymatrix{ A_i \ar[r]^{\Phi_i} & B_i \\ \prod_{i\in I} A_i \ar[u]^{\pi^A_i} \ar[r]^\Phi & \prod_{i\in I}B_i \ar[u]_{\pi^B_i} } $$
 
-\ref{Produit}.3 Si $A_i=A$, $i\in I$, on note $\prod_{i\in I}A_i=A^I$. On peut  voir $A^I$ comme l'anneau des fonctions $a:I\rightarrow A$ muni de $(a+b)(i)=a(i)+b(i)$  et $(a\cdot b)(i)=a(i)\cdot b(i)$  de zéro l'application nulle et d'unité l'application constante de valeur $1_A$. On notera qu'on a un morphisme d'anneaux injectif canonique $\Delta_A:A\hookrightarrow A^I$, $a\rightarrow (i\rightarrow a(i)=a)$ appelé morphisme diagonal (et qui, si $A$ est commutatif,   fait de $A^I$  une $A$-algèbre de fa\c{c}on canonique).\\
+\ref{Produit}.3 Si $A_i=A$, $i\in I$, on note $\prod_{i\in I}A_i=A^I$. On peut  voir $A^I$ comme l'anneau des fonctions $a:I\rightarrow A$ muni de $(a+b)(i)=a(i)+b(i)$  et $(a\cdot b)(i)=a(i)\cdot b(i)$  de zéro l'application nulle et d'unité l'application constante de valeur $1_A$. On notera qu'on a un morphisme d'anneaux injectif canonique
+	\begin{align*}
+		\Delta_A : A &\hookrightarrow A^I \\
+		a &\mapsto (i\mapsto a(i)=a)
+	\end{align*}
+
+	appelé morphisme diagonal (et qui, si $A$ est commutatif,   fait de $A^I$  une $A$-algèbre de fa\c{c}on canonique).\\
 
   Pour tout $\underline{a}=(a_i)_{i\in I}\in A^I$ notons $supp(\underline{a}):=\lbrace i\in I\; |\; a_i\not= 0\rbrace\subset I$ le \textit{support} de $\underline{a}$. Notons $$A^{(I)}:=\lbrace \underline{a}\in A^I\; |\; |supp(\underline{a})|<+\infty\rbrace \subset A^I.$$
 On observera que $A^{(I)}\subset A^I$ est stable par différence et produit mais que, si $I$ est infini, ce n'est pas un sous-anneau de $A^I$ car il ne contient pas $1_{A^I}$. 
@@ -317,7 +323,7 @@ $$\hbox{\rm Hom}_A(A[N],B)\rightarrow\hbox{\rm Hom}_{Mono}(N,B),\; f\rightarrow 
  \item  $(N,\cdot)=(\N,+)$ on retrouve $A[\N]=A[X]$.\\
  % (observer que se donner un morphisme de monoïdes $\nu:(\N,+)\rightarrow (B ,\cdot)$ revient à se donner l'image $b\in B$ de $1\in \N$).\\
  \item $(N,\cdot)=(\N^r,+)$ où $+$ est l'addition termes à termes (pour $\underline{m}=(m_1,\dots,m_r), \underline{n}:=(n_1,\dots, n_r)\in \N^r$,   $\underline{m}+\underline{n}=(m_1+n_1,\dots,m_r+n_r)\in \N^r$). Dans ce cas, on note $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \N^r$ avec la convention $X_i^0=1$, $i=1,\dots, r$,  et $1:=\underline{X}^{\underline{0}}$ de sorte que (\ref{Poly}.5) se réécrit de fa\c{c}on plus intuitive sous la forme
- $$ (\sum_{\underline{n}\in\N^r}a_{\underline{n}}\underline{X}^{\underline{n}}) (\sum_{\underline{n}\in \N^r}b_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N}(\sum_{\underline{i},\underline{j}\in \N^r, \underline{i}+\underline{j}=\underline{n}}a_{\underline{i}}b_{\underline{j}})\underline{X}^{\underline{n}}.$$
+ $$ (\sum_{\underline{n}\in\N^r}a_{\underline{n}}\underline{X}^{\underline{n}}) (\sum_{\underline{n}\in \N^r}b_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N^r}(\sum_{\underline{i},\underline{j}\in \N^r, \underline{i}+\underline{j}=\underline{n}}a_{\underline{i}}b_{\underline{j}})\underline{X}^{\underline{n}}.$$
 On note également $A[X_1,\dots, X_r]:=A[\N^r]$ et on dit que $\iota_A:A\rightarrow A[X_1,\dots, X_r]$ est la $A$-algèbre des polynômes à $r$ inderminées. Comme se donner un morphisme de monoïdes $\nu:(\N^r,+)\rightarrow (B ,\cdot)$ revient à se donner les images $b_i\in B $ de $(\delta_{i,j})_{1\leq j\leq r}\in \N^r$, on peut reformuler \ref{Poly}.7 de la fa\c{c}on suivante.\\
 
    Pour toute $A$-algèbre $\phi:A\rightarrow B$, en notant  
@@ -351,7 +357,7 @@ $$\hbox{\rm Hom}_A(A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}],B)\rightarrow \frak{B}_r
  
 
  
-  (\ref{Poly}.9)  Soit $(N,\cdot)$ un monoïde et $\phi: A\rightarrow B$ un morphisme d'anneaux commutatifs. La propriété universelle de $\iota_A:A\rightarrow A[N]$ appliquée avec $A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow} B[N]$ donne un unique morphisme de $A$-algèbres $\tilde{\phi}:A[N]\rightarrow B[N]$ tel que $\nu_B=\tilde{\phi}\circ \nu_A$. Explicitement $\tilde{\phi}(\sum_{n\geq 0}a_ne_n)=\sum_{n\geq 0}\phi(a_n)e_n$.  Par construction, im$(\phi)=\hbox{\rm im}(\phi)[N]\subset B[N]$ et $\ker(\tilde{\phi})$ est l'ensemble des éléments de la forme $\sum_{n\geq 0}a_ne_n\in A[N]$ tels que $a_n\in \ker(\phi)$, $n\geq 0$. On notera $\ker(\phi)[N]:=\ker(\tilde{\phi})\subset A[N]$.\\
+  (\ref{Poly}.9)  Soit $(N,\cdot)$ un monoïde et $\phi: A\rightarrow B$ un morphisme d'anneaux commutatifs. La propriété universelle de $\iota_A:A\rightarrow A[N]$ appliquée avec $A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow} B[N]$ donne un unique morphisme de $A$-algèbres $\tilde{\phi}:A[N]\rightarrow B[N]$ tel que $\nu_B=\tilde{\phi}\circ \nu_A$. Explicitement $\tilde{\phi}(\sum_{n\geq 0}a_ne_n)=\sum_{n\geq 0}\phi(a_n)e_n$.  Par construction, im$(\tilde{\phi})=\hbox{\rm im}(\phi)[N]\subset B[N]$ et $\ker(\tilde{\phi})$ est l'ensemble des éléments de la forme $\sum_{n\geq 0}a_ne_n\in A[N]$ tels que $a_n\in \ker(\phi)$, $n\geq 0$. On notera $\ker(\phi)[N]:=\ker(\tilde{\phi})\subset A[N]$.\\
 
 	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[N]\ar[r]_{\tilde{\Phi} } & B[N] } $$
  
@@ -368,7 +374,7 @@ qui envoie morphismes de monoïdes injectifs (resp. surjectifs, resp. bijectifs)
 $$\xymatrix{N_1\ar[r]^{\nu_A}\ar[d]_\nu&A[N_1]\ar[d]^{\tilde{\nu}}\\
 N_2\ar[r]_{\nu_A}  &A[N_2]}$$
 L'injectivité de $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ résulte de l'injectivité des $\nu_A:N_i\rightarrow A[N_i]$, $i=1,2$. Enfin, le fait que $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ envoie morphismes de monoïdes injectifs (resp. surjectifs, resp. bijectifs) sur morphismes de $A$-algèbres injectifs (resp. surjectifs, resp. bijectifs) résulte du fait que, par construction, tout élément de $A[N]$ s'écrit de fa\c{c}on unique sous la forme $\sum_{n\in N}ae_n$ (on verra dans le chapitre sur les modules que $A[N]$ est un $A$-module libre de base les $e_n$, $n\in N$) et que la condition $\nu_A\circ \nu=\tilde{\nu}\circ \nu_A$ impose $\tilde{\nu}(e_n)=e_{\nu(n)}$.\\
-La question posée correspond au cas particulier du morphisme de monoïdes surjectif $\nu:(\N^2,+)\twoheadrightarrow (\Z,+)$ défini par $\nu(n_1,n_2)=n_1-n_2$ (le $\tilde{\nu}:A[X_1,Y_1,\dots, X_r,Y_r]\twoheadrightarrow A[X_1,X_1^{-1},\dots,X_r, X_r^{-1}]$ correspondant étant défini par $\tilde{\nu}(X_i)=Z_i$, $\tilde{\nu}(Y_i)=Z_i^{-1}$, $i=1,2$). }\\
+La question posée correspond au cas particulier du morphisme de monoïdes surjectif $\nu:(\N^2,+)\twoheadrightarrow (\Z,+)$ défini par $\nu(n_1,n_2)=n_1-n_2$ (le $\tilde{\nu}:A[X_1,Y_1,\dots, X_r,Y_r]\twoheadrightarrow A[X_1,X_1^{-1},\dots,X_r, X_r^{-1}]$ correspondant étant défini par $\tilde{\nu}(X_i)=Z_i$, $\tilde{\nu}(Y_i)=Z_i^{-1}$, $i=1,\dots, r$). }\\
  
 \item Montrer qu'on a des isomorphismes de $A$-algèbres canonique $$  A[X_1,\dots,X_{i-1},X_{i+1},\dots, X_r][X_i]\tilde{\rightarrow} A[X_1,\dots,X_r],\; i=1,\dots, r.$$
 
@@ -407,7 +413,7 @@ une unique sous-$A$-algèbre $\langle X\rangle_A \subset B$, contenant $X$ et mi
 \item Un idéal $I\subset A$ est en particulier un sous-groupe de $(A,+)$. Par exemple, les seuls candidats possibles pour les idéaux de $\Z$ sont les $n\Z$, $n\geq 0$ (division euclidienne). On vérifie immédiatement que les $n\Z$ sont bien des idéaux de $\Z$. Donc les idéaux de $\Z$ sont exactement les $n\Z$, $n\geq 1$. On notera que $n\Z\subset m\Z$ si et seulement si $m|n$.  La $k$-algèbre $k[X]$ des polynômes à une indéterminée sur un corps est également munie d'une division euclidienne et on verra que dans ce cas aussi, tous les idéaux de $k[X]$ sont de la forme $Pk[X]$, $P\in k[X]$.
 \item Pour tout $a\in A$, $Aa\subset A$ est un idéal. Les idéaux de cette forme sont appelés principaux. On dit qu'un anneau $A$ principal si tous ses idéaux sont principaux et s'il est intègre. Les anneaux $\Z$ et $k[X]$ sont principaux.  Par contre, $k[X,Y]$ n'est pas principal, par exemple l'ensemble $I:=\lbrace XP+YQ\;|\; P,Q\in k[X,Y]\rbrace\subset k[X,Y]$ est un idéal qui n'est pas principal.
 \item Si $A_i$, $i\in I$ est une famille d'anneaux, et, pour chaque $i\in I$, $I_i\subset A_i$ est un idéal, $\prod_{i\in I}I_i\subset \prod_{i\in I}A_i$ est un idéal. Mais les idéaux de $\prod_{i\in I}A_i$ ne sont pas tous de cette forme. Par exemple, $A^{(I)}\subset A^I$ est un idéal de $A^I$ qui n'est pas un produit d'idéaux.
-\item Si $I\subset A$ est un idéal, $I[X_1,\dots, X_r]:=\lbrace\sum_{\underline{n}\in \N^r}a_{\underline{n}}\underline{X}^{\underline{n}}\;|\; a_{\underline{n}}\in I, \; \underline{n}\in \N^r \rbrace \subset A[X_1,\dots,X_r]$ est un idéal.
+\item Si $I\subset A$ est un idéal, $I[X_1,\dots, X_r]:=\lbrace\sum_{\underline{n}\in \N^r}a_{\underline{n}}\underline{X}^{\underline{n}}\;|\; a_{\underline{n}}\in I \rbrace \subset A[X_1,\dots,X_r]$ est un idéal.
 
 \end{itemize}
  
@@ -459,7 +465,7 @@ $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\
   \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item $\Z,\Q,\R,\C$ sont de caractéristique $0$;
 \item $\Z/n$ est de caractéristique $n$, $n\geq 0$;
-\item Si $A'\subset A$ est un sous-anneau, $A$ et $A'$ ont même caractéristique. En particulier $A$, $A^I$, $A[X]$ ont même caractéristique. Si $\mathcal{P}$ est un ensemble infini de nombres premiers distincts, l'anneau produit $\prod_{p\in \mathcal{P}}\Z/p$ est de caractéristique $0$.
+\item Si $A'\subset A$ est un sous-anneau, $A$ et $A'$ ont même caractéristique. En particulier $A$, $A^I$, $A[X]$ ont même caractéristique. Si $\mathcal{P}$ est un ensemble infini de nombres premiers distincts, l'anneau produit $\prod_{p\in \mathcal{P}}\Z/p\Z$ est de caractéristique $0$.
 \item  Si $\phi : A\rightarrow B$ est une $A$-algèbre, la caractéristique de $B$ divise la caractéristique de $A$.\\
 \end{itemize}
   
@@ -515,7 +521,7 @@ $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\
 \ref{Corps}.2 \textbf{Lemme.} \textit{Soit $I\subsetneq A$ un idéal. Les PSSE
 \begin{tabular}[t]{ll}
 (i)&  $A/I$ est un corps;\\
-(ii)& $I$ est maximal  dans  $(\mathcal{I}_A\setminus \lbrace 0\rbrace,\subset)$.  
+(ii)& $I$ est maximal  dans  $(\mathcal{I}_A\setminus \{A\},\subset)$.  
 \end{tabular}}
 \begin{proof} Cela résulte de \ref{Quot}.2.  \end{proof}
 
@@ -1095,36 +1101,39 @@ avec $u'\in A^\times$, $v_-'(a):\mathcal{V}\rightarrow \N\in\N^{(\mathcal{V})}$,
 implique, par évaluation en chacune des $v\in\mathcal{V}$ et en utilisant (\ref{ValDef}.2) que $v'(a)=v(a)$, $v\in\mathcal{V}$ et donc $u'=u_a$.
 \end{proof}
 
-\subsection{}\textbf{Exercice.} (ppcm, pgcd) Soit $A$ un anneau factoriel. 
+\subsection{ppcm et pgcd}\textbf{Exercice.} Soit $A$ un anneau factoriel. 
 \begin{enumerate}
 \item Montrer que $Aa\cap Ab$ est un idéal principal engendré par 
-$$ppcm(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize max}\lbrace v_p(a),v_p(b)\rbrace}.$$
-On dit que les éléments de $A^\times ppcm(a, b) $ sont les plus petits communs multiples de $a$ et $b$.
+$$\ppcm(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize max}\lbrace v_p(a),v_p(b)\rbrace}.$$
+On dit que les éléments de $A^\times \ppcm(a, b) $ sont les plus petits communs multiples de $a$ et $b$.
 \item Montrer que l'ensemble des idéaux principaux de $A$ qui contiennent $Aa+ Ab$ admet un plus petit élément, engendré par
-$$pgcd(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize min}\lbrace v_p(a),v_p(b)\rbrace}.$$
-On dit que les éléments de $A^\times pgcd(a, b) $ sont les plus grands communs diviseurs de $a$ et $b$. Montrer sur un exemple qu'en général l'inclusion $Aa+Ab\subsetneq Apgcd(a,b)$ est stricte.
+$$\pgcd(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize min}\lbrace v_p(a),v_p(b)\rbrace}.$$
+On dit que les éléments de $A^\times \pgcd(a, b) $ sont les plus grands communs diviseurs de $a$ et $b$. Montrer sur un exemple qu'en général l'inclusion $Aa+Ab\subsetneq A\pgcd(a,b)$ est stricte.
 \item Généraliser  (1) et (2) à un nombre fini $a_1,\dots, a_r$ d'éléments de $A$.
-\item (Bézout) Supposons $A$ principal. Montrer que $pgcd(a_1,\dots, a_r)A^\times= A^\times$ si et seulement si il existe $u_1,\dots, u_r\in A$ tels que $u_1a_1+\cdots+u_ra_r=1$.
+\item (Bézout) Supposons $A$ principal. Montrer que $\pgcd(a_1,\dots, a_r)A^\times= A^\times$ si et seulement si il existe $u_1,\dots, u_r\in A$ tels que $u_1a_1+\cdots+u_ra_r=1$.
 \end{enumerate}
 
  
 
  
 \chapter{Localisation, anneaux de fractions.}\textit{}\\
- On va maintenant généraliser la construction du corps des fractions d'un anneau intègre à des anneaux non nécessairement intègre. Soit $A$ un anneau commutatif. 
+ On va maintenant généraliser la construction du corps des fractions d'un anneau intègre à des anneaux non nécessairement intègre. Soit $A$ un anneau commutatif non réduit $\{0\}$. 
 
-\section{}Une \textit{partie multiplicative}   de $A$ est un sous-ensemble $S\subset A\setminus\lbrace 0\rbrace$ stable par multiplication et contenant $1$. \\
+\section{Localisations}
 
-\subsection{}\label{LocEx1}\textbf{Exemples.}\\
+\subsection{Parties multiplicatives}
 
-\ref{LocEx1}.1 $S:=A\setminus A_{tors}$; en particulier, si $A$ est intègre, $S:=A\setminus\lbrace 0\rbrace$;\\
+Une \textit{partie multiplicative} de $A$ est un sous-ensemble $S\subset A\setminus\lbrace 0\rbrace$ stable par multiplication et contenant $1$. \\
+
+\label{LocEx1}\textbf{Exemples.}\\
+\ref{LocEx1}.1 $S:=A\setminus A_{\mathrm{tors}}$; en particulier, si $A$ est intègre, $S:=A\setminus\lbrace 0\rbrace$;\\
 
 \ref{LocEx1}.2 Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$, $S_a:=\lbrace a^n\;|\; n\in\N\rbrace$;\\
 
-\ref{LocEx1}.3 Pour $\frak{p}\in spec(A)$, $S_{\frak{p}}:=A\setminus \frak{p}$.
+\ref{LocEx1}.3 Pour $\frak{p}\in \Spec(A)$, $S_{\frak{p}}:=A\setminus \frak{p}$.
 
 
-\subsection{}\label{LocDef} Soit $S\subset A\setminus\lbrace 0\rbrace$ une partie multiplicative. On munit le produit ensembliste $S\times A$ de la relation $\sim $ définie par: pour tout $(s,a),(s',a')\in S\times A$, $(s,a)\sim (s',a')$ s'il existe $s''\in S$ tel que $s''(s'a-sa')=0$. \\
+\subsection{Définition}\label{LocDef} Soit $S\subset A\setminus\lbrace 0\rbrace$ une partie multiplicative. On munit le produit ensembliste $S\times A$ de la relation $\sim $ définie par: pour tout $(s,a),(s',a')\in S\times A$, $(s,a)\sim (s',a')$ s'il existe $s''\in S$ tel que $s''(s'a-sa')=0$. \\
 
  On vérifie que $\sim$ est une relation d'équivalence. On remarquera que si $A$ est intègre, on peut, dans la définition de $\sim$, simplifier par $s''$ et la relation $\sim$ devient simplement $(s,a),(s',a')\in S\times A$, $(s,a)\sim (s',a')$ si $s'a-sa'=0$.  Mais on prendra garde que si $A$ n'est pas intègre,  la relation $(s,a)\sim (s',a')$ si $s'a-sa'=0$ n'est pas transitive donc ne définit pas une relation d'équivalence.\\
 
@@ -1141,15 +1150,27 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
   Considérons les applications $$\begin{tabular}[t]{lclc}
  $+$&$:(S\times A)\times (S\times A)$&$\rightarrow$&$S^{-1}A$\\
  &$((s,a),(t,b))$&$\rightarrow$&$(ta+sb)/(st)$
- \end{tabular},\;\; \begin{tabular}[t]{lclc}
+ \end{tabular} $$ et $$\begin{tabular}[t]{lclc}
  $\cdot $&$:(S\times A)\times (S\times A)$&$\rightarrow$&$S^{-1}A$\\
  &$((s,a),(t,b))$&$\rightarrow$&$(ab)/(st)$
  \end{tabular}$$
  Si $(s,a)\sim (s',a')$, $(t,b)\sim (t',b')$ \textit{i.e.} il existe $s'',t''\in S$ tels que $s''(s'a-sa')=0$, $t''(t'b-tb')=0$. Comme $s''t''\in S$ par multiplicativité, on a 
-  
- $$s''t''(s't'(ta+sb)-st(t'a'+s'b'))=s'' s'a'tt't''-t'bss's''-s''t''st(t'a'+s'b')=s'' sa''tt't''-tb'ss's''-s''t''st(t'a'+s'b')=0$$
+ 
+ % align permet d'aligner les équations les unes après les autres
+ % * permet de ne pas numéroter les équations de chaque ligne
+ \begin{align*}
+	s''t''(s't'(ta+sb)-st(t'a'+s'b')) &= s'' s'a'tt't''-t'bss's''-s''t''st(t'a'+s'b') \\
+	&= s'' sa''tt't''-tb'ss's''-s''t''st(t'a'+s'b') \\
+	&=0.
+ \end{align*}
  et
- $$s''t''(s't'ab-sta'b')=s''s'at''t'b-s''sa't''tb'=s''sa't''t'b-s''sa't''tb'=s''sa't''(t'b-tb')=0.$$
+ \begin{align*}
+	s''t''(s't'ab-sta'b') &=s''s'at''t'b-s''sa't''tb' \\
+	&=s''sa't''t'b-s''sa't''tb' \\
+	&=s''sa't''(t'b-tb') \\
+	&=0.
+ \end{align*}
+
  Cela montre que les applications $+,\cdot :(S\times A)\times (S\times A) \rightarrow S^{-1}A$  se factorisent en 
  $$\xymatrix{(S\times A)\times (S\times A) \ar[r]^{+,\cdot}\ar[d]_{-/-\times -/-}& S^{-1}A\\
  S^{-1}A\times S^{-1}A\ar[ur]_{+,\cdot}&} $$
@@ -1159,7 +1180,7 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
  \end{tabular}$$
  est un morphisme d'anneaux de noyau $\ker(\iota_S)=\lbrace a\in A\; |\; \exists s\in S, \; sa=0\rbrace$. En particulier, si $A$ est intègre (ou plus généralement si $S$ ne contient pas d'éléments de torsion), $ \iota_S:  A\rightarrow S^{-1}A$ est injectif. De plus, $\iota_S(S)\subset (S^{-1}A)^\times$ puisque $s/1\cdot 1/s=s/s=1/1$. \\
  
- \subsection{}\label{LocUniv}\textbf{Lemme.} (Propriété universelle de la localisation) \textit{Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$  il existe un morphisme d'anneaux $\iota_S:A\rightarrow F$ tel que $\iota(S)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(S)\subset B^\times $, il  existe un unique morphisme d'anneaux $ phi_S:F\rightarrow B$ tel que $\phi=  \phi_S\circ \iota_S$.}\\
+ \subsection{Propriété universelle}\label{LocUniv}\textbf{Lemme.} (Propriété universelle de la localisation) \textit{Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$  il existe un morphisme d'anneaux $\iota_S:A\rightarrow F$ tel que $\iota(S)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(S)\subset B^\times $, il  existe un unique morphisme d'anneaux $ \phi_S:F\rightarrow B$ tel que $\phi=  \phi_S\circ \iota_S$.}\\
  
  
   Plus visuellement,
