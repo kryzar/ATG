@@ -1180,13 +1180,15 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
  \end{tabular}$$
  est un morphisme d'anneaux de noyau $\ker(\iota_S)=\lbrace a\in A\; |\; \exists s\in S, \; sa=0\rbrace$. En particulier, si $A$ est intègre (ou plus généralement si $S$ ne contient pas d'éléments de torsion), $ \iota_S:  A\rightarrow S^{-1}A$ est injectif. De plus, $\iota_S(S)\subset (S^{-1}A)^\times$ puisque $s/1\cdot 1/s=s/s=1/1$. \\
  
- \subsection{Propriété universelle}\label{LocUniv}\textbf{Lemme.} (Propriété universelle de la localisation) \textit{Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$  il existe un morphisme d'anneaux $\iota_S:A\rightarrow F$ tel que $\iota(S)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(S)\subset B^\times $, il  existe un unique morphisme d'anneaux $ \phi_S:F\rightarrow B$ tel que $\phi=  \phi_S\circ \iota_S$.}\\
+ \subsection{Propriété universelle}\label{LocUniv}\textbf{Lemme.} (Propriété universelle de la localisation) \textit{Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$  il existe un anneau $F$ et morphisme d'anneaux $\iota_S:A\rightarrow F$ tel que $\iota(S)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(S)\subset B^\times $, il  existe un unique morphisme d'anneaux $ \phi_S:F\rightarrow B$ tel que $\phi=  \phi_S\circ \iota_S$.}\\
  
  
   Plus visuellement,
- $$\xymatrix{S\ar[r]^\phi\ar@{_{(}->}[d]&B^\times\ar@{_{(}->}[d]\\
- A\ar[r]^{\forall\phi}\ar@{_{(}->}[d]_{\iota_S}&B\\
- F\ar@{.>}[ur]_{\exists ! \phi_S}}$$
+	$$\xymatrix{
+		S\ar[r]^\phi\ar@{_{(}->}[d]&B^\times\ar@{_{(}->}[d] \\
+		A\ar[r]^{\forall\phi}\ar@{_{(}->}[d]_{\iota_S}&B \\
+		F\ar@{.>}[ur]_{\exists ! \phi_S}}
+	$$
 
  \begin{proof} Montrons que  $S^{-1}A$ muni de la structure d'anneau ci-dessus et le morphisme canonique $\iota_S:A\rightarrow S^{-1}A$ conviennent. Soit $\phi:A\rightarrow B$  un morphisme d'anneaux tel que $\phi(S)\subset B^\times$.  Si $\phi_S:S^{-1}A\rightarrow B$ existe la relation $\phi=  \phi_S\circ \iota_S$ impose que  $\tilde{\phi}:S^{-1}A\rightarrow B$ est unique puisqu'on doit nécessairement avoir 
  $$\phi_S(A/s)=\phi_S((a/1)(1/s))=\phi_S(a/1)\phi_S((s/1)^{-1})=\phi(a)\phi(s)^{-1},\; (s,a)\in S\times A.$$
@@ -1223,12 +1225,23 @@ Par construction $\phi=  \phi_S\circ \iota_S$ et on vérifie que $\phi_S:S^{-1}A
 
  \subsection{}\label{LocMorphismes}Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $S\subset A$, $T\subset B$ des parties multiplicatives telles que $\phi(S)\subset T$. On a en particulier $\iota_T\circ \phi(S)\subset \iota_T(T)\subset (T^{-1}B)^\times$ donc par propriété universelle de $\iota_S:A\rightarrow S^{-1}A$ il existe un unique morphisme d'anneaux $\tilde{\phi}:S^{-1}A\rightarrow T^{-1}B$ tel que $\iota_T\circ \phi=\tilde{\phi}\circ \iota_S$; explicitement $\tilde{\phi}(a/s)=\phi(a)/\phi(s)$ dans $T^{-1}B$. Si $\phi:A\rightarrow B$, $\psi:B\rightarrow C$ sont des morphismes d'anneaux et $S\subset A$, $T\subset B$, $U\subset C$ des parties multiplicatives telles que $\phi(S)\subset T$, $\psi(T)\subset U$, on a $S^{-1}(\psi\circ \phi)=(\tilde{\phi})\circ (T^{-1}\psi)$. \\
 
+	$$\xymatrix{
+		A \ar[r]^\phi \ar@{^{(}->}[d]_{\iota_S} & B \ar@{^{(}->}[d]^{\iota_T} \\
+		S^{-1}A \ar[r]^{\tilde{\phi}} & T^{-1}B 
+	}$$
+
 \textbf{Exemple.} 
 
 \begin{enumerate}
-\item Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $\frak{q}\subset spec(B)$. On a alors $\frak{p}:=\phi^{-1}(\frak{q})\in spec(A)$ et $\phi(A\setminus \frak{p})\subset B\setminus \frak{q}$ donc $\phi:A\rightarrow B$ induit un morphisme d'anneaux canonique $\phi_\frak{p}:A_{\frak{p}}\rightarrow B_{\frak{q}}$. 
- \item Si $A$ est intègre,  $\lbrace 0\rbrace\in spec(A)$ et pour toute partie multiplicative $S\subset A\setminus \lbrace 0\rbrace$, en appliquant ce qui précède à $\phi=Id:A\rightarrow A$, $S=S$, $T=A\setminus \lbrace 0\rbrace$, on obtient un morphisme canonique $\phi:S^{-1}A\rightarrow A_{\lbrace 0\rbrace}=Frac(A)$ dont on vérifie immédiatement qu'il est injectif. 
+\item Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $\frak{q}\subset \Spec(B)$. On a alors $\frak{p}:=\phi^{-1}(\frak{q})\in \Spec(A)$ et $\phi(A\setminus \frak{p})\subset B\setminus \frak{q}$ donc $\phi:A\rightarrow B$ induit un morphisme d'anneaux canonique $\phi_\frak{p}:A_{\frak{p}}\rightarrow B_{\frak{q}}$. 
+ \item Si $A$ est intègre,  $\lbrace 0\rbrace\in \Spec(A)$ et pour toute partie multiplicative $S\subset A\setminus \lbrace 0\rbrace$, en appliquant ce qui précède à $\phi=Id:A\rightarrow A$, $S=S$, $T=A\setminus \lbrace 0\rbrace$, on obtient un morphisme canonique $\phi:S^{-1}A\rightarrow A_{\lbrace 0\rbrace}=\Frac(A)$ dont on vérifie immédiatement qu'il est injectif. 
 \end{enumerate}
+
+	$$ \xymatrix{
+		A \ar@{^{(}->>}[r]^{\mathrm{Id} } \ar@{^{(}->}[d]_{\iota_S} & A \ar@{^{(}->}[d]^{\iota_T} \\
+		S^{-1}A \ar@{^{(}->}[r]^{\tilde{\mathrm{Id} } } & \mathrm{Frac}(A) }
+	$$
+
 \section{Idéaux}\label{LocIdeal} 
 
  Soit $S\subset A$ une partie multiplicative. Pour un sous-ensemble $X\subset A$, notons $$S^{-1}X:=\lbrace  a/s\;|\; a\in X,\; s\in S\rbrace \subset S^{-1}A. $$
