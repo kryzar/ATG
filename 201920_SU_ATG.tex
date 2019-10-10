@@ -29,6 +29,9 @@
 \setcounter{secnumdepth}{6}
 
 \makeindex
+% taille par défaut pour les lignes et colonnes
+% des diagrammes commutatifs faits avec xymatrix
+\xymatrixrowsep{50px}\xymatrixcolsep{50px}
 
 % remplacement des \newcommand par des \DeclaraMathOperator
 % c'est plus adapté
@@ -177,7 +180,7 @@ On remarquera que l'application identité $Id:A\rightarrow A$ est un morphisme d
 \subsection{}Soit $A$ un anneau commutatif. Une $A$-algèbre\index{Algèbre sur un anneau commutatif} est un couple $(B,\phi)$ où $B$ est  un anneau et  $\phi:A\rightarrow B$ est un morphisme d'anneaux tel que $\hbox{\rm im}(\phi)\subset Z(B)$.   On notera en général $\phi:A\rightarrow B$ ou simplement  (lorsque la donnée de $\phi:A\rightarrow B$ ne peut prêter à confusion) $B$  la $A$-algèbre $(B,\phi)$.
 Étant données deux $A$-algèbres $\phi_B:A\rightarrow B$, $\phi_C:A\rightarrow C$, un morphisme de $A$-algèbres est un morphisme d'anneaux $\phi:B\rightarrow C$ tel que $\phi\circ \phi_B=\phi_C$.
 
-	$$ \xymatrix{ & B \ar[dd]^\Phi \\ A \ar[ru]^{\Phi_B} \ar[rd]_{\Phi_C} \\ & C } $$
+$$ \resizebox{120px}{!}{\xymatrix{ & B \ar[dd]^\Phi \\ A \ar[ru]^{\Phi_B} \ar[rd]_{\Phi_C} \\ & C }} $$
 
 On remarquera que l'application identité $Id:B\rightarrow B$ est un morphisme de $A$-algèbres et que si $\phi:B\rightarrow C$ et $\psi:C\rightarrow D$ sont des morphismes de $A$-algèbres alors $\psi\circ \phi:B\rightarrow D$ est un morphisme de $A$-algèbres. On notera $Hom_A(B,C)$ l'ensemble des morphismes de $A$-algèbres $\phi:B\rightarrow C$ et, si $B=C$, $End_A(B):=Hom_A(B,C)$. On dit encore qu'un morphisme de $A$-algèbres $\phi:B\rightarrow C$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est  injective (resp. surjective, resp. bijective). On vérifie que si $\phi:B\rightarrow C$ est un isomorphisme de $A$-algèbres l'application inverse $\phi^{-1}:C\rightarrow B$ est automatiquement un morphisme de $A$-algèbres.\\
 
@@ -212,7 +215,7 @@ On a alors $0 =(0_{A_i})_{i\in I}$, $1 =(1_{A_i})_{i\in I}$. De plus, les projec
 
 \ref{Produit}.1 \textbf{Lemme.} (Propriété universelle du produit) \textit{Pour toute famille d'anneaux $A_i$, $i\in I$ il existe un anneau $\Pi$ et une famille de morphisme d'anneaux $p_i:\Pi\rightarrow A_i$, $i\in I$ tels que pour tout anneau $A$ et famille de morphisme d'anneaux $\phi_i:A\rightarrow A_i$, $i\in I$, il existe un unique morphisme d'anneaux $\phi:A\rightarrow \Pi$ tel que $p_i\circ \phi=\phi_i$, $i\in I$. }
 
-	$$ \xymatrix{ A \ar[rr]^{\Phi_i} \ar[rd]_\Phi && A_i \\ & \Pi  \ar[ru]_{p_i}} $$
+	$$ \xymatrix@=80px{ A \ar[rr]^{\Phi_i} \ar[rd]_\Phi && A_i \\ & \Pi  \ar[ru]_{p_i}} $$
 
 \begin{proof} Vérifions que $\Pi:= \prod_{i\in I}A_i$ et les $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $\underline{a}\rightarrow a_i$, $i\in I$ conviennent. Si $\phi:A\rightarrow \prod_{i\in I}A_i$ existe, la condition $p_i\circ \phi =\phi_i$, $i\in I$ force  
 $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$. Cela montre l'unicité de $\phi$  sous réserve de son existence. Pour conclure, il faut vérifier que $\phi$ défini par  $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$ est bien un morphisme d'anneaux, ce qui résulte immédiatement des définitions.
