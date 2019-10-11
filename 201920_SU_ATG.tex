@@ -1,7 +1,7 @@
 \documentclass[a4paper, oneside, 12pt]{book}
 \usepackage[utf8]{inputenc} % permet d'écrire é et non é, par exemple
 \usepackage[french]{babel}
-\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=3.5cm]{geometry}
+\usepackage[left=2cm, right=2cm, bottom=3.5cm, top=3.5cm]{geometry}
 \usepackage{graphicx,epsfig}
 \usepackage{color}
 \usepackage{amssymb}
@@ -14,6 +14,28 @@
 \usepackage[hidelinks]{hyperref} % liens cliquables
 
 % Ici sont définis les ennvironnements permettant d'écrire des énoncés (théorèmes, définitions, etc.)
+% on définit d'abord le style de ces environnements :
+
+\newtheoremstyle{theoremeStyle}
+	{2em} % Space above
+	{2em} % Space below
+	{} % Body font
+	{} % Indent amount
+	{\bfseries} % Theorem head font
+	{.} % Punctuation after theorem head
+	{.5em} % Space after theorem head
+	{} % Theorem head spec (can be left empty, meaning `normal')
+\newtheoremstyle{definition}
+	{\topsep} % Space above
+	{2em} % Space below
+	{} % Body font
+	{} % Indent amount
+	{\bfseries} % Theorem head font
+	{.} % Punctuation after theorem head
+	{.5em} % Space after theorem head
+	{} % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{theoremeStyle}
 \newtheorem{theoreme}{Théorème}[subsection] % pour avoir une numérotation lisible
 \newtheorem{lemme}[theoreme]{Lemme}
 \newtheorem{proposition}[theoreme]{Proposition}
@@ -24,9 +46,11 @@
 \newtheorem{remarque}[theoreme]{Remarque}
 \newtheorem{enonce}[theoreme]{Enoncé}
 \newtheorem{exemple}[theoreme]{Exemple}
+\newtheorem{exemples}[theoreme]{Exemples}
 \newtheorem{probleme}[theoreme]{Problème}
 \newtheorem{conjecture}[theoreme]{Conjecture}
 \newtheorem{exercice}[theoreme]{Exercice}
+\newtheorem{exercices}[theoreme]{Exercices}
 
 \usepackage{makeidx}
 \setcounter{secnumdepth}{6}
@@ -598,7 +622,7 @@ dont le noyau $\mathcal{R}_A:=\ker(p_{prem})=\displaystyle{\bigcap_{\frak{p}\in 
 
 \begin{proof} Vérifions d'abord que $\mathcal{N}_A\subset A$ est un idéal. Pour tout $a,b \in \mathcal{N}_A$, il existe des entiers $m,n\geq 1$ tel que $a^m=b^n=0$. Donc, par la formule du binôme de Newton $$(a-b)^{m+n-1}=\sum_{0\leq k\leq m+n-1}\binom{k}{m+n-1}(-1)^{m+n-k-1}a^kb^{m+n-k}=0$$
 puisque, si $k<m$, $m+n-k-1>n-1$ donc $m+n-k-1\geq n$.  On a aussi pour tout $\alpha\in A$ $(\alpha a)^m=\alpha^m a^m=0$.\\
-\indent Pour tout morphime d'anneaux $\phi:A\rightarrow B$ on a $\phi(\mathcal{N}_A)\subset \mathcal{N}_B$. En particulier, si $B$ est un anneau intègre, $\mathcal{N}_A\subset \ker(\phi)$. En appliquant cette observation aux projections canoniques $p_\frak{p}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in spec(A)$, on en déduit l'inclusion $\mathcal{N}_A\subset \mathcal{R}_A$. Inversement, soit $a\notin \mathcal{N}_A$; on veut montrer que $a\notin \mathcal{R}_A$ \ie{} il existe $\frak{p}\in spec(A)$ tel que $a\notin\frak{p}$ (ce qui équivaut aussi à $a^n\notin \frak{p}$ pour n'importe quel entier $n\geq 1$). Notons $X_a:=\lbrace a^n\;|\; n\in \Z_{\geq 1}\rbrace $ l'ensemble des puissances de $a$. On a par hypothèse $0\notin X_a$ donc l'ensemble $\Sigma_a\subset \mathcal{I}_A$ des idéaux $I\subset A$ tels que $X_a\cap I=\emptyset$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. On vérifie immédiatement que $(\Sigma_a,\subset)$ est ordonné inductif donc, par le Lemme de Zorn, possède un élément maximal $I\in \Sigma_a$. Puisque  $a\notin I$, il suffit de montrer que $I$ est premier \ie{} que $A/I$ est intègre. Notons $\overline{a}$  l'image de $a$ dans $A/I$. Par définition de $I$, $0\notin X_{\overline{a}}$ mais  pour tout idéal $\lbrace 0\rbrace\subsetneq \overline{J}\subset A/I$, $X_{\overline{a}}\cap \overline{J}\not=\emptyset$. En particulier, pour tout $0\not=\overline{b}\in A/I$, il existe $n_b\geq 1$ tel que $\overline{a}^{n_b}\in (A/I)\overline{b}$ donc pour tout $0\not=\overline{b}, \overline{b'}\in A/I$, $\overline{a}^{n_bn_{b'}}\in (A/I)\overline{b} \overline{b'}$ donc  $\overline{b} \overline{b'}\not= 0$. \end{proof}
+\indent Pour tout morphime d'anneaux $\phi:A\rightarrow B$ on a $\phi(\mathcal{N}_A)\subset \mathcal{N}_B$. En particulier, si $B$ est un anneau intègre, $\mathcal{N}_A\subset \ker(\phi)$. En appliquant cette observation aux projections canoniques $p_\frak{p}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in spec(A)$, on en déduit l'inclusion $\mathcal{N}_A\subset \mathcal{R}_A$. Inversement, soit $a\notin \mathcal{N}_A$; on veut montrer que $a\notin \mathcal{R}_A$ \ie{} il existe $\frak{p}\in spec(A)$ tel que $a\notin\frak{p}$ (ce qui équivaut aussi à $a^n\notin \frak{p}$ pour n'importe quel entier $n\geq 1$). Notons $X_a:=\lbrace a^n\;|\; n\in \Z_{\geq 1}\rbrace $ l'ensemble des puissances de $a$. On a par hypothèse $0\notin X_a$ donc l'ensemble $\Sigma_a\subset \mathcal{I}_A$ des idéaux $I\subset A$ tels que $X_a\cap I=\varnothing$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. On vérifie immédiatement que $(\Sigma_a,\subset)$ est ordonné inductif donc, par le Lemme de Zorn, possède un élément maximal $I\in \Sigma_a$. Puisque  $a\notin I$, il suffit de montrer que $I$ est premier \ie{} que $A/I$ est intègre. Notons $\overline{a}$  l'image de $a$ dans $A/I$. Par définition de $I$, $0\notin X_{\overline{a}}$ mais  pour tout idéal $\lbrace 0\rbrace\subsetneq \overline{J}\subset A/I$, $X_{\overline{a}}\cap \overline{J}\not=\varnothing$. En particulier, pour tout $0\not=\overline{b}\in A/I$, il existe $n_b\geq 1$ tel que $\overline{a}^{n_b}\in (A/I)\overline{b}$ donc pour tout $0\not=\overline{b}, \overline{b'}\in A/I$, $\overline{a}^{n_bn_{b'}}\in (A/I)\overline{b} \overline{b'}$ donc  $\overline{b} \overline{b'}\not= 0$. \end{proof}
 
 \textbf{Exercice.}
      \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
@@ -731,7 +755,7 @@ $r=0$ ou $r\not=0$ et $\sigma(r)<\sigma(a)$.
 \section{Exemples}\label{Ex}\textbf{ } \\
 
     \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-     \item  La valeur absolue usuelle   $|-|:\Z\setminus\lbrace 0\rbrace\rightarrow \N$ sur $\Z$ est un stathme euclidien. En effet, pour tout $0\not= a,b\in \Z$ notons $R:=\lbrace b-qa\;|\; q\in \Z\rbrace $. On a évidemment $R\cap\N\not=\emptyset$  donc on peut poser $r:=\hbox{\rm min} R\cap\N$. Par définition de $R$, $b=qa+r$ et si $|a|\leq  r$ on aurait $r-|a|\in R$: contradiction.  \\
+     \item  La valeur absolue usuelle   $|-|:\Z\setminus\lbrace 0\rbrace\rightarrow \N$ sur $\Z$ est un stathme euclidien. En effet, pour tout $0\not= a,b\in \Z$ notons $R:=\lbrace b-qa\;|\; q\in \Z\rbrace $. On a évidemment $R\cap\N\not=\varnothing$  donc on peut poser $r:=\hbox{\rm min} R\cap\N$. Par définition de $R$, $b=qa+r$ et si $|a|\leq  r$ on aurait $r-|a|\in R$: contradiction.  \\
 
 \item \textbf{Algèbres de polynômes sur un anneau intègre.} Soit $A$ un anneau commutatif et $r\geq 1$ un entier. La $A$-algèbre $A[X_1,\dots, X_r]$ n'est  euclidienne  que si $A$ est un corps et $r=1$ mais, lorsque $A$ est intègre, elle se comporte presque comme un anneau euclidien.  
 
@@ -868,7 +892,7 @@ et que, $\nu(p)>\mu(p)$ pour un certain $p\in \mathcal{P}_A$. Comme $A$ est int�
 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item Montrons d'abord que tout idéal premier est principal: si $\lbrace 0\rbrace\subsetneq \frak{p}\subsetneq A$ est premier, il contient un élément $0\not=a\notin A^\times$. Comme $a$ est factoriel, on peut écrire $a=u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$. Comme $A/\frak{p}$ est intègre, il existe au moins un $p\in \mathcal{P}_A$ tel que $v_p(a)\geq 1$ et  $\bar{p}=0$ \ie{} $p\in \frak{p}$. En particulier $Ap\subset \frak{p}$. Mais comme $A$ est factoriel, $Ap \in spec(A)$ et comme $spm(A)=spec(A)$ par hypothèse, $Ap=\frak{p}$.\\
-\item Soit maintenant $\mathcal{E}$ l'ensemble des idéaux de $A$ qui ne sont pas principaux. Supposons $\mathcal{E}\not=\emptyset$; comme $(\mathcal{E},\subset)$ est un ensemble ordonné inductif, le Lemme de Zorn assure qu'il possède un élément  $0\subsetneq I\subsetneq A$  maximal pour $\subset$. Toujours par le Lemme de Zorn , $I$  est contenu dans un idéal maximal $\frak{m}$, dont on sait qu'il est principal $\frak{m}=Ap$. Introduisons l'ensemble
+\item Soit maintenant $\mathcal{E}$ l'ensemble des idéaux de $A$ qui ne sont pas principaux. Supposons $\mathcal{E}\not=\varnothing$; comme $(\mathcal{E},\subset)$ est un ensemble ordonné inductif, le Lemme de Zorn assure qu'il possède un élément  $0\subsetneq I\subsetneq A$  maximal pour $\subset$. Toujours par le Lemme de Zorn , $I$  est contenu dans un idéal maximal $\frak{m}$, dont on sait qu'il est principal $\frak{m}=Ap$. Introduisons l'ensemble
 $$J:=\lbrace a\in A\;|\; ap\in I\rbrace $$
 Puisque $I$ est un idéal, $I\subset J$ et $J $ est un idéal de $A$. De plus $I=Jp$. Par définition de $J$ on a $Jp\subset I$ et, inversement, puisque $I\subset Ap$, tout $a\in I$ sécrit sous la forme $a=bp$ avec, par définition de $J$, $b\in J$. Si $I\subsetneq J$, par maximalité de $I$ on aurait $J=Aa$ donc $I=Aap$, ce qui contredit $I\in\mathcal{E}$. Donc $I=J$. Ce qui signifie que la multiplication par $p$ induit une bijection (rappelons que $A$ est intègre) $-\cdot p:I\tilde{\rightarrow} I$. Cela contredit la factorialité de $A$. En effet, si $0\not=a\in I$, on peut écrire $a=p^{v_p(a)}b$ avec $v_p(b)=0$. Mais   par définition de $J$, $p^{v_p(a)-1}b\in J=I=pI$ $\Rightarrow$ $p^{v_p(a)-2}b\in J=I=pI$ $\Rightarrow$ $...$ $\Rightarrow$ $b\in J=I=pI$ $\Rightarrow$ $v_p(b)\geq 1$.
 \end{itemize}
@@ -1074,7 +1098,8 @@ avec $u\in A^\times$ et comme $F$ est par définition non inversible et ne peut 
 % utilisation de \{ et \} plutôt que \rbrace et \lbrace
 % \iff (if and only if) pour l'équivalence
 % utilisation des environnements
-\subsection{}
+
+\subsection{Définitions et anneaux de valuation discrète}
 % \label{ValDef}Une \textit{valuation}\index{Valuation discrète} (de rang $1$) sur $K$ est une application surjective\footnote{On fait cette hypothèse par commodité. Il suffit en fait de supposer que $v:K\rightarrow \overline{\Z}$ est non nulle; on peut alors se ramener au cas surjectif en utilisant que  tout sous groupe non-nul de $\Z$ est isomorphe à $\Z$.}
 %  $v:K\rightarrow \overline{\Z}$  qui vérifie
 % \begin{enumerate}
@@ -1138,7 +1163,7 @@ On dit qu'un anneau de la forme $A_v$ est un \textit{anneau de valuation discrè
 % \end{enumerate}
 
 
-\subsection{}
+\subsection{Factorialité}
 % remarque placée dans un environnement
 % le tilde avant ; permet l'ajout d'une espace insécable fine
 \begin{remarque}
@@ -1193,23 +1218,33 @@ implique, par évaluation en chacune des $v\in\mathcal{V}$ et en utilisant (\ref
 
  
 \chapter{Localisation, anneaux de fractions.}\textit{}\\
- On va maintenant généraliser la construction du corps des fractions d'un anneau intègre à des anneaux non nécessairement intègre. Soit $A$ un anneau commutatif non réduit $\{0\}$. 
+ On va maintenant généraliser la construction du corps des fractions d'un anneau intègre à des anneaux non nécessairement intègre. Soit $A$ un anneau commutatif non réduit à $\{0\}$. 
 
 \section{Localisations}
 
 \subsection{Parties multiplicatives}
 
-Une \textit{partie multiplicative} de $A$ est un sous-ensemble $S\subset A\setminus\lbrace 0\rbrace$ stable par multiplication et contenant $1$. \\
+\begin{definition}
+	Une \textit{partie multiplicative} de $A$ est un sous-ensemble $S\subset A\setminus\lbrace 0\rbrace$ stable par multiplication et contenant $1$.
+\end{definition}
 
-\label{LocEx1}\textbf{Exemples.}\\
-\ref{LocEx1}.1 $S:=A\setminus A_{\mathrm{tors}}$; en particulier, si $A$ est intègre, $S:=A\setminus\lbrace 0\rbrace$;\\
+% \label{LocEx1}\textbf{Exemples.}\\
+% \ref{LocEx1}.1 $S:=A\setminus A_{\mathrm{tors}}$; en particulier, si $A$ est intègre, $S:=A\setminus\lbrace 0\rbrace$;\\
 
-\ref{LocEx1}.2 Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$, $S_a:=\lbrace a^n\;|\; n\in\N\rbrace$;\\
+% \ref{LocEx1}.2 Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$, $S_a:=\lbrace a^n\;|\; n\in\N\rbrace$;\\
 
-\ref{LocEx1}.3 Pour $\frak{p}\in \Spec(A)$, $S_{\frak{p}}:=A\setminus \frak{p}$.
+% \ref{LocEx1}.3 Pour $\frak{p}\in \Spec(A)$, $S_{\frak{p}}:=A\setminus \frak{p}$.
 
+\begin{exemples}
+	\begin{itemize}
+		\item $S:=A\setminus A_{\mathrm{tors}}$; en particulier, si $A$ est intègre, $S:=A\setminus\lbrace 0\rbrace$;
+		\item Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$, $S_a:=\lbrace a^n\;|\; n\in\N\rbrace$;
+		\item Pour $\frak{p}\in \Spec(A)$, $S_{\frak{p}}:=A\setminus \frak{p}$.
+	\end{itemize}
+\end{exemples}
 
-\subsection{Définition}\label{LocDef} Soit $S\subset A\setminus\lbrace 0\rbrace$ une partie multiplicative. On munit le produit ensembliste $S\times A$ de la relation $\sim $ définie par: pour tout $(s,a),(s',a')\in S\times A$, $(s,a)\sim (s',a')$ s'il existe $s''\in S$ tel que $s''(s'a-sa')=0$. \\
+\subsection{Définition}
+	\label{LocDef} Soit $S\subset A\setminus\lbrace 0\rbrace$ une partie multiplicative. On munit le produit ensembliste $S\times A$ de la relation $\sim $ définie par: pour tout $(s,a),(s',a')\in S\times A$, $(s,a)\sim (s',a')$ s'il existe $s''\in S$ tel que $s''(s'a-sa')=0$. \\
 
  On vérifie que $\sim$ est une relation d'équivalence. On remarquera que si $A$ est intègre, on peut, dans la définition de $\sim$, simplifier par $s''$ et la relation $\sim$ devient simplement $(s,a),(s',a')\in S\times A$, $(s,a)\sim (s',a')$ si $s'a-sa'=0$.  Mais on prendra garde que si $A$ n'est pas intègre,  la relation $(s,a)\sim (s',a')$ si $s'a-sa'=0$ n'est pas transitive donc ne définit pas une relation d'équivalence.\\
 
@@ -1256,7 +1291,10 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
  \end{tabular}$$
  est un morphisme d'anneaux de noyau $\ker(\iota_S)=\lbrace a\in A\; |\; \exists s\in S, \; sa=0\rbrace$. En particulier, si $A$ est intègre (ou plus généralement si $S$ ne contient pas d'éléments de torsion), $ \iota_S:  A\rightarrow S^{-1}A$ est injectif. De plus, $\iota_S(S)\subset (S^{-1}A)^\times$ puisque $s/1\cdot 1/s=s/s=1/1$. \\
  
- \subsection{Propriété universelle}\label{LocUniv}\textbf{Lemme.} (Propriété universelle de la localisation) \textit{Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$  il existe un anneau $F$ et morphisme d'anneaux $\iota_S:A\rightarrow F$ tel que $\iota(S)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(S)\subset B^\times $, il  existe un unique morphisme d'anneaux $ \phi_S:F\rightarrow B$ tel que $\phi=  \phi_S\circ \iota_S$.}\\
+ \subsection{Propriété universelle}\label{LocUniv}
+	\begin{lemme}[Propriété universelle de la localisation]
+		Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$  il existe un anneau $F$ et morphisme d'anneaux $\iota_S:A\rightarrow F$ tel que $\iota(S)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(S)\subset B^\times $, il  existe un unique morphisme d'anneaux $ \phi_S:F\rightarrow B$ tel que $\phi=  \phi_S\circ \iota_S$.
+	\end{lemme}
  
  
   Plus visuellement,
@@ -1282,32 +1320,40 @@ Par construction $\phi=  \phi_S\circ \iota_S$ et on vérifie que $\phi_S:S^{-1}A
  
   Comme d'habitude, le morphisme d'anneaux  $\iota_S:A\rightarrow S^{-1}A$ est unique à unique isomorphisme près et on dit que  c'est `la' localisation\index{Localisation (Anneau)} de $A$ en $S$. Localiser $A$ en $S$ revient donc à inverser formellement les éléments de $S$.  \\
  
- \subsection{}\label{LocExo1}\textbf{Exercice.} 
- \begin{enumerate}
- \item  Montrer qu'on a un isomorphisme  d'anneaux canonique $S^{-1}(A[X])\tilde{\rightarrow} (S^{-1}A)[X]$.
- \item Soit $p,q$ deux premiers distincts. Déterminer les idéaux premiers $\frak{p}$ de $A:=\Z/pq$ et déterminer dans chaque cas le localisé $(A\setminus \frak{p})^{-1}A$.
- \item Montrer que si $A$ est intègre (resp. réduit, resp. intégralement clos, resp. factoriel) alors $S^{-1}A$ l'est aussi.\\
- \end{enumerate}
+ \begin{exercices}
+	 \begin{enumerate}
+		\item  Montrer qu'on a un isomorphisme  d'anneaux canonique \\ $S^{-1}(A[X])\tilde{\rightarrow} (S^{-1}A)[X]$.
+		 \item Soit $p,q$ deux premiers distincts. Déterminer les idéaux premiers $\frak{p}$ de $A:=\Z/pq$ et déterminer dans chaque cas le localisé $(A\setminus \frak{p})^{-1}A$.
+		 \item Montrer que si $A$ est intègre (resp. réduit, resp. intégralement clos, resp. factoriel) alors $S^{-1}A$ l'est aussi.\\
+	 \end{enumerate}
+ \end{exercices}
  
  
- 
- \subsection{}\label{LocEx2}\textbf{Exemples.}\\
+% \subsection{}\label{LocEx2}\textbf{Exemples.}\\
 
-\ref{LocEx2}.1 On dit que $(A\setminus A_{tors})^{-1}A$ est l'anneau des fractions de $A$. Si $A$ est un anneau intègre, on retrouve le corps  des fractions de $A$. Si $A$ n'est pas intègre, $(A\setminus A_{tors})^{-1}A$ n'est pas un corps (le vérifier sur un exemple).\\
+% \ref{LocEx2}.1 On dit que $(A\setminus A_{tors})^{-1}A$ est l'anneau des fractions de $A$. Si $A$ est un anneau intègre, on retrouve le corps  des fractions de $A$. Si $A$ n'est pas intègre, $(A\setminus A_{tors})^{-1}A$ n'est pas un corps (le vérifier sur un exemple).\\
 
-\ref{LocEx2}.2 Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$ on note $A_a:=S_a^{-1}A $;\\
+% \ref{LocEx2}.2 Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$ on note $A_a:=S_a^{-1}A $;\\
 
-\ref{LocEx2}.3 Pour $\frak{p}\in spec(A)$, on note $A_\frak{p}:=S_{\frak{p}}^{-1}A$. Noter que si $A$ est intègre  $\lbrace 0\rbrace \in spec(A)$ et, dans ce cas, $A_{\lbrace 0\rbrace}=Frac(A)$.\\
+% \ref{LocEx2}.3 Pour $\frak{p}\in spec(A)$, on note $A_\frak{p}:=S_{\frak{p}}^{-1}A$. Noter que si $A$ est intègre  $\lbrace 0\rbrace \in spec(A)$ et, dans ce cas, $A_{\lbrace 0\rbrace}=Frac(A)$.\\
 
- \subsection{}\label{LocMorphismes}Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $S\subset A$, $T\subset B$ des parties multiplicatives telles que $\phi(S)\subset T$. On a en particulier $\iota_T\circ \phi(S)\subset \iota_T(T)\subset (T^{-1}B)^\times$ donc par propriété universelle de $\iota_S:A\rightarrow S^{-1}A$ il existe un unique morphisme d'anneaux $\tilde{\phi}:S^{-1}A\rightarrow T^{-1}B$ tel que $\iota_T\circ \phi=\tilde{\phi}\circ \iota_S$; explicitement $\tilde{\phi}(a/s)=\phi(a)/\phi(s)$ dans $T^{-1}B$. Si $\phi:A\rightarrow B$, $\psi:B\rightarrow C$ sont des morphismes d'anneaux et $S\subset A$, $T\subset B$, $U\subset C$ des parties multiplicatives telles que $\phi(S)\subset T$, $\psi(T)\subset U$, on a $S^{-1}(\psi\circ \phi)=(\tilde{\phi})\circ (T^{-1}\psi)$. \\
+\begin{exemples}
+	\begin{enumerate}
+		\item On dit que $(A\setminus A_{tors})^{-1}A$ est l'anneau des fractions de $A$. Si $A$ est un anneau intègre, on retrouve le corps  des fractions de $A$. Si $A$ n'est pas intègre, $(A\setminus A_{tors})^{-1}A$ n'est pas un corps (le vérifier sur un exemple).
+		\item Pour $a\in A\setminus \sqrt{\lbrace 0\rbrace}$ on note $A_a:=S_a^{-1}A $;
+		\item Pour $\frak{p}\in spec(A)$, on note $A_\frak{p}:=S_{\frak{p}}^{-1}A$. Noter que si $A$ est intègre  $\lbrace 0\rbrace \in spec(A)$ et, dans ce cas, $A_{\lbrace 0\rbrace}=Frac(A)$.
+	\end{enumerate}
+\end{exemples}
+
+\subsection{Morphismes}
+\label{LocMorphismes}Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $S\subset A$, $T\subset B$ des parties multiplicatives telles que $\phi(S)\subset T$. On a en particulier $\iota_T\circ \phi(S)\subset \iota_T(T)\subset (T^{-1}B)^\times$ donc par propriété universelle de $\iota_S:A\rightarrow S^{-1}A$ il existe un unique morphisme d'anneaux $\tilde{\phi}:S^{-1}A\rightarrow T^{-1}B$ tel que $\iota_T\circ \phi=\tilde{\phi}\circ \iota_S$; explicitement $\tilde{\phi}(a/s)=\phi(a)/\phi(s)$ dans $T^{-1}B$. Si $\phi:A\rightarrow B$, $\psi:B\rightarrow C$ sont des morphismes d'anneaux et $S\subset A$, $T\subset B$, $U\subset C$ des parties multiplicatives telles que $\phi(S)\subset T$, $\psi(T)\subset U$, on a $S^{-1}(\psi\circ \phi)=(\tilde{\phi})\circ (T^{-1}\psi)$. \\
 
 	$$\xymatrix{
 		A \ar[r]^\phi \ar@{^{(}->}[d]_{\iota_S} & B \ar@{^{(}->}[d]^{\iota_T} \\
 		S^{-1}A \ar[r]^{\tilde{\phi}} & T^{-1}B 
 	}$$
 
-\textbf{Exemple.} 
-
+\begin{exemples}
 \begin{enumerate}
 \item Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $\frak{q}\subset \Spec(B)$. On a alors $\frak{p}:=\phi^{-1}(\frak{q})\in \Spec(A)$ et $\phi(A\setminus \frak{p})\subset B\setminus \frak{q}$ donc $\phi:A\rightarrow B$ induit un morphisme d'anneaux canonique $\phi_\frak{p}:A_{\frak{p}}\rightarrow B_{\frak{q}}$. 
  \item Si $A$ est intègre,  $\lbrace 0\rbrace\in \Spec(A)$ et pour toute partie multiplicative $S\subset A\setminus \lbrace 0\rbrace$, en appliquant ce qui précède à $\phi=Id:A\rightarrow A$, $S=S$, $T=A\setminus \lbrace 0\rbrace$, on obtient un morphisme canonique $\phi:S^{-1}A\rightarrow A_{\lbrace 0\rbrace}=\Frac(A)$ dont on vérifie immédiatement qu'il est injectif. 
@@ -1317,46 +1363,49 @@ Par construction $\phi=  \phi_S\circ \iota_S$ et on vérifie que $\phi_S:S^{-1}A
 		A \ar@{^{(}->>}[r]^{\mathrm{Id} } \ar@{^{(}->}[d]_{\iota_S} & A \ar@{^{(}->}[d]^{\iota_T} \\
 		S^{-1}A \ar@{^{(}->}[r]^{\tilde{\mathrm{Id} } } & \mathrm{Frac}(A) }
 	$$
-
+\end{exemples}
 \section{Idéaux}\label{LocIdeal} 
 
- Soit $S\subset A$ une partie multiplicative. Pour un sous-ensemble $X\subset A$, notons $$S^{-1}X:=\lbrace  a/s\;|\; a\in X,\; s\in S\rbrace \subset S^{-1}A. $$
+ Soit $S\subset A$ une partie multiplicative. Pour un sous-ensemble $X\subset A$, notons $$S^{-1}X:=\left\{  \frac{a}{s}\;|\; a\in X,\; s\in S\right\} \subset S^{-1}A. $$
 On vérifie immédiatement que si $I\subset A$ est un idéal alors $S^{-1}I\subset S^{-1}A$ est aussi un idéal. On a donc une application bien définie et croissante pour $\subset$
 $$S^{-1}:(\mathcal{I}_A,\subset)\rightarrow (\mathcal{I}_{S^{-1}A},\subset).$$
 Dans l'autre direction on a l'application $$\iota_S^{-1}:(\mathcal{I}_{S^{-1}A},\subset)\rightarrow (\mathcal{I}_A,\subset)$$ induite  par le morphisme de localisation $\iota_S:A\rightarrow S^{-1}A$. 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item Pour $I\subset A$ un idéal, on a 
-$$\iota_S^{-1}S^{-1}I=\lbrace a\in A\;|\; a/1\in S^{-1}I\rbrace= \lbrace a\in A\;|\;  Sa\cap I\not=\emptyset\rbrace=\bigcup_{s\in S}(s\cdot)^{-1}I.$$
-En particulier, $S^{-1}I=S^{-1}A$ (si et seulement si $\iota_S^{-1}S^{-1}I=A$) si et seulement si $S\cap I\not=\emptyset$.\\
+	$$\iota_S^{-1}S^{-1}I=\left\{ a\in A\;|\; \frac{a}{1}\in S^{-1}I\right\} = \lbrace a\in A\;|\;  Sa\cap I\not=\varnothing\rbrace=\bigcup_{s\in S}(s\cdot)^{-1}I.$$
+Où $s\cdot$ est l'application de multiplication par $s$, pour tout $s$ dans $S$. En particulier, $S^{-1}I=S^{-1}A$ (si et seulement si $\iota_S^{-1}S^{-1}I=A$) si et seulement si $S\cap I\not=\varnothing$.\\
 \item Pour $I\subset S^{-1}A$ un idéal, on a 
-$$S^{-1}\iota_S^{-1}I=\lbrace a/s\in S^{-1}I\;|\; a\in \iota_S^{-1}I\rbrace\supset I$$
+	$$S^{-1}\iota_S^{-1}I=\left\{ \frac{a}{s} \in S^{-1}I\;|\; a\in \iota_S^{-1}I\right\}\supset I$$
 et comme  pour tout $a/s\in I$ on a $a/1= (s/1)^{-1}(a/s)\in I$ donc $a\in \iota_S^{-1}I$, on a en fait $S^{-1}\iota_S^{-1}I=I$.\\
  \end{itemize}
  
  On a donc montré: 
  
-\subsection{}\label{LocIdeaux}\textbf{Lemme.} \textit{L'application $S^{-1}:(\mathcal{I}_A,\subset)\rightarrow (\mathcal{I}_{S^{-1}A},\subset) $ est surjective, croissante pour $\subset$ et se restreint en une surjection    $$S^{-1}:\lbrace I\in\mathcal{I}_A\;|\; I\cap S=\emptyset\rbrace \twoheadrightarrow  \mathcal{I}_{S^{-1}A}\setminus \lbrace S^{-1}A\rbrace . $$
+\label{LocIdeaux}\begin{lemme} L'application $S^{-1}:(\mathcal{I}_A,\subset)\rightarrow (\mathcal{I}_{S^{-1}A},\subset) $ est surjective, croissante pour $\subset$ et se restreint en une surjection    $$S^{-1}:\lbrace I\in\mathcal{I}_A\;|\; I\cap S=\varnothing\rbrace \twoheadrightarrow  \mathcal{I}_{S^{-1}A}\setminus \lbrace S^{-1}A\rbrace . $$
 L'application $\iota_S^{-1}:(\mathcal{I}_{S^{-1}A},\subset) \rightarrow  (\mathcal{I}_A,\subset)$ est injective,  croissante pour $\subset$  et induit une bijection  
-$$\iota_S^{-1}:\mathcal{I}_{S^{-1}A} \tilde{\rightarrow} \lbrace I\in\mathcal{I}_A\;|\; I=\bigcup_{s\in S}(s\cdot)^{-1}I\rbrace .$$}
+$$\iota_S^{-1}:\mathcal{I}_{S^{-1}A} \tilde{\rightarrow} \lbrace I\in\mathcal{I}_A\;|\; I=\bigcup_{s\in S}(s\cdot)^{-1}I\rbrace .$$\end{lemme}
 
 
-\subsection{}\textbf{Lemme.} \textit{Les applications $S^{-1}: \mathcal{I}_A \rightarrow  \mathcal{I}_{S^{-1}A}  $ et  $\iota_S^{-1}: \mathcal{I}_{S^{-1}A} \rightarrow \mathcal{I}_A $ se restreignent en des bijections inverses l'une de l'autres
-$$\xymatrix{spec(S^{-1}A) \ar@<1ex>[r]^{\iota_S^{-1}}& \lbrace \frak{p}\in spec(A)\;|\; \frak{p}\cap S=\emptyset\rbrace \ar@<1ex>[l]^{S^{-1}} }$$} 
-\begin{proof} Si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\emptyset$ alors $\frak{p}=\bigcup_{s\in S}(s\cdot)^{-1}\frak{p}$ (si $s\in S$, $a\in \frak{p}$, $sa\in\frak{p}$ implique $a\in\frak{p}$) donc   $\iota_S^{-1}S^{-1}\frak{p}=\frak{p}$. Comme on a toujours $S^{-1}\iota_S^{-1}=Id$, et $\iota_S^{-1}spec(S^{-1}A)\subset spec(A)$, il reste seulement à montrer que si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\emptyset$ alors  $S^{-1}\frak{p}\in spec(S^{-1}A)$. Soit donc $\frak{p}\in spec(A)$ et $a/s,b/t\in S^{-1}A$ tels que $(ab)/(st)\in S^{-1}\frak{p}$ \ie{} il existe $p\in \frak{p}$ et $u,v\in S$ tels que $v(uab-stp)=0$ ou encore $vuab=vstp\in\frak{p}$. Mais comme $\frak{p}\in spec(A)$ et $vu\notin\frak{p}$, on a $ab\in\frak{p}$ donc $a\in\frak{p}$ ou $b\in\frak{p}$.   \end{proof}
+\begin{lemme}Les applications $S^{-1}: \mathcal{I}_A \rightarrow  \mathcal{I}_{S^{-1}A}  $ et  $\iota_S^{-1}: \mathcal{I}_{S^{-1}A} \rightarrow \mathcal{I}_A $ se restreignent en des bijections inverses l'une de l'autres
+% ajout de tirets après les flèches du diagramme et avant le nom des fonctions
+% pour centrer les items
+$$\xymatrix{spec(S^{-1}A) \ar@<1ex>[r]^-{\iota_S^{-1}}& \lbrace \frak{p}\in spec(A)\;|\; \frak{p}\cap S=\varnothing\rbrace \ar@<1ex>[l]^-{S^{-1}} }$$\end{lemme}
+\begin{proof} Si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors $\frak{p}=\bigcup_{s\in S}(s\cdot)^{-1}\frak{p}$ (si $s\in S$, $a\in \frak{p}$, $sa\in\frak{p}$ implique $a\in\frak{p}$) donc   $\iota_S^{-1}S^{-1}\frak{p}=\frak{p}$. Comme on a toujours $S^{-1}\iota_S^{-1}=Id$, et $\iota_S^{-1}spec(S^{-1}A)\subset spec(A)$, il reste seulement à montrer que si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors  $S^{-1}\frak{p}\in spec(S^{-1}A)$. Soit donc $\frak{p}\in spec(A)$ et $a/s,b/t\in S^{-1}A$ tels que $(ab)/(st)\in S^{-1}\frak{p}$ \ie{} il existe $p\in \frak{p}$ et $u,v\in S$ tels que $v(uab-stp)=0$ ou encore $vuab=vstp\in\frak{p}$. Mais comme $\frak{p}\in spec(A)$ et $vu\notin\frak{p}$, on a $ab\in\frak{p}$ donc $a\in\frak{p}$ ou $b\in\frak{p}$.   \end{proof}
 
-\textbf{Exemple.} Si $\frak{p}\in spec(A)$,  $A_{\frak{p}}$ est local d'unique idéal maximal $\frak{p}A_{\frak{p}}$. Le corps $\kappa(\frak{p}):=A_{\frak{p}}/\frak{p}A_{\frak{p}}$ est appelé le corps résiduel de $spec(A)$ en $\frak{p}$. Si on reprend les notations de l'Exemple \ref{LocMorphismes}, le morphisme $\phi:A_{\frak{p}}\rightarrow B_{\frak{q}}$ envoie $\frak{p}$ dans $\frak{q}$ donc induit par passage au quotient un morphisme de corps - nécessairement injectif $\kappa(\frak{p})\hookrightarrow \kappa(\frak{q})$. \\
+	\begin{exemple} Si $\frak{p}\in spec(A)$,  $A_{\frak{p}}$ est local d'unique idéal maximal $\frak{p}A_{\frak{p}}$. Le corps $\kappa(\frak{p}):=A_{\frak{p}}/\frak{p}A_{\frak{p}}$ est appelé le corps résiduel de $spec(A)$ en $\frak{p}$. Si on reprend les notations de l'Exemple \ref{LocMorphismes}, le morphisme $\phi:A_{\frak{p}}\rightarrow B_{\frak{q}}$ envoie $\frak{p}$ dans $\frak{q}$ donc induit par passage au quotient un morphisme de corps - nécessairement injectif $\kappa(\frak{p})\hookrightarrow \kappa(\frak{q})$.\end{exemple}
 
  
-\subsection{}\textbf{Corollaire.} \textit{Si $A$ est noetherien (resp. principal) alors $S^{-1}A$ l'est aussi.}
+	\begin{corollaire}Si $A$ est noetherien (resp. principal) alors $S^{-1}A$ l'est aussi.\end{corollaire}
  
 
-\subsection{}\textbf{Exercice.} 
-\begin{enumerate} 
-\item Soit $\frak{p}\in spec(A)$. Montrer qu'on a un morphisme d'anneaux canonique injectif $A/\frak{p}\rightarrow \kappa(\frak{p})$. Montrer que si $\frak{p}$ est maximal, ce morphisme est un isomorphisme.
-\item Montrer que les localisés d'un anneau principal en ses idéaux premiers sont des anneaux de valuation discrète.
-\item Si $I,J\subset A$ sont des idéaux, montrer que  $S^{-1}(I\cap J)=S^{-1}I\cap S^{-1}J$ et $S^{-1}(I+J)=S^{-1}I+S^{-1}J$. 
-\item  Si $I\subset J$ sont des idéaux et si on note $\overline{S}\subset A/I$ l'image de $S$ \textit{via} la projection canonique $A\twoheadrightarrow A/I$, montrer qu'on a un isomorphisme canonique $$S^{-1}I/S^{-1}J\tilde{\rightarrow}\overline{S}^{-1}(I/J).$$
- \end{enumerate} 
+		\begin{exercices}
+	\begin{enumerate} 
+	\item Soit $\frak{p}\in spec(A)$. Montrer qu'on a un morphisme d'anneaux canonique injectif $A/\frak{p}\rightarrow \kappa(\frak{p})$. Montrer que si $\frak{p}$ est maximal, ce morphisme est un isomorphisme.
+	\item Montrer que les localisés d'un anneau principal en ses idéaux premiers sont des anneaux de valuation discrète.
+	\item Si $I,J\subset A$ sont des idéaux, montrer que  $S^{-1}(I\cap J)=S^{-1}I\cap S^{-1}J$ et $S^{-1}(I+J)=S^{-1}I+S^{-1}J$. 
+	\item  Si $I\subset J$ sont des idéaux et si on note $\overline{S}\subset A/I$ l'image de $S$ \textit{via} la projection canonique $A\twoheadrightarrow A/I$, montrer qu'on a un isomorphisme canonique $$S^{-1}I/S^{-1}J\tilde{\rightarrow}\overline{S}^{-1}(I/J).$$
+	\end{enumerate} 
+		\end{exercices}
  \chapter{Completion (Hors programme)}
  \section{Limites projectives}
  Un système projectif \index{Système Projectif (Ensembles)} d'ensembles est une suite d'applications ensemblistes $$(X_\bullet,\phi_\bullet)\;\; \cdots X_{n+1}\stackrel{\pi_{n+1}}{\rightarrow} X_n\stackrel{\pi_{n }}{\rightarrow}X_{n-1}\stackrel{\pi_{n-1}}{\rightarrow}\cdots \stackrel{\pi_{1}}{\rightarrow}X_0.$$
@@ -2430,7 +2479,7 @@ ce qui impose $k(a_1)=A$ et contredit notre observation préliminaire.
 $$V=V(I)=\lbrace \underline{x}\in \C^n\; |\; P(\underline{x})=0, \; P\in I\rbrace.$$ Notons $\C[V]:=C[X_1,\dots, X_n]/I$. Les propriétés universelles de la $\C$-algèbre des polynômes à $n$ indéterminées et du quotient donnent une bijection canonique 
 $$V\tilde{\rightarrow}\hbox{\rm Hom}_{Alg/\C}(\C[V],\C)$$
 et le Corollaire \ref{Hilbert2}, une bijection canonique  $$\hbox{\rm Hom}_{Alg/\C}(\C[V],\C)\tilde{\rightarrow} spm(\C[V]).$$
-La composée $V\tilde{\rightarrow} spm(\C[V])$ est donnée explicitement par $\underline{x}\rightarrow \ker(ev_{\underline{x}}:\C[X_1,\dots,X_n]\rightarrow \C)/I$. En particulier, comme $\C[V]$ est noetherien,  $spm(\C[V])\not=\emptyset$. Cela montre qu'une sous-variété algébrique affine de $\C^n$ a  toujours un point. En particulier, les idéaux maximaux de $\C[X_1,\dots, X_n]$ sont exactement les $\sum_{1\leq i\leq n}\C[X_1,\dots, X_n](X_i-x_i)$, $\underline{x}\in \C^n$.
+La composée $V\tilde{\rightarrow} spm(\C[V])$ est donnée explicitement par $\underline{x}\rightarrow \ker(ev_{\underline{x}}:\C[X_1,\dots,X_n]\rightarrow \C)/I$. En particulier, comme $\C[V]$ est noetherien,  $spm(\C[V])\not=\varnothing$. Cela montre qu'une sous-variété algébrique affine de $\C^n$ a  toujours un point. En particulier, les idéaux maximaux de $\C[X_1,\dots, X_n]$ sont exactement les $\sum_{1\leq i\leq n}\C[X_1,\dots, X_n](X_i-x_i)$, $\underline{x}\in \C^n$.
 
  \subsection{}\label{Hilbert3}\textbf{Corollaire.} \textit{Soit $A$ une $k$-algèbre de type fini. Alors pour tout idéal $I\subset A$, $\sqrt{I}=\displaystyle{\bigcap_{\frak{m}\in spm(A),\; I\subset \frak{m}}\frak{m}}$.}
  
@@ -2862,9 +2911,9 @@ $$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq deg(P_x)=
       
        Supposons maintenant que $k$  est fini. Le corps $K$ est donc également fini (de cardinal $|k|^{[K:k]}$) et, d'après le Lemme 2 ci-dessous, le groupe multiplicatif $K^\times $ est cyclique. Tout générateur $x$ du groupe $K^\times $  vérifie $K=k(x)$.  \end{proof}
     
-    \textbf{Lemme 1.} \textit{Soit $k$ un corps infini et $V$ un $k$-espace vectoriel de dimension finie. Si $W_1,\dots, W_r\subsetneq V$ sont des sous-$k$-espaces vectoriels stricts, $V\setminus \cup_{1\leq i\leq r}V_i\not=\emptyset$.}
+    \textbf{Lemme 1.} \textit{Soit $k$ un corps infini et $V$ un $k$-espace vectoriel de dimension finie. Si $W_1,\dots, W_r\subsetneq V$ sont des sous-$k$-espaces vectoriels stricts, $V\setminus \cup_{1\leq i\leq r}V_i\not=\varnothing$.}
     
-    \begin{proof}On procède par récurrence sur la $k$-dimension $n$ de $V$. Si $n=1$, c'est immédiat. Si $n\geq 1$, il suffit de montrer l'énoncé dans le cas où les $W_i$, $i=1,\dots, r$ sont des hyperplans deux à deux distincts. Comme $W_1\cap W_i\subsetneq W_1$, par hypothèse de récurrence il existe $w\in W_1\setminus \cup_{2\leq i\leq r}W_1\cap W_i$. Fixons également $v\in V\setminus W_1$ et notons $D:=v+kw\subset V$. Puisque $v\in V\setminus W_1$, $D\cap W_1=\emptyset $ et, pour $i=1,\dots, r$, $ D\cap W_i $ contient au plus un élément  car si $v+aw,v+bw\in W_i$, $(a-b)w\in W_i$ donc, puisque $w\in V\setminus W_i$, $a=b$. Cela montre que $D\cap \cup_{1\leq i\leq r}W_i$ est fini et on conclut en utilisant que $D$ est infini puisque $k$ l'est.    \end{proof}
+    \begin{proof}On procède par récurrence sur la $k$-dimension $n$ de $V$. Si $n=1$, c'est immédiat. Si $n\geq 1$, il suffit de montrer l'énoncé dans le cas où les $W_i$, $i=1,\dots, r$ sont des hyperplans deux à deux distincts. Comme $W_1\cap W_i\subsetneq W_1$, par hypothèse de récurrence il existe $w\in W_1\setminus \cup_{2\leq i\leq r}W_1\cap W_i$. Fixons également $v\in V\setminus W_1$ et notons $D:=v+kw\subset V$. Puisque $v\in V\setminus W_1$, $D\cap W_1=\varnothing $ et, pour $i=1,\dots, r$, $ D\cap W_i $ contient au plus un élément  car si $v+aw,v+bw\in W_i$, $(a-b)w\in W_i$ donc, puisque $w\in V\setminus W_i$, $a=b$. Cela montre que $D\cap \cup_{1\leq i\leq r}W_i$ est fini et on conclut en utilisant que $D$ est infini puisque $k$ l'est.    \end{proof}
     
         \textbf{Lemme 2.} \textit{Soit $k$ un corps. Tout sous-groupe fini $G$ du groupe multiplicatif $k^\times$ est cyclique.}
     
