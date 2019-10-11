@@ -13,22 +13,38 @@
 \usepackage[all, pdftex]{xy}
 \usepackage[hidelinks]{hyperref} % liens cliquables
 
-\newtheorem{theoreme}{Théorème}[paragraph]
+% Ici sont définis les ennvironnements permettant d'écrire des énoncés (théorèmes, définitions, etc.)
+\newtheorem{theoreme}{Théorème}[subsection] % pour avoir une numérotation lisible
 \newtheorem{lemme}[theoreme]{Lemme}
 \newtheorem{proposition}[theoreme]{Proposition}
 \newtheorem{propositiondef}[theoreme]{Proposition-Définition}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\theoremstyle{definition} % les environnements définis ci-dessous utiliserons le style definition
 \newtheorem{definition}[theoreme]{Définition}
 \newtheorem{remarque}[theoreme]{Remarque}
 \newtheorem{enonce}[theoreme]{Enoncé}
-\newtheorem{corollaire}[theoreme]{Corollaire}
 \newtheorem{exemple}[theoreme]{Exemple}
 \newtheorem{probleme}[theoreme]{Problème}
 \newtheorem{conjecture}[theoreme]{Conjecture}
 \newtheorem{exercice}[theoreme]{Exercice}
+
 \usepackage{makeidx}
 \setcounter{secnumdepth}{6}
-
 \makeindex
+
+% En-têtes et pieds de page
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter{} : #1}{}}
+\fancyhead[LO]{\leftmark}
+\fancyhead[CO]{}
+\fancyhead[RO]{\thepage}
+\fancyfoot[LO]{Anna Cadoret}
+\fancyfoot[CO]{}
+\fancyfoot[RO]{Sorbonne université}
+
 % taille par défaut pour les lignes et colonnes
 % des diagrammes commutatifs faits avec xymatrix
 \xymatrixrowsep{50px}\xymatrixcolsep{50px}
@@ -36,6 +52,8 @@
 % remplacement des \newcommand par des \DeclaraMathOperator
 % c'est plus adapté
 % voir https://tex.stackexchange.com/questions/67506/newcommand-vs-declaremathoperator
+
+\newcommand{\ie}{\textit{i.e.}} % il suffit désormais de taper \ie{}
 
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\SH}{H}
@@ -77,15 +95,14 @@
 \maketitle  
 \tableofcontents
  
-     \begin{thebibliography}{99}
-  \bibitem[AM69]{AM} M.F. \textsc{Atiyah} et I.G. \textsc{MacDonald},
-{\it Introduction to Commutative Algebra}, Addison-Wesley,  1969.
+\begin{thebibliography}{99}
+\bibitem[AM69]{AM} M.F. \textsc{Atiyah} et I.G. \textsc{MacDonald},
+  {\it Introduction to Commutative Algebra}, Addison-Wesley,  1969.
 \bibitem[D18]{Dat} J.F. \textsc{Dat}, {\it Algèbre et théorie de Galois}, polycopié de cours disponible sur: https://webusers.imj-prg.fr/~jean-francois.dat/enseignement/AlgebreM1/ATG1718.pdf
- \bibitem[L02]{Lang} S. \textsc{Lang},
-{\it Algebra (3rd ed.)}, G.T.M. \textbf{211}, Springer, 2002.
- \bibitem[S68]{CL} J.P. \textsc{Serre},
-{\it Corps locaux}, Hermann, 1968.
- 
+\bibitem[L02]{Lang} S. \textsc{Lang},
+  {\it Algebra (3rd ed.)}, G.T.M. \textbf{211}, Springer, 2002.
+\bibitem[S68]{CL} J.P. \textsc{Serre},
+  {\it Corps locaux}, Hermann, 1968.
 \end{thebibliography}
 
  \textbf{Remerciements}: Sarah Wajsbrot (promotion 2018-19).\\
@@ -127,7 +144,7 @@ On remarquera que l'application identité $Id:M\rightarrow M$ est un morphisme d
 \begin{enumerate}
 \item $(A,+)$ est un groupe abélien; on note $0_A$ (ou simplement $0$) son élément neutre (appelé zéro) et $-a$ l'inverse d'un élément $a\in A$;
 \item $(A ,\cdot)$ est un monoïde; on note $1_A$ (ou simplement $1$) son élément neutre (appelé unité). 
-\item La multiplication est distributive par rapport à l'addition \textit{i.e.} $a\cdot (b+c)=a\cdot b+a\cdot c$ et $(b+c)\cdot a=b\cdot a+c\cdot a$, $a,b,c\in A$.\\
+\item La multiplication est distributive par rapport à l'addition \ie{} $a\cdot (b+c)=a\cdot b+a\cdot c$ et $(b+c)\cdot a=b\cdot a+c\cdot a$, $a,b,c\in A$.\\
 \end{enumerate}
  Dans la suite, on écrira presque toujours $ab$ au lieu de $a\cdot b$, $0:=0_A$, $1:=1_A$.\\ 
 
@@ -137,7 +154,7 @@ On remarquera que l'application identité $Id:M\rightarrow M$ est un morphisme d
  Un anneau $A$ est dit commutatif si    $a b=ba$, $a,b\in A$. \\
 
 
-\subsection{}Le monoïde $(A ,\cdot)$ n'est pas un groupe en général; on note $A^\times\subset A $ le sous-ensemble des éléments inversibles \textit{i.e.} l'ensemble des $ a\in A$ tel qu'il existe $b\in A$ tel que $ab=1=ba$; c'est un groupe d'élément neutre $1$. On note alors $a^{-1}\in A^\times$ l'inverse d'un élément de $a\in A^\times$.\\
+\subsection{}Le monoïde $(A ,\cdot)$ n'est pas un groupe en général; on note $A^\times\subset A $ le sous-ensemble des éléments inversibles \ie{} l'ensemble des $ a\in A$ tel qu'il existe $b\in A$ tel que $ab=1=ba$; c'est un groupe d'élément neutre $1$. On note alors $a^{-1}\in A^\times$ l'inverse d'un élément de $a\in A^\times$.\\
 
 
  On dit qu'un anneau $A$ est un anneau à division ou un corps gauche si $1\not=0$ et $A\setminus \lbrace 0\rbrace=A^\times$. Si $A$ est de plus commutatif, on dit simplement que $A$ est un corps.\\
@@ -188,7 +205,7 @@ On remarquera que l'application identité $Id:B\rightarrow B$ est un morphisme d
 
 \textbf{Exemples.}
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item Le morphisme caractéristique\index{Caractéristique (Morphisme)} $c_A:\Z\rightarrow A$, $1\rightarrow 1_A$ munit tout anneau $A$ d'une structure de $\Z$-algèbre canonique et tout morphisme d'anneaux $\phi:A\rightarrow B$ est automatiquement un morphisme de $\Z$-algèbres pour ces structures (\textit{i.e.} $\phi\circ c_A=c_B$).   
+\item Le morphisme caractéristique\index{Caractéristique (Morphisme)} $c_A:\Z\rightarrow A$, $1\rightarrow 1_A$ munit tout anneau $A$ d'une structure de $\Z$-algèbre canonique et tout morphisme d'anneaux $\phi:A\rightarrow B$ est automatiquement un morphisme de $\Z$-algèbres pour ces structures (\ie{} $\phi\circ c_A=c_B$).   
 \item L'inclusion $\iota_A: Z(A)\hookrightarrow  A $  munit tout anneau $A$ d'une structure de $Z(A)$-algèbre canonique. 
 \item Si $A,B$ sont des anneaux commutatifs, tout morphisme d'anneaux $\phi:A\rightarrow B$ munit $B$ d'une structure de $A$-algèbre.\\
 \end{itemize}
@@ -388,7 +405,7 @@ $\iota_A:A\rightarrow A[X_1,\dots, X_r]$ et $A\stackrel{\iota_A}{\rightarrow} A[
 
  
   \section{Sous-anneau engendré par une partie} Soit  $A_i\subset A$, $i\in I$ une famille de sous-anneaux. On vérifie immédiatement que $\cap_{i\in I}A_i\subset A$ est un sous-anneau. Pour tout sous-ensemble $X\subset A$, il existe 
-un unique sous-anneau $\langle X\rangle \subset A$, contenant $X$ et minimal pour $\subset$ \textit{i.e.} tel que pour  tout sous-anneau $A'\subset A$,   $X\subset A'$ implique  $\langle X\rangle\subset A'$. On dit que $\langle X\rangle\subset A$ est le sous-anneau de $A$ engendré par $X$.  Explicitement $\langle X\rangle$ est l'intersection de tous les sous-anneaux de $A$ contenant $X$. On peut également décrire $\langle X\rangle$ comme  l'ensemble des sommes finies de produits finis d'éléments de $X$. Si $A=\langle X\rangle$, on dit que $X$ est un système de générateurs de $A$ comme anneau (ou que $A$ est engendré par $X$ comme anneau). Si on peut prendre de plus $X$ fini, on dit que $A$ est un anneau de type fini.\\
+un unique sous-anneau $\langle X\rangle \subset A$, contenant $X$ et minimal pour $\subset$ \ie{} tel que pour  tout sous-anneau $A'\subset A$,   $X\subset A'$ implique  $\langle X\rangle\subset A'$. On dit que $\langle X\rangle\subset A$ est le sous-anneau de $A$ engendré par $X$.  Explicitement $\langle X\rangle$ est l'intersection de tous les sous-anneaux de $A$ contenant $X$. On peut également décrire $\langle X\rangle$ comme  l'ensemble des sommes finies de produits finis d'éléments de $X$. Si $A=\langle X\rangle$, on dit que $X$ est un système de générateurs de $A$ comme anneau (ou que $A$ est engendré par $X$ comme anneau). Si on peut prendre de plus $X$ fini, on dit que $A$ est un anneau de type fini.\\
 
  Lorsque les éléments de $X$ commutent deux à deux, on note en général $\Z[X]:=\langle X\rangle \subset A$ le sous-anneau de $A$ engendré par $X$. Si  $X=\lbrace x_1,\dots,x_r\rbrace $ est fini, on note plutôt $\Z[x_1,\dots,x_r]:=\Z[X]$ et \ref{Poly}.8  nous donne un unique morphisme d'anneaux - automatiquement  surjectif - $ev_{\underline{x}}:\Z[X_1,\cdots, X_r]\twoheadrightarrow \Z[x_1,\dots,x_r] $ tel que $ev_{\underline{x}}(X_i)=x_i$, $i=1,\dots, r$.   \\
  
@@ -420,7 +437,7 @@ une unique sous-$A$-algèbre $\langle X\rangle_A \subset B$, contenant $X$ et mi
  
 
 \subsection{Idéal engendré par une partie, sommes d'idéaux}Soit $\mathcal{I}\subset \mathcal{I}_A$ une famille d'idéaux. On vérifie immédiatement que $\cap_{I\in \mathcal{I}}I\subset A$ est idéal. Pour tout sous-ensemble $X\subset A$, il existe 
-un unique idéal $\langle\langle X\rangle\rangle_A \subset A$, contenant $X$ et minimal pour $\subset$ \textit{i.e.} tel que pour  tout idéal $I\subset A$,   $X\subset I$ implique  $\langle\langle X\rangle\rangle_A\subset I$. On dit que $\langle\langle X\rangle\rangle_A\subset A$ est l'idéal engendré par $X$. Explicitement $\langle\langle X\rangle\rangle_A$ est l'intersection de tous les idéaux de $A$ contenant $X$. On peut également décrire $\langle\langle X\rangle\rangle_A$ comme  
+un unique idéal $\langle\langle X\rangle\rangle_A \subset A$, contenant $X$ et minimal pour $\subset$ \ie{} tel que pour  tout idéal $I\subset A$,   $X\subset I$ implique  $\langle\langle X\rangle\rangle_A\subset I$. On dit que $\langle\langle X\rangle\rangle_A\subset A$ est l'idéal engendré par $X$. Explicitement $\langle\langle X\rangle\rangle_A$ est l'intersection de tous les idéaux de $A$ contenant $X$. On peut également décrire $\langle\langle X\rangle\rangle_A$ comme  
 $$\langle\langle X\rangle\rangle_A=\lbrace \sum_{x\in X}a(x)x\;|\; a \in A^{(X)}\rbrace,$$
 ce qui justifie la notation plus intuitive $\langle\langle X\rangle\rangle_A:=\sum_{x\in X}Ax\subset A$. Si  $\mathcal{I}\subset \mathcal{I}_A$ une famille d'idéaux, on note en particulier $$ \langle\langle\; \bigcup_{I\in \mathcal{I}}I\;  \rangle\rangle_A :=\sum_{I\in \mathcal{I}}I\subset A.$$ et on dit que $\sum_{I\in \mathcal{I}}I\subset A$ est la somme des $I$, $I\in \mathcal{I}$. Si  $I=\sum_{x\in X} Ax$, on dit que $X$ est un système de générateurs de $I$ et si on peut prendre $X$ fini, on dit que $I$ est un idéal de type fini\index{de type fini (Idéal)}.\\
 
@@ -506,7 +523,7 @@ $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\
    \item $A\twoheadrightarrow A/I_1\times A/(I_2\cap\cdots\cap  I_r)\twoheadrightarrow A/I_1\times\prod_{2\leq i\leq r}A/I_i\twoheadrightarrow  \prod_{1\leq i\leq r}A/I_i$
    \end{itemize}
     Mais pour $i=2,\dots, r$ il existe $a_i\in I_1$, $b_i\in I_i$ tels que $a_i+b_i=1$. On a donc $1=\prod_{2\leq i\leq r}(a_i+b_i)=\prod_{2\leq i\leq r}a_i+\cdots\in I_1+I_2\cdots I_r$.\\
-     Inversement, si $p :A\rightarrow \prod_{1\leq i\leq r}A/I_i$ est surjective, pour tout $1\leq i\not=j\leq r$, il existe $x\in A$ tel que $p(x)=(\delta_{i,k})_{1\leq k\leq r}\in \prod_{1\leq i\leq r}A/I_i$ \textit{i.e.} $x\in 1+I_i$ et $x\in I_j$. Donc $1=(1-x)+x\in I_i+I_j$. \end{proof}
+     Inversement, si $p :A\rightarrow \prod_{1\leq i\leq r}A/I_i$ est surjective, pour tout $1\leq i\not=j\leq r$, il existe $x\in A$ tel que $p(x)=(\delta_{i,k})_{1\leq k\leq r}\in \prod_{1\leq i\leq r}A/I_i$ \ie{} $x\in 1+I_i$ et $x\in I_j$. Donc $1=(1-x)+x\in I_i+I_j$. \end{proof}
   
 
 
@@ -517,7 +534,7 @@ $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\
 (i)& $A$ est un corps;\\
 (ii)& Les seuls idéaux de $A$ sont $\lbrace 0\rbrace$ et $A$.
 \end{tabular}}
-\begin{proof}Si $A$ est un corps,  tout idéal $\lbrace 0\rbrace\subsetneq I\subset A$ contient un élément $a\not= 0$ donc inversible. Mais alors $1=a^{-1}a\in AI=I$ donc $A=A1\subset AI=I$. Inversement, si les seuls idéaux de $A$ sont $\lbrace 0\rbrace$ et $A$, pour tout $a\not=0$, $\lbrace 0\rbrace\subsetneq Aa\subset A$ est un idéal donc $Aa=A$. En particulier $1\in Aa$ \textit{i.e.} il existe $a^{-1}\in A$ tel que $1=a^{-1}a$.\end{proof}
+\begin{proof}Si $A$ est un corps,  tout idéal $\lbrace 0\rbrace\subsetneq I\subset A$ contient un élément $a\not= 0$ donc inversible. Mais alors $1=a^{-1}a\in AI=I$ donc $A=A1\subset AI=I$. Inversement, si les seuls idéaux de $A$ sont $\lbrace 0\rbrace$ et $A$, pour tout $a\not=0$, $\lbrace 0\rbrace\subsetneq Aa\subset A$ est un idéal donc $Aa=A$. En particulier $1\in Aa$ \ie{} il existe $a^{-1}\in A$ tel que $1=a^{-1}a$.\end{proof}
 
 \ref{Corps}.2 \textbf{Lemme.} \textit{Soit $I\subsetneq A$ un idéal. Les PSSE
 \begin{tabular}[t]{ll}
@@ -568,7 +585,7 @@ dont le noyau  $\mathcal{J}_A:=\ker(p_{max})=\displaystyle{\bigcap_{\frak{m}\in 
 (i)&  $A/I$ est intègre;\\
 (ii)& Pour tout $a,b\in A$, $ab\in I$ $\Rightarrow$ $a\in I$ ou $b\in I$.  
 \end{tabular}}
-\begin{proof} (i) $\Rightarrow$ (ii): Si $ab\in I$ alors $\overline{a}\overline{b}=0$ dans $A/I$. Par (i), on a forcément $\overline{a}=0$ (\textit{i.e.} $a\in I$) ou $\overline{b}=0$ (\textit{i.e.} $b\in I$) dans $A/I$. (ii) $\Rightarrow$ (i): Pour tout $0\not= \overline{a}, \overline{b}\in A/I$, choisissons $a,b\in A$ relevant $\overline{a}, \overline{b}\in A/I$. On a forcément $a,b\notin I$ donc, par (ii), $an\notin I$ \textit{i.e.} $\overline{a}\overline{b}=\overline{ab}\not= 0$ in $A/I$.  \end{proof}
+\begin{proof} (i) $\Rightarrow$ (ii): Si $ab\in I$ alors $\overline{a}\overline{b}=0$ dans $A/I$. Par (i), on a forcément $\overline{a}=0$ (\ie{} $a\in I$) ou $\overline{b}=0$ (\ie{} $b\in I$) dans $A/I$. (ii) $\Rightarrow$ (i): Pour tout $0\not= \overline{a}, \overline{b}\in A/I$, choisissons $a,b\in A$ relevant $\overline{a}, \overline{b}\in A/I$. On a forcément $a,b\notin I$ donc, par (ii), $an\notin I$ \ie{} $\overline{a}\overline{b}=\overline{ab}\not= 0$ in $A/I$.  \end{proof}
 
 
  On dit qu'un idéal qui vérifie les propriétés (i), (ii) de \ref{Corps}.2 est \textit{premier}\index{Premier (Idéal)}.  On notera $spec(A)$ l'ensemble des idéaux premiers de $A$ et on dit que c'est le \textit{spectre}\index{Spectre} de $A$. D'après \ref{Produit}.1, les projections canoniques $p_{\frak{p}}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in spec(A)$ induisent un morphisme d'anneaux canonique 
@@ -581,7 +598,11 @@ dont le noyau $\mathcal{R}_A:=\ker(p_{prem})=\displaystyle{\bigcap_{\frak{p}\in 
 
 \begin{proof} Vérifions d'abord que $\mathcal{N}_A\subset A$ est un idéal. Pour tout $a,b \in \mathcal{N}_A$, il existe des entiers $m,n\geq 1$ tel que $a^m=b^n=0$. Donc, par la formule du binôme de Newton $$(a-b)^{m+n-1}=\sum_{0\leq k\leq m+n-1}\binom{k}{m+n-1}(-1)^{m+n-k-1}a^kb^{m+n-k}=0$$
 puisque, si $k<m$, $m+n-k-1>n-1$ donc $m+n-k-1\geq n$.  On a aussi pour tout $\alpha\in A$ $(\alpha a)^m=\alpha^m a^m=0$.\\
+<<<<<<< HEAD
 \indent Pour tout morphime d'anneaux $\phi:A\rightarrow B$ on a $\phi(\mathcal{N}_A)\subset \mathcal{N}_B$. En particulier, si $B$ est un anneau intègre, $\mathcal{N}_A\subset \ker(\phi)$. En appliquant cette observation aux projections canoniques $p_\frak{p}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in spec(A)$, on en déduit l'inclusion $\mathcal{N}_A\subset \mathcal{R}_A$. Inversement, soit $a\notin \mathcal{N}_A$; on veut montrer que $a\notin \mathcal{R}_A$ \textit{i.e.} il existe $\frak{p}\in spec(A)$ tel que $a\notin\frak{p}$ (ce qui équivaut aussi à $a^n\notin \frak{p}$ pour n'importe quel entier $n\geq 1$). Notons $X_a:=\lbrace a^n\;|\; n\in \Z_{\geq 1}\rbrace $ l'ensemble des puissances de $a$. On a par hypothèse $0\notin X_a$ donc l'ensemble $\Sigma_a\subset \mathcal{I}_A$ des idéaux $I\subset A$ tels que $X_a\cap I=\varnothing$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. On vérifie immédiatement que $(\Sigma_a,\subset)$ est ordonné inductif donc, par le Lemme de Zorn, possède un élément maximal $I\in \Sigma_a$. Puisque  $a\notin I$, il suffit de montrer que $I$ est premier \textit{i.e.} que $A/I$ est intègre. Notons $\overline{a}$  l'image de $a$ dans $A/I$. Par définition de $I$, $0\notin X_{\overline{a}}$ mais  pour tout idéal $\lbrace 0\rbrace\subsetneq \overline{J}\subset A/I$, $X_{\overline{a}}\cap \overline{J}\not=\varnothing$. En particulier, pour tout $0\not=\overline{b}\in A/I$, il existe $n_b\geq 1$ tel que $\overline{a}^{n_b}\in (A/I)\overline{b}$ donc pour tout $0\not=\overline{b}, \overline{b'}\in A/I$, $\overline{a}^{n_bn_{b'}}\in (A/I)\overline{b} \overline{b'}$ donc  $\overline{b} \overline{b'}\not= 0$. \end{proof}
+=======
+\indent Pour tout morphime d'anneaux $\phi:A\rightarrow B$ on a $\phi(\mathcal{N}_A)\subset \mathcal{N}_B$. En particulier, si $B$ est un anneau intègre, $\mathcal{N}_A\subset \ker(\phi)$. En appliquant cette observation aux projections canoniques $p_\frak{p}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in spec(A)$, on en déduit l'inclusion $\mathcal{N}_A\subset \mathcal{R}_A$. Inversement, soit $a\notin \mathcal{N}_A$; on veut montrer que $a\notin \mathcal{R}_A$ \ie{} il existe $\frak{p}\in spec(A)$ tel que $a\notin\frak{p}$ (ce qui équivaut aussi à $a^n\notin \frak{p}$ pour n'importe quel entier $n\geq 1$). Notons $X_a:=\lbrace a^n\;|\; n\in \Z_{\geq 1}\rbrace $ l'ensemble des puissances de $a$. On a par hypothèse $0\notin X_a$ donc l'ensemble $\Sigma_a\subset \mathcal{I}_A$ des idéaux $I\subset A$ tels que $X_a\cap I=\emptyset$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. On vérifie immédiatement que $(\Sigma_a,\subset)$ est ordonné inductif donc, par le Lemme de Zorn, possède un élément maximal $I\in \Sigma_a$. Puisque  $a\notin I$, il suffit de montrer que $I$ est premier \ie{} que $A/I$ est intègre. Notons $\overline{a}$  l'image de $a$ dans $A/I$. Par définition de $I$, $0\notin X_{\overline{a}}$ mais  pour tout idéal $\lbrace 0\rbrace\subsetneq \overline{J}\subset A/I$, $X_{\overline{a}}\cap \overline{J}\not=\emptyset$. En particulier, pour tout $0\not=\overline{b}\in A/I$, il existe $n_b\geq 1$ tel que $\overline{a}^{n_b}\in (A/I)\overline{b}$ donc pour tout $0\not=\overline{b}, \overline{b'}\in A/I$, $\overline{a}^{n_bn_{b'}}\in (A/I)\overline{b} \overline{b'}$ donc  $\overline{b} \overline{b'}\not= 0$. \end{proof}
+>>>>>>> 4897ffbcff5a22654377bf0d47974e202ef5b1f2
 
 \textbf{Exercice.}
      \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
@@ -670,7 +691,7 @@ $(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
  La proposition suivante et son corollaire fournissent un très grand nombre d'exemples d'anneaux noetheriens.   
     
 \section{Proposition}\label{NoethTransfert} (Transfert de noetherianité) \textit{$A$ noetherien $\Rightarrow$ $A[X]$ noetherien.}
-\begin{proof}Soit $I\subset A[X]$ un idéal. Pour chaque $n\geq 0$ définissons $\frak{I}_n\setminus \lbrace 0\rbrace\subset A$ comme l'ensemble des $a\in A$ qui apparaissent comme coefficient dominant  d'un polynôme de degré $n$ dand $I$ \textit{i.e.} $a\in \frak{I}_n$ si et seulement si il existe $a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I$. Comme $I\subset A[X]$ est un idéal, les $\frak{I}_n\subset A$ sont automatiquement des idéaux. De plus,  $$a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I\Rightarrow a_0X+a_1X^2+\cdots+a_{n-1}X^{n}+aX^{n+1}\in I$$ donc on a 
+\begin{proof}Soit $I\subset A[X]$ un idéal. Pour chaque $n\geq 0$ définissons $\frak{I}_n\setminus \lbrace 0\rbrace\subset A$ comme l'ensemble des $a\in A$ qui apparaissent comme coefficient dominant  d'un polynôme de degré $n$ dand $I$ \ie{} $a\in \frak{I}_n$ si et seulement si il existe $a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I$. Comme $I\subset A[X]$ est un idéal, les $\frak{I}_n\subset A$ sont automatiquement des idéaux. De plus,  $$a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I\Rightarrow a_0X+a_1X^2+\cdots+a_{n-1}X^{n}+aX^{n+1}\in I$$ donc on a 
 $$\frak{I}_0\subset \frak{I}_1\subset \cdots\subset \frak{I}_n\subset \frak{I}_{n+1}\subset \cdots$$
 Comme $A$ est noetherien, cette suite devient stationnaire à partir d'un certain rang, disons $n$. De plus,  chaque $\frak{I}_k$ est de type fini; notons $a_{k,1},\dots, a_{k,r_k}\in \frak{I}_k$ un ensemble fini de générateurs de $\frak{I}_k$ . Enfin,  pour  $k=0,\dots, n$, $l=1,\dots, r_k$, fixons un polynôme $P_{k,l}\in I$ de degré $k$ et de coefficient dominant $a_{k,l}$. Il suffit de montrer que $I$ est engendré par les $P_{k,l}$,  $l=1,\dots, r_k$, $k=0,\dots, n$. Notons donc $I^\circ:=\sum AP_{k,l}\subset I$ et montrons par induction sur le degré $d$ de $P\in I$ que $P\in I^\circ$. Si $d=0$, on a par définition $  \frak{I}_0\subset I^\circ$. Supposons que $I^\circ$ contient tous les   éléments de $I$ de degré $\leq d$. Soit $P=a_0+\cdots+a_dX^d+a_{d+1}X^{d+1}\in I$ de degré $d+1$. Si $d+1\geq n$, on a $a_{d+1}\in \frak{I}_{d+1}=\frak{I}_n$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{n,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_iX^{d+1-n}P_{n,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. Si $d+1\leq n$, $a_{d+1}\in \frak{I}_{d+1}$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{d+1,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_i P_{d+1,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. 
 \end{proof}
@@ -784,11 +805,11 @@ où $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ do
 
   
 \ref{IrrPrem}.1 \textbf{Lemme.} \textit{On a toujours $\mathcal{P}_A^\dag\subset \mathcal{P}_A^\circ$.}
-  \begin{proof} En effet, si $Ap\in spec(A)$, pour tout $a,b\in A$, $p=ab$ implique $ab\in Ap$ donc comme $Ap$ est premier, $a\in Ap$ ou $b\in Ap$. Supposons $a\in Ap$ \textit{i.e.} $a=\alpha p$. On a alors $p=ab=\alpha bp$  et, comme $A$ est intègre, on peut simplifier par $p$ ce qui donne $\alpha b=1$ donc $b\in A^\times$.\end{proof}
+  \begin{proof} En effet, si $Ap\in spec(A)$, pour tout $a,b\in A$, $p=ab$ implique $ab\in Ap$ donc comme $Ap$ est premier, $a\in Ap$ ou $b\in Ap$. Supposons $a\in Ap$ \ie{} $a=\alpha p$. On a alors $p=ab=\alpha bp$  et, comme $A$ est intègre, on peut simplifier par $p$ ce qui donne $\alpha b=1$ donc $b\in A^\times$.\end{proof}
   
   \textbf{(Contre-)exemple.} En général $\mathcal{P}_A^\dag\subsetneq \mathcal{P}_A^\circ$. Par exemple, dans $A=\Z[i\sqrt{5}]$, $2$ est irréductible mais pas premier. En effet, introduisons la norme $N:A\rightarrow \Z_{\geq 0}$, $a+ib\sqrt{5}\rightarrow |a+ib\sqrt{5}|^2=a^2+5b^2$. On vérifie immédiatement que $N(xy)=N(x)N(y)$, $N(x)=0$ $\Leftrightarrow$ $x=0$ et que
   $$ x\in A^\times\Leftrightarrow N(x)=1\Leftrightarrow x=\pm 1.$$
-  Vérifions d'abord que $2\in \mathcal{P}_A^\circ$. Si on écrit $2=xy$ on doit avoir $4=N(2)=N(xy)=N(x)N(y)$. En particulier, $N(x)=N(y)=2$ ou $\lbrace N(x),N(y)\rbrace=\lbrace 1,4\rbrace$. Or $2\notin N(A)$ donc nécessairement $N(x)=1$ ou $N(y)=1$ \textit{i.e.} $x\in A^\times$ ou $y\in A^\times$. Montrons ensuite que $2$ n'est pas premier. Pour cela, observons que 
+  Vérifions d'abord que $2\in \mathcal{P}_A^\circ$. Si on écrit $2=xy$ on doit avoir $4=N(2)=N(xy)=N(x)N(y)$. En particulier, $N(x)=N(y)=2$ ou $\lbrace N(x),N(y)\rbrace=\lbrace 1,4\rbrace$. Or $2\notin N(A)$ donc nécessairement $N(x)=1$ ou $N(y)=1$ \ie{} $x\in A^\times$ ou $y\in A^\times$. Montrons ensuite que $2$ n'est pas premier. Pour cela, observons que 
  $$2\cdot 3=(1+i\sqrt{5})\cdot (1-i\sqrt{5})=2\times 3\in 2A$$
   mais que  $1\pm i\sqrt{5}\notin 2A$ car $N(1\pm i\sqrt{5})=6\notin N(2A)=4N(A)\subset 4\Z_{\geq 0}$.    \\
   
@@ -797,7 +818,7 @@ $$(\ref{IrrPrem}.2.1)\;\; \begin{tabular}[t]{cll}
  $A^\times\times \N^{(\mathcal{P}_A)}$&$\rightarrow$&$A\setminus\lbrace 0\rbrace $\\
  $(u,\nu)$&$\rightarrow$&$u\displaystyle{\prod_{p\in\mathcal{P}_A}p^{\nu(p)}}$
  \end{tabular}$$ 
-est bijective \textit{i.e.} pour tout $0\not=a\in A $ il existe une unique application $v_-(a):\mathcal{P}_A\rightarrow \N $ à support fini et un unique $u_a\in A^\times $ tels que $ a= u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$ (on parle de `la' décomposition en produit d'irréductibles de $a$).\\
+est bijective \ie{} pour tout $0\not=a\in A $ il existe une unique application $v_-(a):\mathcal{P}_A\rightarrow \N $ à support fini et un unique $u_a\in A^\times $ tels que $ a= u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$ (on parle de `la' décomposition en produit d'irréductibles de $a$).\\
 
  On prendra garde au fait que l'élément $u_a\in A^\times $  dépend  du choix du système de représentants $\mathcal{P}_A$ de $\mathcal{P}_A^\circ/\sim$ qu'on s'est fixé. Par contre, l'application  $v_{-}(a):\mathcal{P}_A\rightarrow \N $ n'en dépend pas; si on note $\frak{p}:=Ap$, on peut la définir intrinsèquement par $v_{\frak{p}}(a)=\hbox{\rm max}\lbrace n\in\N\;|\; a\in \frak{p}^n\rbrace$. On dit que $v_p(a)$ est la multiplicité ou l'ordre de $a$ en $p$ ou, encore, la valuation $p$-adique de $a$. \\
 
@@ -838,20 +859,25 @@ est bijective \textit{i.e.} pour tout $0\not=a\in A $ il existe une unique appli
 \begin{proof} \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item  Principal $\Rightarrow$ (Noetherien intègre $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$). \\
 
- Soit $A$ un anneau principal. On sait déjà que  $A$ est  intègre (par définition) et  noetherien (puisque tous ses idéaux sont engendrés par un seul élément). Soit $p\in A $ irréductible; on veut montrer que $ Ap$ est premier. Il suffit de montrer qu'il est maximal. Considérons donc un idéal $Ap\subsetneq I $. Fixons $a\in I\setminus Ap$. Commme $A$ est principal, $Ap\subsetneq Ap+Aa=Ab$ donc $p=\alpha b$ avec $\alpha\in A\setminus A^\times$ (puisque $Ap\subsetneq Ab$). Mais puisque $p$ est irréductible, on a nécessairement $b\in A^\times$ \textit{i.e.} $Ab=A$. En particulier $A=Ap+Aa \subset I$.\\ 
+ Soit $A$ un anneau principal. On sait déjà que  $A$ est  intègre (par définition) et  noetherien (puisque tous ses idéaux sont engendrés par un seul élément). Soit $p\in A $ irréductible; on veut montrer que $ Ap$ est premier. Il suffit de montrer qu'il est maximal. Considérons donc un idéal $Ap\subsetneq I $. Fixons $a\in I\setminus Ap$. Commme $A$ est principal, $Ap\subsetneq Ap+Aa=Ab$ donc $p=\alpha b$ avec $\alpha\in A\setminus A^\times$ (puisque $Ap\subsetneq Ab$). Mais puisque $p$ est irréductible, on a nécessairement $b\in A^\times$ \ie{} $Ab=A$. En particulier $A=Ap+Aa \subset I$.\\ 
 
  (Noetherien intègre $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$) $\Rightarrow$ factoriel.\\
 
  Par le Lemme \ref{Implications}.1, on sait déjà que l'application $A^\times\times \N^{(\mathcal{P}_A)} \rightarrow A\setminus\lbrace 0\rbrace $ est surjective. 
 Supposons que 
 l'on ait $$a:=u\prod_{p\in \mathcal{P}_A}p^{\mu(p)}=v\prod_{p\in \mathcal{P}_A}p^{\nu(p)}$$
-et que, $\nu(p)>\mu(p)$ pour un certain $p\in \mathcal{P}_A$. Comme $A$ est intègre, on peut simplifier par $p^{\mu(p)}$; on peut donc supposer $\mu(p)=0$ et $\nu(p)>0$. Comme $\nu(p)>0$, $\overline{a}=0$  dans $A/p$. Comme $p\in \mathcal{P}_A^\dag$,  $A/p$ est intègre et comme $\overline{v}\in (A/p)^\times$, il existe forcément $q\in \mathcal{P}_A$ tel que $\overline{q}=0 $ dans $A/p$ \textit{i.e.} $q\in Ap$, ce qui force $q=p$ puisque $p,q$ sont irréductibles: contradiction.\\
+et que, $\nu(p)>\mu(p)$ pour un certain $p\in \mathcal{P}_A$. Comme $A$ est intègre, on peut simplifier par $p^{\mu(p)}$; on peut donc supposer $\mu(p)=0$ et $\nu(p)>0$. Comme $\nu(p)>0$, $\overline{a}=0$  dans $A/p$. Comme $p\in \mathcal{P}_A^\dag$,  $A/p$ est intègre et comme $\overline{v}\in (A/p)^\times$, il existe forcément $q\in \mathcal{P}_A$ tel que $\overline{q}=0 $ dans $A/p$ \ie{} $q\in Ap$, ce qui force $q=p$ puisque $p,q$ sont irréductibles: contradiction.\\
 
 \item Supposons   $A$ factoriel et $spm(A)= spec(A)\setminus \lbrace 0\rbrace$.\\
 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+<<<<<<< HEAD
 \item Montrons d'abord que tout idéal premier est principal: si $\lbrace 0\rbrace\subsetneq \frak{p}\subsetneq A$ est premier, il contient un élément $0\not=a\notin A^\times$. Comme $a$ est factoriel, on peut écrire $a=u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$. Comme $A/\frak{p}$ est intègre, il existe au moins un $p\in \mathcal{P}_A$ tel que $v_p(a)\geq 1$ et  $\bar{p}=0$ \textit{i.e.} $p\in \frak{p}$. En particulier $Ap\subset \frak{p}$. Mais comme $A$ est factoriel, $Ap \in spec(A)$ et comme $spm(A)=spec(A)$ par hypothèse, $Ap=\frak{p}$.\\
 \item Soit maintenant $\mathcal{E}$ l'ensemble des idéaux de $A$ qui ne sont pas principaux. Supposons $\mathcal{E}\not=\varnothing$; comme $(\mathcal{E},\subset)$ est un ensemble ordonné inductif, le Lemme de Zorn assure qu'il possède un élément  $0\subsetneq I\subsetneq A$  maximal pour $\subset$. Toujours par le Lemme de Zorn , $I$  est contenu dans un idéal maximal $\frak{m}$, dont on sait qu'il est principal $\frak{m}=Ap$. Introduisons l'ensemble
+=======
+\item Montrons d'abord que tout idéal premier est principal: si $\lbrace 0\rbrace\subsetneq \frak{p}\subsetneq A$ est premier, il contient un élément $0\not=a\notin A^\times$. Comme $a$ est factoriel, on peut écrire $a=u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$. Comme $A/\frak{p}$ est intègre, il existe au moins un $p\in \mathcal{P}_A$ tel que $v_p(a)\geq 1$ et  $\bar{p}=0$ \ie{} $p\in \frak{p}$. En particulier $Ap\subset \frak{p}$. Mais comme $A$ est factoriel, $Ap \in spec(A)$ et comme $spm(A)=spec(A)$ par hypothèse, $Ap=\frak{p}$.\\
+\item Soit maintenant $\mathcal{E}$ l'ensemble des idéaux de $A$ qui ne sont pas principaux. Supposons $\mathcal{E}\not=\emptyset$; comme $(\mathcal{E},\subset)$ est un ensemble ordonné inductif, le Lemme de Zorn assure qu'il possède un élément  $0\subsetneq I\subsetneq A$  maximal pour $\subset$. Toujours par le Lemme de Zorn , $I$  est contenu dans un idéal maximal $\frak{m}$, dont on sait qu'il est principal $\frak{m}=Ap$. Introduisons l'ensemble
+>>>>>>> 4897ffbcff5a22654377bf0d47974e202ef5b1f2
 $$J:=\lbrace a\in A\;|\; ap\in I\rbrace $$
 Puisque $I$ est un idéal, $I\subset J$ et $J $ est un idéal de $A$. De plus $I=Jp$. Par définition de $J$ on a $Jp\subset I$ et, inversement, puisque $I\subset Ap$, tout $a\in I$ sécrit sous la forme $a=bp$ avec, par définition de $J$, $b\in J$. Si $I\subsetneq J$, par maximalité de $I$ on aurait $J=Aa$ donc $I=Aap$, ce qui contredit $I\in\mathcal{E}$. Donc $I=J$. Ce qui signifie que la multiplication par $p$ induit une bijection (rappelons que $A$ est intègre) $-\cdot p:I\tilde{\rightarrow} I$. Cela contredit la factorialité de $A$. En effet, si $0\not=a\in I$, on peut écrire $a=p^{v_p(a)}b$ avec $v_p(b)=0$. Mais   par définition de $J$, $p^{v_p(a)-1}b\in J=I=pI$ $\Rightarrow$ $p^{v_p(a)-2}b\in J=I=pI$ $\Rightarrow$ $...$ $\Rightarrow$ $b\in J=I=pI$ $\Rightarrow$ $v_p(b)\geq 1$.
 \end{itemize}
@@ -999,7 +1025,7 @@ où $\overline{F}$ est l'image de $F$ par le morphisme canonique $A[X]\rightarro
 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item Si $p\in \mathcal{P}_A$ comme $A $ est factoriel et $p$ est irréductible, $p$ est premier donc $A/pA$ est intègre. Cela implique que $(A/pA)[X]$ est intègre et on conclut par l'isomorphisme d'anneaux canoniques  $A[X]/pA[X]\tilde{\rightarrow} (A/pA)[X]$.
-\item Si $P\in \mathcal{P}_{K[X]}$, considérons le morphisme canonique $\phi:A[X] \hookrightarrow  K[X] \twoheadrightarrow K[X]/PK[X]$. Par construction $PA[X]\subset \ker(\phi)$. Inversement, si $F\in \ker(\phi)$ alors $F=PQ$ dans $K[X]$. Par le Lemme \ref{Contenu}, $C_A(F)=C_A(P)C_A(Q)=C_A(Q)$ donc $C_A(Q)\in A$ \textit{i.e.} $Q\in A[X]$. Donc $F\in PA[X]$ et le morphisme $\phi:A[X] \hookrightarrow  K[X] \twoheadrightarrow K[X]/PK[X]$ se factorise en un morphisme d'anneaux injectif $A/PA[X]\hookrightarrow K[X]/PK[X]$. Comme $K[X]$ est factoriel et $P$ est irréductible, $P$ est premier donc $K[X]/PK[X]$ est intègre. Comme un sous-anneau d'un anneau intègre est intègre, $A[X]/PA[X]$ est donc intègre.\\
+\item Si $P\in \mathcal{P}_{K[X]}$, considérons le morphisme canonique $\phi:A[X] \hookrightarrow  K[X] \twoheadrightarrow K[X]/PK[X]$. Par construction $PA[X]\subset \ker(\phi)$. Inversement, si $F\in \ker(\phi)$ alors $F=PQ$ dans $K[X]$. Par le Lemme \ref{Contenu}, $C_A(F)=C_A(P)C_A(Q)=C_A(Q)$ donc $C_A(Q)\in A$ \ie{} $Q\in A[X]$. Donc $F\in PA[X]$ et le morphisme $\phi:A[X] \hookrightarrow  K[X] \twoheadrightarrow K[X]/PK[X]$ se factorise en un morphisme d'anneaux injectif $A/PA[X]\hookrightarrow K[X]/PK[X]$. Comme $K[X]$ est factoriel et $P$ est irréductible, $P$ est premier donc $K[X]/PK[X]$ est intègre. Comme un sous-anneau d'un anneau intègre est intègre, $A[X]/PA[X]$ est donc intègre.\\
 \end{itemize}
 
 \item L'application canonique $  A^\times\times \N^{(\mathcal{P}_A \cup \mathcal{P}_{K[X]})} \rightarrow A[X]\setminus\lbrace 0\rbrace $ est bijective.\\
@@ -1044,75 +1070,133 @@ avec $u\in A^\times$ et comme $F$ est par définition non inversible et ne peut 
  $ae+bd+c=0$\\
  $be+cd=0$
  $ce=1$
- \end{tabular}$$
- Mais dans $\F_2$, $d+a=0$ implique $a=d$. Si $a=d=0$, $c=0$: contradiction. Si $a=d=1$,    $e+b=0$, $e+b+c=0$ donc $c=0$: contradiction.  Cela montre que $\overline{P}$ est irréductible dans $\F_2[X]$. Donc si $P=P_1P_2$ dans $\Z[X]$ avec $deg(P_1)\leq deg(P_2)$, on a forcément $P_1\in \Z$ (et en fait $P_1=\pm 1$ car $C_\Z(P)=1=C_\Z(P_1)C_\Z(P_2)=P_1C_\Z(P_2)$). Si $P=P_1P_2$ dans $\Q[X]$  avec $deg(P_1)\leq deg(P_2)$, on a $C_\Z(P_1)C_\Z(P_2)=C_\Z(P)=1$ donc $P=P_1P_2=\frac{P_1}{C_\Z(P_1)}\frac{P_2}{C_\Z(P_2)}$ avec, cette fois-ci, $\frac{P_1}{C_\Z(P_1)},\frac{P_2}{C_\Z(P_2)}\in \Z[T]$. Donc $P_1=C_\Z(P_1)\in \Q$. Cela montre bien que $P$ est irréductible dans $\Q[X]$.} \\
-   \end{enumerate}
- 
-
-\section{Valuations et anneaux factoriels}\label{Val}Soit $K$ un corps.
-
-\subsection{}\label{ValDef}Une \textit{valuation}\index{Valuation discrète} (de rang $1$) sur $K$ est une application surjective\footnote{On fait cette hypothèse par commodité. Il suffit en fait de supposer que $v:K\rightarrow \overline{\Z}$ est non nulle; on peut alors se ramener au cas surjectif en utilisant que  tout sou groupe non-nul de $\Z$ est isomorphe à $\Z$.}
- $v:K\rightarrow \overline{\Z}$  qui vérifie
-\begin{enumerate}
-\item $v(xy)=v (x)+v (b)$, $x,y\in K$;
-\item $v(x+y)\geq \hbox{\rm min}\lbrace v(x),v(y)\rbrace$, $x,y\in K$;
-\item $v(x)=\infty$ $\Leftrightarrow$ $x=0$.
+   \end{tabular}$$
+   Mais dans $\F_2$, $d+a=0$ implique $a=d$. Si $a=d=0$, $c=0$: contradiction. Si $a=d=1$,    $e+b=0$, $e+b+c=0$ donc $c=0$: contradiction.  Cela montre que $\overline{P}$ est irréductible dans $\F_2[X]$. Donc si $P=P_1P_2$ dans $\Z[X]$ avec $deg(P_1)\leq deg(P_2)$, on a forcément $P_1\in \Z$ (et en fait $P_1=\pm 1$ car $C_\Z(P)=1=C_\Z(P_1)C_\Z(P_2)=P_1C_\Z(P_2)$). Si $P=P_1P_2$ dans $\Q[X]$  avec $deg(P_1)\leq deg(P_2)$, on a $C_\Z(P_1)C_\Z(P_2)=C_\Z(P)=1$ donc $P=P_1P_2=\frac{P_1}{C_\Z(P_1)}\frac{P_2}{C_\Z(P_2)}$ avec, cette fois-ci, $\frac{P_1}{C_\Z(P_1)},\frac{P_2}{C_\Z(P_2)}\in \Z[T]$. Donc $P_1=C_\Z(P_1)\in \Q$. Cela montre bien que $P$ est irréductible dans $\Q[X]$.} \\
 \end{enumerate}
-
-\textbf{Remarque.}   La propriété (1) peut se réécrire en disant que $v:(K^\times,\cdot)\rightarrow (\Z,+)$ est un morphisme de groupes.\\
-
- Notons $A_v:=v^{-1}([0,\infty])\subset K$. On dit qu'un anneau   est \textit{local}\index{Local (Anneau)} s'il possède un unique idéal maximal.
  
- \subsection{}\label{AVD}\textbf{Lemme.} \textit{L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v$, $n\in\Z_{\geq 0}$, où $\pi\in A$ est tel que $v(\pi)=1$.}
- \begin{proof} Montrons d'abord que $A_v\subset K$ est un sous-anneau. D'après la propriété (1) d'une valuation, $1\in A$ (utiliser $1^2=1$) et $a,b\in A_v$ implique $ab\in A$. De plus, pour tout $x\in K^\times$  la relation $(-x)^2=x^2$ et la propriété (1) d'une valuation montrent que $v(x)=v(-x)$ ce qui, combiné à la propriété (2) d'une valuation montre que $a,b\in A_v$ implique $a-b\in A_v$. Observons également que la propriété (1) d'une valuation implique $$A_v^\times=\lbrace x\in K^\times\;|\; x,x^{-1}\in A_v\rbrace =  v^{-1}( 0  ).$$ 
- Les propriétés (1) (respectivement (2)) assurent également que $\frak{m}_v$ est stable par multiplication par les éléments de $A$ (respectivement par différence) donc que $\frak{m}_v\subset A_v$ est un idéal. C'est automatiquement l'unique idéal maximal de $A_v$ puisque $A_v\setminus \frak{m}_v=A_v^\times$. 
- Soit $\pi\in A$ tel que $v(\pi)=1$ (on utilise ici la surjectivité de $v$). Pour un idéal $I\subset A_v$ arbitraire, notons $n:=\hbox{\rm min}v(I)$. On a alors pour tout $a\in I$, $v(\pi^{-n}a)\geq 0$ donc $a\in A_v\pi^n$. Cela montre que $I\subset A\pi^n$. Inversement, soit $a\in I$ tel que $v(a)=n$. On a alors $v(\pi^{-n}a)=0$ \textit{i.e.} $A^\times a=A^\times \pi^n$ donc $A\pi^n=Aa\subset I$. Il reste à voir que $K$ est le corps des fractions de $A_v$; cela résulte du fait que tout $x\in A$ s'écrit sous la forme $x=(x\pi^{-v(x)})\pi^{v(x)}$ avec $ x\pi^{-v(x)}\in A_v^\times$.
- \end{proof}
- 
-  On dit qu'un anneau de la forme $A_v$ est un \textit{anneau de valuation discrète}\index{Valuation discrète (Anneau)}. Ces anneaux jouent un rôle fondamental en géométrie arithmétique. Ils possèdent plusieurs caractérisations équivalentes. En voici quelques unes. \\
- 
- \textbf{Exercice.} [Difficile - \textit{cf.} \cite[I,\S 2]{CL}] Soit $A$ un anneau commutatif. Montrer que les propriétés suivantes sont équivalentes.
- \begin{enumerate}
- \item $A$ est un anneau de valuation discrète. 
- \item $A$ est local, noetherien et son idéal maximal est principal, engendré par un élément non nilpotent.
- \item $A$ est intégralement clos et possède un unique idéal premier non nul.\\
- \end{enumerate}
- 
- 
+\section{Valuations et anneaux factoriels}\label{Val}
 
- \subsection{}Si $A$ est factoriel de corps des fractions $\iota_A:A\hookrightarrow K:=Frac(A)$, les applications $v_p:K\rightarrow \overline{\Z}$, $p\in\mathcal{P}_A$ sont donc des valuations sur $K$. Et la famille de valuations
-$$\mathcal{V}:=\lbrace v_p:Frac(A)\rightarrow \overline{\Z}\; |\; p\in\mathcal{P}_A\rbrace $$
- vérifie les propriétés suivantes:
-\begin{itemize}
-\item (\ref{ValDef}.1) Pour tout $0\not=x\in K$, $$|\lbrace v\in\mathcal{V} \;|\; v (x)\not=0\rbrace|<+\infty;$$
-\item (\ref{ValDef}.2) Il existe une famille d'élements $(p_v)_{v\in\mathcal{V}}\in K$ telle que $v(p_w)=\delta_{v,w}$, $v,w\in\mathcal{V}$;
-\item (\ref{ValDef}.3) $A=\displaystyle{\bigcap_{v\in\mathcal{V}}}A_v$
-\end{itemize}
+   Soit $K$ un corps.
 
- Inversement, on a  \\
+% coquille corrigée dans la note de bas de page
+% suppression de $$ inutiles
+% utilisation de \{ et \} plutôt que \rbrace et \lbrace
+% \iff (if and only if) pour l'équivalence
+% utilisation des environnements
+\subsection{}
+% \label{ValDef}Une \textit{valuation}\index{Valuation discrète} (de rang $1$) sur $K$ est une application surjective\footnote{On fait cette hypothèse par commodité. Il suffit en fait de supposer que $v:K\rightarrow \overline{\Z}$ est non nulle; on peut alors se ramener au cas surjectif en utilisant que  tout sous groupe non-nul de $\Z$ est isomorphe à $\Z$.}
+%  $v:K\rightarrow \overline{\Z}$  qui vérifie
+% \begin{enumerate}
+% \item $v(xy)=v (x)+v (b), x,y\in K$;
+% \item $v(x+y)\geq \min\{v(x),v(y)\}, x,y\in K$;
+% \item $v(x)=\infty \iff x=0$.
+% \end{enumerate}
 
-\subsection{}\label{ValProp}\textbf{Proposition.} \textit{Soit $K$ un corps muni d'une famille $\mathcal{V}$ de valuation $v:K\rightarrow \overline{\Z}$ vérifiant les propriétés (\ref{ValDef}.1), (\ref{ValDef}.2). Alors $$A:=\displaystyle{\bigcap_{v\in\mathcal{V}}}v^{-1}(\overline{\N})\subset K$$ est un sous-anneau qui est factoriel et les $p_v$, $v\in\mathcal{V}$ forme un système de représentants de $\mathcal{P}_A^\circ$.}\\
+\begin{definition}\label{ValDef}
+  Une \textit{valuation}\index{Valuation discrète} (de rang $1$) sur $K$ est une application surjective\footnote{On fait cette hypothèse par commodité. Il suffit en fait de supposer que $v:K\rightarrow \overline{\Z}$ est non nulle; on peut alors se ramener au cas surjectif en utilisant que  tout sous groupe non-nul de $\Z$ est isomorphe à $\Z$.}
+  $v:K\rightarrow \overline{\Z}$  qui vérifie
+  \begin{enumerate}
+  \item $v(xy)=v (x)+v (b), x,y\in K$;
+  \item $v(x+y)\geq \min\{v(x),v(y)\}, x,y\in K$;
+  \item $v(x)=\infty \iff x=0$.
+  \end{enumerate}
+\end{definition}
 
-\begin{proof}Observons d'abord que  $A\subset K$ est un sous-anneau comme intersection de sous-anneaux (Lemme \ref{AVD}). La propriété (1) d'une valuation implique également que $$A^\times=\lbrace x\in K^\times\;|\; x,x^{-1}\in A\rbrace =\displaystyle{\bigcap_{v\in\mathcal{V}}v^{-1}(\lbrace 0\rbrace)}.$$  
- Montrons ensuite que les $p_v$, $v\in\mathcal{A}$ sont irréductibles.  Soit donc $v\in \mathcal{V}$. La condition $v(p_v)=1$ assure déjà que $p\notin A^\times$. Ecrivons $p_v=ab$, $a,b\in A$. On doit avoir $v(p_v)=1=v(a)+v(b)$ et $w(p_v)=0=w(a)+w(b)$, $v\not=w\in\mathcal{V}$. Comme par définition de $A$, $w(a),w(b)\geq 0$, $w\in\mathcal{V}$, ces relations impliquent $v(a)=1$ et $v(b)=0$ ou $v(a)=0$ et $v(b)=1$ et $w(a)=w(b)=0$, $v\not=w\in\mathcal{V}$. Donc $a\in A^\times$ ou $b\in A^\times$.\\
+%\textbf{Remarque.}
+\begin{remarque}
+La propriété (1) peut se réécrire en disant que $v:(K^\times,\cdot)\rightarrow (\Z,+)$ est un morphisme de groupes.
+\end{remarque}
+
+Notons $A_v:=v^{-1}([0,\infty])\subset K$.
+
+% Mise en valeur de la définition énoncée ici
+\begin{definition}
+On dit qu'un anneau est \textit{local}\index{Local (Anneau)} s'il possède un unique idéal maximal.
+\end{definition}
+
+% \subsection{}\label{AVD}\textbf{Lemme.} \textit{L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v, n\in\Z_{\geq 0}$, où $\pi\in A$ est tel que $v(\pi)=1$.}
+% Le lemme est transféré dans un environnement (plus besoin de demander de l'italique ou d'écrire lemme en gras)
+\begin{lemme}\label{AVD}
+  L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v, n\in\Z_{\geq 0}$, où $\pi\in A$ est tel que $v(\pi)=1$.
+\end{lemme}
+
+\begin{proof} Montrons d'abord que $A_v\subset K$ est un sous-anneau. D'après la propriété (1) d'une valuation, $1\in A$ (utiliser $1^2=1$) et $a,b\in A_v$ implique $ab\in A$. De plus, pour tout $x\in K^\times$  la relation $(-x)^2=x^2$ et la propriété (1) d'une valuation montrent que $v(x)=v(-x)$ ce qui, combiné à la propriété (2) d'une valuation montre que $a,b\in A_v$ implique $a-b\in A_v$. Observons également que la propriété (1) d'une valuation implique $$A_v^\times=\{x\in K^\times\;|\; x,x^{-1}\in A_v\} = v^{-1}(0).$$ 
+  Les propriétés (1) (respectivement (2)) assurent également que $\frak{m}_v$ est stable par multiplication par les éléments de $A$ (respectivement par différence) donc que $\frak{m}_v\subset A_v$ est un idéal. C'est automatiquement l'unique idéal maximal de $A_v$ puisque $A_v\setminus \frak{m}_v=A_v^\times$. 
+  Soit $\pi\in A$ tel que $v(\pi)=1$ (on utilise ici la surjectivité de $v$). Pour un idéal $I\subset A_v$ arbitraire, notons $n:=\min{v(I)}$. On a alors pour tout $a\in I, v(\pi^{-n}a)\geq 0$ donc $a\in A_v\pi^n$. Cela montre que $I\subset A\pi^n$. Inversement, soit $a\in I$ tel que $v(a)=n$. On a alors $v(\pi^{-n}a)=0$ \ie{} $A^\times a=A^\times \pi^n$ donc $A\pi^n=Aa\subset I$. Il reste à voir que $K$ est le corps des fractions de $A_v$; cela résulte du fait que tout $x\in K$ s'écrit sous la forme $x=(x\pi^{-v(x)})\pi^{v(x)}$ avec $ x\pi^{-v(x)}\in A_v^\times$. %correction à la ligne précédente : x\in K (A n'est pas défini)
+\end{proof}
+ 
+\begin{remarque}
+On dit qu'un anneau de la forme $A_v$ est un \textit{anneau de valuation discrète}\index{Valuation discrète (Anneau)}. Ces anneaux jouent un rôle fondamental en géométrie arithmétique. Ils possèdent plusieurs caractérisations équivalentes. En voici quelques unes.
+\end{remarque}
+
+% Environnement exercice
+\begin{exercice}[{Difficile -- \textit{cf.} \cite[I,\S~2]{CL}}] % -- pour un tiret plus long
+  Soit $A$ un anneau commutatif. Montrer que les propriétés suivantes sont équivalentes.
+  \begin{enumerate}
+  \item $A$ est un anneau de valuation discrète. 
+  \item $A$ est local, noetherien et son idéal maximal est principal, engendré par un élément non nilpotent.
+  \item $A$ est intégralement clos et possède un unique idéal premier non nul.\\
+  \end{enumerate}  
+\end{exercice}
+
+% \textbf{Exercice.} [Difficile - \textit{cf.} \cite[I,\S 2]{CL}] Soit $A$ un anneau commutatif. Montrer que les propriétés suivantes sont équivalentes.
+% \begin{enumerate}
+% \item $A$ est un anneau de valuation discrète. 
+% \item $A$ est local, noetherien et son idéal maximal est principal, engendré par un élément non nilpotent.
+% \item $A$ est intégralement clos et possède un unique idéal premier non nul.\\
+% \end{enumerate}
+
+
+\subsection{}
+% remarque placée dans un environnement
+% le tilde avant ; permet l'ajout d'une espace insécable fine
+\begin{remarque}
+  Si $A$ est factoriel de corps des fractions $\iota_A:A\hookrightarrow K:=Frac(A)$, les applications $v_p:K\rightarrow \overline{\Z}$pour $p\in\mathcal{P}_A$ sont donc des valuations sur $K$ et la famille de valuations
+  $$\mathcal{V}:=\{v_p:Frac(A)\rightarrow \overline{\Z}\; |\; p\in\mathcal{P}_A\}$$
+  vérifie les propriétés suivantes:
+  \begin{itemize}
+  \item (\ref{ValDef}.1) pour tout $0\not=x\in K$, $$|\{v\in\mathcal{V} \;|\; v (x)\not=0\}|<+\infty~;$$
+  \item (\ref{ValDef}.2) il existe une famille d'élements $(p_v)_{v\in\mathcal{V}}\in K$ telle que $v(p_w)=\delta_{v,w}, v,w\in\mathcal{V}$~;
+  \item (\ref{ValDef}.3) $A=\displaystyle{\bigcap_{v\in\mathcal{V}}}A_v$.
+  \end{itemize}
+\end{remarque}
+
+
+Inversement, on a
+
+% \subsection{}\label{ValProp}\textbf{Proposition.} \textit{Soit $K$ un corps muni d'une famille $\mathcal{V}$ de valuation $v:K\rightarrow \overline{\Z}$ vérifiant les propriétés (\ref{ValDef}.1), (\ref{ValDef}.2). Alors $$A:=\displaystyle{\bigcap_{v\in\mathcal{V}}}v^{-1}(\overline{\N})\subset K$$ est un sous-anneau qui est factoriel et les $p_v$, $v\in\mathcal{V}$ forme un système de représentants de $\mathcal{P}_A^\circ$.}\\
+
+% correction : orthographe, conjugaison
+\begin{proposition}
+  Soit $K$ un corps muni d'une famille $\mathcal{V}$ de valuations $v:K\rightarrow \overline{\Z}$ vérifiant les propriétés (\ref{ValDef}.1), (\ref{ValDef}.2). Alors $$A:=\displaystyle{\bigcap_{v\in\mathcal{V}}}v^{-1}(\overline{\N})\subset K$$ est un sous-anneau qui est factoriel et les $p_v$, $v\in\mathcal{V}$ forment un système de représentants de $\mathcal{P}_A^\circ$.
+\end{proposition}
+
+\begin{proof}Observons d'abord que  $A\subset K$ est un sous-anneau comme intersection de sous-anneaux (lemme \ref{AVD}). La propriété (1) d'une valuation implique également que $$A^\times=\{ x\in K^\times\;|\; x,x^{-1}\in A\} =\displaystyle{\bigcap_{v\in\mathcal{V}}v^{-1}(\{0\})}.$$  
+ Montrons ensuite que les $p_v, v\in\mathcal{A}$ sont irréductibles. Soit donc $v\in \mathcal{V}$. La condition $v(p_v)=1$ assure déjà que $p\notin A^\times$. Ecrivons $p_v=ab$ pour $a,b\in A$. On doit avoir $v(p_v)=1=v(a)+v(b)$ et $w(p_v)=0=w(a)+w(b)$ où $v\not=w\in\mathcal{V}$. Comme par définition de $A, w(a),w(b)\geq 0, w\in\mathcal{V}$, ces relations impliquent $v(a)=1$ et $v(b)=0$ ou $v(a)=0$ et $v(b)=1$ et $w(a)=w(b)=0$, $v\not=w\in\mathcal{V}$. Donc $a\in A^\times$ ou $b\in A^\times$.\\
  Soit maintenant $0\not=a\in A$. Par (\ref{ValDef}.1), on peut définir  $$u_a:=a\prod_{v\in\mathcal{V}}p_v^{-v(a)}\in K^\times,$$
-qui vérifie par construction et la propriété (1) d'une valuation $v(u_a)=0$, $v\in\mathcal{V}$ \textit{i.e.} $u_a\in A^\times$. L'écriture  $a=u_a\prod_{v\in\mathcal{V}}p_v^{v(a)}$ montre déjà que les $p_v$, $v\in\mathcal{V}$ forment  un système de représentants des classes d'irrréductibles de $A$. De plus, l'écriture $a=u_a\prod_{v\in\mathcal{V}}p_v^{v(a)}$ est unique.  Si on a une écriture $a=u\prod_{v\in\mathcal{V}}p_v^{v'(a)}$
+qui vérifie par construction et la propriété (1) d'une valuation $v(u_a)=0$, $v\in\mathcal{V}$ \ie{} $u_a\in A^\times$. L'écriture  $a=u_a\prod_{v\in\mathcal{V}}p_v^{v(a)}$ montre déjà que les $p_v$, $v\in\mathcal{V}$ forment  un système de représentants des classes d'irrréductibles de $A$. De plus, l'écriture $a=u_a\prod_{v\in\mathcal{V}}p_v^{v(a)}$ est unique. Si on a une écriture $a=u\prod_{v\in\mathcal{V}}p_v^{v'(a)}$
 avec $u'\in A^\times$, $v_-'(a):\mathcal{V}\rightarrow \N\in\N^{(\mathcal{V})}$, l'égalité
  $$u^{'-1} u_a=\prod_{v\in\mathcal{V}}p_v^{v'(a)-v(a)}\in A^\times$$
 implique, par évaluation en chacune des $v\in\mathcal{V}$ et en utilisant (\ref{ValDef}.2) que $v'(a)=v(a)$, $v\in\mathcal{V}$ et donc $u'=u_a$.
 \end{proof}
 
-\subsection{ppcm et pgcd}\textbf{Exercice.} Soit $A$ un anneau factoriel. 
-\begin{enumerate}
-\item Montrer que $Aa\cap Ab$ est un idéal principal engendré par 
-$$\ppcm(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize max}\lbrace v_p(a),v_p(b)\rbrace}.$$
-On dit que les éléments de $A^\times \ppcm(a, b) $ sont les plus petits communs multiples de $a$ et $b$.
-\item Montrer que l'ensemble des idéaux principaux de $A$ qui contiennent $Aa+ Ab$ admet un plus petit élément, engendré par
-$$\pgcd(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize min}\lbrace v_p(a),v_p(b)\rbrace}.$$
-On dit que les éléments de $A^\times \pgcd(a, b) $ sont les plus grands communs diviseurs de $a$ et $b$. Montrer sur un exemple qu'en général l'inclusion $Aa+Ab\subsetneq A\pgcd(a,b)$ est stricte.
-\item Généraliser  (1) et (2) à un nombre fini $a_1,\dots, a_r$ d'éléments de $A$.
-\item (Bézout) Supposons $A$ principal. Montrer que $\pgcd(a_1,\dots, a_r)A^\times= A^\times$ si et seulement si il existe $u_1,\dots, u_r\in A$ tels que $u_1a_1+\cdots+u_ra_r=1$.
-\end{enumerate}
+\subsection{ppcm et pgcd}
+% passage en environnement exercice
+% \dots > \dotsc (dots with commas) et \cdots > \dotsb (dots with binarx operator) pour suivre les recommandations en vigueur (voir en particulier https://en.wikibooks.org/wiki/LaTeX/Mathematics#Dots)
+\begin{exercice}
+  Soit $A$ un anneau factoriel. 
+  \begin{enumerate}
+  \item Montrer que $Aa\cap Ab$ est un idéal principal engendré par 
+    $$\ppcm(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize max}\{v_p(a),v_p(b)\}}.$$
+    On dit que les éléments de $A^\times \ppcm(a, b) $ sont les plus petits communs multiples de $a$ et $b$.
+  \item Montrer que l'ensemble des idéaux principaux de $A$ qui contiennent $Aa+ Ab$ admet un plus petit élément, engendré par
+    $$\pgcd(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize min}\{ v_p(a),v_p(b)\}}.$$
+    On dit que les éléments de $A^\times \pgcd(a, b) $ sont les plus grands communs diviseurs de $a$ et $b$. Montrer sur un exemple qu'en général l'inclusion $Aa+Ab\subsetneq A\pgcd(a,b)$ est stricte.
+  \item Généraliser  (1) et (2) à un nombre fini $a_1,\dotsc, a_r$ d'éléments de $A$.
+  \item (Bézout) Supposons $A$ principal. Montrer que $\pgcd(a_1,\dotsc, a_r)A^\times= A^\times$ si et seulement si il existe $u_1,\dotsc, u_r\in A$ tels que $u_1a_1+\dotsb+u_ra_r=1$.
+  \end{enumerate}
+\end{exercice}
+
 
  
 
@@ -1155,7 +1239,7 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
  $\cdot $&$:(S\times A)\times (S\times A)$&$\rightarrow$&$S^{-1}A$\\
  &$((s,a),(t,b))$&$\rightarrow$&$(ab)/(st)$
  \end{tabular}$$
- Si $(s,a)\sim (s',a')$, $(t,b)\sim (t',b')$ \textit{i.e.} il existe $s'',t''\in S$ tels que $s''(s'a-sa')=0$, $t''(t'b-tb')=0$. Comme $s''t''\in S$ par multiplicativité, on a 
+ Si $(s,a)\sim (s',a')$, $(t,b)\sim (t',b')$ \ie{} il existe $s'',t''\in S$ tels que $s''(s'a-sa')=0$, $t''(t'b-tb')=0$. Comme $s''t''\in S$ par multiplicativité, on a 
  
  % align permet d'aligner les équations les unes après les autres
  % * permet de ne pas numéroter les équations de chaque ligne
@@ -1197,7 +1281,7 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
  $\phi_S:$&$ S\times A $&$\rightarrow$&$B$\\
  &$(a,s) $&$\rightarrow$&$ \phi(s)^{-1}\phi(a)$.
  \end{tabular} 
- Si $(s,a)\sim (s',a')$  \textit{i.e.} il existe $s''\in S$ tels que $s''(s'a-sa')=0$, on a $\phi(s'')(\phi(s')\phi(a)-\phi(s)\phi(a'))=\phi(s''(s'a-sa'))=\phi(0)=0$. Mais comme $\phi(s),\phi(s'),\phi(s'')\in B^{\times}$, on peut réécrire cette égalité comme 
+ Si $(s,a)\sim (s',a')$  \ie{} il existe $s''\in S$ tels que $s''(s'a-sa')=0$, on a $\phi(s'')(\phi(s')\phi(a)-\phi(s)\phi(a'))=\phi(s''(s'a-sa'))=\phi(0)=0$. Mais comme $\phi(s),\phi(s'),\phi(s'')\in B^{\times}$, on peut réécrire cette égalité comme 
  $$\phi_S(s,a)=\phi(s)^{-1}\phi(a)=\phi(s')^{-1}\phi(a')=\phi_S(s',a').$$
  Cela montre que l'application $\phi_S: S\times A  \rightarrow  B$ se factorise  en 
  $$\xymatrix{S\times A \ar[r]^{\tilde{\phi}}\ar[d]_{  -/-}& B\\
@@ -1266,8 +1350,13 @@ $$\iota_S^{-1}:\mathcal{I}_{S^{-1}A} \tilde{\rightarrow} \lbrace I\in\mathcal{I}
 
 
 \subsection{}\textbf{Lemme.} \textit{Les applications $S^{-1}: \mathcal{I}_A \rightarrow  \mathcal{I}_{S^{-1}A}  $ et  $\iota_S^{-1}: \mathcal{I}_{S^{-1}A} \rightarrow \mathcal{I}_A $ se restreignent en des bijections inverses l'une de l'autres
+<<<<<<< HEAD
 $$\xymatrix{spec(S^{-1}A) \ar@<1ex>[r]^{\iota_S^{-1}}& \lbrace \frak{p}\in spec(A)\;|\; \frak{p}\cap S=\varnothing\rbrace \ar@<1ex>[l]^{S^{-1}} }$$} 
 \begin{proof} Si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors $\frak{p}=\bigcup_{s\in S}(s\cdot)^{-1}\frak{p}$ (si $s\in S$, $a\in \frak{p}$, $sa\in\frak{p}$ implique $a\in\frak{p}$) donc   $\iota_S^{-1}S^{-1}\frak{p}=\frak{p}$. Comme on a toujours $S^{-1}\iota_S^{-1}=Id$, et $\iota_S^{-1}spec(S^{-1}A)\subset spec(A)$, il reste seulement à montrer que si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors  $S^{-1}\frak{p}\in spec(S^{-1}A)$. Soit donc $\frak{p}\in spec(A)$ et $a/s,b/t\in S^{-1}A$ tels que $(ab)/(st)\in S^{-1}\frak{p}$ \textit{i.e.} il existe $p\in \frak{p}$ et $u,v\in S$ tels que $v(uab-stp)=0$ ou encore $vuab=vstp\in\frak{p}$. Mais comme $\frak{p}\in spec(A)$ et $vu\notin\frak{p}$, on a $ab\in\frak{p}$ donc $a\in\frak{p}$ ou $b\in\frak{p}$.   \end{proof}
+=======
+$$\xymatrix{spec(S^{-1}A) \ar@<1ex>[r]^{\iota_S^{-1}}& \lbrace \frak{p}\in spec(A)\;|\; \frak{p}\cap S=\emptyset\rbrace \ar@<1ex>[l]^{S^{-1}} }$$} 
+\begin{proof} Si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\emptyset$ alors $\frak{p}=\bigcup_{s\in S}(s\cdot)^{-1}\frak{p}$ (si $s\in S$, $a\in \frak{p}$, $sa\in\frak{p}$ implique $a\in\frak{p}$) donc   $\iota_S^{-1}S^{-1}\frak{p}=\frak{p}$. Comme on a toujours $S^{-1}\iota_S^{-1}=Id$, et $\iota_S^{-1}spec(S^{-1}A)\subset spec(A)$, il reste seulement à montrer que si $\frak{p}\in spec(A)$ est tel que $S\cap \frak{p}=\emptyset$ alors  $S^{-1}\frak{p}\in spec(S^{-1}A)$. Soit donc $\frak{p}\in spec(A)$ et $a/s,b/t\in S^{-1}A$ tels que $(ab)/(st)\in S^{-1}\frak{p}$ \ie{} il existe $p\in \frak{p}$ et $u,v\in S$ tels que $v(uab-stp)=0$ ou encore $vuab=vstp\in\frak{p}$. Mais comme $\frak{p}\in spec(A)$ et $vu\notin\frak{p}$, on a $ab\in\frak{p}$ donc $a\in\frak{p}$ ou $b\in\frak{p}$.   \end{proof}
+>>>>>>> 4897ffbcff5a22654377bf0d47974e202ef5b1f2
 
 \textbf{Exemple.} Si $\frak{p}\in spec(A)$,  $A_{\frak{p}}$ est local d'unique idéal maximal $\frak{p}A_{\frak{p}}$. Le corps $\kappa(\frak{p}):=A_{\frak{p}}/\frak{p}A_{\frak{p}}$ est appelé le corps résiduel de $spec(A)$ en $\frak{p}$. Si on reprend les notations de l'Exemple \ref{LocMorphismes}, le morphisme $\phi:A_{\frak{p}}\rightarrow B_{\frak{q}}$ envoie $\frak{p}$ dans $\frak{q}$ donc induit par passage au quotient un morphisme de corps - nécessairement injectif $\kappa(\frak{p})\hookrightarrow \kappa(\frak{q})$. \\
 
@@ -1523,7 +1612,7 @@ une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes s
 
   $(1)\Rightarrow (2)$: Si $s:M''\rightarrow M$ est un morphisme de $A$-modules tel que $vs=Id_{M''}$ on vérifie que le morphisme de $A$-modules $Id-sv:M\rightarrow M$ a son image contenue dans $\ker(v)=u(M')$ et que  $t:=(u|^{u(M')})^{-1}\circ (Id-sv):M\rightarrow M'$ vérifie bien $tu=Id_{M'}$.\\
  
-  $(2)\Rightarrow (3)$: Si $s:M\rightarrow M'$ est un morphisme de $A$-modules tel que $su=Id_{M'}$, on peut considérer $f:=s\oplus v:M\rightarrow M'\oplus M''$. Par construction, $p_{M''}\circ f=v$ et $f\circ u(s(m))=s(m)=\iota_{M'}(s(m))$ donc, comme  $s:M\rightarrow M'$ est surjective, $f\circ u=\iota_{M'}$. Enfin, $f:M\rightarrow M'\oplus M''$ est un isomorphisme. Il est injectif car si $f(m)=0$ alors $v(m)=0$ \textit{i.e.} $m\in \ker(v)=u(M')$ donc $m=u(m')$ et $m'=su(m')=0$. Donc, en fait $m=0$. Il est surjectif car pour tout $m'\in M'$, $m''\in M''$, on peut écrire $m''=v(m)=v(m-us(m)+u(m'))$ et $m'=su(m')=s(m-us(m)+u(m'))$.\\
+  $(2)\Rightarrow (3)$: Si $s:M\rightarrow M'$ est un morphisme de $A$-modules tel que $su=Id_{M'}$, on peut considérer $f:=s\oplus v:M\rightarrow M'\oplus M''$. Par construction, $p_{M''}\circ f=v$ et $f\circ u(s(m))=s(m)=\iota_{M'}(s(m))$ donc, comme  $s:M\rightarrow M'$ est surjective, $f\circ u=\iota_{M'}$. Enfin, $f:M\rightarrow M'\oplus M''$ est un isomorphisme. Il est injectif car si $f(m)=0$ alors $v(m)=0$ \ie{} $m\in \ker(v)=u(M')$ donc $m=u(m')$ et $m'=su(m')=0$. Donc, en fait $m=0$. Il est surjectif car pour tout $m'\in M'$, $m''\in M''$, on peut écrire $m''=v(m)=v(m-us(m)+u(m'))$ et $m'=su(m')=s(m-us(m)+u(m'))$.\\
   
  $(3)\Rightarrow (1)$: Si $f:M\tilde{\rightarrow} M'\oplus M''$ est un isomorphisme de $A$-modules tel que $p_{M''}\circ f=v$ et   $f\circ u=\iota_{M'}$, on peut   considérer $s:= f^{-1}\circ \iota_{M''}:M''\rightarrow M $. Par construction $vs(m)=vf^{-1}  \iota_{M''}=p_{M''}\iota_{M''}=Id_{M''}$.\end{proof}
 
@@ -1852,7 +1941,7 @@ On notera que comme $Ann_{A}(M)$ annnule $M$, cette suite est également une sui
 est scindée. }\\
 
 
- Elle est donc \textit{a fortiori} scindée comme suite exacte courte de $A$-modules \textit{i.e.}
+ Elle est donc \textit{a fortiori} scindée comme suite exacte courte de $A$-modules \ie{}
 $$M\simeq A/Ann_{A}(M)\oplus M/Am$$
 comme $A$-module. Mais comme $M$ est indécomposable (et non nul), on en déduit $M=Am\simeq A/Ann_{A}(M)=A/Aa_{m}$. On conclut par la factorialité de $A$, le Lemme  des restes Chinois et l'indécomposabilité de $M$. \end{proof}
 
@@ -1865,7 +1954,7 @@ Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{
 \textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Bm$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
 ensemble ordonné inductif donc admet un élément maximal $(u,N)$ (en fait, ici, on peut invoquer le fait que $M$ est noetherien, ce qui permet d'éviter le Lemme de Zorn). Montrons que $N=M$. Sinon, soit $\mu\in M\setminus N$ et montrons qu'on peut étendre $u:N\rightarrow B$ en $u_1:N+B\mu\rightarrow B$. Pour cela, il faut `deviner' la bonne valeur de $u_1(\mu)$. Introduisons l'idéal 
 $$\frak{i}:=\lbrace b\in B\; |\; b\mu\in N\rbrace\subset B.$$
-Ecrivons $Ann_A(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \textit{i.e.}
+Ecrivons $Ann_A(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \ie{}
  $a=\alpha   b$ pour un certain $\alpha\in A$.
 Notons $u(b\mu)=\overline{c}$ (on note $\overline{-}$ les classes modulo $Aa$). On a $u(a\mu)=0=\alpha \overline{c}$ donc $\alpha c=qa=q\alpha b$ dans $A$. Mais comme $A$ est intègre $c=q  b$. On a donc envie de poser $u_1(\mu)=\overline{q}$. Définissons $u_0:N\oplus B\rightarrow B$ par $u_0(n\oplus \lambda )=u(n)+   \lambda\overline{q}$. On a $$\ker(N\oplus B \twoheadrightarrow N+B\mu, n\oplus \lambda\rightarrow n+\lambda \mu)=\lbrace \beta b\mu\oplus -\beta b\; |\; \beta\in B\rbrace\subset \ker(u_0)$$
 En effet,  $u_0( \beta b\mu\oplus -\beta b)=u(\beta b\mu)-\beta b\overline{q}=\beta u(b\mu)-\beta b\overline{q}=\beta \overline{c}-\beta b\overline{q}=0$.
@@ -1902,7 +1991,7 @@ On dit que la suite $P_{u,1}|P_{u,2}|\cdots |P_{u,r_{u}}$ est la suite des \text
 \item Calculer le nombre de classes de conjugaison (sous  $\hbox{\rm GL}_n(\F_q)$) dans $M_n(\F_q)$, dans $\hbox{\rm GL}_n(\F_q)$.\\
 \end{enumerate}
 
- Au lieu d'appliquer le Corollaire \ref{StructureTors} sous la forme énoncée, on peut l'appliquer avec la décomposition donnée par Krull-Schmidt (\textit{cf.} preuve) \textit{i.e.} il existe une unique famille de polynômes irréductibles $P_1,\dots, P_s$ et des familles d'entiers 
+ Au lieu d'appliquer le Corollaire \ref{StructureTors} sous la forme énoncée, on peut l'appliquer avec la décomposition donnée par Krull-Schmidt (\textit{cf.} preuve) \ie{} il existe une unique famille de polynômes irréductibles $P_1,\dots, P_s$ et des familles d'entiers 
  $n_{i,1}\geq \cdots\geq n_{i,r_i}>0$, $i=1,\dots ,s$
 tels que $$V_u\simeq \bigoplus_{1\leq i\leq s}\bigoplus_{1\leq j\leq r_i}k[T]/P_i^{n_j}.$$
 On retrouve alors la décomposition de Jordan en concaténant les bases $X^jP_i^l$, $0\leq j\leq d_i)-1$, $0\leq l\leq n_i-1$ de $k[T]/P_i^{n_j}$, $i=1,\dots, s$. Dans cette base, la matrice de $u$ est diagonale par blocs avec $s$ blocs $D_1,\dots, D_s$ et chaque bloc $D_i$  de la forme 
@@ -1955,7 +2044,7 @@ On a donc montré que si $f,g:M\rightarrow N$ sont des morphismes de $A$-modules
  
  \chapter{Produit tensoriel}\index{Produit tensoriel (Modules)} 
 
-\section{Construction}Soit $M_{1} ,\dots, M_{r}$ et $M$ des $A$-modules.  Notons $$L_{r,A}(M_{1}\times\cdots\times M_{r},M)$$ l'ensemble des applications $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ qui sont $r$-$A$-linéaires \textit{i.e.} telles que $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dots,r$. \\
+\section{Construction}Soit $M_{1} ,\dots, M_{r}$ et $M$ des $A$-modules.  Notons $$L_{r,A}(M_{1}\times\cdots\times M_{r},M)$$ l'ensemble des applications $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ qui sont $r$-$A$-linéaires \ie{} telles que $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dots,r$. \\
 
 
 
@@ -1971,7 +2060,7 @@ on vérifie facilement que $p:M_{1}\times\cdots\times M_{r}\rightarrow M_1\otime
 
 
 \subsection{}\label{PTUniv}\textbf{Lemme.} (Propriété universelle du produit tensoriel) \textit{Pour toute famille $M_{1} ,\dots, M_{r}$ de  $A$-modules, il existe un $A$-module $T$ et une application $r$-$A$-linéaire $p:M_1\times\cdots\times M_r\rightarrow T$ tels que pour tout $A$-module $M$ et pour toute application  $r$-$A$-linéaire $f:M_1\times\cdots\times M_r\rightarrow M$ il existe un unique morphisme de $A$-modules $\overline{f}:T\rightarrow M$ tel que $\overline{f}\circ p=f$.}
-% Notons $$L_{r,A}(M_{1}\times\cdots\times M_{r},M)$$ l'ensemble des applications $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ qui sont $r$-$A$-linéaires \textit{i.e.} telles que $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dots,r$. La structure de $A$-module sur $M$ induit une structure de $A$-module sur  $L_{r,A}(M_{1}\times\cdots\times M_{r},M)$ et on vérifie immédiatement que 
+% Notons $$L_{r,A}(M_{1}\times\cdots\times M_{r},M)$$ l'ensemble des applications $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ qui sont $r$-$A$-linéaires \ie{} telles que $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dots,r$. La structure de $A$-module sur $M$ induit une structure de $A$-module sur  $L_{r,A}(M_{1}\times\cdots\times M_{r},M)$ et on vérifie immédiatement que 
 %$$L_{r,A}(M_{1}\times\cdots\times M_{r},-):Mod_{/A}\rightarrow Mod_{/A}$$
 %est un foncteur.
 \begin{proof}Vérifions  que $T:=M_1\otimes_{A}\cdots \otimes_{A} M_r$ et  l'application $r$-$A$-linéaire $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ conviennent. Si $\overline{f}:M_1\otimes\cdots \otimes M_r\rightarrow M$, la condition $p\circ \overline{f}=f$ impose $\overline{f}(m_1\otimes\cdots\otimes m_r)=f(m_1,\dots, m_r)$. Comme $M_1\otimes_{A}\cdots \otimes_{A} M_r$  est engendré, comme $A$-module, par les éléments de la forme $m_1\otimes\cdots\otimes m_r$, cela montre l'unicité de $\overline{f}$ sous réserve de son existence. Par propriété universelle des $\iota_{\underline{m}}:A\hookrightarrow A^{(M_{1}\times\cdots\times M_{r})}$, $\underline{m}=(m_1,\dots, m_r)\in M_1\times\cdots\times M_r$, il existe un unique morphisme de $A$-modules $F:M_{0}=A^{(M_{1}\times\cdots\times M_{r})}\rightarrow M$ tel que $F\circ \iota_{\underline{m}}:A\rightarrow M$ est le morphisme qui envoie $1$ sur $f(m_1,\dots, m_r)$. Comme $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ est $r$-$A$-linéaire,  $M_{00}\subset \ker(F)$ donc $F:M_{0} \rightarrow M $ se factorise en un morphisme de $A$-modules $\overline{f}:M_1\otimes_{A} \cdots\otimes_{A} M_r\rightarrow M$ tel que $p\circ \overline{f}=F$; en particulier  $$p\circ \overline{f}(m_1,\dots,m_r)=F(m_1,\dots, m_r)=f(m_1,\dots, m_r),\; (m_1,\dots, m_r)\in M_{1}\times\cdots\times M_{r}.$$
@@ -2007,7 +2096,7 @@ $m\otimes(m_i)_{i\in I}$&$\rightarrow$&$(m\otimes m_i)_{i\in I}$\\
 
 
 
- Les preuves des lemmes suivant sont du même acabit \textit{i.e.} purement formelles et laissées en exercice au lecteur.
+ Les preuves des lemmes suivant sont du même acabit \ie{} purement formelles et laissées en exercice au lecteur.
 
 \subsection{}\label{PTComAss}\textbf{Lemme.} (Commutativité et associativité) \textit{Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques}
 $$\begin{tabular}[t]{ccc}
@@ -2228,7 +2317,7 @@ Produit&$\prod_{i\in I}M_i$&$\prod_{i\in I}A_i$\\
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item Si $A$ est un anneau intègre,  $Frac(A)$ est un corps.\\
 Ex.: $\Q=Frac(\Z)$, si $k$ est un corps, $k(T_1,\dots, T_r)=Frac(k[T_1,\dots, T_r])$, \textit{etc.}
-\item Si $k$ est un corps muni d'une valeur absolue \textit{i.e.} d'une application $|-|:k\rightarrow \R_{\geq 0}$ telle que $|x|=0$ si et seulement si $x=0$, $|xy|=|x||y|$ et $|x+y|\leq |x|+ly|$, l'ensemble $Cau(k)\subset k^\N$ des suites de Cauchy de $(k,|-|)$ est une sous-$k$-algèbre et on vérifie facilement que le sous-ensemble $Cau_0(k)\subset Cau(k)$ des suites de Cauchy qui convergent vers $0$ est un idéal maximal. On dit que $\widehat{k}:=\widehat{k^{|-|}}:=Cau(k)/Cau_0(k)$ est le complété de $k$ par rapport à la valeur absolue $|-|$. Par exemple, sur $\Q$, on peut considérer 
+\item Si $k$ est un corps muni d'une valeur absolue \ie{} d'une application $|-|:k\rightarrow \R_{\geq 0}$ telle que $|x|=0$ si et seulement si $x=0$, $|xy|=|x||y|$ et $|x+y|\leq |x|+ly|$, l'ensemble $Cau(k)\subset k^\N$ des suites de Cauchy de $(k,|-|)$ est une sous-$k$-algèbre et on vérifie facilement que le sous-ensemble $Cau_0(k)\subset Cau(k)$ des suites de Cauchy qui convergent vers $0$ est un idéal maximal. On dit que $\widehat{k}:=\widehat{k^{|-|}}:=Cau(k)/Cau_0(k)$ est le complété de $k$ par rapport à la valeur absolue $|-|$. Par exemple, sur $\Q$, on peut considérer 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item la valeur absolue usuelle $|x|=x$ si $x\geq 0$, $|x|=-x$ si $x<0$. On obtient ainsi le corps des réels $\R=\widehat{\Q^{|-|}}$;
 \item pour chaque premier $0\not=p$, la valeur absolue $p$-adique $|x|_p=p^{-v_p(x)}$. On obtient ainsi  On obtient ainsi le corps des $p$-adiques $\Q_p=\widehat{\Q^{|-|_p}}$;
@@ -2240,7 +2329,7 @@ Ex.: si $A$ est un anneau principal et $p$ un élément irréductible, $A/p$ est
 
 
 \chapter{Extensions algébriques, extensions transcendantes}
- Soit $k,K$ deux corps. On dit que $K$ est une extension de $k$ ou une $k$-extension ou que $k$ est un sous-corps de $K$ si  $K$ est une $k$-algèbre \textit{i.e.} s'il existe un morphisme  d'anneaux $\phi:k\rightarrow K$; ce morphisme est alors automatiquement injectif, ce qui justifie la terminologie `extension / sous-corps' et le fait que, dans la suite, on notera presque toujours $k\subset K$ ou $K/k$ au lieu de  $\phi:k\rightarrow K$, identifiant implicitement $k$ et son image $\phi(k)\subset K$.  Un morphisme de $k$-extensions $K/k\rightarrow K'/k$ est, par définition, un morphisme de $k$-algèbres. Un morphisme de $k$-extensions est automatiquement injectif et on dit parfois que c'est un $k$-plongement.\\
+ Soit $k,K$ deux corps. On dit que $K$ est une extension de $k$ ou une $k$-extension ou que $k$ est un sous-corps de $K$ si  $K$ est une $k$-algèbre \ie{} s'il existe un morphisme  d'anneaux $\phi:k\rightarrow K$; ce morphisme est alors automatiquement injectif, ce qui justifie la terminologie `extension / sous-corps' et le fait que, dans la suite, on notera presque toujours $k\subset K$ ou $K/k$ au lieu de  $\phi:k\rightarrow K$, identifiant implicitement $k$ et son image $\phi(k)\subset K$.  Un morphisme de $k$-extensions $K/k\rightarrow K'/k$ est, par définition, un morphisme de $k$-algèbres. Un morphisme de $k$-extensions est automatiquement injectif et on dit parfois que c'est un $k$-plongement.\\
 
 \section{}\label{Dim}Si $K/k$ est une extension de corps, on notera $[K:k]$ la dimension de $K$ comme espace vectoriel sur $k$ (avec la convention que si $K$ n'est pas de dimension finie sur $k$, $[K:k]=+\infty$). Avec la convention $+\infty\cdot +\infty=+\infty$, on a \\
 
@@ -2328,7 +2417,7 @@ $$[K_1(a):K_1]\leq [K_1(a_0,\dots, a_d,a):K_1]=[K_1(a_0,\dots, a_d,a):K_1(a_0,\d
 
 \begin{proof} La partie non triviale de l'énoncé est l'affirmation que $\overline{k^K}\subset K$ est un sous-corps. Soit donc $a \in \overline{k^K}$, $0\not=b\in \overline{k^K}$. On a $a-b, ab^{-1}\in k(a,b)\subset K$ donc 
 $$[k(a-b):k], [k(ab^{-1}):k]\leq [k(a,b):k]\leq [k(a)(b):k(a)][k(a):k]\leq [k(b):k][k(a):k]<+\infty$$
- \textit{i.e.} $a-b, ab^{-1}\in \overline{k}\cap K$ (de degré sur $k$ $\leq  [k(b):k][k(a):k]$). \end{proof}
+ \ie{} $a-b, ab^{-1}\in \overline{k}\cap K$ (de degré sur $k$ $\leq  [k(b):k][k(a):k]$). \end{proof}
  
  \textbf{Exercice.} Notons $\overline{\Q}:=\overline{\Q^\C}\subset  \C$. Montrer que $\overline{\Q}\subsetneq \C$ et que tout élément de $\C\setminus \overline{\Q}$ est transcendant sur $\overline{\Q}$ mais que  $\overline{\Q}\subset  \C$ n'est pas une extension transcendante pure.\\
 
@@ -2345,7 +2434,7 @@ $$\begin{tabular}[t]{ll}
  \end{tabular}$$ 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item H(0) est trivialement vraie. 
-\item  Supposons maintenant $n\geq 2$ et soit   $K=k[a_1,\dots, a_n]$ un corps. Comme $K$ est un corps, on a  $K=k[a_1,\dots, a_n]=k(a_1)[a_2,\dots, a_n]$ et H(n-1) assure que  $[K:k(a_1)]<+\infty$. Il suffit donc de montrer que $[k(a_1):k]<+\infty$ \textit{i.e.} \ref{AlgTr} que $a_1\in K$ est algébrique sur $k$. Choisissons une $k(a_1)$-base $b_1,\dots, b_r$ de $K$. Ecrivons $a_i=\sum_{1\leq j\leq r}x_{i,j}b_j$ avec $x_{i,j}\in k(a_1)$, $1\leq i\leq n$, $1\leq j \leq r$, $b_ib_j=\sum_{1\leq k\leq r}x_{i,j,k}b_k$ avec $x_{i,j,k}\in k(a_1)$, $1\leq i,j,k\leq r$ et introduisons la sous-$k$-algèbre $$A:=k[x_{i,j}, 1\leq i\leq n ,\; 1\leq j \leq r, x_{i,j,k},\;1\leq i,j,k\leq r]\subset K.$$ Comme $K=k[a_1,\dots, a_n]$ on a  $K= \oplus_{1\leq i\leq r}Ab_i$ donc  $$K= \oplus_{1\leq i\leq r}k(a_1)b_i\subset \oplus_{1\leq i\leq r}Ab_i\subset  \oplus_{1\leq i\leq r}k(a_1)b_i,$$
+\item  Supposons maintenant $n\geq 2$ et soit   $K=k[a_1,\dots, a_n]$ un corps. Comme $K$ est un corps, on a  $K=k[a_1,\dots, a_n]=k(a_1)[a_2,\dots, a_n]$ et H(n-1) assure que  $[K:k(a_1)]<+\infty$. Il suffit donc de montrer que $[k(a_1):k]<+\infty$ \ie{} \ref{AlgTr} que $a_1\in K$ est algébrique sur $k$. Choisissons une $k(a_1)$-base $b_1,\dots, b_r$ de $K$. Ecrivons $a_i=\sum_{1\leq j\leq r}x_{i,j}b_j$ avec $x_{i,j}\in k(a_1)$, $1\leq i\leq n$, $1\leq j \leq r$, $b_ib_j=\sum_{1\leq k\leq r}x_{i,j,k}b_k$ avec $x_{i,j,k}\in k(a_1)$, $1\leq i,j,k\leq r$ et introduisons la sous-$k$-algèbre $$A:=k[x_{i,j}, 1\leq i\leq n ,\; 1\leq j \leq r, x_{i,j,k},\;1\leq i,j,k\leq r]\subset K.$$ Comme $K=k[a_1,\dots, a_n]$ on a  $K= \oplus_{1\leq i\leq r}Ab_i$ donc  $$K= \oplus_{1\leq i\leq r}k(a_1)b_i\subset \oplus_{1\leq i\leq r}Ab_i\subset  \oplus_{1\leq i\leq r}k(a_1)b_i,$$
 ce qui impose $k(a_1)=A$ et contredit notre observation préliminaire.
 \end{itemize}
 \end{proof} 
@@ -2369,7 +2458,7 @@ La composée $V\tilde{\rightarrow} spm(\C[V])$ est donnée explicitement par $\u
  \item\textbf{Lemme 2.}  \textit{Toute $k$-agèbre intègre de $k$-dimension finie est un corps.}
  
  \begin{proof} Soit $A$ une $k$-agèbre intègre de $k$-dimension finie et $0\not=a\in A$. La multiplication par $a$ induit un morphisme $\mu_a:A\rightarrow A$ de $k$-espaces vectoriels qui est est injectif puisque $A$ est intègre donc bijectif puisque $A$ est de $k$-dimension finie. En particulier, il existe $b\in A$ tel que $ab=\mu_a(b)=1$. \end{proof} 
- \item Fin de la preuve. D'après le Lemme 1, $A_a$ est encore une $k$-algèbre de type fini. Soit $\frak{m}\in spm(A_a)$. Alors $\frak{p}:=c_a^{-1}(\frak{m})\in spec(A)$ et $a\notin \frak{p}$. De plus, on a des morphismes d'anneaux injectifs $k\hookrightarrow A/\frak{p}\hookrightarrow A_a/\frak{m}$. Par \ref{Hilbert2}, $A_a/\frak{m}$ est une extension finie de $k$. Donc par le Lemme 2, $A/\frak{p}$ est   un corps \textit{i.e.} $\frak{p}\in spm(A)$.
+ \item Fin de la preuve. D'après le Lemme 1, $A_a$ est encore une $k$-algèbre de type fini. Soit $\frak{m}\in spm(A_a)$. Alors $\frak{p}:=c_a^{-1}(\frak{m})\in spec(A)$ et $a\notin \frak{p}$. De plus, on a des morphismes d'anneaux injectifs $k\hookrightarrow A/\frak{p}\hookrightarrow A_a/\frak{m}$. Par \ref{Hilbert2}, $A_a/\frak{m}$ est une extension finie de $k$. Donc par le Lemme 2, $A/\frak{p}$ est   un corps \ie{} $\frak{p}\in spm(A)$.
  \end{itemize}
  \end{proof}
  
@@ -2421,11 +2510,11 @@ $=[K_1(\mathcal{E}_1,A_0,\dots, A_{d-1},\mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1,
 $$k\subset \overline{k}^K\subset \overline{k}^K(\mathcal{B})\subset K$$
 avec $ \overline{k}^K/k$ algébrique, $ \overline{k}^K(\mathcal{B})/ \overline{k}^K$ transcendante pure et $K/ \overline{k}^K(\mathcal{B})$ algébrique. Si, de plus, $K/k$ est de type fini alors $ \overline{k}^K/k$   et $K/ \overline{k}^K(\mathcal{B})$ sont finies et   $ \overline{k}^K(\mathcal{B})/ \overline{k}^K$ est de degré de transcendance finie. Les extensions de corps de type fini apparaissent naturellement en (et leur étude est motivée par) géométrie algébrique comme dans l'Exemple (3) de \ref{BaseTranscendance}. Il s'agit d'un sujet très vaste et encore largement ouvert. \\
 
- Dans la suite du cours, nous allons nous intéresser au cas de degré de transcendance $0$, qui est déjà très riche  dès lors que le corps de base $k$ est suffisamment 'compliqué' (on verra   ce que compliqué veut dire plus loin...). Il s'agit donc de comprendre les variétés algébriques de dimension $0$ sur un corps $k$ \textit{i.e.} les solutions d'une equation polynômiale à une indéterminée et à coefficients dans $k$. Ce problème concret remonte au 19ème siècle. A cette époque, on savait déjà depuis longtemps résoudre par radicaux (\textit{i.e.} en n'utilisant que les opérations $+,-,\times, -/-,^n\sqrt{-}$) des équations de degré $\leq 4$ (les formules de Cardan en degré $3$ et Ferrari en degré 4 remontent au milieu du 16ème siècle) mais pas au-delà.  Ruffini et Abel, au tout début du 19ème siècle, ont annoncé  qu'il `n'existait pas de formule universelle pour résoudre une équation de degré donné $\geq 5$'. Mais c'est Galois, dans son \textit{Mémoire sur les conditions de résolubilité des équations par radicaux} (écrit en 1831; Galois avait $20$ ans et devait mourir tué en duel l'année d'après), qui a eu l'intuition prodigieuse pour l'époque de relier le problème de la résolubilité d'une équation polynomiale aux symétries de ses zéros. Plus précisément, si $P\in \Q[T]$ est de degré $n$ et se factorise en $n$ facteurs de degré $1$ distincts  (ce que l'on appelera un polynôme séparable) dans $\C$
+ Dans la suite du cours, nous allons nous intéresser au cas de degré de transcendance $0$, qui est déjà très riche  dès lors que le corps de base $k$ est suffisamment 'compliqué' (on verra   ce que compliqué veut dire plus loin...). Il s'agit donc de comprendre les variétés algébriques de dimension $0$ sur un corps $k$ \ie{} les solutions d'une equation polynômiale à une indéterminée et à coefficients dans $k$. Ce problème concret remonte au 19ème siècle. A cette époque, on savait déjà depuis longtemps résoudre par radicaux (\ie{} en n'utilisant que les opérations $+,-,\times, -/-,^n\sqrt{-}$) des équations de degré $\leq 4$ (les formules de Cardan en degré $3$ et Ferrari en degré 4 remontent au milieu du 16ème siècle) mais pas au-delà.  Ruffini et Abel, au tout début du 19ème siècle, ont annoncé  qu'il `n'existait pas de formule universelle pour résoudre une équation de degré donné $\geq 5$'. Mais c'est Galois, dans son \textit{Mémoire sur les conditions de résolubilité des équations par radicaux} (écrit en 1831; Galois avait $20$ ans et devait mourir tué en duel l'année d'après), qui a eu l'intuition prodigieuse pour l'époque de relier le problème de la résolubilité d'une équation polynomiale aux symétries de ses zéros. Plus précisément, si $P\in \Q[T]$ est de degré $n$ et se factorise en $n$ facteurs de degré $1$ distincts  (ce que l'on appelera un polynôme séparable) dans $\C$
 $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \C[T]$$
- on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de fa\c{c}on limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\C$ si et seulement si le groupe $G_P$ est résoluble (\textit{i.e.} si $D^nG_P=1$ pour $n\gg 0$ où les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\  
+ on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de fa\c{c}on limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\C$ si et seulement si le groupe $G_P$ est résoluble (\ie{} si $D^nG_P=1$ pour $n\gg 0$ où les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\  
  
- Mais encore faut-il pouvoir calculer ces groupes $G_P$. Sur des exemples simples, on peut deviner intuitivement ce à quoi ressemble ces groupes. Par exemple, les solutions de  $P=(T^2+1)(T^2-2)=0$ sont $\pm i$, $\pm \sqrt{2}$ et si on peut échanger $i$ avec $-i$ (ce sont les racines de $T^2+1$) et $\sqrt{2}$ avec $-\sqrt{2}$ (ce sont les racines de $T^2-2$), on ne peut pas échanger $i$ et $\sqrt{2}$. Dans ce cas, $G_P$ est le sous-groupe de $\mathcal{S}_4$ engendré par les transpositions $(1,2)$ et $(3,4)$ \textit{i.e.}  $\Z/2\times \Z/2$. Cependant, très vite  cette approche empirique ne suffit plus. La résolution conceptuelle du problème est donnée par ce qu'on appelle maintenant la correspondance de Galois. Dans le cas particulier considéré ici - $P\in \Q[T]$ est de degré $n$ et a $n$ zéros distincts $\alpha_1,\dots,\alpha_n$ dans  $\C$ - $G_P$ est isomorphe au groupe $\SAut(K_P/\Q)$  des $\Q$-automorphismes de l'extension de corps $K_P:=\Q(\alpha_1,\dots,\alpha_n)/\Q$ et les sous-groupes    $H\subset \SAut(K_P/\Q)$ correspondent bijectivement aux  sous-extensions $\Q\subset L\subset K_P $ par $H\rightarrow K_P^H:=\lbrace x\in K_P\;|\; \sigma (x)=x;\; \sigma\in H\rbrace$ et $L\rightarrow \SAut(K_P/L)$. Par exemple, 
+ Mais encore faut-il pouvoir calculer ces groupes $G_P$. Sur des exemples simples, on peut deviner intuitivement ce à quoi ressemble ces groupes. Par exemple, les solutions de  $P=(T^2+1)(T^2-2)=0$ sont $\pm i$, $\pm \sqrt{2}$ et si on peut échanger $i$ avec $-i$ (ce sont les racines de $T^2+1$) et $\sqrt{2}$ avec $-\sqrt{2}$ (ce sont les racines de $T^2-2$), on ne peut pas échanger $i$ et $\sqrt{2}$. Dans ce cas, $G_P$ est le sous-groupe de $\mathcal{S}_4$ engendré par les transpositions $(1,2)$ et $(3,4)$ \ie{}  $\Z/2\times \Z/2$. Cependant, très vite  cette approche empirique ne suffit plus. La résolution conceptuelle du problème est donnée par ce qu'on appelle maintenant la correspondance de Galois. Dans le cas particulier considéré ici - $P\in \Q[T]$ est de degré $n$ et a $n$ zéros distincts $\alpha_1,\dots,\alpha_n$ dans  $\C$ - $G_P$ est isomorphe au groupe $\SAut(K_P/\Q)$  des $\Q$-automorphismes de l'extension de corps $K_P:=\Q(\alpha_1,\dots,\alpha_n)/\Q$ et les sous-groupes    $H\subset \SAut(K_P/\Q)$ correspondent bijectivement aux  sous-extensions $\Q\subset L\subset K_P $ par $H\rightarrow K_P^H:=\lbrace x\in K_P\;|\; \sigma (x)=x;\; \sigma\in H\rbrace$ et $L\rightarrow \SAut(K_P/L)$. Par exemple, 
 \begin{itemize}
 \item Pour $P=X^5+10X^3-10X^2+35X-18$, $G_P=\mathcal{A}_5$;
 \item Pour $P=X^5+10X^3-15$, $G_P=\mathcal{S}_5$.
@@ -2444,7 +2533,7 @@ $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \C[T]$$
  
   On rappelle que si $K/k$ est une extension de corps et $x\in K$, on note $ev_x:k[X]\rightarrow K$ l'unique morphisme de $k$-algèbres qui envoie  $X$ sur $x$ et qu'on écrit en général $ev_x(P)=:P(x)$, $P\in k[X]$.\\
  
- \section{Corps algébriquement clos, clôture algébrique}Pour tout $P\in k[X]$ on dit que  $x\in K$ est une \textit{racine}\index{Racine (Polynôme)} de $P$ si $P(x)=0$ (\textit{i.e.} $P\in \ker(ev_x)=k[X](X-1)$).
+ \section{Corps algébriquement clos, clôture algébrique}Pour tout $P\in k[X]$ on dit que  $x\in K$ est une \textit{racine}\index{Racine (Polynôme)} de $P$ si $P(x)=0$ (\ie{} $P\in \ker(ev_x)=k[X](X-1)$).
  
  
   \subsection{}\label{AlgClos}\textbf{Lemme/définition.} \textit{Soit $ k$ un  corps. Les propriétés suivantes sont équivalentes.
@@ -2462,7 +2551,7 @@ $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \C[T]$$
 
 
  Utilisons la caractérisation (1). Soit $P=X^n+a_{n-1}X^{n-1}+\dots+a_0\in \C[X]$.  Dire que $P$ a une racine dans $\C$ revient à dire que la fonction  continue $x\rightarrow |P(x)|$ atteint son minimum sur $\C$ et que celui-ci vaut $0$. Observons déjà qu'elle atteint bien son minimum. En effet,   puisque  $\displaystyle{\lim_{|x|\rightarrow +\infty}|P(x)|}=+\infty$, il existe $R>0$ tel que $|x|>r$ implique $|P(x)|>|a_0|=|P(0)|$ donc  la fonction continue $x\rightarrow |P(x)|$ atteint son minimum   sur le compact $B(0,R):=\lbrace x\in \C\; |\; |x|\leq R\rbrace $ (et ce minimum est $\leq |a_0|$). Quitte à faire un changement de variable de la forme $X\rightarrow X-x$, on peut supposer que $x\rightarrow |P(x)|$ atteint son minimum en $0$ donc que ce minimum vaut $|a_0|$. Si $a_0=0$, on a gagné. Sinon, quitte à remplacer $P$ par $a_0^{-1}P$, on peut supposer que $a_0=1$. Soit $v$ le plus petit entier $\geq 1$ tel que $a_v\not= 0$. Ecrivons $a_v=-|a_v|\exp(-iv\theta)$. On a alors $P(r\exp(i\theta))=1-|a_v|r^v+ O_0(r^{v+1}) $ donc, lorsque $x\rightarrow 0$, on a $|P(0)|\leq 1-|a_v|r^v+ O_0(r^{v+1})<1$: contradiction. \\
-\item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K\subset  K$ est un corps algébriquement clos. En effet, on sait déjà que $  \overline{k}^K$ un corps. De plus, comme $K$ est algébriquement clos,  tout $P\in  \overline{k}[T]\setminus k (\subset K[T]\setminus K)$ admet une racine $x\in K$. Mais par construction $x$ est algébrique sur $\overline{k}^K$ et comme $\overline{k}^K$ est par définition algébrique sur $k$, $x$ est algébrique sur $k$ \textit{i.e.} $x\in \overline{k}^K$. 
+\item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K\subset  K$ est un corps algébriquement clos. En effet, on sait déjà que $  \overline{k}^K$ un corps. De plus, comme $K$ est algébriquement clos,  tout $P\in  \overline{k}[T]\setminus k (\subset K[T]\setminus K)$ admet une racine $x\in K$. Mais par construction $x$ est algébrique sur $\overline{k}^K$ et comme $\overline{k}^K$ est par définition algébrique sur $k$, $x$ est algébrique sur $k$ \ie{} $x\in \overline{k}^K$. 
 \end{enumerate}
 \subsection{}\label{CloAlgDef} Soit $k$ un corps, une \textit{clôture algébrique}\index{Clôture algébrique (Extension de corps)} de $k$ est une extension algébrique $  \overline{k}/k$ avec $ \overline{k}$ algébriquement clos. Il résulte immédiatement de la définition que si $  \overline{k}/k$ est une clôture algébrique alors pour toute sous extension $K/k$ de $\overline{k}/k$, $\overline{k}/K$ est  une côture algébrique de $K$.\\
  
@@ -2565,7 +2654,7 @@ $$(*)\;\; 1=\sum_{P\in\mathcal{F}}F_P P(X_P)$$ avec $F_P\in k[X_Q,\; Q\in \mathc
  $$\phi:Z_{K_1}(P)\tilde{\rightarrow} Z_{K_2}(\phi(P)).$$
  Dans le cas particulier où $K_1=K_2=K/k$, $\phi\in \SAut(K/k)$ et
  $P\in k[T]$, $\phi P=P$, $\phi\in \SAut(K/k)$ induit une perm
- utation $\phi: Z_K(P)\tilde{\rightarrow} Z_K(P)$. En d'autres termes, $ \SAut(K/k)$ agit sur $ Z_K(P)$ \textit{i.e.} on a un morphisme de groupes 
+ utation $\phi: Z_K(P)\tilde{\rightarrow} Z_K(P)$. En d'autres termes, $ \SAut(K/k)$ agit sur $ Z_K(P)$ \ie{} on a un morphisme de groupes 
  $$\SAut(K/k)\rightarrow \mathcal{S}(Z_K(P)).$$
  On peut notamment appliquer cette observation à $K/k=\overline{k}/k$ une clôture algébrique de $k$. 
   
@@ -2592,13 +2681,13 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
 
 \textbf{Exemple.}\begin{enumerate}
 \item  $  \C/\R$: les conjugués sur $\R$ de $z\in \C$ sont $z$ et $\overline{z}$.    \\
-\item $\overline{\Q}/\Q$: les conjugués sur $Q$ de $^3\sqrt{5}$  sont $^3\sqrt{5}$, $j^3\sqrt{5}$, $j^2\;^3\sqrt{5}$ (où $j$ est une racine de $T^2+T+1$ \textit{i.e.} une racine primitive $3$ième de l'unité).
+\item $\overline{\Q}/\Q$: les conjugués sur $Q$ de $^3\sqrt{5}$  sont $^3\sqrt{5}$, $j^3\sqrt{5}$, $j^2\;^3\sqrt{5}$ (où $j$ est une racine de $T^2+T+1$ \ie{} une racine primitive $3$ième de l'unité).
 \end{enumerate}
 
  \paragraph{}\label{Normale3} \textbf{Lemme.} \textit{Soit $k\subset K\subset \overline{k}$ une sous-extension. Les propriétés suivantes sont équivalentes.
  \begin{enumerate}
 \item  Pour tout $\sigma\in  \SAut(\overline{k}/k)$, $\sigma(K)\subset K$
-\item Pour tout $x\in K$, $Z_K(P_x)=Z_{\overline{k}}(P_x)$ (\textit{i.e.} toutes les racines de $P_x$ dans $\overline{k}$ sont contenues dans $K$).
+\item Pour tout $x\in K$, $Z_K(P_x)=Z_{\overline{k}}(P_x)$ (\ie{} toutes les racines de $P_x$ dans $\overline{k}$ sont contenues dans $K$).
 \end{enumerate}}
  \begin{proof} (1) $\Rightarrow $ (2)  Cela résulte immédiatement de $(*)$.   (2) $\Rightarrow$ (1) Toujours  d'après $(*)$, pour tout $\sigma\in  \SAut(\overline{k}/k)$ et   tout $x\in K$, $\sigma(x)\in Z_{\overline{k}}(P_x)$ or, par (2) $Z_{\overline{k}}(P_x)=Z_K(P_x)\subset K$. \end{proof}
 
@@ -2619,7 +2708,7 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
 \end{itemize}
  \subsection{}\textbf{Extensions normales, corps de décomposition.}\\
  
-  \paragraph{}\label{Normale5}Si $k$ est un corps et $K/k$ une extension de corps, on dit qu'un polynôme $P\in k[T]$ est totalement décomposé sur $K$ si tous ses facteurs irréductibles dans $ K[T]$ sont de degré $1$ \textit{i.e.} $P$ s'écrit sous la forme 
+  \paragraph{}\label{Normale5}Si $k$ est un corps et $K/k$ une extension de corps, on dit qu'un polynôme $P\in k[T]$ est totalement décomposé sur $K$ si tous ses facteurs irréductibles dans $ K[T]$ sont de degré $1$ \ie{} $P$ s'écrit sous la forme 
   $$P=a\prod_{1\leq i\leq n}(T-\alpha_i)$$
   avec $a\in k$, $\alpha_1,\dots, \alpha_n \in k$.\\
   
@@ -2677,7 +2766,7 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
  \subsection{}\label{Derivations}\textbf{Dérivations.} Soit $A$ une $k$-algèbre. Une \textit{$k$-dérivation sur $A$}\index{Dérivation} est un endomorphisme de $k$-module $\partial: A\rightarrow A$ tel que $$\partial (ab)=a\partial b+(\partial a) b,\; a,b\in A.$$ 
 Une récurrence facile montre que $\partial (a^n)=na^{n-1}\partial a$, $a\in A$, $n\geq 1$. En particulier, $\partial 1=\partial (1^2)=2\partial 1$ donc $\partial 1=0$ et par $k$-linéarité, $ k\subset \ker(\partial)$.\\
 
- Sur $A=k[T]$ une dérivation est donc uniquement déterminée par sa valeur en $T$. Considérons la dérivation $\partial : k[T]\rightarrow k[T]$, $T\rightarrow 1$ \textit{i.e.} 
+ Sur $A=k[T]$ une dérivation est donc uniquement déterminée par sa valeur en $T$. Considérons la dérivation $\partial : k[T]\rightarrow k[T]$, $T\rightarrow 1$ \ie{} 
 $$\partial (\sum_{n\geq 0}a_nT^n)=\sum_{n\geq 1}na_nT^{n-1}. $$
 On note en général $P':=\partial P$, $P\in k[T]$ et on dit que $P'$ est le polynôme dérivé de $P$\index{Polynôme dérivé}.\\
 
@@ -2701,7 +2790,7 @@ Ecrivons $P=\sum_{n\geq 0} a_nT^n$ donc $P'=\sum_{n\geq 1} na_nT^{n-1}=0$ si et 
   \item Pour toute clôture algébrique $\overline{k}/k$, $|Z_{\overline{k}}(P)|=deg(P)$;
    \item Pour toute clôture algébrique $\overline{k}/k$, $\overline{k}[T]/P$ est réduite.
   \end{enumerate}}
-  \begin{proof} (1) $\Rightarrow$ (2) résulte de Bézout: $P$ et $P'$ sont premiers entre eux dans $k[T]$ si et seulement si $k[T]=k[T]P+k[T]P'$ \textit{i.e.} il existe $U,V\in k[T]$ tels que $UP+VP'=1$. Mais cette relation est  \textit{a fortiori} vraie dans $ \overline{k}[T]$ donc la conclusion résulte de Bézout dans $\overline{k}[T]$. (2) $\Rightarrow$ (1) Par la contraposé, si $P$ et $P'$ ont un diviseur irréductible commun $Q$ dans $k[T]$, celui-ci est \textit{a fortiori} un diviseur commun (non constant...) de $P$ et $P'$ dans $\overline{k}[T]$.  (2) $\Rightarrow$ (3) Par la contraposée, si  $|Z_{\overline{k}}(P)|<deg(P)$ cela signifie que $P$ a au moins une racine double $\alpha$ dans $\overline{k}$ \textit{i.e.} $(T-\alpha)^2| P$ dans $\overline{k}[T]$. En écrivant $P=(T-\alpha)^2Q$ dans $\overline{k}[T]$ et en dérivant on obtient $P'=2(T-\alpha)Q+tT-\alpha)^2Q'$ donc $(T-\alpha)| P'$ dans $\overline{k}[T]$. (3) $\Rightarrow$ (2) Par la contraposée,  si $P,P'$ ont un diviseur irréductible commun $T-\alpha$ dans $\overline{k}[T]$, on peut écrire 
+  \begin{proof} (1) $\Rightarrow$ (2) résulte de Bézout: $P$ et $P'$ sont premiers entre eux dans $k[T]$ si et seulement si $k[T]=k[T]P+k[T]P'$ \ie{} il existe $U,V\in k[T]$ tels que $UP+VP'=1$. Mais cette relation est  \textit{a fortiori} vraie dans $ \overline{k}[T]$ donc la conclusion résulte de Bézout dans $\overline{k}[T]$. (2) $\Rightarrow$ (1) Par la contraposé, si $P$ et $P'$ ont un diviseur irréductible commun $Q$ dans $k[T]$, celui-ci est \textit{a fortiori} un diviseur commun (non constant...) de $P$ et $P'$ dans $\overline{k}[T]$.  (2) $\Rightarrow$ (3) Par la contraposée, si  $|Z_{\overline{k}}(P)|<deg(P)$ cela signifie que $P$ a au moins une racine double $\alpha$ dans $\overline{k}$ \ie{} $(T-\alpha)^2| P$ dans $\overline{k}[T]$. En écrivant $P=(T-\alpha)^2Q$ dans $\overline{k}[T]$ et en dérivant on obtient $P'=2(T-\alpha)Q+tT-\alpha)^2Q'$ donc $(T-\alpha)| P'$ dans $\overline{k}[T]$. (3) $\Rightarrow$ (2) Par la contraposée,  si $P,P'$ ont un diviseur irréductible commun $T-\alpha$ dans $\overline{k}[T]$, on peut écrire 
   $P=(T-\alpha)Q$ dans $\overline{k}[T]$ donc $P'=(T-\alpha)Q'+Q$. Comme $(T-\alpha)|P'$ on a forcément $(T-\alpha)|Q$ donc $(T-\alpha)^2| P$ donc $|Z_{\overline{k}}(P)|\leq deg(P)-1$.
     (3) $\Leftrightarrow$ (4) En écrivant $P=a\prod_{1\leq i\leq n}(T-\alpha_i)^{\nu_i}$  dans $\overline{k}[T]$ avec $0\not=a\in k$ et  $\alpha_1,\dots, \alpha_n\in\overline{k}$ deux à deux distincts, le Lemme des restes chinois nous donne un isomorphisme canonique de  $\overline{k}$-algèbres
   $$\overline{k}[T]/P\tilde{\rightarrow} \prod_{1\leq i\leq n}\overline{k}[T]/(T-\alpha_i)^{\nu_i}.$$
@@ -2776,9 +2865,9 @@ $$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq deg(P_x)=
      
      \begin{proof} Si $K_3/K_1$ est séparable, la caractérisation (1) de la séparabilité montre immédiatement que $K_2/K_1$ est séparable et, puisque le polynôme minimal $P_{x,K_2}$ d'un élément $x\in K_3$ sur $K_2$ divise dans $K_2[T]$ le polynôme minimal  $P_{x,K_1}$  de $x$ sur $K_1$, que $K_3/K_2$ est aussi séparable. Réciproquement,  si $K_3/K_1$ est finie, $(*)$ dans la preuve du Corollaire de \ref{Separable2} montre que 
       $$| \SHom_{Alg/K_1}( K_3,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/K_1}( K_2,\overline{k}) }|\SHom_{Alg/K_2,\phi}( K_3,\overline{k})|=[K_3:K_2][K_2:K_1]=[K_3:K_1].$$
-      Si $K_3/K_1$ n'est pas finie, soit $x\in K_3$. Par hypothèse son polynôme minimal sur $K_2$ s'écrit $P_{x,K_2}=T^n+a_{n-1}T^{n-1}+\cdots+a_0\in K_2[T]$ et est séparable donc $x$ est séparable sur $K_2'=K_1(a_{n-1},\dots, a_0)$ (puisque son  polynôme minimal sur $K_2'$ est encore $ P_{x,K_2}$) \textit{i.e.} $K_2'(x)/K_2'$ est séparable; $K_2'(x)/K_2'$ et $K_2'/K_1$ sont donc finies (car algébriques de type fini) et séparables donc $K_2'(x)/K_1$ est séparable par transitivité.     \end{proof}
+      Si $K_3/K_1$ n'est pas finie, soit $x\in K_3$. Par hypothèse son polynôme minimal sur $K_2$ s'écrit $P_{x,K_2}=T^n+a_{n-1}T^{n-1}+\cdots+a_0\in K_2[T]$ et est séparable donc $x$ est séparable sur $K_2'=K_1(a_{n-1},\dots, a_0)$ (puisque son  polynôme minimal sur $K_2'$ est encore $ P_{x,K_2}$) \ie{} $K_2'(x)/K_2'$ est séparable; $K_2'(x)/K_2'$ et $K_2'/K_1$ sont donc finies (car algébriques de type fini) et séparables donc $K_2'(x)/K_1$ est séparable par transitivité.     \end{proof}
      
-      \subsection{}\label{Separable4}\textbf{Corollaire.} (Elément primitif) \textit{Toute extension $K/k$ séparable finie est monogène \textit{i.e.} de la forme $K=k(x)/k$ pour un certain $x\in K$.}
+      \subsection{}\label{Separable4}\textbf{Corollaire.} (Elément primitif) \textit{Toute extension $K/k$ séparable finie est monogène \ie{} de la forme $K=k(x)/k$ pour un certain $x\in K$.}
       
       \begin{proof} Supposons d'abord que $k$ est \textit{infini}. Pour tout $x\in K$, on a vu que  l'application de restriction $$-|_{k(x)}: \SHom_{Alg/k}( K,\overline{k})\rightarrow  \SHom_{Alg/k}( k(x),\overline{k})$$
       était toujours surjective. De plus, puisque $K/k$ est séparable finie, on a $ |\SHom_{Alg/k}( K,\overline{k})|=[K:k]$ et $|\SHom_{Alg/k}( k(x),\overline{k})|=[k(x):k] $. Donc 
@@ -2861,7 +2950,7 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
     \textbf{Remarque.} On peut aussi montrer que   $ N_{K_2/K_1}\circ N_{K_3/K_2}=N_{K_3/K_1}$ mais c'est un peu plus délicat.\\
  
     
-\subsection{}\textbf{Proposition} \textit{Une extension finie $K/k$ est séparable si et seulement si $tr_{K/k}:K\rightarrow k$ est non nulle (\textit{i.e.} surjective).}
+\subsection{}\textbf{Proposition} \textit{Une extension finie $K/k$ est séparable si et seulement si $tr_{K/k}:K\rightarrow k$ est non nulle (\ie{} surjective).}
     
     \begin{proof} En prenant des bases adaptées, on vérifie facilement que si $k\subset K'\subset K$ est une sous-extension, $tr_{K/k}=tr_{K'/k}\circ tr_{K/K'}$. En particulier, pour tout $x\in K$, $tr_{K/k}=tr_{k(x)/k}\circ tr_{K/k(x)}$. Si $K/k$ est séparable, on sait qu'il existe $x\in K$ tel que $K=k(x)$. Il suffit donc de montrer que $x\in K$ est séparable sur $k$ si et seulement si $tr_{k(x)/k}:k(x)\rightarrow k$ est surjective. De plus, la suite exacte courte de $k$-espaces vectoriels 
     $$0\rightarrow \ker(tr_{K/k})\rightarrow K\stackrel{tr_{K/k}}{\rightarrow}\hbox{\rm im}(tr_{K/k})\rightarrow 0$$
@@ -2897,7 +2986,7 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
 \begin{proof} On se fixe une clôture algébrique $\overline{k}/k$. Pour $x\in K$ on note   $P_x\in k[T]$  son polynôme minimal    sur $k$. On va montrer que (1) $\Leftrightarrow$ (i), $i=2,3,4$ et (4) $\Leftrightarrow$ (5)\\
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm] 
 \item (1) $\Rightarrow$ (2) résulte de l'élément primitif \ref{Separable4} et de la définition d'une extension normale. (2) $\Rightarrow$ (1) Si $K$ est le corps de décomposition d'un polynôme $P\in k[T]$ séparable, $K/k$ est normale. Mais par \ref{Separable3}, $K/k$ est aussi séparable puisque si on note $Z_K(P)=\lbrace x_1,\dots, x_n\rbrace$, $K=k(x_1,\dots, x_n)/k$ $K=k(x_1,\dots,x_n)/k$ et chacune des extensions $k(x_1,\dots,x_i)/k(x_1,\dots, x_{i-1})$ est séparable (monogène engendrée par un élément séparable \textit{cf.} caractérisation (3) de \ref{Separable3}). \\
-\item (1) $\Leftrightarrow$ (3) Pour  toute clôture algébrique $k\subset K\subset \overline{k}$ on a toujours $\SAut(K/k)\hookrightarrow \SHom_{Alg/k}(K,\overline{k})$ et $|\SHom_{Alg/k}(K,\overline{k})|\leq [K:k]$. Donc $|\SAut(K/k)|=[K:k]$ si et seulement si $\SAut(K/k)\tilde{\rightarrow}\SHom_{Alg/k}(K,\overline{k})$ (\textit{i.e.} $K/k$ est normale) et $ |\SHom_{Alg/k}(K,\overline{k})|= |K:k]$ (\textit{i.e.} $K/k$ est séparable).\\
+\item (1) $\Leftrightarrow$ (3) Pour  toute clôture algébrique $k\subset K\subset \overline{k}$ on a toujours $\SAut(K/k)\hookrightarrow \SHom_{Alg/k}(K,\overline{k})$ et $|\SHom_{Alg/k}(K,\overline{k})|\leq [K:k]$. Donc $|\SAut(K/k)|=[K:k]$ si et seulement si $\SAut(K/k)\tilde{\rightarrow}\SHom_{Alg/k}(K,\overline{k})$ (\ie{} $K/k$ est normale) et $ |\SHom_{Alg/k}(K,\overline{k})|= |K:k]$ (\ie{} $K/k$ est séparable).\\
 \item  (1) $\Rightarrow$ (5)  Comme $K/k$ est séparable, pour tout $x\in K$,   son polynôme minimal   $P_x\in k[T]$  sur $k$ se décompose comme $P_x= \prod_{y\in Z_{\overline{k}}(P_x)}(T-y)$ dans $\overline{k}[T]$. Mais comme $K/k$ est normale, 
  $$Z_{\overline{k}}(P_x)=\lbrace \sigma(x)\; |\; \sigma\in \SHom_{Alg/k}(K,\overline{k}) \rbrace = \SAut(K/k)\cdot x.$$
  (5) $\Rightarrow$ (1)  Pour tout $x\in K$,  la décomposition   $P_x=\prod_{y\in \hbox{\rm \footnotesize{Aut}}(K/k)\cdot x}(T-y)$ dans $K[T]$ montre que $P_x$ est séparable (donc que $K/k$ est séparable) et est totalement décomposé sur $K$ (donc que $K/k$ est normale).
@@ -2931,18 +3020,18 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
   \begin{proof} On procède en plusieurs étapes.
   \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
   \item $\Phi_n\in \Z[T]$. En effet $T^n-1=\prod_{d|n}\Phi_d$ dans $\Q[T]$. Comme $\Z$ est factoriel, on a en particulier  
- $1=C_\Z(T^n-1)=\prod_{d|n}C_\Z(\Phi_d)$. Mais comme   $\Phi_d$  est unitaire , on a $C_\Z(\Phi_d)=\frac{1}{a_d} $ pour un certain $a_d\in \Z_{\geq 1}$, $d|n$. Cela impose $C_\Z(\Phi_d)=1$ \textit{i.e.} $\Phi_d\in \Z[T]$, $d|n$.
+ $1=C_\Z(T^n-1)=\prod_{d|n}C_\Z(\Phi_d)$. Mais comme   $\Phi_d$  est unitaire , on a $C_\Z(\Phi_d)=\frac{1}{a_d} $ pour un certain $a_d\in \Z_{\geq 1}$, $d|n$. Cela impose $C_\Z(\Phi_d)=1$ \ie{} $\Phi_d\in \Z[T]$, $d|n$.
  \item Soit $\zeta\in \frak{u}_n$ et notons $P$ le polynôme minimal de $\zeta$ sur $\Q$. On veut montrer que $P=\Phi_n$. Comme les éléments de $\frak{u}_n$ sont tous de la forme $\zeta^m$ pour un certain $m\in \Z_{\geq 1}$, $gcd(m,n)=1$,  il suffit de prouver que si $p$ est un nombre premier $\not|n$, $\zeta^p$ est aussi une racine de $P$. Sinon, notons $Q$ le polynôme  minimal de $\zeta^p$ sur $\Q$. Comme $P\not= Q$ et $P,Q|\Phi_n$ dans $\Q[T]$, $PQ|\Phi_n$ dans $\Q[T]$. On peut donc écrire $\Phi_n=PQR$ dans $\Q[T]$. Comme $\Phi_n\in \Z[T]$ et $P,Q,R$ sont unitaires, le même argument de contenu qu'en (1) montre que $P,Q,R\in \Z[T]$.
  \item Puisque $Q(\zeta^p)=0$, $P|Q(T^p)$  dans $\Q[T]$ donc - toujours par l'argument de contenu -  dans $\Z[T]$. Notons $F\rightarrow \overline{F}$ le morphisme de réduction modulo $p$, $\Z[T]\rightarrow \Z/p[T]$. On a donc $\overline{P}|\overline{Q}(T^p)=\overline{Q}(T)^p$ dans $\F_p[T]$. Mais puisque $\F_p[T]$ est factoriel, tout diviseur irréductible de $\overline{P}$ est en particulier un diviseur irréductible de $\overline{Q}$. Fixons $\Pi\in \F_p[T]$  un diviseur irréductible  de $\overline{P}$ donc de $\overline{Q}$. On a donc $$\Pi^2|\overline{P}\overline{Q} |\overline{\Phi}_n|T^n-\overline{1}$$ dans $\F_p[T]$. On peut donc écrire $T^n-\overline{1}= \Pi^2\Xi$ dans $\F_p[T]$. En particulier, $nT^{n-1}=2\Pi\Pi'\Xi+\Pi^2\Xi'$ donc $\Pi|T^n$ dans $\F_p[T]$ donc $\Pi| (T^n-\overline{1})-T^n=\overline{1}$ dans $\F_p[T]$: contradiction.
   \end{enumerate}
   \end{proof}
-   \subsection{}\label{GaloisRad}\textbf{Extensions radicielles.} Soit $k$ un corps de caractéristique $p\geq 0$ et $n\in \Z_{\geq 1}$ tel que $|\mu_n:=\mu_n(k)|=n$ \textit{i.e.} si $p>0$, $p\not| n$ et $k$ contient toutes les racines $n$-ièmes de $1$. Fixons $a\in k$ et notons $k_{n,a}/k$ un corps de décomposition de $T^n-a$; puisque $T^n-a\in k[T]$ est séparable,  $k_{n,a}/k$ est galoisienne. 
+   \subsection{}\label{GaloisRad}\textbf{Extensions radicielles.} Soit $k$ un corps de caractéristique $p\geq 0$ et $n\in \Z_{\geq 1}$ tel que $|\mu_n:=\mu_n(k)|=n$ \ie{} si $p>0$, $p\not| n$ et $k$ contient toutes les racines $n$-ièmes de $1$. Fixons $a\in k$ et notons $k_{n,a}/k$ un corps de décomposition de $T^n-a$; puisque $T^n-a\in k[T]$ est séparable,  $k_{n,a}/k$ est galoisienne. 
    Si $\alpha\in Z_k(T^n-a)$ on a $Z_{\overline{k}}(T^n-a)=Z_k(T^n-a)=\lbrace \zeta \alpha\; |\; \alpha\in \mu_n\rbrace$. Donc $k_{n,a}=k(\alpha)$ et on dispose   d'un morphisme de groupes  injectif 
    $$\begin{tabular}[t]{ccc}
    $Gal(k_{n,a}/k)$&$\hookrightarrow$&$\mu_n$\\
    $\sigma$&$\rightarrow$
 &$\frac{\sigma(\alpha)}{\alpha}$   \end{tabular}$$
-d'image l'unique sous-groupe  d'ordre $n_a:=[k_{n,a}:k]|n$ \textit{i.e.} $\mu_{n_a}$. En particulier $$\prod_{\zeta\in \mu_{n_a}}(T-\zeta\alpha)=\alpha^{n_a}((\alpha^{-1}T)-\zeta)=T^{n_a}-\alpha^{n_a}\in k[T]$$
+d'image l'unique sous-groupe  d'ordre $n_a:=[k_{n,a}:k]|n$ \ie{} $\mu_{n_a}$. En particulier $$\prod_{\zeta\in \mu_{n_a}}(T-\zeta\alpha)=\alpha^{n_a}((\alpha^{-1}T)-\zeta)=T^{n_a}-\alpha^{n_a}\in k[T]$$
 donc $\alpha^{n_a}\in k$. Cela montre que $n_a$ est aussi le plus petit $m\in \Z_{\geq 1}$ tel que  $\alpha^m\in k$ ou, encore (puisque $|Z_k(T^n-1)|=n$), tel que $a^m\in k^{\times n}$. Autrement dit, $[k_{n,a}:k]=n_a$ est l'ordre de l'image de $a$ dans $k^\times/k^{\times n}$. On a donc montré la première partie de la proposition suivante.\\
  
  \paragraph{}\label{GaloisRadProp}\textbf{Proposition.} \textit{$k_{n,a}/k$ est Galoisienne de degré l'ordre $n_a$ de $a$ dans $k^\times/k^{\times n}$ et on a un isomorphisme de groupes  $$\begin{tabular}[t]{ccc}
@@ -2989,7 +3078,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
   $$1\rightarrow Gal(K/L)\rightarrow Gal(K/k)\rightarrow Gal(L/k)\rightarrow 1.$$
  \end{enumerate}}
  \begin{proof} (1) $K/L$ est galoisienne puisque normale et séparable (\ref{Normale5} - Contre-Exemple, \ref{Separable3}) et l'égalité $L=K^{Gal(K/L)}$ résulte alors de la caractérisation (5) de \ref{Galois1}. (2) Pour tout $\sigma\in Gal(K/k)$, $\tau\in Gal(K/L)$ et $x\in L$ on a $\sigma \tau\sigma^{-1}(\sigma(x))=\sigma\tau(x)=\sigma(x)$ donc $\sigma Gal(K/L)\sigma^{-1}\subset Gal(K/\sigma(L))$. Par symétrie, $ \sigma^{-1} Gal(K/\sigma(L))\sigma \subset Gal(K/L)$.
-  (3) La deuxième partie de l'assertion et la condition nécessaire de la première partie résulte de \ref{Normale4}. Pour la condition suffisante, si $Gal(K/L)$ est normal dans $Gal(K/k)$, d'après (2), pour tout $\sigma\in Gal(K/k)$ on a $Gal(K/L)=Gal(K/\sigma(L))=:H$. Mais par (1) on a alors $L=K^H=\sigma(L)$. Comme par ailleurs $K/k$ est galoisienne, si $K\subset \overline{k}$ est une clôture algébrique, tout $\sigma\in \SAut(\overline{k}/k)$ se restreint en $\sigma|_K\in Gal(K/k)$ donc, en fait, on a bien que pour tout $\sigma\in \SAut(\overline{k}/k)$, $\sigma(L)=L$ \textit{i.e.} $L/k$ est normale. Enfin $L/k$ est séparable par \ref{Separable3}.   \end{proof}
+  (3) La deuxième partie de l'assertion et la condition nécessaire de la première partie résulte de \ref{Normale4}. Pour la condition suffisante, si $Gal(K/L)$ est normal dans $Gal(K/k)$, d'après (2), pour tout $\sigma\in Gal(K/k)$ on a $Gal(K/L)=Gal(K/\sigma(L))=:H$. Mais par (1) on a alors $L=K^H=\sigma(L)$. Comme par ailleurs $K/k$ est galoisienne, si $K\subset \overline{k}$ est une clôture algébrique, tout $\sigma\in \SAut(\overline{k}/k)$ se restreint en $\sigma|_K\in Gal(K/k)$ donc, en fait, on a bien que pour tout $\sigma\in \SAut(\overline{k}/k)$, $\sigma(L)=L$ \ie{} $L/k$ est normale. Enfin $L/k$ est séparable par \ref{Separable3}.   \end{proof}
  
   \section{}Soit $K/k$ une extension galoisienne. Notons $\mathcal{S}(K/k)$ l'ensemble des sous-extensions de $K/k$ et $\mathcal{S}(Gal(K/k))$ l'ensemble des sous-groupes de $Gal(K/k)$.  \\
   
@@ -3016,7 +3105,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
    donc un morphisme de groupe injectif $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\hookrightarrow Gal(\Q(\zeta)/\Q)$.  Mais puisque $\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a})$ est galoisienne, on a aussi
    $$|Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))|=[\Q(\zeta,^n\sqrt{a}):\Q(\zeta)]=\frac{[\Q(\zeta,^n\sqrt{a}:\Q]}{[\Q(^n\sqrt{a}):\Q]}=\frac{n\phi(n)}{n}=\phi(n)=|Gal(\Q(\zeta)/\Q)|$$
    d'où, en fait, un isomorphisme de groupes $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\tilde{\rightarrow} Gal(\Q(\zeta)/\Q)$. On peut même calculer facilement l'action par conjugaison de $Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$ sur $Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$: soit $\sigma\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$, $\tau\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$ alors $$\frac{\sigma\tau\sigma^{-1}(^n\sqrt{a})}{^n\sqrt{a}}=\sigma(\frac{\tau(\sigma^{-1}(^n\sqrt{a}))}{\sigma^{-1}(^n\sqrt{a})})=\sigma(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})=(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})^{\chi_\Q(\sigma)}=\frac{\tau^{\chi_\Q(\sigma)}(^n\sqrt{a})}{^n\sqrt{a}}$$
-   \textit{i.e.} $\sigma\tau\sigma^{-1}=\tau^{\chi_\Q(\sigma)}$. On a donc un isomorphisme de groupes $$Gal(\Q(\zeta,^n\sqrt{a})/\Q)\tilde{\rightarrow} \Z/n\rtimes (\Z/n)^\times,\;\; \sigma\rightarrow (\frac{\sigma(^n\sqrt{a})}{^n\sqrt{a}},\sigma|_{\mu_n})$$
+   \ie{} $\sigma\tau\sigma^{-1}=\tau^{\chi_\Q(\sigma)}$. On a donc un isomorphisme de groupes $$Gal(\Q(\zeta,^n\sqrt{a})/\Q)\tilde{\rightarrow} \Z/n\rtimes (\Z/n)^\times,\;\; \sigma\rightarrow (\frac{\sigma(^n\sqrt{a})}{^n\sqrt{a}},\sigma|_{\mu_n})$$
    avec, à gauche, la structure de produit direct `tautologique' (donnée par l'action naturelle de $\Z/n^\times$ sur $\mu_n$ par $u\cdot\zeta=\zeta^u$). 
     \section{}\textbf{Clôture normale.} Soit $K/k$ une extension algébrique, $ \overline{k}$ une clôture algébrique (contenant $K$) et $ K_i/k$, $i\in I$ des sous-extensions normales de $\overline{k}/k$ contenant $K$. Alors $\cap_{i\in I}K_i/k$ est encore une extension normale contenant $K$ puisque pour tout $\sigma\in\SAut(\overline{k}/k)$, $\sigma(K_i)=K_i$ et  $\sigma(\cap_{i\in I}K_i)=\cap_{i\in I}\sigma(K_i)$. Il existe donc une plus petit sous-extension normale $\widehat{K}/k$ de $\overline{k}/k$  contenant $K$ appelé \textit{clôture normale}\index{Normale (Clôture)} de $K/k$ dans $\overline{k}/k$.\\
  
@@ -3040,7 +3129,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
  
  \subsection{}\textbf{Lemme.} \textit{$P\in k[T]$ est irréductible sur $k$ si et seulement si l'action de $G_P$ sur $Z_K(P)$ est transitive.}
  
- \begin{proof} Si $x\in Z_K(P)$, $P\in k[T]$ est irréductible sur $k $ si et seulement si c'est le polynôme minimal de $P_x$ de $x$ sur $k$ \textit{i.e.} (caractérisation (5) de \ref{Galois1}) si et seulement si $P=\prod_{y\in Gal(K_P/k)}(T-y)$.  \end{proof}
+ \begin{proof} Si $x\in Z_K(P)$, $P\in k[T]$ est irréductible sur $k $ si et seulement si c'est le polynôme minimal de $P_x$ de $x$ sur $k$ \ie{} (caractérisation (5) de \ref{Galois1}) si et seulement si $P=\prod_{y\in Gal(K_P/k)}(T-y)$.  \end{proof}
  
   A l'opposé, si $P$ se factorise en produit de polynômes irréductibles $P=P_1\cdots P_r$ dans $k[T]$, les sous-extensions $K_{P_i}/k$ de $K_P/k$ étant galoisiennes, on a des suites exactes courtes 
  $$1\rightarrow Gal(K/K_i)\rightarrow G_P\stackrel{-|_{K_{P_i}}}{\rightarrow} G_{P_i})\rightarrow 1,\; i=1,\dots, r$$
