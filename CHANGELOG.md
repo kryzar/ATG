@@ -25,6 +25,7 @@ cela permet une numérotation automatique sans avoir besoin de mettre une `\subs
 - I.1.2 ;
 - I.5.4 ;
 - I.6.
+
 Ces transformations se font progressivement.
 
 ## Ajouts mathématiques
