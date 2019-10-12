@@ -652,12 +652,15 @@ puisque, si $k<m$, $m+n-k-1>n-1$ donc $m+n-k-1\geq n$.  On a aussi pour tout $\a
 
   \subsection{Anneaux réduits et idéaux radiciels}\label{Reduit} On dit qu'un anneau $A$ est \textit{réduit}\index{Réduit (Anneau)} si  $\mathcal{R}_A=\mathcal{N}_A=0$. \\
   
-  \textbf{Exemples.} Les anneaux intègres sont réduits, l'anneau $\Z\times\Z$ est réduit non-intègre. Si $p$ est un nombre premier l'anneau  $\Z/p^n$ n'est  pas réduit et contient un élément d'indice de nilpotence $n$, $n\geq 1$. Si on note $p_n$ le nième nombre premier, l'anneau $\prod_{n\geq 1}\Z/p_n^n $    n'est  pas réduit et contient un élément d'indice de nilpotence $n$ pour tout $n\geq 1$.\\
+  \textbf{Exemples.} Les anneaux intègres sont réduits, l'anneau $\Z\times\Z$ est réduit non-intègre. Si $p$ est un nombre premier l'anneau  $\Z/p^n$ n'est  pas réduit et contient un élément d'indice de nilpotence $n$, $n\geq 1$. Si on note $p_n$ le nième nombre premier, l'anneau $\prod_{n\geq 1}\Z/p_n^n $ n'est  pas réduit et contient un élément d'indice de nilpotence $n$ pour tout $n\geq 1$.\\
   
   
   
-   Pour un idéal $I\subset A$, on note $\sqrt{I}:=p_I^{-1}(\mathcal{N}_{A/I})$. Par définition, $$I\subset \sqrt{I}=\bigcup_{n\geq 1}\lbrace a\in A\;|\; a^n\in I\rbrace.$$
-  On dit que $\sqrt{I}$ est la racine de $A$. Avec cette notation, $\mathcal{N}_A=\sqrt{\lbrace 0\rbrace}$.  Il résulte des définitions que pour un idéal $I\subsetneq A$ les PSSE
+   Pour un idéal $I\subset A$, on note
+   $\sqrt{I}:=p_I^{-1}(\mathcal{N}_{A/I})$. Par définition, $$I\subset
+   \sqrt{I}=\bigcup_{n\geq 1}\lbrace a\in A\;|\; a^n\in I\rbrace.$$
+   % correction d'une coquille : racine de I et non de A
+  On dit que $\sqrt{I}$ est la racine de $I$. Avec cette notation, $\mathcal{N}_A=\sqrt{\lbrace 0\rbrace}$.  Il résulte des définitions que pour un idéal $I\subsetneq A$ les PSSE
 \begin{tabular}[t]{ll}
 (i)&  $A/I$ est réduit;\\
 (ii)& $I=\sqrt{I}$.  \\
@@ -679,70 +682,109 @@ $$\hbox{\rm\small Classification grossière des idéaux}$$
 \subsection{} Tout morphisme $\phi:A\rightarrow B$  d'anneaux commutatifs induit une application $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ préservant $\subset$.  De plus, si $I\in \mathcal{I}_B$, le noyau de 
 $A\stackrel{\phi}{\rightarrow}B\stackrel{p_I}{\twoheadrightarrow}B/I$ est $\phi^{-1}(I)$, d'où un morphisme d'anneaux injectifs $A/\phi^{-1}(I)\hookrightarrow B/I$. Comme un sous-anneau d'un anneau intègre (resp. réduit) est intègre (resp. réduit), on en déduit que  $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ se restreint en des applications  
 
-	$$ \xymatrix{A \ar[r]^\Phi \ar[rd]_{\pi_A} & B \ar@{->>}[r]^{p_I} & B\big/ J \\ & A\big/\Phi^{-1}(J) \ar@{^{(}->}[ru]^{\tilde{p_i \circ\Phi}} & } $$
+$$ \xymatrix{A \ar[r]^\Phi \ar[rd]_{\pi_A} & B \ar@{->>}[r]^{p_I} & B\big/ J \\ & A\big/\Phi^{-1}(J) \ar@{^{(}->}[ru]^{\tilde{p_i \circ\Phi}} & } $$
 
- $$\begin{tabular}[t]{ccc}
- $(\mathcal{I}_B,\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A,\subset)$\\
-$\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
-$(\mathcal{I}_B^{red},\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A^{red},\subset)$\\
-$\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
-$(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
- \end{tabular}$$
+\begin{center}
+\begin{tabular}[t]{ccc}
+    $(\mathcal{I}_B,\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A,\subset)$\\
+    $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
+    $(\mathcal{I}_B^{red},\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A^{red},\subset)$\\
+    $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
+    $(spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
+\end{tabular}
+\end{center}
+Il n'est par contre pas vrai qu'un sous-anneau d'un corps est un corps (\textit{e.g.} $\Z\subset \Q$) donc l'image inverse d'un idéal maximal par un morphisme d'anneau n'est, en général, pas maximal.
  
-  Il n'est par contre pas vrai qu'un sous-anneau d'un corps est un corps (\textit{e.g.} $\Z\subset \Q$) donc l'image inverse d'un idéal maximal par un morphisme d'anneau n'est, en général, pas maximal. 
-   \chapter{Anneaux noetheriens}\label{AnneauNoetherien}
-   \section{Lemme}\label{NoethDef} \textit{Soit $A$ un anneau. Les PSSE.
-       \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-     \item  Tout idéal $I\subset A$ est de type fini.
-     \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
-     \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément maximal pour $\subset $.
-\end{enumerate}}
+\chapter{Anneaux noetheriens}\label{AnneauNoetherien}
+\section{Lemme}\label{NoethDef}
+% Passage du lemme dans un environnement
+% \textit{Soit $A$ un anneau. Les PSSE.
+  % \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  % \item  Tout idéal $I\subset A$ est de type fini.
+  % \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
+  % \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément maximal pour $\subset $.
+  % \end{enumerate}}
+
+\begin{lemme}\label{NoethDef}
+  Soit $A$ un anneau. Les propositions suivantes sont équivalentes.
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item  Tout idéal $I\subset A$ est de type fini.
+  \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
+  \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément maximal pour $\subset $.
+  \end{enumerate}
+\end{lemme}
+   
 \begin{proof} (1) $\Rightarrow$ (2). Supposons que tous les idéaux de $A$ sont de type fini. Soit $I_0\subset\cdots\subset I_n\subset I_{n+1}\subset \cdots\subset A$ une suite croissante d'idéaux pour $\subset $. L'ensemble $I:=\cup_{n\geq 0}I_n\subset A$ est un idéal; il existe donc un ensemble fini $X\subset A$ tels que $I=\sum_{x\in X}Ax$. Mais pour chaque $x\in X$, il existe $n_x\geq 0$ tel que $x\in I_{n_x}$. Donc avec $n:=\hbox{\rm max}\lbrace n_x\;|\; x\in X\rbrace$, on a $X\subset I_n$ donc $I\subset I_n$. \\
  (2) $\Rightarrow$ (3). Soit $\mathcal{I}\subset \mathcal{I}_A$ un sous-ensemble non-vide. Supposons que $\mathcal{I}$ n'admette pas d'élément maximal pour $\subset$. Soit $I_0\in \mathcal{I}$. Puisque $I_0$ n'est pas maximal pour $\subset$, on peut  trouver $I_1\in \mathcal{I}$ tel que $I_0\subsetneq I_1$. En réitérant l'argument on construit une suite strictement croissante $I_0\subsetneq I_1\subsetneq I_2\subsetneq\cdots\subsetneq I_n\subsetneq I_{n+1}\subsetneq \cdots$ d'élément de $\mathcal{I}$, ce qui contredit (1).\\
  (3) $\Rightarrow$ (1). Soit $I\subset A$ un idéal. Notons $\mathcal{I}\subset \mathcal{I}_A$ le sous-ensemble des idéaux de type fini de $A$ contenu dans $I$. $\mathcal{I}$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. Par (3), il admet donc un élément $I^\circ$ maximal pour $\subset$. Si $I^\circ\subsetneq I$, il existe $a\in I$ tel que $I^\circ\subsetneq I^\circ+Aa\subset I$. Par construction $I^\circ+Aa$ est de type fini, ce qui contredit la maximalité de $I$.\end{proof}
+
+% définition dans un environnement
+% orthographe
+\begin{definition}[anneau noethérien]
+  On dit qu'un anneau $A$ qui vérifie les propriétés équivalentes du Lemme \ref{NoethDef} est \textit{noetherien}\index{Noetherien (Anneau)}.
+\end{definition}
+
+\section{Exemples}
+% exemple inclus dans un environnement
+\begin{exemple}\label{NoethEx}
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item  Les anneaux principaux (\textit{e.g.} $k$, $\Z$, $k[X]$, où $k$ est un corps commutatif) sont noetheriens. 
+  \item  Si $k$ est un corps commutatif, une  $k$-algèbre $\phi:k\rightarrow A$ est toujours munie d'une structure de $k$-espace vectoriel: $k\times A\rightarrow A$, $(\lambda,a)\rightarrow \phi(\lambda)a$. Avec cette structure de $k$-espace vectoriel, les idéaux de $A$ sont automatiquement des sous-$k$-espace vectoriel. Si $A$ est de dimension finie sur $k$, elle est donc noetherienne. Par exemple l'anneau $k[X]/X^nk[X]$ est un  noetherien. 
+  \item  Tout quotient d'un anneau noetherien est noetherien. En effet, soit $A$ est un anneau noetherien et $I\subset A$  un idéal; notons $p_I:A\twoheadrightarrow A/I$ la projection canonique. Si $J\subset A/I$ est un idéal, $p_I^{-1}(J)\subset A$ est un idéal donc, en particulier, il est engendré par un nombre fini $a_1,\dots, a_r$ d'éléments. Mais alors, $J=p_Ip_I^{-1}(J)$ est engendré par les  $p_I(a_1),\dots, p_I(a_r)$.
+  \item Par contre un sous-anneau d'un anneau noetherien n'est pas forcément noetherien. Par exemple, on va voir (\ref{NoethTransfert}) que si $k$ est un corps commutatif, l'anneau $k[X_1,X_2]$ est noetherien mais la sous-$k$-algèbre engendrée par les $  X_1X_2^n$, $n\geq 0$ n'est pas un anneau noetherien.\\
+  \end{enumerate}
+\end{exemple}
+
+La proposition suivante et son corollaire fournissent un très grand nombre d'exemples d'anneaux noetheriens.   
     
-     On dit qu'un anneau $A$ qui vérifie les propriétés équivalente du Lemme \ref{NoethDef} est \textit{noetherien}\index{Noetherien (Anneau)}.
-    
-    \section{Exemples}\label{NoethEx}
-      \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-     \item  Les anneaux principaux (\textit{e.g.} $k$, $\Z$, $k[X]$, où $k$ est un corps commutatif) sont noetheriens. 
-     \item  Si $k$ est un corps commutatif, une  $k$-algèbre $\phi:k\rightarrow A$ est toujours munie d'une structure de $k$-espace vectoriel: $k\times A\rightarrow A$, $(\lambda,a)\rightarrow \phi(\lambda)a$. Avec cette structure de $k$-espace vectoriel, les idéaux de $A$ sont automatiquement des sous-$k$-espace vectoriel. Si $A$ est de dimension finie sur $k$, elle est donc noetherienne. Par exemple l'anneau $k[X]/X^nk[X]$ est un  noetherien. 
-     \item  Tout quotient d'un anneau noetherien est noetherien. En effet, soit $A$ est un anneau noetherien et $I\subset A$  un idéal; notons $p_I:A\twoheadrightarrow A/I$ la projection canonique. Si $J\subset A/I$ est un idéal, $p_I^{-1}(J)\subset A$ est un idéal donc, en particulier, il est engendré par un nombre fini $a_1,\dots, a_r$ d'éléments. Mais alors, $J=p_Ip_I^{-1}(J)$ est engendré par les  $p_I(a_1),\dots, p_I(a_r)$.
-     \item Par contre un sous-anneau d'un anneau noetherien n'est pas forcément noetherien. Par exemple, on va voir (\ref{NoethTransfert}) que si $k$ est un corps commutatif, l'anneau $k[X_1,X_2]$ est noetherien mais la sous-$k$-algèbre engendrée par les $  X_1X_2^n$, $n\geq 0$ n'est pas un anneau noetherien.\\
-\end{enumerate}
-    
- La proposition suivante et son corollaire fournissent un très grand nombre d'exemples d'anneaux noetheriens.   
-    
-\section{Proposition}\label{NoethTransfert} (Transfert de noetherianité) \textit{$A$ noetherien $\Rightarrow$ $A[X]$ noetherien.}
+\section{Proposition}
+% proposition dans un environnement
+\begin{proposition}[transfert de noethérianité]\label{NoethTransfert}
+  $A$ noetherien $\Rightarrow$ $A[X]$ noetherien.
+\end{proposition}
+
 \begin{proof}Soit $I\subset A[X]$ un idéal. Pour chaque $n\geq 0$ définissons $\frak{I}_n\setminus \lbrace 0\rbrace\subset A$ comme l'ensemble des $a\in A$ qui apparaissent comme coefficient dominant  d'un polynôme de degré $n$ dand $I$ \ie{} $a\in \frak{I}_n$ si et seulement si il existe $a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I$. Comme $I\subset A[X]$ est un idéal, les $\frak{I}_n\subset A$ sont automatiquement des idéaux. De plus,  $$a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I\Rightarrow a_0X+a_1X^2+\cdots+a_{n-1}X^{n}+aX^{n+1}\in I$$ donc on a 
 $$\frak{I}_0\subset \frak{I}_1\subset \cdots\subset \frak{I}_n\subset \frak{I}_{n+1}\subset \cdots$$
 Comme $A$ est noetherien, cette suite devient stationnaire à partir d'un certain rang, disons $n$. De plus,  chaque $\frak{I}_k$ est de type fini; notons $a_{k,1},\dots, a_{k,r_k}\in \frak{I}_k$ un ensemble fini de générateurs de $\frak{I}_k$ . Enfin,  pour  $k=0,\dots, n$, $l=1,\dots, r_k$, fixons un polynôme $P_{k,l}\in I$ de degré $k$ et de coefficient dominant $a_{k,l}$. Il suffit de montrer que $I$ est engendré par les $P_{k,l}$,  $l=1,\dots, r_k$, $k=0,\dots, n$. Notons donc $I^\circ:=\sum AP_{k,l}\subset I$ et montrons par induction sur le degré $d$ de $P\in I$ que $P\in I^\circ$. Si $d=0$, on a par définition $  \frak{I}_0\subset I^\circ$. Supposons que $I^\circ$ contient tous les   éléments de $I$ de degré $\leq d$. Soit $P=a_0+\cdots+a_dX^d+a_{d+1}X^{d+1}\in I$ de degré $d+1$. Si $d+1\geq n$, on a $a_{d+1}\in \frak{I}_{d+1}=\frak{I}_n$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{n,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_iX^{d+1-n}P_{n,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. Si $d+1\leq n$, $a_{d+1}\in \frak{I}_{d+1}$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{d+1,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_i P_{d+1,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. 
 \end{proof}
 
+\section{Corollaire}
+\begin{corollaire}\label{NoethTransfertCor}
+  Si $A$ est un anneau noetherien, toute $A$-algèbre de type fini est un anneau noetherien.
+\end{corollaire}
 
-\section{Corollaire}\label{NoethTransfertCor} \textit{Si $A$ est un anneau noetherien, toute $A$-algèbre de type fini est un anneau noetherien.}
-\begin{proof} Observons d'abord qu'en raisonnant par induction sur $n\geq 1$,   l'isomorphisme $$A[X_1,\dots, X_n]\tilde{\rightarrow} A[X_1,\cdots,X_{n-1}] [X_n]$$ et la Proposition \ref{NoethTransfert} impliquent que $A[X_1,\dots, X_n]$ est un anneau noetherien. On conclut oar l'Exemple \ref{NoethEx} (3) puisque toute $A$-algèbre de type fini  est quotient d'une $A$-algèbre de la forme $A[X_1,\dots, X_n]$. \end{proof}
+% Suppression de majuscules superflues en milieu de phrase
+% Coquilles
+\begin{proof}
+  Observons d'abord qu'en raisonnant par induction sur $n\geq 1$, l'isomorphisme $$A[X_1,\dots, X_n]\tilde{\rightarrow} A[X_1,\cdots,X_{n-1}] [X_n]$$ et la proposition \ref{NoethTransfert} impliquent que $A[X_1,\dots, X_n]$ est un anneau noetherien. On conclut par l'exemple \ref{NoethEx} (3) puisque toute $A$-algèbre de type fini  est quotient d'une $A$-algèbre de la forme $A[X_1,\dots, X_n]$.
+\end{proof}
 
-\section{Exercices}\label{NoethExercices}
-    \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-     \item  Soit $A$ un anneau noetherien. Montrer que pour tout idéal  $I\subsetneq A$, $\sqrt{I}$ est l'intersection d'un nombre fini d'idéaux premiers. En déduire que $A$ possède un nombre fini d'idéaux premiers minimaux pour $\subset$. \\
-     \item   (Anneaux artiniens) Soit $A$ un anneau. Montrer que les PSSE\\
-       \begin{enumerate} 
-     \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
-     \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément maximal pour $\subset $.\\
-\end{enumerate}
- On dit qu'un anneau $A$ qui vérifie les propriétés équivalente ci-dessus est \textit{artinien}\index{Artinien (Anneau)}. En dépit de la similitude des définitions, les anneaux artiniens et noetheriens se comportent très différemment. Soit $A$ un anneau artinien. Montrer que\\
- \begin{enumerate} 
-     \item  Tout idéal premier de $A $ est maximal.
-     \item  $A$ ne possède qu'un nombre fini d'idéaux (premiers=) maximaux.
-      \item  $A$ est noetherien.\\
-\end{enumerate}
-En fait, on peut montrer qu'un anneau est artinien si et seulement si il est noetherien et tous ses idéaux premiers sont maximaux. 
-\end{enumerate}
+\section{Exercices}
+
+\begin{exercice}\label{NoethExercices}
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item Soit $A$ un anneau noetherien. Montrer que pour tout idéal  $I\subsetneq A$, $\sqrt{I}$ est l'intersection d'un nombre fini d'idéaux premiers. En déduire que $A$ possède un nombre fini d'idéaux premiers minimaux pour $\subset$. \\
+  \item (Anneaux artiniens) Soit $A$ un anneau. Montrer que les PSSE\\
+    % croissante > décroissante
+    % maximal > minimal
+    % les propositions étaient identiques à celles qui définissent un anneau noethérien
+    \begin{enumerate} 
+    \item Toute suite d'idéaux de $A$ décroissante pour $\subset$ est stationnaire à partir d'un certain rang.
+    \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément minimal pour $\subset $.\\
+    \end{enumerate}
+    On dit qu'un anneau $A$ qui vérifie les propriétés équivalente ci-dessus est \textit{artinien}\index{Artinien (Anneau)}. En dépit de la similitude des définitions, les anneaux artiniens et noetheriens se comportent très différemment. Soit $A$ un anneau artinien. Montrer que\\
+    \begin{enumerate} 
+    \item  Tout idéal premier de $A $ est maximal.
+    \item  $A$ ne possède qu'un nombre fini d'idéaux (premiers=) maximaux.
+    \item  $A$ est noetherien.\\
+    \end{enumerate}
+    En fait, on peut montrer qu'un anneau est artinien si et seulement si il est noetherien et tous ses idéaux premiers sont maximaux.
+  \end{enumerate}
+\end{exercice}
 
 
 
-  \chapter{Anneaux principaux, euclidiens } 
+\chapter{Anneaux principaux, euclidiens } 
 
 \section{ }On dit qu'un anneau commutatif intègre $A$ est \\
 
@@ -777,7 +819,8 @@ La définition du produit dans $A[X]$ montre que $deg(fg)\leq deg(f)+deg(g)$ et 
  
 \textbf{Lemme} \textit{Soit $0\not=f,g\in A[X]$ et supposons que $CD(f)\in A^\times$. Alors il existe un unique couple $q,r\in A[X]$ tel que $g=fq+r$ et $r=0$ ou $deg(r)<deg(f)$.}\\
 
-\begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Ecrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, où $d_f:=deg(f)$, $d_g:=deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennet. Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire 
+\begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Ecrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, où $d_f:=deg(f)$, $d_g:=deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennent. % coquille corrigée ici
+  Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire 
 $$g=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f+(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f).$$
 Par construction, $g_1:=(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f)$ est de degré $\leq d_g-1$. Par hypothèse de récurrence il existe donc $q_1,r_1\in A[X]$ tels que $g_1=q_1f+r_1$ et $r_1=0$ ou $deg(r_1)<deg(f)$; $q:=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}+q_1$, $r:=r_1$ conviennent. Il reste à prouver l'unicité. Si $q',r'\in A[X]$ est un autre couple tel que $g=fq'+r'$ et $r'=0$ ou $deg(r')<deg(f)$, on a $f(q-q')=r'-r$. Si $r-r'\not= 0$, en prenant le degré $$deg(f)\geq deg(f)+deg(q-q')\stackrel{(1)}{=}deg(f(q-q')=deg(r-r')<deg(f),$$
 où $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
@@ -1170,7 +1213,7 @@ On dit qu'un anneau de la forme $A_v$ est un \textit{anneau de valuation discrè
 % remarque placée dans un environnement
 % le tilde avant ; permet l'ajout d'une espace insécable fine
 \begin{remarque}
-  Si $A$ est factoriel de corps des fractions $\iota_A:A\hookrightarrow K:=Frac(A)$, les applications $v_p:K\rightarrow \overline{\Z}$pour $p\in\mathcal{P}_A$ sont donc des valuations sur $K$ et la famille de valuations
+  Si $A$ est factoriel de corps des fractions $\iota_A:A\hookrightarrow K:=Frac(A)$, les applications $v_p:K\rightarrow \overline{\Z}$ pour $p\in\mathcal{P}_A$ sont donc des valuations sur $K$ et la famille de valuations
   $$\mathcal{V}:=\{v_p:Frac(A)\rightarrow \overline{\Z}\; |\; p\in\mathcal{P}_A\}$$
   vérifie les propriétés suivantes:
   \begin{itemize}
