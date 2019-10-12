@@ -651,7 +651,6 @@ puisque, si $k<m$, $m+n-k-1>n-1$ donc $m+n-k-1\geq n$.  On a aussi pour tout $\a
 % (2) Supposons $\frak{p}\not\supset I_i$, $i=1,\dots, r$. Pour   $i=1,\dots, r$ il existe $x_i\in I_i$, $x_i\not\in\frak{p}$. L'élément $x=x_1\cdots x_r$ est dans $I_1\cdots I_r\subset \cap_{1\leq i\leq r}I_i$ mais, comme $\frak{p}$ est premier, $x\notin\frak{p}$.\end{proof}
 
   \subsection{Anneaux réduits et idéaux radiciels}\label{Reduit} On dit qu'un anneau $A$ est \textit{réduit}\index{Réduit (Anneau)} si  $\mathcal{R}_A=\mathcal{N}_A=0$. \\
-
   \textbf{Exemples.} Les anneaux intègres sont réduits, l'anneau $\Z\times\Z$ est réduit non-intègre. Si $p$ est un nombre premier l'anneau  $\Z/p^n$ n'est  pas réduit et contient un élément d'indice de nilpotence $n$, $n\geq 1$. Si on note $p_n$ le nième nombre premier, l'anneau $\prod_{n\geq 1}\Z/p_n^n $ n'est  pas réduit et contient un élément d'indice de nilpotence $n$ pour tout $n\geq 1$.\\
   
   
@@ -690,7 +689,7 @@ $$ \xymatrix{A \ar[r]^\Phi \ar[rd]_{\pi_A} & B \ar@{->>}[r]^{p_I} & B\big/ J \\ 
     $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
     $(\mathcal{I}_B^{red},\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A^{red},\subset)$\\
     $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
-    $(\Spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (spec(A),\subset)$\\
+    $(\Spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\Spec(A),\subset)$\\
 \end{tabular}
 \end{center}
 Il n'est par contre pas vrai qu'un sous-anneau d'un corps est un corps (\textit{e.g.} $\Z\subset \Q$) donc l'image inverse d'un idéal maximal par un morphisme d'anneau n'est, en général, pas maximal.
@@ -815,7 +814,11 @@ $$ \begin{tabular}[t]{llll}
 $CD:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$A\setminus \lbrace 0\rbrace$\\
 &$f=\sum_{n\in\N}a_nX^n$&$\rightarrow$&$a_{\deg(f)}$
 \end{tabular}$$
-La définition du produit dans $A[X]$ montre que $\deg(fg)\leq \deg(f)+\deg(g)$ et que si  l'un au moins de $CD(f),CD(g)$ n'est  pas  de torsion dans $A$, $\deg(fg)= \deg(f)+\deg(g)$, $CD(fg)=CD(f)CD(g)$. On a aussi toujours $\deg(f+g)\leq \hbox{\rm max}\lbrace \deg(f),\deg(g)\rbrace$.\\
+
+		La définition du produit dans $A[X]$ montre que $\deg(fg)\leq \deg(f)+\deg(g)$ et que si  l'un au moins de $CD(f),CD(g)$ n'est  pas  de torsion dans $A$, $\deg(fg)= \deg(f)+\deg(g)$, $CD(fg)=CD(f)CD(g)$. On a aussi toujours $\deg(f+g)\leq \hbox{\rm max}\lbrace \deg(f),\deg(g)\rbrace$.\\
+ 
+\textbf{Lemme} \textit{Soit $0\not=f,g\in A[X]$ et supposons que $CD(f)\in A^\times$. Alors il existe un unique couple $q,r\in A[X]$ tel que $g=fq+r$ et $r=0$ ou $\deg(r)<\deg(f)$.}\\
+
 \begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Ecrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, où $d_f:=\deg(f)$, $d_g:=\deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennent. % coquille corrigée ici
   Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire 
 $$g=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f+(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f).$$
