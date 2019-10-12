@@ -150,97 +150,119 @@
 \part{Anneaux - généralités}
 
 \chapter{Premières définitions et constructions}
+
 \section{Définitions}
-\subsection{}On rappelle qu'un monoïde\index{Monoïde}  est un couple $(M,\times)$ formé d'un ensemble $M$ et d'une application $\times:M\times M\rightarrow M$ qui vérifient les axiomes suivants:
-\begin{enumerate}
-\item Associativité: $(l\cdot m)\cdot n=l\cdot (m\cdot n)$, $l,m,n\in M$;
-\item Élément neutre: il existe $e_M\in M$ tel que $m\cdot e_M=m=e_M\cdot m$, $m\in M$;
-\end{enumerate}
- Et on dit qu'un monoïde    $(M,\times)$ est un groupe\index{Groupe} si, de plus
+
+\subsection{Monoïdes}
+
+\begin{definition}[Monoïde et groupe]
+	On rappelle qu'un monoïde\index{Monoïde}  est un couple $(M,\times)$ formé d'un ensemble $M$ et d'une application $\times:M\times M\rightarrow M$ qui vérifient les axiomes suivants:
+	\begin{enumerate}
+	\item Associativité: $(l\cdot m)\cdot n=l\cdot (m\cdot n)$, $l,m,n\in M$;
+	\item Élément neutre: il existe $e_M\in M$ tel que $m\cdot e_M=m=e_M\cdot m$, $m\in M$;
+	\end{enumerate}
+	Et on dit qu'un monoïde    $(M,\times)$ est un groupe\index{Groupe} si, de plus
 \begin{enumerate}
 \setcounter{enumi}{2}
 \item Inverse: pour tout $m\in M$ il existe $n\in M$ tel  que $m\cdot n=e_M=n\cdot m$.\\
 \end{enumerate}
- Etant donnés deux monoïdes $M,N$, un morphisme de monoïdes est une application $\phi:M\rightarrow N$   qui vérifie:
+\end{definition}
+\begin{definition}[Morphisme]Étant donnés deux monoïdes $M,N$, un morphisme de monoïdes est une application $\phi:M\rightarrow N$   qui vérifie:
 \begin{enumerate}
 \item $\phi(m\cdot n)=\phi(m)\cdot\phi(n)$, $m,n\in M$;
 \item $\phi(e_M )=e_N$.
 \end{enumerate}
-On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme de monoïdes et que si $\phi:L\rightarrow M$ et $\psi:M\rightarrow N$ sont des morphismes de monoïdes alors $\psi\circ \phi:L\rightarrow N$ est un morphisme de monoïdes. On notera $\SHom_{Mono}(M,N)$ l'ensemble des morphismes de monoïdes $\phi:M\rightarrow N$ et, si $M=N$, $\SEnd_{Mono}(M):=\SHom_{Mono}(M,M)$.  Etant donnés deux groupes $M,N$, un morphisme de groupes $\phi:M\rightarrow N$ est un morphisme entre les monoïdes sous-jacents. Dans ce cas, on notera plutôt $\SHom_{Grp}(M,N)$ et $\SEnd_{Grp}(M)$ que $\SHom_{Mono}(M,N)$, $\SEnd_{Mono}(M,N)$. \\
+\end{definition}
+On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme de monoïdes et que si $\phi:L\rightarrow M$ et $\psi:M\rightarrow N$ sont des morphismes de monoïdes alors $\psi\circ \phi:L\rightarrow N$ est un morphisme de monoïdes.
 
- On dit qu'un monoïde $(M,\cdot)$ est abélien ou commutatif si $m\cdot n=n\cdot m$, $m,n\in M$.
+\begin{definition}On notera $\SHom_{Mono}(M,N)$ l'ensemble des morphismes de monoïdes $\phi:M\rightarrow N$ et, si $M=N$, $\SEnd_{Mono}(M):=\SHom_{Mono}(M,M)$.  Etant donnés deux groupes $M,N$, un morphisme de groupes $\phi:M\rightarrow N$ est un morphisme entre les monoïdes sous-jacents. Dans ce cas, on notera plutôt $\SHom_{Grp}(M,N)$ et $\SEnd_{Grp}(M)$ que $\SHom_{Mono}(M,N)$, $\SEnd_{Mono}(M,N)$. 
+\end{definition}
 
-\subsection{}Un anneau\index{Anneau} est  un triplet $(A,+,\cdot)$ formé d'un ensemble $A$ et de deux applications $+,\cdot :A\times A\rightarrow A$ - appelées respectivement l'addition et la multiplication -  vérifiant les axiomes suivants:
+\begin{definition}On dit qu'un monoïde $(M,\cdot)$ est abélien ou commutatif si $m\cdot n=n\cdot m$, $m,n\in M$.
+\end{definition}
+
+\subsection{Anneaux}
+\begin{definition}Un anneau\index{Anneau} est  un triplet $(A,+,\cdot)$ formé d'un ensemble $A$ et de deux applications $+,\cdot :A\times A\rightarrow A$ - appelées respectivement l'addition et la multiplication -  vérifiant les axiomes suivants:
 \begin{enumerate}
 \item $(A,+)$ est un groupe abélien; on note $0_A$ (ou simplement $0$) son élément neutre (appelé zéro) et $-a$ l'inverse d'un élément $a\in A$;
 \item $(A ,\cdot)$ est un monoïde; on note $1_A$ (ou simplement $1$) son élément neutre (appelé unité).
 \item La multiplication est distributive par rapport à l'addition \ie{} $a\cdot (b+c)=a\cdot b+a\cdot c$ et $(b+c)\cdot a=b\cdot a+c\cdot a$, $a,b,c\in A$.\\
 \end{enumerate}
- Dans la suite, on écrira presque toujours $ab$ au lieu de $a\cdot b$, $0:=0_A$, $1:=1_A$.\\
-
- On omet presque toujours les données $+,\cdot$ des notations.\\
-
-
- Un anneau $A$ est dit commutatif si    $a b=ba$, $a,b\in A$. \\
+\end{definition}
+ Dans la suite, on écrira presque toujours $ab$ au lieu de $a\cdot b$, $0:=0_A$, $1:=1_A$. On omet presque toujours les données $+,\cdot$ des notations.\\
 
 
-\subsection{}Le monoïde $(A ,\cdot)$ n'est pas un groupe en général; on note $A^\times\subset A $ le sous-ensemble des éléments inversibles \ie{} l'ensemble des $ a\in A$ tel qu'il existe $b\in A$ tel que $ab=1=ba$; c'est un groupe d'élément neutre $1$. On note alors $a^{-1}\in A^\times$ l'inverse d'un élément de $a\in A^\times$.\\
+ \begin{definition}Un anneau $A$ est dit commutatif si    $a b=ba$, $a,b\in A$. \end{definition}
 
 
- On dit qu'un anneau $A$ est un anneau à division ou un corps gauche si $1\not=0$ et $A\setminus \lbrace 0\rbrace=A^\times$. Si $A$ est de plus commutatif, on dit simplement que $A$ est un corps.\\
+\subsection{Inversibles}
+
+Le monoïde $(A ,\cdot)$ n'est pas un groupe en général; on note $A^\times\subset A $ le sous-ensemble des éléments inversibles \ie{} l'ensemble des $ a\in A$ tel qu'il existe $b\in A$ tel que $ab=1=ba$; c'est un groupe d'élément neutre $1$. On note alors $a^{-1}\in A^\times$ l'inverse d'un élément de $a\in A^\times$.\\
 
 
-\textbf{Exemples.}
+\begin{definition}On dit qu'un anneau $A$ est un anneau à division ou un corps gauche si $1\not=0$ et $A\setminus \lbrace 0\rbrace=A^\times$. Si $A$ est de plus commutatif, on dit simplement que $A$ est un corps.\end{definition}
+
+
+	\begin{exemples}
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item L'anneau nul $A=\lbrace 0\rbrace$ (on n'a pas exclu $1\not=0$ dans la définition d'anneaux).
 \item L'anneau  $\Z$ des entiers. Dans ce cas  $\Z^\times=\lbrace \pm 1\rbrace$.
 \item Les corps commutatifs, par exemple $\Q$, $\R$, $\C$.
 \item Si $M$ est un groupe abélien, l'ensemble $\SEnd_{Grp}(M)$ des endomorphismes du groupe  abélien $M$ muni de $(\phi+\psi)(m)=\phi(m)+\psi(m)$ et $(\psi\cdot\phi)(m)=\psi\circ \phi(m)$ est  un anneau (non commutatif en général) de zéro l'application nulle et d'unité l'application identité. Dans ce cas,  $\SEnd_{Grp}(M)^\times=\SAut_{Grp}(M)$.
 \item Si $M$ est un espace vectoriel sur un corps commutatif $k$, l'ensemble $\SEnd_k(M)$ des endomorphismes du $k$-espace vectoriel  $M$ muni de $(\phi+\psi)(m)=\phi(m)+\psi(m)$ et $(\psi\cdot\phi)(m)=\psi\circ \phi(m)$ est un anneau (non commutatif si $M$ est de $k$-dimension $\geq 2$) de zéro l'application nulle et d'unité l'application identité. Dans ce cas, $\SEnd_k(M)^\times=\SGL_k(M)$.
-\item On rencontre aussi beaucoup d'anneaux en analyse: les anneaux $\mathcal{C}(X,\R)$ ou $\mathcal{C}(X,\C)$ de fonctions continues à valeurs réelles  ou complexes sur un espace topologique $X$, les anneaux $L^p(X,\mu)$ de fonctions intégrables  sur un espace mesuré $(X,\mu)$, les anneaux de séries entières \textit{etc}.\\
+\item On rencontre aussi beaucoup d'anneaux en analyse: les anneaux $\mathcal{C}(X,\R)$ ou $\mathcal{C}(X,\C)$ de fonctions continues à valeurs réelles  ou complexes sur un espace topologique $X$, les anneaux $L^p(X,\mu)$ de fonctions intégrables  sur un espace mesuré $(X,\mu)$, les anneaux de séries entières \textit{etc}.
 \end{itemize}
+	\end{exemples}
 
 
 
 
-\subsection{}Etant donnés deux anneaux $A,B$, un morphisme d'anneaux est une application $\phi:A\rightarrow B$ qui induit à la fois un morphisme de groupes $\phi:(A,+)\rightarrow (B,+)$ et de monoides unitaires $\phi:(A,\cdot)\rightarrow (B,\cdot)$ \textit{i.e} qui vérifie:
+\subsection{Morphismes d'anneaux}
+
+\begin{definition}Étant donnés deux anneaux $A,B$, un morphisme d'anneaux est une application $\phi:A\rightarrow B$ qui induit à la fois un morphisme de groupes $\phi:(A,+)\rightarrow (B,+)$ et de monoides unitaires $\phi:(A,\cdot)\rightarrow (B,\cdot)$ \textit{i.e} qui vérifie:
 \begin{enumerate}
 \item $\phi(a+b)=\phi(a)+\phi(b)$, $a,b\in A$;q
 \item $\phi(a  b)=\phi(a) \phi(b)$, $a,b\in A$ et $\phi(1)=1$;
 \end{enumerate}
-On remarquera que l'application identité $\Id:A\rightarrow A$ est un morphisme d'anneaux et que si $\phi:A\rightarrow B$ et $\psi:B\rightarrow C$ sont des morphismes d'anneaux alors $\psi\circ \phi:A\rightarrow C$ est un morphisme d'anneaux. On notera $\SHom(A,B)$ l'ensemble des morphismes d'anneaux $\phi:A\rightarrow B$ et, si $A=B$, $\SEnd(A):=\SHom(A,A)$. \\
+\end{definition}
+	On remarquera que l'application identité $\Id:A\rightarrow A$ est un morphisme d'anneaux et que si $\phi:A\rightarrow B$ et $\psi:B\rightarrow C$ sont des morphismes d'anneaux alors $\psi\circ \phi:A\rightarrow C$ est un morphisme d'anneaux. On notera $\SHom(A,B)$ l'ensemble des morphismes d'anneaux $\phi:A\rightarrow B$ et, si $A=B$, $\SEnd(A):=\SHom(A,A)$. \\
 
- On dit qu'un morphisme d'anneaux $\phi:A\rightarrow B$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est injective (resp. surjective, resp. bijective). On vérifie que si $\phi:A\rightarrow B$ est un isomorphisme d'anneaux l'application inverse $\phi^{-1}:B\rightarrow A$ est automatiquement un morphisme d'anneaux. Comme un morphisme d'anneaux $\phi:A\rightarrow B$ est en particulier un morphisme de groupes, $\phi:A\rightarrow B$ est injectif si et seulement si $\ker(\phi):=\phi^{-1}(0_B)=\lbrace 0_A\rbrace$. On notera aussi $\im(\phi):=\phi(A)$. \\
+On dit qu'un morphisme d'anneaux $\phi:A\rightarrow B$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est injective (resp. surjective, resp. bijective). On vérifie que si $\phi:A\rightarrow B$ est un isomorphisme d'anneaux l'application inverse $\phi^{-1}:B\rightarrow A$ est automatiquement un morphisme d'anneaux. Comme un morphisme d'anneaux $\phi:A\rightarrow B$ est en particulier un morphisme de groupes, $\phi:A\rightarrow B$ est injectif si et seulement si $\ker(\phi):=\phi^{-1}(0_B)=\lbrace 0_A\rbrace$. On notera aussi $\im(\phi):=\phi(A)$. \\
 
  Si $\phi:A\rightarrow B$ est un morphisme d'anneaux, on vérifie que $\phi(A^\times)\subset B^\times$ et que $\phi:A\rightarrow B$ induit par restriction un morphisme de groupes $\phi:A^\times\rightarrow B^\times$.
 
-\subsection{}Si $A$ est un anneau, un sous-anneau\index{Sous-anneau} de $A$ est un sous-ensemble $A'\subset A$ tel que $1_A\in A'$ et $a'-b'\in A'$, $a'\cdot b'\in A'$, $a',b'\in A'$. \\
+\subsection{Sous-anneaux}Si $A$ est un anneau, un sous-anneau\index{Sous-anneau} de $A$ est un sous-ensemble $A'\subset A$ tel que $1_A\in A'$ et $a'-b'\in A'$, $a'\cdot b'\in A'$, $a',b'\in A'$. \\
 
-\textbf{Exemples.}
-\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\begin{exemples}\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item $\Z$ est un sous anneau de $\Q$, $\Q$ est un sous-anneau de $\R$, $\R$ est un sous-anneau de $\C$.
 \item Si $M$ est un espace vectoriel sur un corps commutatif $k$, $\SEnd_k(M)$ est un sous-anneau de $\SEnd_{Grp}(M)$.
 \item $Z(A):=\lbrace a\in A\;|\; a\cdot b=b\cdot a,\; b\in A\rbrace\subset A$ est un sous-anneau de $A$, appelé le centre\index{Centre (Anneau)} de $A$. Par exemple $Z(\SEnd_k(M))=k\Id_M$ et $Z(A)=A$ si et seulement si $A$ est commutatif.
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux, et $A'\subset A$ (resp. $B'\subset B$) est un sous-anneau alors $\phi(A')\subset B$ (resp. $\phi^{-1}(B')\subset A$) est un sous-anneau. En particulier, $\im(\phi)\subset B$ est un sous-anneau mais  $\ker(\phi)\subset A$ n'est un sous-anneau que si $A$ ou $B$ est l'anneau nul, sinon il ne contient pas $1$ (on verra un peu plus loin que $\ker(\phi)$ est ce qu'on appelle un idéal).
 \end{itemize}
+\end{exemples}
 
-\subsection{}Soit $A$ un anneau commutatif. Une $A$-algèbre\index{Algèbre sur un anneau commutatif} est un couple $(B,\phi)$ où $B$ est  un anneau et  $\phi:A\rightarrow B$ est un morphisme d'anneaux tel que $\im(\phi)\subset Z(B)$.   On notera en général $\phi:A\rightarrow B$ ou simplement  (lorsque la donnée de $\phi:A\rightarrow B$ ne peut prêter à confusion) $B$  la $A$-algèbre $(B,\phi)$.
-Étant données deux $A$-algèbres $\phi_B:A\rightarrow B$, $\phi_C:A\rightarrow C$, un morphisme de $A$-algèbres est un morphisme d'anneaux $\phi:B\rightarrow C$ tel que $\phi\circ \phi_B=\phi_C$.
+\subsection{Algèbres}
+
+\begin{definition}Soit $A$ un anneau commutatif. Une $A$-algèbre\index{Algèbre sur un anneau commutatif} est un couple $(B,\phi)$ où $B$ est  un anneau et  $\phi:A\rightarrow B$ est un morphisme d'anneaux tel que $\im(\phi)\subset Z(B)$.   On notera en général $\phi:A\rightarrow B$ ou simplement  (lorsque la donnée de $\phi:A\rightarrow B$ ne peut prêter à confusion) $B$  la $A$-algèbre $(B,\phi)$.\end{definition}
+\begin{definition}
+Étant données deux $A$-algèbres $\phi_B:A\rightarrow B$, $\phi_C:A\rightarrow C$, un morphisme de $A$-algèbres est un morphisme d'anneaux $\phi:B\rightarrow C$ tel que $\phi\circ \phi_B=\phi_C$.\end{definition}
 
 $$ \xymatrix{ & B \ar[dd]^\Phi \\ A \ar[ru]^{\Phi_B} \ar[rd]_{\Phi_C} \\ & C } $$
 
+
 On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme de $A$-algèbres et que si $\phi:B\rightarrow C$ et $\psi:C\rightarrow D$ sont des morphismes de $A$-algèbres alors $\psi\circ \phi:B\rightarrow D$ est un morphisme de $A$-algèbres. On notera $\SHom_A(B,C)$ l'ensemble des morphismes de $A$-algèbres $\phi:B\rightarrow C$ et, si $B=C$, $\SEnd_A(B):=\SHom_A(B,C)$. On dit encore qu'un morphisme de $A$-algèbres $\phi:B\rightarrow C$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est  injective (resp. surjective, resp. bijective). On vérifie que si $\phi:B\rightarrow C$ est un isomorphisme de $A$-algèbres l'application inverse $\phi^{-1}:C\rightarrow B$ est automatiquement un morphisme de $A$-algèbres.\\
 
- \textbf{Remarque.} On verra dans la partie II du cours, qu'une $A$-algèbre $\phi:A\rightarrow B$ est aussi la même chose qu'un anneau $B$ muni d'une structure de $A$-module  et qu'avec cette terminologie un morphisme de $A$-algèbres est un morphisme d'anneaux qui est aussi un morphisme de $A$-modules.  \\
 
-\textbf{Exemples.}
+\begin{remarque}On verra dans la partie II du cours, qu'une $A$-algèbre $\phi:A\rightarrow B$ est aussi la même chose qu'un anneau $B$ muni d'une structure de $A$-module  et qu'avec cette terminologie un morphisme de $A$-algèbres est un morphisme d'anneaux qui est aussi un morphisme de $A$-modules. \end{remarque}
+
+	\begin{exemples}
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item Le morphisme caractéristique\index{Caractéristique (Morphisme)} $c_A:\Z\rightarrow A$, $1\rightarrow 1_A$ munit tout anneau $A$ d'une structure de $\Z$-algèbre canonique et tout morphisme d'anneaux $\phi:A\rightarrow B$ est automatiquement un morphisme de $\Z$-algèbres pour ces structures (\ie{} $\phi\circ c_A=c_B$).
 \item L'inclusion $\iota_A: Z(A)\hookrightarrow  A $  munit tout anneau $A$ d'une structure de $Z(A)$-algèbre canonique.
 \item Si $A,B$ sont des anneaux commutatifs, tout morphisme d'anneaux $\phi:A\rightarrow B$ munit $B$ d'une structure de $A$-algèbre.\\
-\end{itemize}
+\end{itemize}\end{exemples}
 
- \textbf{Exercice.} (Quaternions) On considère le $\R$-espace vectoriel $\HH$ de base $1,i,j,k$ muni du produit $\HH\times \HH\rightarrow \HH$ définie par $i^2=j^2=k^2=-1$, $ij=-ji=k$, $jk=-kj=i$, $ki=-ik=j$.
+\begin{exercice}[Quaternions] On considère le $\R$-espace vectoriel $\HH$ de base $1,i,j,k$ muni du produit $\HH\times \HH\rightarrow \HH$ définie par $i^2=j^2=k^2=-1$, $ij=-ji=k$, $jk=-kj=i$, $ki=-ik=j$.
  \begin{enumerate}
  \item Montrer que $(\HH,+,\cdot)$ est un anneau à division, non commutatif. Déterminer son centre   et en déduire que c'est  une $\R$-algèbre.
  \item On note $i$ une racine carré de $-1$ dans $\C$ et on considère les matrices $$I:=\left(\begin{tabular}[c]{ll}
@@ -254,8 +276,8 @@ On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme 
  $i$&$0$
  \end{tabular}\right).$$
  Montrer que le sous-$\R$-espace vectoriel de $M_2(\C)$ engendré par $\Id$, $I$, $J$, $K$ est un sous-$\R$-algèbre de $(M_2(\C),+,\cdot)$ isomorphe à $\HH$.
- \end{enumerate}
-
+\end{enumerate}
+\end{exercice}
 \section{Produits}\label{Produit (Anneaux)}\label{Produit}\index{Produit} Si $A_i$, $i\in I$ est une famille d'anneaux, on peut munir le produit ensembliste $\prod_{i\in I}A_i$ d'une structure d'anneau en posant, pour $\underline{a}=(a_i)_{i\in I}$, $\underline{b}=(b_i)_{i\in I}\in \prod_{i\in I}A_i$
 $$\underline{a}+\underline{b}=(a_i+b_i)_{i\in I},\;\; \underline{a}\cdot \underline{b}=(a_i\cdot b_i)_{i\in I}$$
 On a alors $0 =(0_{A_i})_{i\in I}$, $1 =(1_{A_i})_{i\in I}$. De plus, les projections $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $\underline{a}\rightarrow a_i$, $i\in I$ sont automatiquement des morphismes d'anneaux. \\
@@ -826,7 +848,7 @@ $\CD:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$A\setminus \lbrace 0\rbra
   Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire
 $$g=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f+(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f).$$
 Par construction, $g_1:=(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f)$ est de degré $\leq d_g-1$. Par hypothèse de récurrence il existe donc $q_1,r_1\in A[X]$ tels que $g_1=q_1f+r_1$ et $r_1=0$ ou $\deg(r_1)<\deg(f)$; $q:=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}+q_1$, $r:=r_1$ conviennent. Il reste à prouver l'unicité. Si $q',r'\in A[X]$ est un autre couple tel que $g=fq'+r'$ et $r'=0$ ou $\deg(r')<\deg(f)$, on a $f(q-q')=r'-r$. Si $r-r'\not= 0$, en prenant le degré $$\deg(f)\geq \deg(f)+\deg(q-q')\stackrel{(1)}{=}\deg(f(q-q')=\deg(r-r')<\deg(f),$$
-où $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $\CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
+où $(1)$ utilise encore que $\CD(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $\CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
 
  En particulier, si $A=k$ est un corps, le degré $\deg:k[X]\setminus\lbrace 0\rbrace\rightarrow \N$  est un stathme euclidien sur $k[X]$.\\
 
