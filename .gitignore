@@ -8,3 +8,11 @@
 *.aux
 *.idx
 *.toc
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.ilg
+*.ind
+*.out
+*.synctex.gz
