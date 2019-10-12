@@ -98,6 +98,7 @@
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\CD}{CD} 
+\DeclareMathOperator{\Id}{Id}
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
@@ -164,7 +165,7 @@
 \item $\phi(m\cdot n)=\phi(m)\cdot\phi(n)$, $m,n\in M$;
 \item $\phi(e_M )=e_N$.
 \end{enumerate}
-On remarquera que l'application identité $Id:M\rightarrow M$ est un morphisme de monoïdes et que si $\phi:L\rightarrow M$ et $\psi:M\rightarrow N$ sont des morphismes de monoïdes alors $\psi\circ \phi:L\rightarrow N$ est un morphisme de monoïdes. On notera $\SHom_{Mono}(M,N)$ l'ensemble des morphismes de monoïdes $\phi:M\rightarrow N$ et, si $M=N$, $End_{Mono}(M):=\SHom_{Mono}(M,M)$.  Etant donnés deux groupes $M,N$, un morphisme de groupes $\phi:M\rightarrow N$ est un morphisme entre les monoïdes sous-jacents. Dans ce cas, on notera plutôt $\SHom_{Grp}(M,N)$ et $End_{Grp}(M)$ que $\SHom_{Mono}(M,N)$, $End_{Mono}(M,N)$. \\
+On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme de monoïdes et que si $\phi:L\rightarrow M$ et $\psi:M\rightarrow N$ sont des morphismes de monoïdes alors $\psi\circ \phi:L\rightarrow N$ est un morphisme de monoïdes. On notera $\SHom_{Mono}(M,N)$ l'ensemble des morphismes de monoïdes $\phi:M\rightarrow N$ et, si $M=N$, $End_{Mono}(M):=\SHom_{Mono}(M,M)$.  Etant donnés deux groupes $M,N$, un morphisme de groupes $\phi:M\rightarrow N$ est un morphisme entre les monoïdes sous-jacents. Dans ce cas, on notera plutôt $\SHom_{Grp}(M,N)$ et $End_{Grp}(M)$ que $\SHom_{Mono}(M,N)$, $End_{Mono}(M,N)$. \\
 
  On dit qu'un monoïde $(M,\cdot)$ est abélien ou commutatif si $m\cdot n=n\cdot m$, $m,n\in M$.
 
@@ -206,7 +207,7 @@ On remarquera que l'application identité $Id:M\rightarrow M$ est un morphisme d
 \item $\phi(a+b)=\phi(a)+\phi(b)$, $a,b\in A$;q
 \item $\phi(a  b)=\phi(a) \phi(b)$, $a,b\in A$ et $\phi(1)=1$;
 \end{enumerate}
-On remarquera que l'application identité $Id:A\rightarrow A$ est un morphisme d'anneaux et que si $\phi:A\rightarrow B$ et $\psi:B\rightarrow C$ sont des morphismes d'anneaux alors $\psi\circ \phi:A\rightarrow C$ est un morphisme d'anneaux. On notera $\SHom(A,B)$ l'ensemble des morphismes d'anneaux $\phi:A\rightarrow B$ et, si $A=B$, $End(A):=\SHom(A,A)$. \\
+On remarquera que l'application identité $\Id:A\rightarrow A$ est un morphisme d'anneaux et que si $\phi:A\rightarrow B$ et $\psi:B\rightarrow C$ sont des morphismes d'anneaux alors $\psi\circ \phi:A\rightarrow C$ est un morphisme d'anneaux. On notera $\SHom(A,B)$ l'ensemble des morphismes d'anneaux $\phi:A\rightarrow B$ et, si $A=B$, $End(A):=\SHom(A,A)$. \\
 
  On dit qu'un morphisme d'anneaux $\phi:A\rightarrow B$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est injective (resp. surjective, resp. bijective). On vérifie que si $\phi:A\rightarrow B$ est un isomorphisme d'anneaux l'application inverse $\phi^{-1}:B\rightarrow A$ est automatiquement un morphisme d'anneaux. Comme un morphisme d'anneaux $\phi:A\rightarrow B$ est en particulier un morphisme de groupes, $\phi:A\rightarrow B$ est injectif si et seulement si $\ker(\phi):=\phi^{-1}(0_B)=\lbrace 0_A\rbrace$. On notera aussi $\im(\phi):=\phi(A)$. \\
 
@@ -218,7 +219,7 @@ On remarquera que l'application identité $Id:A\rightarrow A$ est un morphisme d
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item $\Z$ est un sous anneau de $\Q$, $\Q$ est un sous-anneau de $\R$, $\R$ est un sous-anneau de $\C$.
 \item Si $M$ est un espace vectoriel sur un corps commutatif $k$, $End_k(M)$ est un sous-anneau de $End_{Grp}(M)$.
-\item $Z(A):=\lbrace a\in A\;|\; a\cdot b=b\cdot a,\; b\in A\rbrace\subset A$ est un sous-anneau de $A$, appelé le centre\index{Centre (Anneau)} de $A$. Par exemple $Z(End_k(M))=kId_M$ et $Z(A)=A$ si et seulement si $A$ est commutatif.
+\item $Z(A):=\lbrace a\in A\;|\; a\cdot b=b\cdot a,\; b\in A\rbrace\subset A$ est un sous-anneau de $A$, appelé le centre\index{Centre (Anneau)} de $A$. Par exemple $Z(End_k(M))=k\Id_M$ et $Z(A)=A$ si et seulement si $A$ est commutatif.
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux, et $A'\subset A$ (resp. $B'\subset B$) est un sous-anneau alors $\phi(A')\subset B$ (resp. $\phi^{-1}(B')\subset A$) est un sous-anneau. En particulier, $\im(\phi)\subset B$ est un sous-anneau mais  $\ker(\phi)\subset A$ n'est un sous-anneau que si $A$ ou $B$ est l'anneau nul, sinon il ne contient pas $1$ (on verra un peu plus loin que $\ker(\phi)$ est ce qu'on appelle un idéal).
 \end{itemize}
 
@@ -227,7 +228,7 @@ On remarquera que l'application identité $Id:A\rightarrow A$ est un morphisme d
 
 $$ \xymatrix{ & B \ar[dd]^\Phi \\ A \ar[ru]^{\Phi_B} \ar[rd]_{\Phi_C} \\ & C } $$
 
-On remarquera que l'application identité $Id:B\rightarrow B$ est un morphisme de $A$-algèbres et que si $\phi:B\rightarrow C$ et $\psi:C\rightarrow D$ sont des morphismes de $A$-algèbres alors $\psi\circ \phi:B\rightarrow D$ est un morphisme de $A$-algèbres. On notera $\SHom_A(B,C)$ l'ensemble des morphismes de $A$-algèbres $\phi:B\rightarrow C$ et, si $B=C$, $End_A(B):=\SHom_A(B,C)$. On dit encore qu'un morphisme de $A$-algèbres $\phi:B\rightarrow C$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est  injective (resp. surjective, resp. bijective). On vérifie que si $\phi:B\rightarrow C$ est un isomorphisme de $A$-algèbres l'application inverse $\phi^{-1}:C\rightarrow B$ est automatiquement un morphisme de $A$-algèbres.\\
+On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme de $A$-algèbres et que si $\phi:B\rightarrow C$ et $\psi:C\rightarrow D$ sont des morphismes de $A$-algèbres alors $\psi\circ \phi:B\rightarrow D$ est un morphisme de $A$-algèbres. On notera $\SHom_A(B,C)$ l'ensemble des morphismes de $A$-algèbres $\phi:B\rightarrow C$ et, si $B=C$, $End_A(B):=\SHom_A(B,C)$. On dit encore qu'un morphisme de $A$-algèbres $\phi:B\rightarrow C$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensembles sous-jacente est  injective (resp. surjective, resp. bijective). On vérifie que si $\phi:B\rightarrow C$ est un isomorphisme de $A$-algèbres l'application inverse $\phi^{-1}:C\rightarrow B$ est automatiquement un morphisme de $A$-algèbres.\\
 
  \textbf{Remarque.} On verra dans la partie II du cours, qu'une $A$-algèbre $\phi:A\rightarrow B$ est aussi la même chose qu'un anneau $B$ muni d'une structure de $A$-module  et qu'avec cette terminologie un morphisme de $A$-algèbres est un morphisme d'anneaux qui est aussi un morphisme de $A$-modules.  \\
 
@@ -251,7 +252,7 @@ On remarquera que l'application identité $Id:B\rightarrow B$ est un morphisme d
  $0$&$i$\\
  $i$&$0$
  \end{tabular}\right).$$
- Montrer que le sous-$\R$-espace vectoriel de $M_2(\C)$ engendré par $Id$, $I$, $J$, $K$ est un sous-$\R$-algèbre de $(M_2(\C),+,\cdot)$ isomorphe à $\HH$.
+ Montrer que le sous-$\R$-espace vectoriel de $M_2(\C)$ engendré par $\Id$, $I$, $J$, $K$ est un sous-$\R$-algèbre de $(M_2(\C),+,\cdot)$ isomorphe à $\HH$.
  \end{enumerate}
 
 \section{Produits}\label{Produit (Anneaux)}\label{Produit}\index{Produit} Si $A_i$, $i\in I$ est une famille d'anneaux, on peut munir le produit ensembliste $\prod_{i\in I}A_i$ d'une structure d'anneau en posant, pour $\underline{a}=(a_i)_{i\in I}$, $\underline{b}=(b_i)_{i\in I}\in \prod_{i\in I}A_i$
@@ -280,7 +281,7 @@ A\ar@{.>}[r]^{\exists ! \phi}\ar@/^1pc/[urr]^{\phi_i}\ar@/_1pc/[drr]_{\phi_j}&\p
 \item un unique morphisme d'anneaux $\psi:\Pi\rightarrow \Pi$ tel que $p_i\circ \psi=p_i$, $i\in I$;
 \item un unique morphisme d'anneaux $\psi':\Pi'\rightarrow \Pi'$ tel que $p_i'\circ \psi'=p_i'$, $i\in I$.
 \end{enumerate}
- Mais on voit que dans (3) $\psi=\phi'\circ \phi$ et $\psi=Id_\Pi$ conviennent. L'unicité de $\psi$ dans (3) impose donc $\phi'\circ \phi=Id_\Pi$. Le même argument dans (4) montre que $\phi\circ \phi'=Id_{\Pi'}$. Autrement dit, les morphismes d'anneaux $\phi:\Pi\rightarrow \Pi'$ de (1) et $\phi':\Pi'\rightarrow \Pi$ de (2) sont inverses l'un de l'autre. On dit de fa\c{c}on un peu informelle que l'anneau produit  $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $i\in I$ est unique à unique isomorphisme près. On rencontrera beaucoup d'autres constructions de ce type dans la suite.\\
+ Mais on voit que dans (3) $\psi=\phi'\circ \phi$ et $\psi=\Id_\Pi$ conviennent. L'unicité de $\psi$ dans (3) impose donc $\phi'\circ \phi=\Id_\Pi$. Le même argument dans (4) montre que $\phi\circ \phi'=\Id_{\Pi'}$. Autrement dit, les morphismes d'anneaux $\phi:\Pi\rightarrow \Pi'$ de (1) et $\phi':\Pi'\rightarrow \Pi$ de (2) sont inverses l'un de l'autre. On dit de fa\c{c}on un peu informelle que l'anneau produit  $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $i\in I$ est unique à unique isomorphisme près. On rencontrera beaucoup d'autres constructions de ce type dans la suite.\\
 
    Soit $\phi_i:A_i\rightarrow B_i$, $i\in I$ une famille de morphismes d'anneaux. En appliquant la propriété universelle des $p_j:\prod_{i\in I}B_i\rightarrow B_j$, $j\in I$ à la famille de morphismes d'anneaux
 $$ \prod_{i\in I}A_i\stackrel{p_j}{\rightarrow}A_j\stackrel{\phi_j}{\rightarrow} B_j,\; j\in I$$
@@ -1403,7 +1404,7 @@ Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $S\subset A$, $T\subset B$ 
 \begin{exemples}
 \begin{enumerate}
 \item \label{LocMorphismes}Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $\frak{q}\subset \Spec(B)$. On a alors $\frak{p}:=\phi^{-1}(\frak{q})\in \Spec(A)$ et $\phi(A\setminus \frak{p})\subset B\setminus \frak{q}$ donc $\phi:A\rightarrow B$ induit un morphisme d'anneaux canonique $\phi_\frak{p}:A_{\frak{p}}\rightarrow B_{\frak{q}}$.
- \item Si $A$ est intègre,  $\lbrace 0\rbrace\in \Spec(A)$ et pour toute partie multiplicative $S\subset A\setminus \lbrace 0\rbrace$, en appliquant ce qui précède à $\phi=Id:A\rightarrow A$, $S=S$, $T=A\setminus \lbrace 0\rbrace$, on obtient un morphisme canonique $\phi:S^{-1}A\rightarrow A_{\lbrace 0\rbrace}=\\Frac(A)$ dont on vérifie immédiatement qu'il est injectif.
+ \item Si $A$ est intègre,  $\lbrace 0\rbrace\in \Spec(A)$ et pour toute partie multiplicative $S\subset A\setminus \lbrace 0\rbrace$, en appliquant ce qui précède à $\phi=\Id:A\rightarrow A$, $S=S$, $T=A\setminus \lbrace 0\rbrace$, on obtient un morphisme canonique $\phi:S^{-1}A\rightarrow A_{\lbrace 0\rbrace}=\\Frac(A)$ dont on vérifie immédiatement qu'il est injectif.
 \end{enumerate}
 
 	$$ \xymatrix{
@@ -1437,7 +1438,7 @@ $$\iota_S^{-1}:\mathcal{I}_{S^{-1}A} \tilde{\rightarrow} \lbrace I\in\mathcal{I}
 % ajout de tirets après les flèches du diagramme et avant le nom des fonctions
 % pour centrer les items
 $$\xymatrix{\Spec(S^{-1}A) \ar@<1ex>[r]^-{\iota_S^{-1}}& \lbrace \frak{p}\in \Spec(A)\;|\; \frak{p}\cap S=\varnothing\rbrace \ar@<1ex>[l]^-{S^{-1}} }$$\end{lemme}
-\begin{proof} Si $\frak{p}\in \Spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors $\frak{p}=\bigcup_{s\in S}(s\cdot)^{-1}\frak{p}$ (si $s\in S$, $a\in \frak{p}$, $sa\in\frak{p}$ implique $a\in\frak{p}$) donc   $\iota_S^{-1}S^{-1}\frak{p}=\frak{p}$. Comme on a toujours $S^{-1}\iota_S^{-1}=Id$, et $\iota_S^{-1}\Spec(S^{-1}A)\subset \Spec(A)$, il reste seulement à montrer que si $\frak{p}\in \Spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors  $S^{-1}\frak{p}\in \Spec(S^{-1}A)$. Soit donc $\frak{p}\in \Spec(A)$ et $a/s,b/t\in S^{-1}A$ tels que $(ab)/(st)\in S^{-1}\frak{p}$ \ie{} il existe $p\in \frak{p}$ et $u,v\in S$ tels que $v(uab-stp)=0$ ou encore $vuab=vstp\in\frak{p}$. Mais comme $\frak{p}\in \Spec(A)$ et $vu\notin\frak{p}$, on a $ab\in\frak{p}$ donc $a\in\frak{p}$ ou $b\in\frak{p}$.   \end{proof}
+\begin{proof} Si $\frak{p}\in \Spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors $\frak{p}=\bigcup_{s\in S}(s\cdot)^{-1}\frak{p}$ (si $s\in S$, $a\in \frak{p}$, $sa\in\frak{p}$ implique $a\in\frak{p}$) donc   $\iota_S^{-1}S^{-1}\frak{p}=\frak{p}$. Comme on a toujours $S^{-1}\iota_S^{-1}=\Id$, et $\iota_S^{-1}\Spec(S^{-1}A)\subset \Spec(A)$, il reste seulement à montrer que si $\frak{p}\in \Spec(A)$ est tel que $S\cap \frak{p}=\varnothing$ alors  $S^{-1}\frak{p}\in \Spec(S^{-1}A)$. Soit donc $\frak{p}\in \Spec(A)$ et $a/s,b/t\in S^{-1}A$ tels que $(ab)/(st)\in S^{-1}\frak{p}$ \ie{} il existe $p\in \frak{p}$ et $u,v\in S$ tels que $v(uab-stp)=0$ ou encore $vuab=vstp\in\frak{p}$. Mais comme $\frak{p}\in \Spec(A)$ et $vu\notin\frak{p}$, on a $ab\in\frak{p}$ donc $a\in\frak{p}$ ou $b\in\frak{p}$.   \end{proof}
 
 	\begin{exemple}[Corps résiduel] Si $\frak{p}\in \Spec(A)$,  $A_{\frak{p}}$ est local d'unique idéal maximal $\frak{p}A_{\frak{p}}$. Le corps $\kappa(\frak{p}):=A_{\frak{p}}/\frak{p}A_{\frak{p}}$ est appelé le corps résiduel de $\Spec(A)$ en $\frak{p}$. Si on reprend les notations de l'Exemple \ref{LocMorphismes}, le morphisme $\phi:A_{\frak{p}}\rightarrow B_{\frak{q}}$ envoie $\frak{p}$ dans $\frak{q}$ donc induit par passage au quotient un morphisme de corps --- nécessairement injectif --- $\kappa(\frak{p})\hookrightarrow \kappa(\frak{q})$.\end{exemple}
 
@@ -1544,7 +1545,7 @@ De fa\c{c}on équivalente, l'application $A\rightarrow End_{Grp}(M)$ est un morp
 
  Etant donnés deux  $A$-modules $M,N$, un morphisme de $A$-modules est un morphisme de groupes $f:(M,+)\rightarrow (N,+)$   $A$-linéaire \textit{i.e} qui vérifie:
   $$f(a\cdot m)=a\cdot f(m),\; a\in A,\; m\in M.$$
-On remarquera que l'application identité $Id:M\rightarrow M$ est un morphisme de $A$-modules et que si $f:M\rightarrow N$ et $g:N\rightarrow P$ sont des morphismes de $A$-modules alors $g\circ f:M\rightarrow P$ est un morphisme de $A$-modules. On notera $\SHom_A(M,N)$ l'ensemble des morphismes de $A$-modules $\phi:M\rightarrow N$ et, si $M=N$, $End_A(M):=\SHom_A(M,M)$. \\
+On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme de $A$-modules et que si $f:M\rightarrow N$ et $g:N\rightarrow P$ sont des morphismes de $A$-modules alors $g\circ f:M\rightarrow P$ est un morphisme de $A$-modules. On notera $\SHom_A(M,N)$ l'ensemble des morphismes de $A$-modules $\phi:M\rightarrow N$ et, si $M=N$, $End_A(M):=\SHom_A(M,M)$. \\
 
 
 
@@ -1684,19 +1685,19 @@ La notion de suite exacte est au coeur de l'étude de la structure des $A$-modul
 \ref{SuiteExacte}.1 \textbf{Lemme.} \textit{Soit $$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow}  M''\rightarrow 0$$
 une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes sont équivalentes:
 \begin{enumerate}
-\item il existe un morphisme de $A$-modules $s:M''\rightarrow M$ tel que $v\circ s=Id_{M''}$;
-\item il existe un morphisme de $A$-modules $s:M'\rightarrow M'$ tel que $s\circ u=Id_{M'}$;
+\item il existe un morphisme de $A$-modules $s:M''\rightarrow M$ tel que $v\circ s=\Id_{M''}$;
+\item il existe un morphisme de $A$-modules $s:M'\rightarrow M'$ tel que $s\circ u=\Id_{M'}$;
 \item il existe un isomorphisme de $A$ modules $f:M\tilde{\rightarrow}M'\oplus M''$ tel que $\iota_{M'}=f\circ u$ et $p_{M''}\circ f=v$.\\
 \end{enumerate} }
  On dit qu'une suite exacte courte vérifiant les conditions équivalentes ci-dessus est \textit{scindée}.
 
  \begin{proof} On peut par exemple montrer $(1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (1)$. \\
 
-  $(1)\Rightarrow (2)$: Si $s:M''\rightarrow M$ est un morphisme de $A$-modules tel que $vs=Id_{M''}$ on vérifie que le morphisme de $A$-modules $Id-sv:M\rightarrow M$ a son image contenue dans $\ker(v)=u(M')$ et que  $t:=(u|^{u(M')})^{-1}\circ (Id-sv):M\rightarrow M'$ vérifie bien $tu=Id_{M'}$.\\
+  $(1)\Rightarrow (2)$: Si $s:M''\rightarrow M$ est un morphisme de $A$-modules tel que $vs=\Id_{M''}$ on vérifie que le morphisme de $A$-modules $\Id-sv:M\rightarrow M$ a son image contenue dans $\ker(v)=u(M')$ et que  $t:=(u|^{u(M')})^{-1}\circ (\Id-sv):M\rightarrow M'$ vérifie bien $tu=\Id_{M'}$.\\
 
-  $(2)\Rightarrow (3)$: Si $s:M\rightarrow M'$ est un morphisme de $A$-modules tel que $su=Id_{M'}$, on peut considérer $f:=s\oplus v:M\rightarrow M'\oplus M''$. Par construction, $p_{M''}\circ f=v$ et $f\circ u(s(m))=s(m)=\iota_{M'}(s(m))$ donc, comme  $s:M\rightarrow M'$ est surjective, $f\circ u=\iota_{M'}$. Enfin, $f:M\rightarrow M'\oplus M''$ est un isomorphisme. Il est injectif car si $f(m)=0$ alors $v(m)=0$ \ie{} $m\in \ker(v)=u(M')$ donc $m=u(m')$ et $m'=su(m')=0$. Donc, en fait $m=0$. Il est surjectif car pour tout $m'\in M'$, $m''\in M''$, on peut écrire $m''=v(m)=v(m-us(m)+u(m'))$ et $m'=su(m')=s(m-us(m)+u(m'))$.\\
+  $(2)\Rightarrow (3)$: Si $s:M\rightarrow M'$ est un morphisme de $A$-modules tel que $su=\Id_{M'}$, on peut considérer $f:=s\oplus v:M\rightarrow M'\oplus M''$. Par construction, $p_{M''}\circ f=v$ et $f\circ u(s(m))=s(m)=\iota_{M'}(s(m))$ donc, comme  $s:M\rightarrow M'$ est surjective, $f\circ u=\iota_{M'}$. Enfin, $f:M\rightarrow M'\oplus M''$ est un isomorphisme. Il est injectif car si $f(m)=0$ alors $v(m)=0$ \ie{} $m\in \ker(v)=u(M')$ donc $m=u(m')$ et $m'=su(m')=0$. Donc, en fait $m=0$. Il est surjectif car pour tout $m'\in M'$, $m''\in M''$, on peut écrire $m''=v(m)=v(m-us(m)+u(m'))$ et $m'=su(m')=s(m-us(m)+u(m'))$.\\
 
- $(3)\Rightarrow (1)$: Si $f:M\tilde{\rightarrow} M'\oplus M''$ est un isomorphisme de $A$-modules tel que $p_{M''}\circ f=v$ et   $f\circ u=\iota_{M'}$, on peut   considérer $s:= f^{-1}\circ \iota_{M''}:M''\rightarrow M $. Par construction $vs(m)=vf^{-1}  \iota_{M''}=p_{M''}\iota_{M''}=Id_{M''}$.\end{proof}
+ $(3)\Rightarrow (1)$: Si $f:M\tilde{\rightarrow} M'\oplus M''$ est un isomorphisme de $A$-modules tel que $p_{M''}\circ f=v$ et   $f\circ u=\iota_{M'}$, on peut   considérer $s:= f^{-1}\circ \iota_{M''}:M''\rightarrow M $. Par construction $vs(m)=vf^{-1}  \iota_{M''}=p_{M''}\iota_{M''}=\Id_{M''}$.\end{proof}
 
 \ref{SuiteExacte}.2 \textbf{Exemple.}
 \begin{enumerate}
@@ -1829,10 +1830,10 @@ $$0\rightarrow \oplus_{1\leq i\leq n}M_i\rightarrow  \oplus_{1\leq i\leq n+1}M_i
 \begin{proof}
  \begin{enumerate}
 \item   Il existe un entier $N\geq 1$ tel que $\ker(f^N)=\ker(f^n)$, $n\geq N$ et on applique le lemme du serpent à
-$$\xymatrix{0\ar[r]& \ker(f^N)\ar[r]\ar[d]^\simeq&M \ar[r]^{f^N}\ar[d]^{Id}_\simeq&M\ar[r]\ar[d]^f& 0\\
+$$\xymatrix{0\ar[r]& \ker(f^N)\ar[r]\ar[d]^\simeq&M \ar[r]^{f^N}\ar[d]^{\Id}_\simeq&M\ar[r]\ar[d]^f& 0\\
 0\ar[r]& \ker(f^{N+1})\ar[r]&M \ar[r]_{f^{N+1}}&M\ar[r]& 0\\}$$
 \item   Il existe un entier $N\geq 1$ tel que $\hbox{\rm im}(f^N)=\hbox{\rm im}(f^n)$, $n\geq N$ et on applique le lemme du serpent à
-$$\xymatrix{0\ar[r]& M\ar[r]^{f^{N+1}}\ar[d]^f&M \ar[r] \ar[d]^{Id}_\simeq&M/\hbox{\rm im}(f^{N+1})\ar[r]\ar[d]^\simeq & 0\\
+$$\xymatrix{0\ar[r]& M\ar[r]^{f^{N+1}}\ar[d]^f&M \ar[r] \ar[d]^{\Id}_\simeq&M/\hbox{\rm im}(f^{N+1})\ar[r]\ar[d]^\simeq & 0\\
 0\ar[r]&M\ar[r]_{f^N}&M \ar[r] &M/\hbox{\rm im}(f^{N})\ar[r]& 0\\}$$
 \item (3) Comme $M $est artinien et noetherien, il existe un entier $N\geq 1$ tel que $$f^{\infty}(M):=\bigcap_{n\geq 0}\hbox{\rm im}(f^n)=\hbox{\rm im}(f^N),\; \; f^{-\infty}(M):=\bigcup_{n\geq 0}\ker(f^n)=\ker(f^N).$$
 On vérifie que $f^{\infty}(M)$, $f^{-\infty}(M)$ ainsi définis conviennent. Le seul point un peu astucieux est $M=f^{\infty}(M)+f^{-\infty}(M)$. On a envie d'écrire $m=f^N(m)+m-f^N(m)$ mais \c{c}a ne marche pas. Il faut ajuster en utilisant que $\hbox{\rm im}(f^N)=\hbox{\rm im}(f^{2N})$ et donc qu'il existe $\mu\in M$ tel que $f^N(m)=f^{2N}(\mu)$. La décomposition $m=f^N(\mu)+m-f^N(\mu)$ elle, convient.
@@ -1896,7 +1897,7 @@ $\psi'$\\
 \end{tabular}
 \right):N\tilde{\rightarrow} M\oplus M'.$$
  Par le lemme \ref{EndoIndecomp},  $E\setminus E^{\times}$ est  un idéal bilatère et l'égalité
-$$Id_{M}=\psi\circ\phi=\sum_{1\leq i\leq s}\psi\circ \iota_{i}\circ p_{i}\circ \phi$$
+$$\Id_{M}=\psi\circ\phi=\sum_{1\leq i\leq s}\psi\circ \iota_{i}\circ p_{i}\circ \phi$$
 implique que $\chi_{i}:=\psi\circ \iota_{i}\circ p_{i}\circ \phi\in E^{\times}$ pour au moins un $i=1,\dots, s$. On a alors $p_{i}\circ \phi:M\hookrightarrow N_{i}$ injectif, $\psi\circ \iota_{i}:N_{i}\twoheadrightarrow M$ surjectif et
 $$\xymatrix{0\ar[r]& \ker(\psi\circ \iota_{i})\ar[r]&N_{i}\ar[r]^{\psi\circ \iota_{i}}&\hbox{\rm im}(\psi\circ \iota_{i})\ar[r]\ar@/^1pc/[l]^{p_{i}\circ\phi\circ \chi_i^{-1}}& 0}$$
 donc
@@ -1947,7 +1948,7 @@ Chacun de ces idéaux est de la forme $I_{n}=Aa_{n}$ avec $0\not= a_{n}\in A$ et
 
 
 \ref{Strategy}.2 \textbf{Lemme.} \textit{Si $M''$ est un $A$-module libre alors toute suite exacte courte de $A$-modules $0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0$ est scindée.}
-\begin{proof}On construit une section en utilisant la propriété universelle de la somme directe. Plus précisément, quitte à composer $v$ par un isomorphisme,  on peut supposer que $M''=A^{(I)}$. Pour chaque $i\in I$ notons $e_i=(\delta_{i,j})_{j\in I}\in A^{(I)}$ et choisissons   $m_i\in I$ tel que $v(m_i)=e_i$. Le choix de $m_i$ définit un   morphisme de $A$-module $s_i:Ae_i\stackrel{e_i\rightarrow m_i}{\rightarrow}Am_i\hookrightarrow M $. Par proprièté universelle des $\iota_i:Ae_i\rightarrow A^{(I)}$, $i\in I$, on en déduit un unique morphisme $s:A^{(I)}\rightarrow M$ tel que $s\circ \iota_i=s_i$, $i\in I$. Par construction $v\circ s=Id$. On conclut par l'Exercice \ref{SuiteExacte}.1.
+\begin{proof}On construit une section en utilisant la propriété universelle de la somme directe. Plus précisément, quitte à composer $v$ par un isomorphisme,  on peut supposer que $M''=A^{(I)}$. Pour chaque $i\in I$ notons $e_i=(\delta_{i,j})_{j\in I}\in A^{(I)}$ et choisissons   $m_i\in I$ tel que $v(m_i)=e_i$. Le choix de $m_i$ définit un   morphisme de $A$-module $s_i:Ae_i\stackrel{e_i\rightarrow m_i}{\rightarrow}Am_i\hookrightarrow M $. Par proprièté universelle des $\iota_i:Ae_i\rightarrow A^{(I)}$, $i\in I$, on en déduit un unique morphisme $s:A^{(I)}\rightarrow M$ tel que $s\circ \iota_i=s_i$, $i\in I$. Par construction $v\circ s=\Id$. On conclut par l'Exercice \ref{SuiteExacte}.1.
 \end{proof}
 \item D'après  le Lemme \ref{Strategy}.1 et le Théorème de Krull-Schmidt \ref{KS}, $T_M$ est totalement décomposable; le point sera donc de classifier les modules indécomposables de torsion sur un anneau principal $A$. On montrera que ce sont exactement les $A$-modules de la forme $A/\frak{p}^n$, où $\frak{p}$ est un idéal premier (=maximal) de $A$ et $n\geq 0$.
 
@@ -2249,7 +2250,7 @@ Montrer  que pour toute suite exacte courte de $A$-modules $$0\rightarrow N'\sta
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item La suite $$0\rightarrow \SHom_{A}(M,N')\stackrel{u\circ }{\rightarrow} \SHom_{A}(M,N)\stackrel{v\circ }{\rightarrow} \SHom_{A}(M,N'')$$
 est exacte.
-\item La suite $$M\otimes_AN'\stackrel{Id\otimes u}{\rightarrow} M\otimes_AN\stackrel{Id\otimes v}{\rightarrow} M\otimes_AN'' \rightarrow 0$$
+\item La suite $$M\otimes_AN'\stackrel{\Id\otimes u}{\rightarrow} M\otimes_AN\stackrel{\Id\otimes v}{\rightarrow} M\otimes_AN'' \rightarrow 0$$
 est exacte.
 \end{enumerate}
 
@@ -2260,7 +2261,7 @@ $$\begin{tabular}[t]{lll}
 $ M\times N$&$\rightarrow$&$M\otimes_{A}N(:=(M|_A)\otimes_AN)$\\
 $(m,n)$&$\rightarrow$&$(b_{0}m)\otimes n$
 \end{tabular}$$
-est $2$-$A$-linéaire donc  se factorise en un morphisme de $A$-module $ b_0\cdot : M\otimes_A N\rightarrow  M\otimes_A N$, $m\otimes n\rightarrow b_0\cdot (m\otimes n):=(b_0m)\otimes n$. On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi^*N:=B\otimes_AN$ et $\phi^*f:=Id_B\otimes f:\phi^*N\rightarrow \phi^*N'$. \\
+est $2$-$A$-linéaire donc  se factorise en un morphisme de $A$-module $ b_0\cdot : M\otimes_A N\rightarrow  M\otimes_A N$, $m\otimes n\rightarrow b_0\cdot (m\otimes n):=(b_0m)\otimes n$. On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $\Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi^*N:=B\otimes_AN$ et $\phi^*f:=\Id_B\otimes f:\phi^*N\rightarrow \phi^*N'$. \\
 
 
  Les  constructions $\phi_*$, $\phi^*$ sont liées par le lemme suivant.\\
@@ -2727,7 +2728,7 @@ $$(*)\;\; 1=\sum_{P\in\mathcal{F}}F_P P(X_P)$$ avec $F_P\in k[X_Q,\; Q\in \mathc
  $$\SAut_{Alg/k}(K_1)\tilde{\rightarrow} \SAut_{Alg/k}(K_2),\; \sigma\rightarrow \phi\circ \sigma\circ \phi^{-1}.$$
  En particulier, si $\overline{k}/k$, $\overline{k}'/k$ sont deux clôtures algébriques de $k$, on sait qu'il existe toujours un $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow }\overline{k}'$  donc que $\SAut(\overline{k}/k)$ ne dépend pas - à isomorphisme près - du choix de la cl\^^oture algébrique $\overline{k}/k$.\\
 
-   \textbf{Exemple.} $\C=\R[T]/T^2+1$. Notons $\overline{T}:= i$.  On a $\SAut(\C/\R)=\SHom_{Alg/\R}(\R[T]/T^2+1,\C)=\lbrace \overline{ev}_{i}=Id, \overline{ev}_{-i}=\overline{-}\rbrace$. \\
+   \textbf{Exemple.} $\C=\R[T]/T^2+1$. Notons $\overline{T}:= i$.  On a $\SAut(\C/\R)=\SHom_{Alg/\R}(\R[T]/T^2+1,\C)=\lbrace \overline{ev}_{i}=\Id, \overline{ev}_{-i}=\overline{-}\rbrace$. \\
 
   Si $\phi:K_1\tilde{\rightarrow} K_2$ est un isomorphisme de corps, la propriété universelle de $c_1:K_1\rightarrow K_1[T]$ appliquée à la $K_1$-algèbre $K_1\stackrel{\phi}{\rightarrow} K_2\stackrel{c_2}{\rightarrow}  K_2[T]$ donne un unique isomorphisme de $K$-algèbres
  $\phi:K_1[T]\rightarrow K_2[T]$ tel que $\phi\circ c_1=c_2\circ \phi$ (ici, $c_i:K_i\rightarrow K_i[T]$, $i=1,2$ sont les morphismes canoniques). Explicitement $\phi(\sum_{n\geq 0}a_nT^n)=\sum_{n\geq 0}\phi(a_n)T^n$. Par construction, pour tout $x_1\in K_1$ on a
@@ -2997,7 +2998,7 @@ $$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq \deg(P_x)
 
  \subsection{}\label{CF1} \textbf{Lemme.} \textit{Soit $k$ un corps de  caractéristique $p>0$. Pour tout $r\in \Z_{\geq 1}$, le sous-ensemble
  $\F_p\subset Z_k(T^{p^r}-T)\subset k$ est un sous-corps fini, de cardinal $p^s$ avec $s| r$.}
- \begin{proof} Puisque  $\F:=Z_k(T^{p^r}-T)$ est l'égalisateur de deux endomorphismes de $\F_p$-algèbres: $F_k^{p^r}, Id:k\rightarrow k$, c'est une sous-$\F_p$-algèbre (donc un sous-corps) de $k$. Explicitement, $\F=\ker(F_k^{p^r}- Id)\subset k$ est un sous-$\F_p$-espace vectoriel, $1\in \F$ et pour tout $a, 0\not= b\in \F$, $(ab^{-1})^{p^r}=a^{p^r}(b^{-1})^{p^r}=ab^{-1}$ donc $ab^{-1}\in \F$. Comme $|\F|<+\infty$, $\F$ est un $\F_p$-espace vectoriel de dimension finie - disons $s$ - donc de cardinal $p^s$.  Soit $x\in \F^\times$ un générateur de $\F^\times$. On a donc $\F\subset Z_k(T^{p^s}-T)$. Or $p^s=|\F|\leq |Z_k(T^{p^s}-T)|\leq p^s$ donc $\F=Z_k(T^{p^s}-T)$ et $T^{p^s}-T$ est totalement décomposé sur $\F$. Autrement dit, $\F$ est un corps de décomposition de $T^{p^s}-T$ sur $\F_p$. Comme $  T^{p^s}-T| T^{p^r}-T$ dans $\overline{\F}_p[T]\subset \overline{k}[T]$ donc dans $\F_p[T]$,  on a $$\F_p\subset \F= Z_{k}(T^{p^s}-T)=Z_{\overline{k}}(T^{p^s}-T)\subset Z_{\overline{k}}(T^{p^r}-T)=:\F_{\overline{k}}$$
+ \begin{proof} Puisque  $\F:=Z_k(T^{p^r}-T)$ est l'égalisateur de deux endomorphismes de $\F_p$-algèbres: $F_k^{p^r}, \Id:k\rightarrow k$, c'est une sous-$\F_p$-algèbre (donc un sous-corps) de $k$. Explicitement, $\F=\ker(F_k^{p^r}- \Id)\subset k$ est un sous-$\F_p$-espace vectoriel, $1\in \F$ et pour tout $a, 0\not= b\in \F$, $(ab^{-1})^{p^r}=a^{p^r}(b^{-1})^{p^r}=ab^{-1}$ donc $ab^{-1}\in \F$. Comme $|\F|<+\infty$, $\F$ est un $\F_p$-espace vectoriel de dimension finie - disons $s$ - donc de cardinal $p^s$.  Soit $x\in \F^\times$ un générateur de $\F^\times$. On a donc $\F\subset Z_k(T^{p^s}-T)$. Or $p^s=|\F|\leq |Z_k(T^{p^s}-T)|\leq p^s$ donc $\F=Z_k(T^{p^s}-T)$ et $T^{p^s}-T$ est totalement décomposé sur $\F$. Autrement dit, $\F$ est un corps de décomposition de $T^{p^s}-T$ sur $\F_p$. Comme $  T^{p^s}-T| T^{p^r}-T$ dans $\overline{\F}_p[T]\subset \overline{k}[T]$ donc dans $\F_p[T]$,  on a $$\F_p\subset \F= Z_{k}(T^{p^s}-T)=Z_{\overline{k}}(T^{p^s}-T)\subset Z_{\overline{k}}(T^{p^r}-T)=:\F_{\overline{k}}$$
  Comme $T^{p^r}-T\in \F_p[T]$ est séparable, $|\F_{\overline{k}}|=p^r$. On doit donc avoir
  $$r=[\F_{\overline{k}}:\F_p]=[\F_{\overline{k}}:\F][\F:\F_p]=[\F_{\overline{k}}:\F]s$$
  donc $s|r$. \end{proof}
@@ -3016,7 +3017,7 @@ Or $0\not= x\in \F_{p^s}$ $\Rightarrow$ $x^{p^s-1}=1$ $\Rightarrow$ $x^{p^r-1}=(
 
     \section{Polynôme caractéristique, trace et norme}
     \subsection{}Soit $A$ une $k$-algèbre de dimension finie. A tout $a\in K$ on peut associer l'automorphisme de $k$-espace vectoriel $L_a:A\rightarrow A$, $b\rightarrow ab$. On note
- $$\chi_{A/k}(a):=det(L_a-TId|A)\in k[T]$$
+ $$\chi_{A/k}(a):=det(L_a-T\Id|A)\in k[T]$$
  son \textit{polynôme caractéristique}\index{Polynôme caractéristique (Elément)},
     $tr_{A/k}(a):=tr_k(L_a:A\rightarrow A)\in k $ sa \textit{trace}\index{Trace} et $N_{A/k}:=det(L_a)\in k$ son déterminant - appelé \textit{norme}\index{Norme (Elément)}. On dispose en particulier
  d'une forme linéaire $tr_{A/k}:A\rightarrow k$ et d'un morphisme de groupes $N_{A/k}:A^\times\rightarrow k^\times$.\\
@@ -3037,13 +3038,13 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
     \begin{proof} En prenant des bases adaptées, on vérifie facilement que si $k\subset K'\subset K$ est une sous-extension, $tr_{K/k}=tr_{K'/k}\circ tr_{K/K'}$. En particulier, pour tout $x\in K$, $tr_{K/k}=tr_{k(x)/k}\circ tr_{K/k(x)}$. Si $K/k$ est séparable, on sait qu'il existe $x\in K$ tel que $K=k(x)$. Il suffit donc de montrer que $x\in K$ est séparable sur $k$ si et seulement si $tr_{k(x)/k}:k(x)\rightarrow k$ est surjective. De plus, la suite exacte courte de $k$-espaces vectoriels
     $$0\rightarrow \ker(tr_{K/k})\rightarrow K\stackrel{tr_{K/k}}{\rightarrow}\hbox{\rm im}(tr_{K/k})\rightarrow 0$$
     reste exacte après $\overline{k}\otimes_k-$
-    $$0\rightarrow \overline{k}\otimes_k\ker(tr_{K/k}) \rightarrow \overline{k}\otimes_kK\stackrel{Id\otimes tr_{K/k}}{\rightarrow}\overline{k}\otimes_k\hbox{\rm im}(tr_{K/k})\rightarrow 0$$
- Autrement dit, $ \overline{k}\otimes_k\ker(tr_{K/k}) =  \ker(Id\otimes tr_{K/k}tr_{K/k}) $, $\overline{k}\otimes_k\hbox{\rm im}(tr_{K/k})=\hbox{\rm im}(Id\otimes tr_{K/k}tr_{K/k})$. Il suffit donc de montrer que
-  $x\in K$ est séparable si et seulement si $ Id\otimes tr_{K/k}tr_{K/k}: \overline{k}\otimes_kK\rightarrow \overline{k}$ est non nulle. P   en écrivant  $P_x=\prod_{1\leq i\leq r}(T-x_i)^{n_i}$  dans $\overline{k}[T]$ avec les $x_1,\dots, x_n\in\overline{k}$ deux à deux distincts, le lemme des restes Chinois nous donne un isomorphisme de $\overline{k}$-algèbres explicite
+    $$0\rightarrow \overline{k}\otimes_k\ker(tr_{K/k}) \rightarrow \overline{k}\otimes_kK\stackrel{\Id\otimes tr_{K/k}}{\rightarrow}\overline{k}\otimes_k\hbox{\rm im}(tr_{K/k})\rightarrow 0$$
+ Autrement dit, $ \overline{k}\otimes_k\ker(tr_{K/k}) =  \ker(\Id\otimes tr_{K/k}tr_{K/k}) $, $\overline{k}\otimes_k\hbox{\rm im}(tr_{K/k})=\hbox{\rm im}(\Id\otimes tr_{K/k}tr_{K/k})$. Il suffit donc de montrer que
+  $x\in K$ est séparable si et seulement si $ \Id\otimes tr_{K/k}tr_{K/k}: \overline{k}\otimes_kK\rightarrow \overline{k}$ est non nulle. P   en écrivant  $P_x=\prod_{1\leq i\leq r}(T-x_i)^{n_i}$  dans $\overline{k}[T]$ avec les $x_1,\dots, x_n\in\overline{k}$ deux à deux distincts, le lemme des restes Chinois nous donne un isomorphisme de $\overline{k}$-algèbres explicite
   $$ \overline{k}\otimes_kK= \overline{k}\otimes_kk[T]/P_x=  \overline{k}[T]/P_x\tilde{\rightarrow} \prod_{1\leq i\leq r}\overline{k}[T]/(T-x_i)^{n_i}$$
   et en prenant une $\overline{k}$-base adaptée à cette décomposition, on obtient $ tr_{\overline{k}\otimes_kK/\overline{k} }=\sum_{1\leq i\leq r} tr_{A_i/\overline{k} }$, où $A_i:=\overline{k}[T]/(T-x_i)^{n_i}$, $i=1,\dots ,r$.
   \begin{itemize}
-  \item Si $x$ est séparable sur $k$, $n_1=\dots=n_r=1$ donc $A_i=\overline{k}$ donc t $ tr_{A_i/\overline{k} }= Id$, $i=1,\dots, n$ et $ tr_{\overline{k}\otimes_kK/\overline{k} }:\overline{k}^n\rightarrow \overline{k}$, $(a_1,\dots, a_n)\rightarrow a_1+\cdots+a_n$ est clairement surjective.
+  \item Si $x$ est séparable sur $k$, $n_1=\dots=n_r=1$ donc $A_i=\overline{k}$ donc t $ tr_{A_i/\overline{k} }= \Id$, $i=1,\dots, n$ et $ tr_{\overline{k}\otimes_kK/\overline{k} }:\overline{k}^n\rightarrow \overline{k}$, $(a_1,\dots, a_n)\rightarrow a_1+\cdots+a_n$ est clairement surjective.
   \item Si $x$ n'est pas séparable sur $k$, $k$ est de caractéristique $p>0$ et $P_x=P(T^{p^s})$ avec $P\in k[T]$ séparable et $r\geq 1$ (\textit{cf.} \ref{Derivations}). En écrivant $P=\prod_{1\leq i\leq r}(T-\alpha_i)$ et $\alpha_i=x_i^{p^s}$, $i=1,\dots, r$ dans $\overline{k}$, on en déduit
   $$P_x(T)=\prod_{1\leq i\leq r}(T^{p^s}-x_i^{p^s})=\prod_{1\leq i\leq r}(T -x_i)^{p^s},$$
   autrement dit $n_1=\dots=n_r=p^s$. Or tout élément $a\in A_i$ s'écrit sous la forme $a=a_0+\nu$ avec $a_0\in\overline{k}$ et $\nu\in A_i$ nilpotent. Donc $tr_{A_i/\overline{k}}(a)=tr_{A_i/\overline{k}}(a_0)+tr_{A_i/\overline{k}}(\nu)= p^sa_0=0$.
