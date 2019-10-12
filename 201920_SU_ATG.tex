@@ -97,6 +97,7 @@
 \DeclareMathOperator{\spm}{spm}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
+\DeclareMathOperator{\CD}{CD} 
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
@@ -473,7 +474,7 @@ ce qui justifie la notation plus intuitive $\langle\langle X\rangle\rangle_A:=\s
 
 \subsection{Produits d'idéaux}Si $I_1,\dots, I_r\subset A$ est une famille finie d'idéaux, on note $I_1\cdots I_r\subset A$ l'idéal engendré par les éléments de la forme $a_1\cdots a_r$, $a_i\in I_i$, $i=1,\dots, r$. On a toujours $$(*)\;\; I_1\cdots I_r\subset \displaystyle{\bigcap_{1\leq i\leq r}I_i}\subset I_i\subset \sum_{1\leq i\leq r} I_i.$$
 
-\textbf{Exemple.} Dans $\Z$, on a pour tout $m_1,\dots, m_r\in \Z$, $m_1\Z\cdots m_r\Z=(m_1\cdot m_r)\Z$, $m_1\Z\cap\cdots\cap  m_r\Z=ppcm(m_1,\dots, m_r)\Z$, $m_1\Z+\cdots+m_r\Z=pgcd(m_1,\cdots,m_r)\Z$. Les inclusions $(*)$ ci-dessus correspondent aux relations de divisibilité $$pgcd(m_1,\cdots,m_r)| m_i|ppcm(m_1,\cdots,m_r)| m_1\cdots m_r.$$
+\textbf{Exemple.} Dans $\Z$, on a pour tout $m_1,\dots, m_r\in \Z$, $m_1\Z\cdots m_r\Z=(m_1\cdot m_r)\Z$, $m_1\Z\cap\cdots\cap  m_r\Z=\ppcm(m_1,\dots, m_r)\Z$, $m_1\Z+\cdots+m_r\Z=\pgcd(m_1,\cdots,m_r)\Z$. Les inclusions $(*)$ ci-dessus correspondent aux relations de divisibilité $$\pgcd(m_1,\cdots,m_r)| m_i|\ppcm(m_1,\cdots,m_r)| m_1\cdots m_r.$$
 
 \subsection{}Si $\phi:A\rightarrow B$ un morphisme d'anneaux, et   $J\subset B$  un idéal alors $\phi^{-1}(J)\subset A$ est un idéal. En particulier,  $\ker(\phi)\subset A$ est un idéal. Si $\phi:A\twoheadrightarrow B$ est surjectif  et   $I\subset A$  est un idéal alors $\phi(I)\subset B$ est un idéal mais montrer par un contre-exemple que ce n'est plus vrai si on ne suppose pas $\phi:A\twoheadrightarrow B$ surjectif. \\
 
@@ -811,19 +812,19 @@ $\deg:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$\N$\\
 \end{tabular}$$
 et une application `coefficient dominant'
 $$ \begin{tabular}[t]{llll}
-$CD:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$A\setminus \lbrace 0\rbrace$\\
+$\CD:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$A\setminus \lbrace 0\rbrace$\\
 &$f=\sum_{n\in\N}a_nX^n$&$\rightarrow$&$a_{\deg(f)}$
 \end{tabular}$$
 
-		La définition du produit dans $A[X]$ montre que $\deg(fg)\leq \deg(f)+\deg(g)$ et que si  l'un au moins de $CD(f),CD(g)$ n'est  pas  de torsion dans $A$, $\deg(fg)= \deg(f)+\deg(g)$, $CD(fg)=CD(f)CD(g)$. On a aussi toujours $\deg(f+g)\leq \hbox{\rm max}\lbrace \deg(f),\deg(g)\rbrace$.\\
+		La définition du produit dans $A[X]$ montre que $\deg(fg)\leq \deg(f)+\deg(g)$ et que si  l'un au moins de $\CD(f),\CD(g)$ n'est  pas  de torsion dans $A$, $\deg(fg)= \deg(f)+\deg(g)$, $\CD(fg)=\CD(f)\CD(g)$. On a aussi toujours $\deg(f+g)\leq \hbox{\rm max}\lbrace \deg(f),\deg(g)\rbrace$.\\
  
-\textbf{Lemme} \textit{Soit $0\not=f,g\in A[X]$ et supposons que $CD(f)\in A^\times$. Alors il existe un unique couple $q,r\in A[X]$ tel que $g=fq+r$ et $r=0$ ou $\deg(r)<\deg(f)$.}\\
+\textbf{Lemme} \textit{Soit $0\not=f,g\in A[X]$ et supposons que $\CD(f)\in A^\times$. Alors il existe un unique couple $q,r\in A[X]$ tel que $g=fq+r$ et $r=0$ ou $\deg(r)<\deg(f)$.}\\
 
 \begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Ecrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, où $d_f:=\deg(f)$, $d_g:=\deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennent. % coquille corrigée ici
   Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire 
 $$g=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f+(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f).$$
 Par construction, $g_1:=(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f)$ est de degré $\leq d_g-1$. Par hypothèse de récurrence il existe donc $q_1,r_1\in A[X]$ tels que $g_1=q_1f+r_1$ et $r_1=0$ ou $\deg(r_1)<\deg(f)$; $q:=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}+q_1$, $r:=r_1$ conviennent. Il reste à prouver l'unicité. Si $q',r'\in A[X]$ est un autre couple tel que $g=fq'+r'$ et $r'=0$ ou $\deg(r')<\deg(f)$, on a $f(q-q')=r'-r$. Si $r-r'\not= 0$, en prenant le degré $$\deg(f)\geq \deg(f)+\deg(q-q')\stackrel{(1)}{=}\deg(f(q-q')=\deg(r-r')<\deg(f),$$
-où $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
+où $(1)$ utilise encore que $CF(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $\CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
 
  En particulier, si $A=k$ est un corps, le degré $\deg:k[X]\setminus\lbrace 0\rbrace\rightarrow \N$  est un stathme euclidien sur $k[X]$.\\
 
@@ -2030,7 +2031,7 @@ comme $A$-module. Mais comme $M$ est indécomposable (et non nul), on en déduit
  Il suffit donc de montrer que pour tout $m_{1},m_{2}\in M$ il existe $m_{3}\in M$ tel que $$Ann_{A}(m_{1})\cap Ann_{A}(m_{2})=Ann_{A}(m_{3}).$$
 Ecrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant la décomposition en produit de facteurs irréductibles de $a_{1}$ et $a_{2}$, on peut écrire $a_{1}=\alpha_{1}\beta_{1}$ et $a_{2}=\alpha_{2}\beta_{2}$ avec $\alpha_{1}$, $\alpha_{2}$ premier entre eux de produit 'le' plus petit commun multiple de $a_{1}$ et $a_{2}$. Posons $m_{3}:=\beta_{1}m_{1}+\beta_{2}m_{2}$ et vérifions que $m_{3}$ convient. On a clairement $Ann_{A}(m_{1})\cap Ann_{A}(m_{2})\subset Ann_{A}(m_{3})$. Pour l'inclusion réciproque, soit $a\in Ann_{A}(m_{3})$. On a $a\beta_{1}m_{1}=-a\beta_{2}m_{2}$. Par Bézout, il existe $u,v\in A$ tels que $u\alpha_{1}+v\alpha_{2}=1$. On a donc
 $$a\beta_{1}m_{1}=(u\alpha_{1}+v\alpha_{2})a\beta_{1}m_{1}=au\underbrace{a_{1}m_{1}}_{=0}+v\alpha_{2}a\beta_{1}m_{1}= -av\underbrace{a_{2}m_{2}}_{=0}=0.$$
-Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{2}$ en particulier $a$ est un multiple commun de $\alpha_{1}$ et $\alpha_{2}$ donc de $\alpha_{1}\alpha_{2}=ppcm(a_{1},a_{2})$. Donc $a\in Ann_{A}(m_{1})\cap Ann_{A}(m_{2})$. $\square$\\
+Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{2}$ en particulier $a$ est un multiple commun de $\alpha_{1}$ et $\alpha_{2}$ donc de $\alpha_{1}\alpha_{2}=\ppcm(a_{1},a_{2})$. Donc $a\in Ann_{A}(m_{1})\cap Ann_{A}(m_{2})$. $\square$\\
 
 \textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Bm$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
 ensemble ordonné inductif donc admet un élément maximal $(u,N)$ (en fait, ici, on peut invoquer le fait que $M$ est noetherien, ce qui permet d'éviter le Lemme de Zorn). Montrons que $N=M$. Sinon, soit $\mu\in M\setminus N$ et montrons qu'on peut étendre $u:N\rightarrow B$ en $u_1:N+B\mu\rightarrow B$. Pour cela, il faut `deviner' la bonne valeur de $u_1(\mu)$. Introduisons l'idéal
@@ -2897,13 +2898,13 @@ $|Z_{\overline{k}}(P)|$&$\leq \deg(P)$&$=\deg(P)$
 
         \textbf{Lemme.} \textit{Soit $k$ un corps algébriquement clos et $A$ une $k$-algèbre de dimension finie sur $k$. Le morphisme de $k$-algèbres
         $$A\rightarrow k^{\hbox{\rm \small Hom}_{Alg_{/k}}(A,k)},\; a\rightarrow (\sigma(a))_{\sigma\in \hbox{\rm \small Hom}_{Alg_{/k}}(A,k)}$$
-        est surjectif de noyau le nilradical de $A$. En particulier, $dim_k(A)\geq |\SHom_{Alg/k}(A,k)|$.}
+        est surjectif de noyau le nilradical de $A$. En particulier, $\dim_k(A)\geq |\SHom_{Alg/k}(A,k)|$.}
 
 
         \begin{proof}Il s'agit de la combinaison d'un cas facile du Nullstellensatz et du Lemme des restes chinois. Plus précisément,  comme $A$ est de $k$-dimension finie - donc en particulier de type finie comme $k$-algèbre - et que $k$ est algébriquement clos, le  Nullstellensatz nous donne une bijection canonique
         $$\SHom_{Alg/k}(A,k)\tilde{\rightarrow} \spm(A),\; (\phi:A\rightarrow k)\rightarrow \ker(\phi)$$
         (d'inverse $\frak{m} \rightarrow (A\rightarrow A/\frak{m})=k$). On a vu qu'il résultait aussi du Nullstellensatz
-        que le radical de Jacobson et le nilradical de $A$ coincident, d'où l'assertion sur le noyau.  La surjectivité résultera du Lemme des restes chinois si l'on sait que $A$ n'a qu'un nombre fini d'idéaux maximaux. Mais  en notant $n:=dim_kA$, $A$ a au plus $n$ idéaux maximaux deux à deux distincts. En effet, si on avait $n+1$ idéaux maximaux  $\frak{m}_1,\dots, \frak{m}_{n+1}$ deux à deux distincts, le Lemme des restes chinois nous donnerait un morphisme surjectif de $k$-algèbres (donc de $k$-espaces vectoriels)
+        que le radical de Jacobson et le nilradical de $A$ coincident, d'où l'assertion sur le noyau.  La surjectivité résultera du Lemme des restes chinois si l'on sait que $A$ n'a qu'un nombre fini d'idéaux maximaux. Mais  en notant $n:=\dim_kA$, $A$ a au plus $n$ idéaux maximaux deux à deux distincts. En effet, si on avait $n+1$ idéaux maximaux  $\frak{m}_1,\dots, \frak{m}_{n+1}$ deux à deux distincts, le Lemme des restes chinois nous donnerait un morphisme surjectif de $k$-algèbres (donc de $k$-espaces vectoriels)
         $$A\twoheadrightarrow A/\frak{m}_1\times \cdots\times A/\frak{m}_{n+1}=k^{n+1}.$$
         \end{proof}
 
@@ -2913,7 +2914,7 @@ $|Z_{\overline{k}}(P)|$&$\leq \deg(P)$&$=\deg(P)$
 
 \begin{proof} L'indépendance de la clôture algébrique vient du fait que si $\overline{k}'/k$ est une autre clôture algébrique tout $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow}\overline{k}'$  induit une bijection $\phi\circ-:\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow}\SHom_{Alg/k}(K,\overline{k})$. Par la propriété universelle du produit tensoriel de $k$-algèbres on a une bijection canonique
 $$\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow} \SHom_{Alg/\overline{k}}(\overline{k} \otimes_kK,\overline{k}) $$
-Et comme $[K:k]=dim_{\overline{k}}\overline{k} \otimes_kK$, l'assertion résulte immédiatement du lemme ci-dessous.\end{proof}
+Et comme $[K:k]=\dim_{\overline{k}}\overline{k} \otimes_kK$, l'assertion résulte immédiatement du lemme ci-dessous.\end{proof}
  \subsection{}\label{Separable3}Soit $K/k$ une extension de corps. On dit que $x\in K$ est \textit{séparable sur $k$}\index{Séparable (Elément)} si le polynôme minimal $P_x\in k[T]$ de $x$ sur $k$ est séparable. Le corollaire suivant décrit qu'elle est la bonne généralisation - en termes d'extensions de corps - de la notion de polynômes séparables.\\
 
      \textbf{Corollaire.} \textit{Soit $K/k$ une extension algébrique. Les propriétés suivantes sont équivalentes.
@@ -2926,7 +2927,7 @@ Et comme $[K:k]=dim_{\overline{k}}\overline{k} \otimes_kK$, l'assertion résulte
         \setcounter{enumi}{2}
         \item Pour toute clôture algébrique $\overline{k}/k$, $|\SHom_{Alg/k}(K,\overline{k})|=[K:k]$.
     \end{enumerate}}
- \begin{proof} Montrons d'abord   (1) $\Rightarrow$  (3) $\Leftrightarrow$ (2) lorsque $K/k$ est finie. On a déjà observé que $\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow} \SHom_{Alg/\overline{k}}(\overline{k}\otimes_kK,\overline{k})$ et que $[K:k]=dim_{\overline{k}}(\overline{k}\otimes_kK)$ donc (2) $\Leftrightarrow$ (3)  résulte du Lemme \ref{Separable2}.  Pour (1) $\Rightarrow$ (3) rappelons que    si $k\subset K'\subset K$ est une sous-$k$-extension, le morphisme de restriction
+ \begin{proof} Montrons d'abord   (1) $\Rightarrow$  (3) $\Leftrightarrow$ (2) lorsque $K/k$ est finie. On a déjà observé que $\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow} \SHom_{Alg/\overline{k}}(\overline{k}\otimes_kK,\overline{k})$ et que $[K:k]=\dim_{\overline{k}}(\overline{k}\otimes_kK)$ donc (2) $\Leftrightarrow$ (3)  résulte du Lemme \ref{Separable2}.  Pour (1) $\Rightarrow$ (3) rappelons que    si $k\subset K'\subset K$ est une sous-$k$-extension, le morphisme de restriction
  $$ \SHom_{Alg/k}( K,\overline{k})\rightarrow \SHom_{Alg/k}( K',\overline{k}),\; \phi\rightarrow \phi|_{K'}$$
  est surjectif et la fibre au-dessus de $\phi:K'\rightarrow \overline{k}$ est l'ensemble $\SHom_{Alg/K',\phi}( K,\overline{k})$ des $k$-plongements avec $\overline{k}$ muni de la structure de $K'$-algèbre donnée par $\phi:K'\rightarrow \overline{k}$. Donc
  $$(*)\;\;| \SHom_{Alg/k}( K,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/k}( K',\overline{k}) }|\SHom_{Alg/K',\phi}( K,\overline{k})|.$$
@@ -3235,7 +3236,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
 
  $$\xymatrix{K_{n+1}\ar@{=}[d]&\supset&K_n\ar@{_{(}->}[d]&\supset&\cdots&\supset&K_2\ar@{_{(}->}[d]&\supset &K_1\ar@{=}[d]\supset& K_0=k\ar@{=}[d]\\
 K_{n+1} &\supset&\widehat{K}_n&\supset&\cdots&\supset&\widehat{K}_2&\supset & K_1\supset& K_0=k\\}$$
- Il reste à voir que $Gal(\widehat{K}_{i+1}/\widehat{K}_i)$ est abélien, $i=0,\dots, n$. Mais $\widehat{K}_{i+1}$ est engendrée comme $k$-extension par les $x_{i+1},\sigma:=\sigma(x_{i+1})$, $\sigma\in Gal(K_{n+1}/k)$. Or $\sigma(x_{i+1})^{n_i}=\sigma(x_{i+1}^{n_i})\in \sigma(K_i)\subset \widehat{K}_i$; la conclusion résulte donc de   \ref{RadIt}. Inversement, supposons $G_P$ résoluble. Notons $n:=[K_P:k]$ et $\widetilde{K}_P/K_P$ un corps de décomposition de $T^n-1\in k[T]\subset K_P[T]$ sur $K_P$. L'extension $\widetilde{K}_P/k$ est encore galoisienne car c'est le corps de décomposition du polynôme séparable $P(T^n-1)/pgcd(P,T^n-1)\in k[T]$ sur $k$. En particulier, on a une suite exacte courte de groupes finis
+ Il reste à voir que $Gal(\widehat{K}_{i+1}/\widehat{K}_i)$ est abélien, $i=0,\dots, n$. Mais $\widehat{K}_{i+1}$ est engendrée comme $k$-extension par les $x_{i+1},\sigma:=\sigma(x_{i+1})$, $\sigma\in Gal(K_{n+1}/k)$. Or $\sigma(x_{i+1})^{n_i}=\sigma(x_{i+1}^{n_i})\in \sigma(K_i)\subset \widehat{K}_i$; la conclusion résulte donc de   \ref{RadIt}. Inversement, supposons $G_P$ résoluble. Notons $n:=[K_P:k]$ et $\widetilde{K}_P/K_P$ un corps de décomposition de $T^n-1\in k[T]\subset K_P[T]$ sur $K_P$. L'extension $\widetilde{K}_P/k$ est encore galoisienne car c'est le corps de décomposition du polynôme séparable $P(T^n-1)/\pgcd(P,T^n-1)\in k[T]$ sur $k$. En particulier, on a une suite exacte courte de groupes finis
  $$1\rightarrow Gal(\widetilde{K}_P/K_P)\rightarrow Gal(\widetilde{K}_P/k)\rightarrow G_P=Gal(K_P/k)\rightarrow 1,$$
  ce qui montre que $Gal(\widetilde{K}_P/k)$ est extension d'un groupe résoluble  par un groupe abélien donc est résoluble.
   \end{proof}
