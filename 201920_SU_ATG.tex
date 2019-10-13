@@ -100,6 +100,7 @@
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\CD}{CD}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\supp}{supp}
 
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
@@ -255,7 +256,7 @@ On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme 
 
 \begin{remarque}On verra dans la partie II du cours, qu'une $A$-algèbre $\phi:A\rightarrow B$ est aussi la même chose qu'un anneau $B$ muni d'une structure de $A$-module  et qu'avec cette terminologie un morphisme de $A$-algèbres est un morphisme d'anneaux qui est aussi un morphisme de $A$-modules. \end{remarque}
 
-	\begin{exemples}
+	\begin{exemples}[Caractéristique]
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item Le morphisme caractéristique\index{Caractéristique (Morphisme)} $c_A:\Z\rightarrow A$, $1\rightarrow 1_A$ munit tout anneau $A$ d'une structure de $\Z$-algèbre canonique et tout morphisme d'anneaux $\phi:A\rightarrow B$ est automatiquement un morphisme de $\Z$-algèbres pour ces structures (\ie{} $\phi\circ c_A=c_B$).
 \item L'inclusion $\iota_A: Z(A)\hookrightarrow  A $  munit tout anneau $A$ d'une structure de $Z(A)$-algèbre canonique.
@@ -278,11 +279,15 @@ On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme 
  Montrer que le sous-$\R$-espace vectoriel de $M_2(\C)$ engendré par $\Id$, $I$, $J$, $K$ est un sous-$\R$-algèbre de $(M_2(\C),+,\cdot)$ isomorphe à $\HH$.
 \end{enumerate}
 \end{exercice}
-\section{Produits}\label{Produit (Anneaux)}\label{Produit}\index{Produit} Si $A_i$, $i\in I$ est une famille d'anneaux, on peut munir le produit ensembliste $\prod_{i\in I}A_i$ d'une structure d'anneau en posant, pour $\underline{a}=(a_i)_{i\in I}$, $\underline{b}=(b_i)_{i\in I}\in \prod_{i\in I}A_i$
+
+
+\section{Produits}
+	\subsection{Produit d'anneaux}
+		\label{Produit (Anneaux)}\label{Produit}\index{Produit} Si $A_i$, $i\in I$ est une famille d'anneaux, on peut munir le produit ensembliste $\prod_{i\in I}A_i$ d'une structure d'anneau en posant, pour $\underline{a}=(a_i)_{i\in I}$, $\underline{b}=(b_i)_{i\in I}\in \prod_{i\in I}A_i$
 $$\underline{a}+\underline{b}=(a_i+b_i)_{i\in I},\;\; \underline{a}\cdot \underline{b}=(a_i\cdot b_i)_{i\in I}$$
 On a alors $0 =(0_{A_i})_{i\in I}$, $1 =(1_{A_i})_{i\in I}$. De plus, les projections $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $\underline{a}\rightarrow a_i$, $i\in I$ sont automatiquement des morphismes d'anneaux. \\
 
-\ref{Produit}.1 \textbf{Lemme.} (Propriété universelle du produit) \textit{Pour toute famille d'anneaux $A_i$, $i\in I$ il existe un anneau $\Pi$ et une famille de morphisme d'anneaux $p_i:\Pi\rightarrow A_i$, $i\in I$ tels que pour tout anneau $A$ et famille de morphisme d'anneaux $\phi_i:A\rightarrow A_i$, $i\in I$, il existe un unique morphisme d'anneaux $\phi:A\rightarrow \Pi$ tel que $p_i\circ \phi=\phi_i$, $i\in I$. }
+		\ref{Produit}.1 \begin{lemme}[Propriété universelle du produit]Pour toute famille d'anneaux $A_i$, $i\in I$ il existe un anneau $\Pi$ et une famille de morphisme d'anneaux $p_i:\Pi\rightarrow A_i$, $i\in I$ tels que pour tout anneau $A$ et famille de morphisme d'anneaux $\phi_i:A\rightarrow A_i$, $i\in I$, il existe un unique morphisme d'anneaux $\phi:A\rightarrow \Pi$ tel que $p_i\circ \phi=\phi_i$, $i\in I$.\end{lemme}
 
 	$$ \xymatrix{ A \ar[rr]^{\Phi_i} \ar[rd]_\Phi && A_i \\ & \Pi  \ar[ru]_{p_i}} $$
 
@@ -290,21 +295,22 @@ On a alors $0 =(0_{A_i})_{i\in I}$, $1 =(1_{A_i})_{i\in I}$. De plus, les projec
 $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$. Cela montre l'unicité de $\phi$  sous réserve de son existence. Pour conclure, il faut vérifier que $\phi$ défini par  $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$ est bien un morphisme d'anneaux, ce qui résulte immédiatement des définitions.
 \end{proof}
 
- On peut aussi réécrire \ref{Produit} en disant que, pour tout anneau $A$  l'application  canonique
+\begin{remarque}On peut aussi réécrire \ref{Produit} en disant que, pour tout anneau $A$  l'application  canonique
 $$\SHom(A,\prod_{i\in I}A_{i})\rightarrow \prod_{i\in I}\SHom (A,A_{i}), \; \phi\rightarrow (p_i\circ \phi)_{i\in I}$$
- est bijective ou encore, plus visuellement:
+est bijective.\end{remarque}
+		Plus visuellement:
 $$\xymatrix{&&A_i \\
 A\ar@{.>}[r]^{\exists ! \phi}\ar@/^1pc/[urr]^{\phi_i}\ar@/_1pc/[drr]_{\phi_j}&\prod_{i\in I}A_i\ar[ur]^{p_i}\ar[dr]_{p_j}\\
 &&A_j& }$$
 
-\ref{Produit}.2 \textbf{Remarque.} Supposons que l'on ait un autre anneau  $\Pi'$ et une famille de morphisme d'anneaux $p_i':\Pi'\rightarrow A_i$, $i\in I$ vérifiant aussi la propriété du Lemme \ref{Produit}.1. On a alors, formellement:
+	\begin{remarque}[Unicité]Supposons que l'on ait un autre anneau  $\Pi'$ et une famille de morphisme d'anneaux $p_i':\Pi'\rightarrow A_i$, $i\in I$ vérifiant aussi la propriété du Lemme \ref{Produit}.1. On a alors, formellement:
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item un unique morphisme d'anneaux $\phi:\Pi\rightarrow \Pi'$ tel que $p_i'\circ \phi=p_i$, $i\in I$;
 \item un unique morphisme d'anneaux $\phi':\Pi'\rightarrow \Pi$ tel que $p_i\circ \phi'=p_i'$, $i\in I$;
 \item un unique morphisme d'anneaux $\psi:\Pi\rightarrow \Pi$ tel que $p_i\circ \psi=p_i$, $i\in I$;
 \item un unique morphisme d'anneaux $\psi':\Pi'\rightarrow \Pi'$ tel que $p_i'\circ \psi'=p_i'$, $i\in I$.
 \end{enumerate}
- Mais on voit que dans (3) $\psi=\phi'\circ \phi$ et $\psi=\Id_\Pi$ conviennent. L'unicité de $\psi$ dans (3) impose donc $\phi'\circ \phi=\Id_\Pi$. Le même argument dans (4) montre que $\phi\circ \phi'=\Id_{\Pi'}$. Autrement dit, les morphismes d'anneaux $\phi:\Pi\rightarrow \Pi'$ de (1) et $\phi':\Pi'\rightarrow \Pi$ de (2) sont inverses l'un de l'autre. On dit de façon un peu informelle que l'anneau produit  $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $i\in I$ est unique à unique isomorphisme près. On rencontrera beaucoup d'autres constructions de ce type dans la suite.\\
+		Mais on voit que dans (3) $\psi=\phi'\circ \phi$ et $\psi=\Id_\Pi$ conviennent. L'unicité de $\psi$ dans (3) impose donc $\phi'\circ \phi=\Id_\Pi$. Le même argument dans (4) montre que $\phi\circ \phi'=\Id_{\Pi'}$. Autrement dit, les morphismes d'anneaux $\phi:\Pi\rightarrow \Pi'$ de (1) et $\phi':\Pi'\rightarrow \Pi$ de (2) sont inverses l'un de l'autre. On dit de façon un peu informelle que l'anneau produit  $p_i:\prod_{i\in I}A_i\rightarrow A_i$, $i\in I$ est unique à unique isomorphisme près. On rencontrera beaucoup d'autres constructions de ce type dans la suite.\end{remarque}
 
    Soit $\phi_i:A_i\rightarrow B_i$, $i\in I$ une famille de morphismes d'anneaux. En appliquant la propriété universelle des $p_j:\prod_{i\in I}B_i\rightarrow B_j$, $j\in I$ à la famille de morphismes d'anneaux
 $$ \prod_{i\in I}A_i\stackrel{p_j}{\rightarrow}A_j\stackrel{\phi_j}{\rightarrow} B_j,\; j\in I$$
@@ -312,7 +318,9 @@ on obtient un unique morphisme d'anneaux $\phi:=\prod_{i\in I}\phi_i:\prod_{i\in
 
 	$$ \xymatrix{ A_i \ar[r]^{\Phi_i} & B_i \\ \prod_{i\in I} A_i \ar[u]^{\pi^A_i} \ar[r]^\Phi & \prod_{i\in I}B_i \ar[u]_{\pi^B_i} } $$
 
-\ref{Produit}.3 Si $A_i=A$, $i\in I$, on note $\prod_{i\in I}A_i=A^I$. On peut  voir $A^I$ comme l'anneau des fonctions $a:I\rightarrow A$ muni de $(a+b)(i)=a(i)+b(i)$  et $(a\cdot b)(i)=a(i)\cdot b(i)$  de zéro l'application nulle et d'unité l'application constante de valeur $1_A$. On notera qu'on a un morphisme d'anneaux injectif canonique
+		\subsection{Anneau des fonctions}
+
+		Si $A_i=A$, $i\in I$, on note $\prod_{i\in I}A_i=A^I$. On peut  voir $A^I$ comme l'anneau des fonctions $a:I\rightarrow A$ muni de $(a+b)(i)=a(i)+b(i)$  et $(a\cdot b)(i)=a(i)\cdot b(i)$  de zéro l'application nulle et d'unité l'application constante de valeur $1_A$. On notera qu'on a un morphisme d'anneaux injectif canonique
 	\begin{align*}
 		\Delta_A : A &\hookrightarrow A^I \\
 		a &\mapsto (i\mapsto a(i)=a)
@@ -320,19 +328,21 @@ on obtient un unique morphisme d'anneaux $\phi:=\prod_{i\in I}\phi_i:\prod_{i\in
 
 	appelé morphisme diagonal (et qui, si $A$ est commutatif,   fait de $A^I$  une $A$-algèbre de façon canonique).\\
 
-  Pour tout $\underline{a}=(a_i)_{i\in I}\in A^I$ notons $supp(\underline{a}):=\lbrace i\in I\; |\; a_i\not= 0\rbrace\subset I$ le \textit{support} de $\underline{a}$. Notons $$A^{(I)}:=\lbrace \underline{a}\in A^I\; |\; |supp(\underline{a})|<+\infty\rbrace \subset A^I.$$
+  Pour tout $\underline{a}=(a_i)_{i\in I}\in A^I$ notons $\supp(\underline{a}):=\lbrace i\in I\; |\; a_i\not= 0\rbrace\subset I$ le \textit{support} de $\underline{a}$. Notons $$A^{(I)}:=\lbrace \underline{a}\in A^I\; |\; |\supp(\underline{a})|<+\infty\rbrace \subset A^I.$$
 On observera que $A^{(I)}\subset A^I$ est stable par différence et produit mais que, si $I$ est infini, ce n'est pas un sous-anneau de $A^I$ car il ne contient pas $1_{A^I}$.
 
 
 \section{Algèbres de polynômes}\label{Poly}\index{Polynômes}Soit $A$ un anneau commutatif.
-Comme on vient de l'observer, le sous-ensemble $A^{(\N)}$ de $ A^\N$ est stable par différence et produit mais ce n'est pas un sous-anneau de $A^\N$ car il ne contient pas $1_{A^\N}$. En utilisant que $(\N,+)$ est un monoide on peut cependant    faire un anneau de $A^{(\N)}$, en le munissant d'une autre multiplication que celle héritée de $A^{\N}$. Notons  $e_n:=(\delta_{m,n}1_{A})_{m\in \N}$, $n\in \N$ et pour $a\in A$, $ae_n:=(\delta_{m,n}a)_{m\in \N}$, $n\in \N$ ; $A^{(\N)}$ contient les $ae_n$, $n\in \N$, $a\in A$ et, par définition,  tout élément $\underline{a}\in A^{(\N)}$ s'écrit de façon unique sous la forme $\underline{a}=\sum_{n\in \N}a_ne_n$. Munissons donc $A^{(\N)}$ de l'addition héritée de celle de $A^\N$ et du produit `de convolution' $*$ défini sur les éléments $e_n$, $n\in \N$ par
-$e_m*e_n=e_{m+n} $ et en général par
-$$(\ref{Poly}.1)\;\; (\sum_{n\in\N}a_ne_n) *(\sum_{n\in \N}b_ne_n)=\sum_{n\in \N}(\sum_{i,j\in \N, i+j=n}a_ib_j)e_n.$$
-On vérifie facilement que $(A^{(\N)},+,*)$ est un anneau commutatif ayant pour unité $e_0$. L'application canonique $\iota_A:A\rightarrow A^{(\N)}$, $a\rightarrow ae_0  $  est un morphisme d'anneaux.
- On note traditionnellement cet anneau $(A[X],+,\cdot)$ et on dit que $\iota:A\rightarrow A[X]$ est la $A$-algèbre des polynômes à une inderminée. On pose aussi $X^n:=e_n$, $n\in \N$ et $1:=X^0$ de sorte que (\ref{Poly}.1) se réécrit de façon plus intuitive sous la forme
- $$(\ref{Poly}.2)\;\; (\sum_{n\in\N}a_nX^n)(\sum_{n\in \N}b_nX^n)=\sum_{n\in \N}(\sum_{i,j\in \N, i+j=n}a_ib_j)X^n.$$
+\subsection{Construction de $A[X]$}
 
- \ref{Poly}.3 \textbf{Lemme.} (Propriété universelle de la $A$-algèbre des polynômes à une indéterminée) \textit{Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ munie d'un élément $p\in P$ tels que pour toute $A$-algèbre $\phi: A\rightarrow B$ et  $b\in B$, il existe un unique  morphisme de $A$-algèbres $ev^\phi_b:P\rightarrow B$  tel que $ ev^\phi_b(p)=b$. }
+Comme on vient de l'observer, le sous-ensemble $A^{(\N)}$ de $ A^\N$ est stable par différence et produit mais ce n'est pas un sous-anneau de $A^\N$ car il ne contient pas $1_{A^\N}$. En utilisant que $(\N,+)$ est un monoide on peut cependant    faire un anneau de $A^{(\N)}$, en le munissant d'une autre multiplication que celle héritée de $A^{\N}$. Notons  $e_n:=(\delta_{m,n}1_{A})_{m\in \N}$, $n\in \N$ et pour $a\in A$, $ae_n:=(\delta_{m,n}a)_{m\in \N}$, $n\in \N$ ; $A^{(\N)}$ contient les $ae_n$, $n\in \N$, $a\in A$ et, par définition,  tout élément $\underline{a}\in A^{(\N)}$ s'écrit de façon unique sous la forme $\underline{a}=\sum_{n\in \N}a_ne_n$. Munissons donc $A^{(\N)}$ de l'addition héritée de celle de $A^\N$ et du produit `de convolution' $*$ défini sur les éléments $e_n$, $n\in \N$ par :
+$e_m*e_n=e_{m+n} $ et en général par
+\begin{equation}(\sum_{n\in\N}a_ne_n) *(\sum_{n\in \N}b_ne_n)=\sum_{n\in \N}(\sum_{i,j\in \N, i+j=n}a_ib_j)e_n\end{equation} % avec un environnement equation, la numérotation se fait automatiquement
+On vérifie facilement que $(A^{(\N)},+,*)$ est un anneau commutatif ayant pour unité $e_0$. L'application canonique $\iota_A:A\rightarrow A^{(\N)}$, $a\rightarrow ae_0  $  est un morphisme d'anneaux.
+ On note traditionnellement cet anneau $(A[X],+,\cdot)$ et on dit que $\iota:A\rightarrow A[X]$ est la $A$-algèbre des polynômes à une inderminée. On pose aussi $X^n:=e_n$, $n\in \N$ et $1:=X^0$ de sorte que (\ref{Poly}.1) se réécrit de façon plus intuitive sous la forme :
+ \begin{equation}(\sum_{n\in\N}a_nX^n)(\sum_{n\in \N}b_nX^n)=\sum_{n\in \N}(\sum_{i,j\in \N, i+j=n}a_ib_j)X^n.\end{equation} 
+
+ \begin{lemme}[Propriété universelle de la $A$-algèbre des polynômes à une indéterminée]Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ munie d'un élément $p\in P$ tels que pour toute $A$-algèbre $\phi: A\rightarrow B$ et  $b\in B$, il existe un unique  morphisme de $A$-algèbres $ev^\phi_b:P\rightarrow B$  tel que $ ev^\phi_b(p)=b$.\end{lemme}
 
 	$$ \xymatrix{A \ar[rd]_{\iota_A} \ar[rr]^\varphi && (B, b) \\ & (P, p) \ar[ru]_{ev_b^\Phi}} $$
 
@@ -341,12 +351,12 @@ $$ev^\phi_b(\sum_{n\geq 0}a_nX^n)=\sum_{n\geq 0}ev_b^\phi(a_n)ev_b^\phi(X)^n=\su
 d'où l'unicité de $ev_b^\phi$ sous réserve d'existence.  Pour conclure, il faut vérifier que $ev_b^\phi$ défini par  $ev^\phi_b(\sum_{n\geq 0}a_nX^n)= \sum_{n\geq 0}\phi(a_n)b^n,$ est bien un morphisme d'anneaux, ce qui là encore résulte immédiatement des définitions.
 \end{proof}
 
-  Le même argument  formel que celui utilisé dans \ref{Produit}.2 montre que la $A$-algèbre $\iota_A:A\rightarrow A[X]$ est unique à unique isomorphisme  près.\\
+\begin{remarque}Le même argument  formel que celui utilisé dans \ref{Produit}.2 montre que la $A$-algèbre $\iota_A:A\rightarrow A[X]$ est unique à unique isomorphisme  près.\end{remarque}
 
-  On peut aussi réécrire \ref{Poly}.3 en disant que, pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
+	\begin{remarque}On peut aussi réécrire \ref{Poly}.3 en disant que, pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
 $$\SHom_A(A[X],B)\rightarrow B,\; f\rightarrow f(X)$$
- est bijective. On adopte  en général la notation plus intuitive $ev_{b}^\phi(P)=P( b)$ et on dit que $ev_{b}^\phi$ est le morphisme d'évaluation en $b$.\\
-\\
+	est bijective. On adopte  en général la notation plus intuitive $ev_{b}^\phi(P)=P( b)$ et on dit que $ev_{b}^\phi$ est le morphisme d'évaluation en $b$.\end{remarque}
+
  Soit $\phi:A  \rightarrow B $ un morphisme  d'anneaux commutatifs. En appliquant la propriété universelle des $\iota_A:A\rightarrow A[X]$  à la $A$-algèbre
 $$A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow}B[X]$$
 on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ tel que $\iota_B\circ \phi=\phi\circ \iota_A$; explicitement $\tilde{\phi}(\sum_{n\geq 0}a_xX^n)=\sum_{n\geq 0}\phi(a_n)X^n$.\\
@@ -354,11 +364,11 @@ on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ te
 	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[X]\ar[r]_{\tilde{\Phi}} & B[X] } $$
 
 
-   \ref{Poly}.4 \textbf{Remarque.} Ce qui nous a permis de définir le produit $*$ sur $A^{(\N)}$ et le fait que $(\N,+)$ est un monoïde: on a utilisé l'addition pour définir $e_n*e_m=e_{n+m}$, l'associativité de $*$ résulte de celle de $+$ sur $\N$ et le fait que $e_0$ soit l'unité de $A^{(\N)}$ du fait que $0$ est l'unité de $\N$.  Pour un monoïde $(M,\cdot)$ quelconque, l'application
+   \begin{remarque}Ce qui nous a permis de définir le produit $*$ sur $A^{(\N)}$ et le fait que $(\N,+)$ est un monoïde: on a utilisé l'addition pour définir $e_n*e_m=e_{n+m}$, l'associativité de $*$ résulte de celle de $+$ sur $\N$ et le fait que $e_0$ soit l'unité de $A^{(\N)}$ du fait que $0$ est l'unité de $\N$.  Pour un monoïde $(M,\cdot)$ quelconque, l'application
  $$\SHom_{Mono}(\N,M)\rightarrow M,\; f\rightarrow f(1)$$
- est bijective d'inverse l'application qui à $m\in M$ associe le morphisme de monoïdes $f_m:(\N,+)\rightarrow (M,\cdot)$, $n\rightarrow m^n(=m\cdots m$ $n$ fois). Dans \ref{Poly}.3, se donner $p\in P$ et $b\in B$ revient donc à se donner des morphismes de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$, $n\rightarrow p^n$ et $\nu:(\N,+)\rightarrow (B,\cdot)$, $n\rightarrow b^n$ et la condition $ev^\phi_b(p)=b$ signifie que $ev^\phi_b\circ \nu_A=\nu$. Avec ce point de vue, on peut reformuler \ref{Poly}.3 comme suit. \\
+   est bijective d'inverse l'application qui à $m\in M$ associe le morphisme de monoïdes $f_m:(\N,+)\rightarrow (M,\cdot)$, $n\rightarrow m^n(=m\cdots m$ $n$ fois). Dans \ref{Poly}.3, se donner $p\in P$ et $b\in B$ revient donc à se donner des morphismes de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$, $n\rightarrow p^n$ et $\nu:(\N,+)\rightarrow (B,\cdot)$, $n\rightarrow b^n$ et la condition $ev^\phi_b(p)=b$ signifie que $ev^\phi_b\circ \nu_A=\nu$. Avec ce point de vue, on peut reformuler \ref{Poly}.3 comme suit. \end{remarque}
 
-  \ref{Poly}.3' \textbf{Lemme.} (Propriété universelle de la $A$-algèbre des polynômes à une indéterminée) \textit{Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ et un morphisme de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$ tels que pour toute $A$-algèbre $\phi: A\rightarrow B$ et tout morphisme de monoïdes $\nu:(\N,+)\rightarrow (B,\cdot)$, il existe un unique  morphisme de $A$-algèbres $ev^\phi_b:P\rightarrow B$  tel que $ ev^\phi_b\circ \nu_A=\nu$. }\\
+  \begin{lemme}[Propriété universelle de la $A$-algèbre des polynômes à une indéterminée bis]Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ et un morphisme de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$ tels que pour toute $A$-algèbre $\phi: A\rightarrow B$ et tout morphisme de monoïdes $\nu:(\N,+)\rightarrow (B,\cdot)$, il existe un unique  morphisme de $A$-algèbres $ev^\phi_b:P\rightarrow B$  tel que $ ev^\phi_b\circ \nu_A=\nu$.\end{lemme}
 
   $$ \xymatrix{ & B \\ A \ar[ru]^\Phi \ar[rd]_{\iota_A} & & \mathbb{N} \ar[lu]_\nu \ar[ld]^{\nu_A} \\ & P \ar[uu]_{ev} } $$
 
@@ -366,16 +376,17 @@ on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ te
 $$\SHom_A(A[X],B)\rightarrow \SHom_{Mono}(\N,B),\; f\rightarrow f\circ \nu_A.$$
  est bijective. Explicitement, $\nu_A:(\N,+)\rightarrow (A[X],\cdot)$ est le morphisme qui envoie $n$ sur $X^n$ donc si $f:A[X]\rightarrow B$ est un morphisme de $A$-algèbres, $f\circ \nu_A:(\N,+)\rightarrow (B,\cdot)$  est le morphisme qui envoie $n$ sur $f(X)^n$.\\
 
+	\subsection{Construction de $A[N]$}
 
-
-  \ref{Poly}.5 Avec le point de vue développé dans la Remarque  \ref{Poly}.4, on peut faire la construction précédente en remplaçant $(\N,+)$ par n'importe quel monoïde $(N,\cdot)$ (non nécessairement commutatif, non nécessairement dénombrable) d'unité $1_N$.   Notons toujours $e_{n}:=(\delta_{m,n}1_{A})_{m\in N}$, $n\in N$ et pour $a\in A$, $ae_{n}:=(\delta_{m,n}a)_{m\in  N}$, $n\in N$ ; $A^{(N)}$ contient les $ae_{n}$, $n\in N$, $a\in A$ et, par définition,  tout élément $\underline{a}\in A^{(N)}$ s'écrit de façaon unique sous la forme $\underline{a}=\sum_{\underline{n}\in N^r}a_ne_{n}$. En munissant $A^{(N)}$ de l'addition héritée de celle de $A^{N}$ et du produit `de convolution' $*$ défini sur les éléments $e_{n}$, $n\in N$ par
+  Avec le point de vue développé dans la Remarque  \textbf{AJOUTER REF}, on peut faire la construction précédente en remplaçant $(\N,+)$ par n'importe quel monoïde $(N,\cdot)$ (non nécessairement commutatif, non nécessairement dénombrable) d'unité $1_N$.   Notons toujours $e_{n}:=(\delta_{m,n}1_{A})_{m\in N}$, $n\in N$ et pour $a\in A$, $ae_{n}:=(\delta_{m,n}a)_{m\in  N}$, $n\in N$ ; $A^{(N)}$ contient les $ae_{n}$, $n\in N$, $a\in A$ et, par définition,  tout élément $\underline{a}\in A^{(N)}$ s'écrit de façon unique sous la forme $\underline{a}=\sum_{\underline{n}\in N^r}a_ne_{n}$. En munissant $A^{(N)}$ de l'addition héritée de celle de $A^{N}$ et du produit `de convolution' $*$ défini sur les éléments $e_{n}$, $n\in N$ par
 $e_{m}*e_{n}=e_{m\cdot n} $ et en général par
-$$(\ref{Poly}.6)\;\; (\sum_{n\in N}a_{n}e_{n}) *(\sum_{n\in N}b_{n}e_{n})=\sum_{n\in N}(\sum_{i,j\in N,i\cdot j=n}a_{i}b_{j})e_{n}.$$
+
+	\begin{equation}(\sum_{n\in N}a_{n}e_{n}) *(\sum_{n\in N}b_{n}e_{n})=\sum_{n\in N}(\sum_{i,j\in N,i\cdot j=n}a_{i}b_{j})e_{n}\end{equation}
 on obtient un anneau (commutatif si $(N,\cdot)$ est commutatif) $(A^{(N)},+,*)$  ayant pour unité $e_{\underline{1_N}}$. L'application canonique $\iota_A:A\rightarrow A^{(N)}$, $a\rightarrow ae_{1_N}  $  est un morphisme d'anneaux et l'application $\nu_A:N\rightarrow A^{(N)}$, $n\rightarrow e_n$ prend ses valeur dans $A^{(N)}\setminus\lbrace 0\rbrace$ et induit un morphisme de monoïdes $\nu_A:(N,\cdot)\rightarrow (A^{(N)}\setminus\lbrace 0\rbrace,*)$.
- On note traditionnellement cet anneau $(A[N],+,\cdot) $ et on dit que $\iota_A:A\rightarrow A[N]$ est la $A$-algèbre du monoïde $(N,\cdot)$. On pose aussi $n:=e_{n}$, $n\in N$    et $1:=1_N$ de sorte que (\ref{Poly}.5) se réécrit de façaon plus intuitive sous la forme
+ On note traditionnellement cet anneau $(A[N],+,\cdot) $ et on dit que $\iota_A:A\rightarrow A[N]$ est la $A$-algèbre du monoïde $(N,\cdot)$. On pose aussi $n:=e_{n}$, $n\in N$    et $1:=1_N$ de sorte que (\ref{Poly}.5) se réécrit de façon plus intuitive sous la forme
  $$(\ref{Poly}.7)\;\; (\sum_{n\in N}a_{n}n) *(\sum_{n\in N}b_{n}n)=\sum_{n\in N}(\sum_{i,j\in N,i\cdot j=n}a_{i}b_{j})n.$$
 
- \ref{Poly}.8 \textbf{Lemme.} (Propriété universelle de la $A$-algèbre du monoïde $(N,\cdot)$) \textit{Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ et un  morphisme de monoïdes $\nu_A:(N,\cdot)\rightarrow (P  ,\cdot)$ tels que pour toute $A$-algèbre   $\phi: A\rightarrow B$ et tout morphisme de monoïdes $\nu:(N,\cdot)\rightarrow (B  ,\cdot)$  il existe un unique  morphisme de $A$-algèbres $\tilde{\nu}:P\rightarrow B$  tel que $ \tilde{\nu}\circ \nu_A=\nu$. }
+ \begin{lemme}[Propriété universelle de la $A$-algèbre du monoïde $(N,\cdot)$]Pour tout anneau commutatif $A$, il existe une $A$-algèbre $\iota_A: A\rightarrow P$ et un  morphisme de monoïdes $\nu_A:(N,\cdot)\rightarrow (P  ,\cdot)$ tels que pour toute $A$-algèbre   $\phi: A\rightarrow B$ et tout morphisme de monoïdes $\nu:(N,\cdot)\rightarrow (B  ,\cdot)$  il existe un unique  morphisme de $A$-algèbres $\tilde{\nu}:P\rightarrow B$  tel que $ \tilde{\nu}\circ \nu_A=\nu$.\end{lemme}
 
 	$$ \xymatrix{ & B \\ A \ar[ru]^\Phi \ar[rd]_\iota & & N \ar[lu]_\nu \ar[ld]^{\nu_A} \\ & P \ar[uu]_{\tilde{\nu} } } $$
 
@@ -383,56 +394,52 @@ on obtient un anneau (commutatif si $(N,\cdot)$ est commutatif) $(A^{(N)},+,*)$ 
 
   Le même argument  formel que celui utilisé dans \ref{Produit}.2 montre que la $A$-algèbre $\iota_A: A\rightarrow A[N]$ est unique à unique isomorphisme  près.\\
 
-  On peut aussi réécrire \ref{Poly}.8 en disant que, pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
+\begin{remarque}On peut aussi réécrire \ref{Poly}.8 en disant que, pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
 $$\SHom_A(A[N],B)\rightarrow\SHom_{Mono}(N,B),\; f\rightarrow f\circ\nu_A$$
- est bijective. Son inverse est l'application qui à $\nu:(N,\cdot)\rightarrow (B,\cdot) $ associe l'unique morphisme de $A$-algèbres $ \tilde{\nu}:A[N]\rightarrow B$ tel que $ \tilde{\nu}(n)=\nu(n)$ (donc $\tilde{\nu}(\sum_{n\in N}a_nn)=\sum_{n\in N}\phi(a_n)\nu(n)$).\\
+est bijective. Son inverse est l'application qui à $\nu:(N,\cdot)\rightarrow (B,\cdot) $ associe l'unique morphisme de $A$-algèbres $ \tilde{\nu}:A[N]\rightarrow B$ tel que $ \tilde{\nu}(n)=\nu(n)$ (donc $\tilde{\nu}(\sum_{n\in N}a_nn)=\sum_{n\in N}\phi(a_n)\nu(n)$).\end{remarque}
 
-  \textbf{Exemples.} Si on prend\\
+\subsection{Exemples et autres constructions}
 
-  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
- \item  $(N,\cdot)=(\N,+)$ on retrouve $A[\N]=A[X]$.\\
+  \begin{remarque}Si $(N,\cdot)=(\N,+)$, on retrouve $A[\N]=A[X]$\end{remarque}
  % (observer que se donner un morphisme de monoïdes $\nu:(\N,+)\rightarrow (B ,\cdot)$ revient à se donner l'image $b\in B$ de $1\in \N$).\\
- \item $(N,\cdot)=(\N^r,+)$ où $+$ est l'addition termes à termes (pour $\underline{m}=(m_1,\dots,m_r), \underline{n}:=(n_1,\dots, n_r)\in \N^r$,   $\underline{m}+\underline{n}=(m_1+n_1,\dots,m_r+n_r)\in \N^r$). Dans ce cas, on note $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \N^r$ avec la convention $X_i^0=1$, $i=1,\dots, r$,  et $1:=\underline{X}^{\underline{0}}$ de sorte que (\ref{Poly}.5) se réécrit de façaon plus intuitive sous la forme
- $$ (\sum_{\underline{n}\in\N^r}a_{\underline{n}}\underline{X}^{\underline{n}}) (\sum_{\underline{n}\in \N^r}b_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N^r}(\sum_{\underline{i},\underline{j}\in \N^r, \underline{i}+\underline{j}=\underline{n}}a_{\underline{i}}b_{\underline{j}})\underline{X}^{\underline{n}}.$$
-On note également $A[X_1,\dots, X_r]:=A[\N^r]$ et on dit que $\iota_A:A\rightarrow A[X_1,\dots, X_r]$ est la $A$-algèbre des polynômes à $r$ inderminées. Comme se donner un morphisme de monoïdes $\nu:(\N^r,+)\rightarrow (B ,\cdot)$ revient à se donner les images $b_i\in B $ de $(\delta_{i,j})_{1\leq j\leq r}\in \N^r$, on peut reformuler \ref{Poly}.7 de la façaon suivante.\\
 
-   Pour toute $A$-algèbre $\phi:A\rightarrow B$, en notant
- $$\frak{B}_r:= \lbrace \underline{b}=(b_1,\dots, b_r)\in B^r\;|\; b_ib_j=b_jb_i,\; 1\leq i,j\leq r\rbrace,$$
-$$\SHom_A(A[X_1,\dots,X_r],B)\rightarrow \frak{B}_r,\; f\rightarrow (f(X_1),\dots, f(X_r))$$
- est bijective. Son inverse est l'application qui à $\underline{b}=(b_1,\dots, b_r)\in \frak{B}_r$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X_1,\dots, X_r]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X_i)=b_i$, $i=1,\dots r$ (donc $ev_{\underline{b}}^\phi(\sum_{\underline{n}\in \N^r}a_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N^r}\phi(a_{\underline{n}})\underline{b}^{\underline{n}}$). On adopte  en général la notation plus intuitive $ev_{\underline{b}}^\phi(P)=P(b_1,\dots, b_r)$ et on dit que $ev_{\underline{b}}^\phi$ est le morphisme d'évaluation en $\underline{b}$.\\
-
-
- \item Pour $(N,\cdot)$ un groupe, pour toute $A$-algèbre $\phi:A\rightarrow B$, tout morphisme de monoïdes $\nu:(N,\cdot)\rightarrow (B,\cdot)$ est automatiquement à valeur dans le groupe $(B^\times,\cdot)$. On dit dans ce cas que $ A[N]$ est la $A$-algèbre du groupe $(N,\cdot)$.\\
-
-  Par exemple, pour $(N,\cdot)=(\Z,+)$, on obtient la $A$-algèbre (notations:  $A[X,X^{-1}]:=A[\Z]$, $X^n:=e_n$, $n\in \Z$ donc en particulier $X^nX^{-n}=e_ne_{-n}=e_{n-n}=e_0=1$) des polynômes de Laurent à une indéterminée. Comme se donner    un morphisme de monoïdes $\nu:(\Z,+)\rightarrow (B ,\cdot)$ revient à se donner l'image  $b \in B^\times $ de $1\in \Z$, on peut reformuler \ref{Poly}.7 de la façaon suivante.\\
-
-   Pour toute $A$-algèbre $\phi:A\rightarrow B$,  l'application canonique
-$$\SHom_A(A[X,X^{-1}],B)\rightarrow B^\times,\; f\rightarrow f(X)$$
- est bijective. Son inverse est l'application qui à $b \in B^\times$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X,X^{-1}]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X)=b$ (donc $ev_{\underline{b}}^\phi(\sum_{n\in \Z}a_n\underline{X}^{\underline{n}})=\sum_{n\in \Z}\phi(a_n)b^n$).\\
-
-  De même, pour $(N,\cdot)=(\Z^r,+)$, on obtient la $A$-algèbre (notations:  $A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}]:=A[\Z^r]$, $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \Z^r$ donc en particulier, $\underline{X}^{\underline{n}}\underline{X}^{-\underline{n}}= e_{\underline{n}}e_{-\underline{n}}=e_{\underline{n}-\underline{n}}=e_0=1$) des polynômes de Laurent à $r$ indéterminées. Comme se donner    un morphisme de monoïdes $\nu:(\Z^r,+)\rightarrow (B ,\cdot)$ revient à se donner les images $b_i \in B^\times $ des $(\delta_{i,j})_{1\leq j\leq r}\in \Z$, $i=1,\dots, r$ on peut reformuler \ref{Poly}.8 de la façaon suivante.\\
-
-   Pour toute $A$-algèbre $\phi:A\rightarrow B$, en notant
- $$\frak{B}^\times_r:= \lbrace \underline{b}=(b_1,\dots, b_r)\in (B^\times)^r\;|\; b_ib_j=b_jb_i,\; 1\leq i,j\leq r\rbrace,$$  l'application canonique
-$$\SHom_A(A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}],B)\rightarrow \frak{B}_r,\; f\rightarrow (f(X_1),\dots, f(X_r))$$
- est bijective. Son inverse est l'application qui à $\underline{b}=(b_1,\dots, b_r)\in \frak{B}^\times_r$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X_i)=b_i$, $i=1,\dots r$ (donc $ev_{\underline{b}}^\phi(\sum_{\underline{n}\in \Z^r}a_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \Z^r}\phi(a_{\underline{n}})\underline{b}^{\underline{n}}$).\\
-
-
-
- \end{enumerate}
-
-
-
-
-
-
-
-  (\ref{Poly}.9)  Soit $(N,\cdot)$ un monoïde et $\phi: A\rightarrow B$ un morphisme d'anneaux commutatifs. La propriété universelle de $\iota_A:A\rightarrow A[N]$ appliquée avec $A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow} B[N]$ donne un unique morphisme de $A$-algèbres $\tilde{\phi}:A[N]\rightarrow B[N]$ tel que $\nu_B=\tilde{\phi}\circ \nu_A$. Explicitement $\tilde{\phi}(\sum_{n\geq 0}a_ne_n)=\sum_{n\geq 0}\phi(a_n)e_n$.  Par construction, im$(\tilde{\phi})=\im(\phi)[N]\subset B[N]$ et $\ker(\tilde{\phi})$ est l'ensemble des éléments de la forme $\sum_{n\geq 0}a_ne_n\in A[N]$ tels que $a_n\in \ker(\phi)$, $n\geq 0$. On notera $\ker(\phi)[N]:=\ker(\tilde{\phi})\subset A[N]$.\\
+  Soit $(N,\cdot)$ un monoïde et $\phi: A\rightarrow B$ un morphisme d'anneaux commutatifs. La propriété universelle de $\iota_A:A\rightarrow A[N]$ appliquée avec $A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow} B[N]$ donne un unique morphisme de $A$-algèbres $\tilde{\phi}:A[N]\rightarrow B[N]$ tel que $\nu_B=\tilde{\phi}\circ \nu_A$. Explicitement $\tilde{\phi}(\sum_{n\geq 0}a_ne_n)=\sum_{n\geq 0}\phi(a_n)e_n$.  Par construction, im$(\tilde{\phi})=\im(\phi)[N]\subset B[N]$ et $\ker(\tilde{\phi})$ est l'ensemble des éléments de la forme $\sum_{n\geq 0}a_ne_n\in A[N]$ tels que $a_n\in \ker(\phi)$, $n\geq 0$. On notera $\ker(\phi)[N]:=\ker(\tilde{\phi})\subset A[N]$.\\
 
 	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[N]\ar[r]_{\tilde{\Phi} } & B[N] } $$
+\begin{definition}Pour $(N,\cdot)$ un groupe, pour toute $A$-algèbre $\phi:A\rightarrow B$, tout morphisme de monoïdes $\nu:(N,\cdot)\rightarrow (B,\cdot)$ est automatiquement à valeur dans le groupe $(B^\times,\cdot)$. On dit dans ce cas que $ A[N]$ est la $A$-algèbre du groupe $(N,\cdot)$.\end{definition}
 
- \ref{Poly}.10 \textbf{Exercice.} \\
+	\subsubsection{Polynômes à plusieurs indeterminées}
 
+	Posons $(N,\cdot)=(\N^r,+)$, où $+$ est l'addition termes à termes (pour $\underline{m}=(m_1,\dots,m_r), \underline{n}:=(n_1,\dots, n_r)\in \N^r$,   $\underline{m}+\underline{n}=(m_1+n_1,\dots,m_r+n_r)\in \N^r$). Dans ce cas, on note $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \N^r$ avec la convention $X_i^0=1$, $i=1,\dots, r$,  et $1:=\underline{X}^{\underline{0}}$ de sorte que (\ref{Poly}.5) se réécrit de façon plus intuitive sous la forme
+ $$ (\sum_{\underline{n}\in\N^r}a_{\underline{n}}\underline{X}^{\underline{n}}) (\sum_{\underline{n}\in \N^r}b_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N^r}(\sum_{\underline{i},\underline{j}\in \N^r, \underline{i}+\underline{j}=\underline{n}}a_{\underline{i}}b_{\underline{j}})\underline{X}^{\underline{n}}.$$
+On note également $A[X_1,\dots, X_r]:=A[\N^r]$ et on dit que $\iota_A:A\rightarrow A[X_1,\dots, X_r]$ est la $A$-algèbre des polynômes à $r$ inderminées. Comme se donner un morphisme de monoïdes $\nu:(\N^r,+)\rightarrow (B ,\cdot)$ revient à se donner les images $b_i\in B $ de $(\delta_{i,j})_{1\leq j\leq r}\in \N^r$, on peut reformuler \ref{Poly}.7 de la façon suivante.
+
+\begin{definition}[Morphisme d'évaluation]Pour toute $A$-algèbre $\phi:A\rightarrow B$, notons :
+ $$\frak{B}_r:= \lbrace \underline{b}=(b_1,\dots, b_r)\in B^r\;|\; b_ib_j=b_jb_i,\; 1\leq i,j\leq r\rbrace,$$
+	\begin{align*} \SHom_A(A[X_1,\dots,X_r],B) &\to \frak{B}_r \\ f &\mapsto (f(X_1),\dots, f(X_r))\end{align*}
+Cette application est bijective et son inverse est l'application qui à $\underline{b}=(b_1,\dots, b_r)\in \frak{B}_r$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X_1,\dots, X_r]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X_i)=b_i$, $i=1,\dots r$ (donc $ev_{\underline{b}}^\phi(\sum_{\underline{n}\in \N^r}a_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \N^r}\phi(a_{\underline{n}})\underline{b}^{\underline{n}}$). On adopte  en général la notation plus intuitive $ev_{\underline{b}}^\phi(P)=P(b_1,\dots, b_r)$ et on dit que $ev_{\underline{b}}^\phi$ est le morphisme d'évaluation en $\underline{b}$.\end{definition}
+
+\subsubsection{Polynômes de Laurent à une indeterminée}
+
+  Prenons cette fois le groupe $(N,\cdot)=(\Z,+)$, on obtient la $A$-algèbre (notations:  $A[X,X^{-1}]:=A[\Z]$, $X^n:=e_n$, $n\in \Z$ donc en particulier $X^nX^{-n}=e_ne_{-n}=e_{n-n}=e_0=1$) des polynômes de Laurent à une indéterminée. Comme se donner    un morphisme de monoïdes $\nu:(\Z,+)\rightarrow (B ,\cdot)$ revient à se donner l'image  $b \in B^\times $ de $1\in \Z$, on peut reformuler \ref{Poly}.7 de la façon suivante.\\
+
+\begin{definition}[Morphisme d'évaluation]Pour toute $A$-algèbre $\phi:A\rightarrow B$,  l'application canonique
+\begin{align*}\SHom_A(A[X,X^{-1}],B) &\to B^\times \\ f&\mapsto f(X)\end{align*}
+est bijective. Son inverse est l'application qui à $b \in B^\times$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X,X^{-1}]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X)=b$ (donc $ev_{\underline{b}}^\phi(\sum_{n\in \Z}a_n\underline{X}^{\underline{n}})=\sum_{n\in \Z}\phi(a_n)b^n$).\end{definition}
+
+  \subsubsection{Polynômes de Laurent à plusieurs indeterminées}
+  
+  De même, pour $(N,\cdot)=(\Z^r,+)$, on obtient la $A$-algèbre (notations:  $A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}]:=A[\Z^r]$, $\underline{X}^{\underline{n}}:=X_1^{n_1}\cdots X_r^{n_r}:=e_{\underline{n}}$, $\underline{n}\in \Z^r$ donc en particulier, $\underline{X}^{\underline{n}}\underline{X}^{-\underline{n}}= e_{\underline{n}}e_{-\underline{n}}=e_{\underline{n}-\underline{n}}=e_0=1$) des polynômes de Laurent à $r$ indéterminées. Comme se donner    un morphisme de monoïdes $\nu:(\Z^r,+)\rightarrow (B ,\cdot)$ revient à se donner les images $b_i \in B^\times $ des $(\delta_{i,j})_{1\leq j\leq r}\in \Z$, $i=1,\dots, r$ on peut reformuler \ref{Poly}.8 de la façon suivante.
+
+
+\begin{definition}[Morphisme d'évaluation]Pour toute $A$-algèbre $\phi:A\rightarrow B$, en notant
+ $$\frak{B}^\times_r:= \lbrace \underline{b}=(b_1,\dots, b_r)\in (B^\times)^r\;|\; b_ib_j=b_jb_i,\; 1\leq i,j\leq r\rbrace,$$  l'application canonique
+	\begin{align*} \SHom_A(A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}],B) &\to \frak{B}_r \\ f&\to (f(X_1),\dots, f(X_r))\end{align*}
+
+est bijective. Son inverse est l'application qui à $\underline{b}=(b_1,\dots, b_r)\in \frak{B}^\times_r$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X_i)=b_i$, $i=1,\dots r$ (donc $ev_{\underline{b}}^\phi(\sum_{\underline{n}\in \Z^r}a_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \Z^r}\phi(a_{\underline{n}})\underline{b}^{\underline{n}}$)\end{definition}
+
+
+\subsection{Exercices}
  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
  \item Montrer qu'on a un morphisme surjectif $A$-algèbres canonique $$A[X_1,Y_1,\dots, X_r,Y_r]\twoheadrightarrow A[X_1,X_1^{-1},\dots,X_r, X_r^{-1}].$$
 
@@ -443,7 +450,7 @@ $\tilde{-}:$&$ \SHom_{Mono}(N_1,N_2)$&$\hookrightarrow$&$ \SHom_{A}(A[N_1], A[N_
 qui envoie morphismes de monoïdes injectifs (resp. surjectifs, resp. bijectifs) sur morphismes de $A$-algèbres injectifs (resp. surjectifs, resp. bijectifs). L'existence de $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ est une conséquence formelle de la propriété universelle de la $A$-algèbre de monoïdes $\iota_A:A\rightarrow A[N_1]$ appliquée  avec la $A$-algèbre   $\iota_A:A\rightarrow A[N_2]$ et le morphisme de monoïdes $ N_1\stackrel{\nu}{\rightarrow} N_2\stackrel{\nu_A}{\rightarrow} A[N_2]$: il existe un unique morphisme de $A$-algèbre $\tilde{\nu}:A[N_1]\rightarrow A[N_2]$ tel que le diagramme suivant commute
 $$\xymatrix{N_1\ar[r]^{\nu_A}\ar[d]_\nu&A[N_1]\ar[d]^{\tilde{\nu}}\\
 N_2\ar[r]_{\nu_A}  &A[N_2]}$$
-L'injectivité de $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ résulte de l'injectivité des $\nu_A:N_i\rightarrow A[N_i]$, $i=1,2$. Enfin, le fait que $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ envoie morphismes de monoïdes injectifs (resp. surjectifs, resp. bijectifs) sur morphismes de $A$-algèbres injectifs (resp. surjectifs, resp. bijectifs) résulte du fait que, par construction, tout élément de $A[N]$ s'écrit de façaon unique sous la forme $\sum_{n\in N}ae_n$ (on verra dans le chapitre sur les modules que $A[N]$ est un $A$-module libre de base les $e_n$, $n\in N$) et que la condition $\nu_A\circ \nu=\tilde{\nu}\circ \nu_A$ impose $\tilde{\nu}(e_n)=e_{\nu(n)}$.\\
+L'injectivité de $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ résulte de l'injectivité des $\nu_A:N_i\rightarrow A[N_i]$, $i=1,2$. Enfin, le fait que $\tilde{-}: \SHom_{Mono}(N_1,N_2) \rightarrow  \SHom_{A}(A[N_1], A[N_2])$ envoie morphismes de monoïdes injectifs (resp. surjectifs, resp. bijectifs) sur morphismes de $A$-algèbres injectifs (resp. surjectifs, resp. bijectifs) résulte du fait que, par construction, tout élément de $A[N]$ s'écrit de façon unique sous la forme $\sum_{n\in N}ae_n$ (on verra dans le chapitre sur les modules que $A[N]$ est un $A$-module libre de base les $e_n$, $n\in N$) et que la condition $\nu_A\circ \nu=\tilde{\nu}\circ \nu_A$ impose $\tilde{\nu}(e_n)=e_{\nu(n)}$.\\
 La question posée correspond au cas particulier du morphisme de monoïdes surjectif $\nu:(\N^2,+)\twoheadrightarrow (\Z,+)$ défini par $\nu(n_1,n_2)=n_1-n_2$ (le $\tilde{\nu}:A[X_1,Y_1,\dots, X_r,Y_r]\twoheadrightarrow A[X_1,X_1^{-1},\dots,X_r, X_r^{-1}]$ correspondant étant défini par $\tilde{\nu}(X_i)=Z_i$, $\tilde{\nu}(Y_i)=Z_i^{-1}$, $i=1,\dots, r$). }\\
 
 \item Montrer qu'on a des isomorphismes de $A$-algèbres canonique $$  A[X_1,\dots,X_{i-1},X_{i+1},\dots, X_r][X_i]\tilde{\rightarrow} A[X_1,\dots,X_r],\; i=1,\dots, r.$$
@@ -457,12 +464,28 @@ $\iota_A:A\rightarrow A[X_1,\dots, X_r]$ et $A\stackrel{\iota_A}{\rightarrow} A[
 
 
   \section{Sous-anneau engendré par une partie} Soit  $A_i\subset A$, $i\in I$ une famille de sous-anneaux. On vérifie immédiatement que $\cap_{i\in I}A_i\subset A$ est un sous-anneau. Pour tout sous-ensemble $X\subset A$, il existe
-un unique sous-anneau $\langle X\rangle \subset A$, contenant $X$ et minimal pour $\subset$ \ie{} tel que pour  tout sous-anneau $A'\subset A$,   $X\subset A'$ implique  $\langle X\rangle\subset A'$. On dit que $\langle X\rangle\subset A$ est le sous-anneau de $A$ engendré par $X$.  Explicitement $\langle X\rangle$ est l'intersection de tous les sous-anneaux de $A$ contenant $X$. On peut également décrire $\langle X\rangle$ comme  l'ensemble des sommes finies de produits finis d'éléments de $X$. Si $A=\langle X\rangle$, on dit que $X$ est un système de générateurs de $A$ comme anneau (ou que $A$ est engendré par $X$ comme anneau). Si on peut prendre de plus $X$ fini, on dit que $A$ est un anneau de type fini.\\
+un unique sous-anneau $\langle X\rangle \subset A$, contenant $X$ et minimal pour $\subset$ \ie{} tel que pour  tout sous-anneau $A'\subset A$,   $X\subset A'$ implique  $\langle X\rangle\subset A'$.
 
- Lorsque les éléments de $X$ commutent deux à deux, on note en général $\Z[X]:=\langle X\rangle \subset A$ le sous-anneau de $A$ engendré par $X$. Si  $X=\lbrace x_1,\dots,x_r\rbrace $ est fini, on note plutôt $\Z[x_1,\dots,x_r]:=\Z[X]$ et \ref{Poly}.8  nous donne un unique morphisme d'anneaux - automatiquement  surjectif - $ev_{\underline{x}}:\Z[X_1,\cdots, X_r]\twoheadrightarrow \Z[x_1,\dots,x_r] $ tel que $ev_{\underline{x}}(X_i)=x_i$, $i=1,\dots, r$.   \\
+\begin{definition}On dit que $\langle X\rangle\subset A$ est le sous-anneau de $A$ engendré par $X$.\end{definition}
 
-  \section{Sous-$A$-algèbre engendrée par une partie}\label{SousAlg} Soit $\phi:A\rightarrow B$ une $A$-algèbre. Une sous-$A$-algèbre de $\phi:A\rightarrow B$ est un sous-anneau $B'\subset B$ tel que $\im(\phi)\subset B'$ (noter que $Z(B)\cap B'\subset Z(B')$); le morphisme $\phi|^{B'}:A\rightarrow B'$ munit alors $B'$ d'une structure de $A$-algèbre qui fait de l'inclusion $B'\subset B$ un morphisme de $A$-algèbres. Si    $B_i\subset B$, $i\in I$ est une famille de sous-$A$-algèbres, $\cap_{i\in I}B_i\subset B$  est encore une sous-$A$-algèbre. Pour tout sous-ensemble $X\subset B$, il existe
-une unique sous-$A$-algèbre $\langle X\rangle_A \subset B$, contenant $X$ et minimale pour $\subset$. On dit que $\langle X\rangle_A\subset B$ est la sous-$A$-algèbre de $B$ engendrée par $X$. Explicitement $\langle X\rangle_A$ est l'intersection de tous les sous-$A$-algèbres de $B$ contenant $X$. On peut également décrire $\langle X\rangle_A$ comme  le sous-anneau de $B$ engendré par $X\cup\im(\phi)$. Si $B=\langle X\rangle_A$, on dit que $X$ est un système de générateurs de $B$ comme $A$-algèbre (ou que $B$ est engendré par $X$ comme $A$-algèbre). Si on peut prendre $X$ fini, on dit que $B$ est une $A$-algèbre de type fini\index{de type fini (Algèbre)}.\\
+	Explicitement $\langle X\rangle$ est l'intersection de tous les sous-anneaux de $A$ contenant $X$. On peut également décrire $\langle X\rangle$ comme  l'ensemble des sommes finies de produits finis d'éléments de $X$.
+
+\begin{definition}Si $A=\langle X\rangle$, on dit que $X$ est un système de générateurs de $A$ comme anneau (ou que $A$ est engendré par $X$ comme anneau). Si on peut prendre de plus $X$ fini, on dit que $A$ est un anneau de type fini.\end{definition}
+
+\begin{definition}Lorsque les éléments de $X$ commutent deux à deux, on note en général $\Z[X]:=\langle X\rangle \subset A$ le sous-anneau de $A$ engendré par $X$. Si  $X=\lbrace x_1,\dots,x_r\rbrace $ est fini, on note plutôt $\Z[x_1,\dots,x_r]:=\Z[X]$ et \ref{Poly}.8  nous donne un unique morphisme d'anneaux - automatiquement  surjectif - $ev_{\underline{x}}:\Z[X_1,\cdots, X_r]\twoheadrightarrow \Z[x_1,\dots,x_r] $ tel que $ev_{\underline{x}}(X_i)=x_i$, $i=1,\dots, r$.\end{definition}
+
+  \section{Sous-$A$-algèbre engendrée par une partie}\label{SousAlg}
+  Soit $\phi:A\rightarrow B$ une $A$-algèbre.
+
+  \begin{definition}Une sous-$A$-algèbre de $\phi:A\rightarrow B$ est un sous-anneau $B'\subset B$ tel que $\im(\phi)\subset B'$ (noter que $Z(B)\cap B'\subset Z(B')$)\end{definition}
+	  Le morphisme $\phi|^{B'}:A\rightarrow B'$ munit alors $B'$ d'une structure de $A$-algèbre qui fait de l'inclusion $B'\subset B$ un morphisme de $A$-algèbres. Si    $B_i\subset B$, $i\in I$ est une famille de sous-$A$-algèbres, $\cap_{i\in I}B_i\subset B$  est encore une sous-$A$-algèbre. Pour tout sous-ensemble $X\subset B$, il existe
+une unique sous-$A$-algèbre $\langle X\rangle_A \subset B$, contenant $X$ et minimale pour $\subset$
+
+	\begin{definition}On dit que $\langle X\rangle_A\subset B$ est la sous-$A$-algèbre de $B$ engendrée par $X$.\end{definition}
+
+	Explicitement $\langle X\rangle_A$ est l'intersection de tous les sous-$A$-algèbres de $B$ contenant $X$. On peut également décrire $\langle X\rangle_A$ comme  le sous-anneau de $B$ engendré par $X\cup\im(\phi)$.
+
+	\begin{definition}Si $B=\langle X\rangle_A$, on dit que $X$ est un système de générateurs de $B$ comme $A$-algèbre (ou que $B$ est engendré par $X$ comme $A$-algèbre). Si on peut prendre $X$ fini, on dit que $B$ est une $A$-algèbre de type fini\index{de type fini (Algèbre)}.\end{definition}
 
  Lorsque les éléments de $X$ commutent deux à deux, on note en général $A[X]:=\langle X\rangle_A \subset B$ la sous-$A$-algèbre de $B$ engendré par $X$. Si  $X=\lbrace x_1,\dots,x_r\rbrace $ est fini, , on note plutôt $A[x_1,\dots,x_r]:=A[X]$ et  \ref{Poly}.8  nous donne un unique morphisme de $A$-algèbres - automatiquement  surjectif - $ev_{\underline{x}}^\phi:A[X_1,\cdots, X_r]\twoheadrightarrow A[x_1,\dots, x_r] $ tel que $ev^\phi_{\underline{x}}(X_i)=x_i$, $i=1,\dots, r$. \\
 
@@ -493,7 +516,7 @@ un unique idéal $\langle\langle X\rangle\rangle_A \subset A$, contenant $X$ et 
 $$\langle\langle X\rangle\rangle_A=\lbrace \sum_{x\in X}a(x)x\;|\; a \in A^{(X)}\rbrace,$$
 ce qui justifie la notation plus intuitive $\langle\langle X\rangle\rangle_A:=\sum_{x\in X}Ax\subset A$. Si  $\mathcal{I}\subset \mathcal{I}_A$ une famille d'idéaux, on note en particulier $$ \langle\langle\; \bigcup_{I\in \mathcal{I}}I\;  \rangle\rangle_A :=\sum_{I\in \mathcal{I}}I\subset A.$$ et on dit que $\sum_{I\in \mathcal{I}}I\subset A$ est la somme des $I$, $I\in \mathcal{I}$. Si  $I=\sum_{x\in X} Ax$, on dit que $X$ est un système de générateurs de $I$ et si on peut prendre $X$ fini, on dit que $I$ est un idéal de type fini\index{de type fini (Idéal)}.\\
 
-\textbf{Exemples}  Les idéaux principaux d'un anneau $A$ sont les idéaux engendrés par les singletons $\lbrace a\rbrace$, $a\in A$. En particulier, dans un anneau principal comme $\Z$ ou $k[X]$, tout idéal est de type fini.  De façaon plus surprenante, on verra que tous les idéaux de $k[X_1,\cdots, X_r]$ (et, partant, de toute $k$-algèbre de type fini) sont de type fini. Un anneau ayant cette propriété est dit noethérien. Les anneaux qui ne sont pas de type fini, par exemple $A^\N$, fournissent tautologiquement des idéaux qui ne sont pas de type fini. L'idéal $A^{(\N)}\subset A^\N$ n'est pas de type fini.\\
+\textbf{Exemples}  Les idéaux principaux d'un anneau $A$ sont les idéaux engendrés par les singletons $\lbrace a\rbrace$, $a\in A$. En particulier, dans un anneau principal comme $\Z$ ou $k[X]$, tout idéal est de type fini.  De façon plus surprenante, on verra que tous les idéaux de $k[X_1,\cdots, X_r]$ (et, partant, de toute $k$-algèbre de type fini) sont de type fini. Un anneau ayant cette propriété est dit noethérien. Les anneaux qui ne sont pas de type fini, par exemple $A^\N$, fournissent tautologiquement des idéaux qui ne sont pas de type fini. L'idéal $A^{(\N)}\subset A^\N$ n'est pas de type fini.\\
 
 
 \subsection{Produits d'idéaux}Si $I_1,\dots, I_r\subset A$ est une famille finie d'idéaux, on note $I_1\cdots I_r\subset A$ l'idéal engendré par les éléments de la forme $a_1\cdots a_r$, $a_i\in I_i$, $i=1,\dots, r$. On a toujours $$(*)\;\; I_1\cdots I_r\subset \displaystyle{\bigcap_{1\leq i\leq r}I_i}\subset I_i\subset \sum_{1\leq i\leq r} I_i.$$
@@ -527,7 +550,7 @@ est bijective  ou encore, plus visuellement:
 $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\\
 &A/I\ar@{.>}[ur]_{\exists ! \overline{\phi}}&}$$
 
-   En particulier, tout  morphisme d'anneaux $\phi:A\rightarrow B$ se décompose de façaon canonique sous la forme
+   En particulier, tout  morphisme d'anneaux $\phi:A\rightarrow B$ se décompose de façon canonique sous la forme
   $$\xymatrix{A\ar@{->>}[r]^{\phi|^{\hbox{\rm \small im}(\phi)}}\ar@{->>}[d]_{\overline{-}}&\im(\phi)\ar@{^{(}->}[r]&B\\
   A/\ker(\phi)\ar@{^{(}->>}[ur]^\simeq_{\overline{\phi}}&&}$$
 
