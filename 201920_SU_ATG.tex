@@ -364,7 +364,7 @@ on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ te
 	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[X]\ar[r]_{\tilde{\Phi}} & B[X] } $$
 
 
-   \begin{remarque}Ce qui nous a permis de définir le produit $*$ sur $A^{(\N)}$ et le fait que $(\N,+)$ est un monoïde: on a utilisé l'addition pour définir $e_n*e_m=e_{n+m}$, l'associativité de $*$ résulte de celle de $+$ sur $\N$ et le fait que $e_0$ soit l'unité de $A^{(\N)}$ du fait que $0$ est l'unité de $\N$.  Pour un monoïde $(M,\cdot)$ quelconque, l'application
+   \begin{remarque}\phantomsection\label{RemarqueConstr} Ce qui nous a permis de définir le produit $*$ sur $A^{(\N)}$ et le fait que $(\N,+)$ est un monoïde: on a utilisé l'addition pour définir $e_n*e_m=e_{n+m}$, l'associativité de $*$ résulte de celle de $+$ sur $\N$ et le fait que $e_0$ soit l'unité de $A^{(\N)}$ du fait que $0$ est l'unité de $\N$.  Pour un monoïde $(M,\cdot)$ quelconque, l'application
  $$\SHom_{Mono}(\N,M)\rightarrow M,\; f\rightarrow f(1)$$
    est bijective d'inverse l'application qui à $m\in M$ associe le morphisme de monoïdes $f_m:(\N,+)\rightarrow (M,\cdot)$, $n\rightarrow m^n(=m\cdots m$ $n$ fois). Dans \ref{Poly}.3, se donner $p\in P$ et $b\in B$ revient donc à se donner des morphismes de monoïdes $\nu_A:(\N,+)\rightarrow (P,\cdot)$, $n\rightarrow p^n$ et $\nu:(\N,+)\rightarrow (B,\cdot)$, $n\rightarrow b^n$ et la condition $ev^\phi_b(p)=b$ signifie que $ev^\phi_b\circ \nu_A=\nu$. Avec ce point de vue, on peut reformuler \ref{Poly}.3 comme suit. \end{remarque}
 
@@ -376,9 +376,9 @@ on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ te
 $$\SHom_A(A[X],B)\rightarrow \SHom_{Mono}(\N,B),\; f\rightarrow f\circ \nu_A.$$
  est bijective. Explicitement, $\nu_A:(\N,+)\rightarrow (A[X],\cdot)$ est le morphisme qui envoie $n$ sur $X^n$ donc si $f:A[X]\rightarrow B$ est un morphisme de $A$-algèbres, $f\circ \nu_A:(\N,+)\rightarrow (B,\cdot)$  est le morphisme qui envoie $n$ sur $f(X)^n$.\\
 
-	\subsection{Construction de $A[N]$}
+ \subsection{Construction de $A[N]$}
 
-  Avec le point de vue développé dans la Remarque  \textbf{AJOUTER REF}, on peut faire la construction précédente en remplaçant $(\N,+)$ par n'importe quel monoïde $(N,\cdot)$ (non nécessairement commutatif, non nécessairement dénombrable) d'unité $1_N$.   Notons toujours $e_{n}:=(\delta_{m,n}1_{A})_{m\in N}$, $n\in N$ et pour $a\in A$, $ae_{n}:=(\delta_{m,n}a)_{m\in  N}$, $n\in N$ ; $A^{(N)}$ contient les $ae_{n}$, $n\in N$, $a\in A$ et, par définition,  tout élément $\underline{a}\in A^{(N)}$ s'écrit de façon unique sous la forme $\underline{a}=\sum_{\underline{n}\in N^r}a_ne_{n}$. En munissant $A^{(N)}$ de l'addition héritée de celle de $A^{N}$ et du produit `de convolution' $*$ défini sur les éléments $e_{n}$, $n\in N$ par
+  Avec le point de vue développé dans la remarque \ref{RemarqueConstr}, on peut faire la construction précédente en remplaçant $(\N,+)$ par n'importe quel monoïde $(N,\cdot)$ (non nécessairement commutatif, non nécessairement dénombrable) d'unité $1_N$.   Notons toujours $e_{n}:=(\delta_{m,n}1_{A})_{m\in N}$, $n\in N$ et pour $a\in A$, $ae_{n}:=(\delta_{m,n}a)_{m\in  N}$, $n\in N$ ; $A^{(N)}$ contient les $ae_{n}$, $n\in N$, $a\in A$ et, par définition,  tout élément $\underline{a}\in A^{(N)}$ s'écrit de façon unique sous la forme $\underline{a}=\sum_{\underline{n}\in N^r}a_ne_{n}$. En munissant $A^{(N)}$ de l'addition héritée de celle de $A^{N}$ et du produit `de convolution' $*$ défini sur les éléments $e_{n}$, $n\in N$ par
 $e_{m}*e_{n}=e_{m\cdot n} $ et en général par
 
 	\begin{equation}(\sum_{n\in N}a_{n}e_{n}) *(\sum_{n\in N}b_{n}e_{n})=\sum_{n\in N}(\sum_{i,j\in N,i\cdot j=n}a_{i}b_{j})e_{n}\end{equation}
