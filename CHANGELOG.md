@@ -26,7 +26,7 @@ cela permet une numérotation automatique sans avoir besoin de mettre une `\subs
 - I.5.4 ;
 - I.6.
 
-Ces transformations se font progressivement. Le chapitre I.1 a subi de grosses transformations : sous-sections et sous-sous-sections pour chaque construction d'une algèbre de polynômes (A[X], A[N], A[X, X^{—1}], A[X_1, \dots, X_r], A[X_1^{-1}, \dots, X_r, X_r^{-1}]), ajouts d'environnements, titres, etc.
+Ces transformations se font progressivement. Le chapitre I.1 a subi de grosses transformations : sous-sections et sous-sous-sections pour chaque construction d'une algèbre de polynômes (A[X], A[N], A[X, X^{-1}], A[X_1, \dots, X_r], A[X_1, X_1^{-1}, \dots, X_r, X_r^{-1}]), ajouts d'environnements, titres, etc.
 
 ## Ajouts mathématiques
 - Diagrammes commutatifs (Antoine).
