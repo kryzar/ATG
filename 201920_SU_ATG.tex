@@ -37,7 +37,7 @@
 	{} % Theorem head spec (can be left empty, meaning `normal')
 
 \theoremstyle{theoremeStyle} % les énvironnements définis ci-desosus utiliserons le style theoremeStyle
-\newtheorem{theoreme}{Théorème}[subsection] % pour avoir une numérotation lisible
+\newtheorem{theoreme}{Théorème}[section] % pour avoir une numérotation lisible
 \newtheorem{lemme}[theoreme]{Lemme}
 \newtheorem{proposition}[theoreme]{Proposition}
 \newtheorem{propositiondef}[theoreme]{Proposition-Définition}
@@ -1580,20 +1580,23 @@ et, par propriété universelle de la limite projective, un unique morphisme d'a
  On rappelle que sauf mention explicite du contraire tous les anneaux sont commutatifs.
 \chapter{Premières définitions et constructions}
 \section{Définitions}
-\subsection{}Soit $A$ un anneau, un $A$-module\index{Module} (à gauche) est un couple$((M,+),\cdot)$ formé d'un groupe abélien  $(M,+)$ (on notera $0$ son élément neutre et $-m$ l'inverse d'un élément $m\in M$)) et d'une application $ \cdot :A\times A\rightarrow A$ - appelées la multiplication extérieure -  vérifiant les axiomes suivants:
+\begin{definition}Soit $A$ un anneau, un $A$-module\index{Module} (à gauche) est un couple$((M,+),\cdot)$ formé d'un groupe abélien  $(M,+)$ (on notera $0$ son élément neutre et $-m$ l'inverse d'un élément $m\in M$)) et d'une application $ \cdot :A\times A\rightarrow A$ - appelées la multiplication extérieure -  vérifiant les axiomes suivants:
 \begin{enumerate}
 \item $a\cdot (m+n)=a\cdot m+a\cdot n $, $a\in A$, $m,n\in M$;
 \item $(a+b)\cdot m=a\cdot m+b\cdot m$, $a,b\in A$, $m\in M$;
 \item $(a\cdot b)\cdot m=a\cdot (b\cdot m)$, $a,b\in A$, $m\in M$;
 \item $1\cdot m=m$, $m\in M$. \\
 \end{enumerate}
-De façon équivalente, l'application $A\rightarrow \SEnd_{Grp}(M)$ est un morphisme d'anneaux.\\
+\end{definition}
 
- Étant donnés deux  $A$-modules $M,N$, un morphisme de $A$-modules est un morphisme de groupes $f:(M,+)\rightarrow (N,+)$   $A$-linéaire \textit{i.e} qui vérifie:
+De façon équivalente, l'application $A\rightarrow \SEnd_{Grp}(M)$ est un morphisme d'anneaux.
+
+\begin{definition}Étant donnés deux  $A$-modules $M,N$, un morphisme de $A$-modules est un morphisme de groupes $f:(M,+)\rightarrow (N,+)$   $A$-linéaire \textit{i.e} qui vérifie:
   $$f(a\cdot m)=a\cdot f(m),\; a\in A,\; m\in M.$$
-On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme de $A$-modules et que si $f:M\rightarrow N$ et $g:N\rightarrow P$ sont des morphismes de $A$-modules alors $g\circ f:M\rightarrow P$ est un morphisme de $A$-modules. On notera $\SHom_A(M,N)$ l'ensemble des morphismes de $A$-modules $\phi:M\rightarrow N$ et, si $M=N$, $\SEnd_A(M):=\SHom_A(M,M)$. \\
+\end{definition}
 
-
+On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme de $A$-modules et que si $f:M\rightarrow N$ et $g:N\rightarrow P$ sont des morphismes de $A$-modules alors $g\circ f:M\rightarrow P$ est un morphisme de $A$-modules.
+\begin{definition}On notera $\SHom_A(M,N)$ l'ensemble des morphismes de $A$-modules $\phi:M\rightarrow N$ et, si $M=N$, $\SEnd_A(M):=\SHom_A(M,M)$.\end{definition}
 
  On dit qu'un morphisme de $A$-modules $f:M\rightarrow N$ est injectif, (resp. surjectif, resp. un isomorphisme) si l'application d'ensemble sous-jacente est injective (resp. surjective, resp. bijective). On vérifie que si   $f:M\rightarrow N$ est un isomorphisme de $A$-modules l'application inverse $f^{-1}:N\rightarrow M$ est automatiquement un morphisme de $A$-modules.
 
@@ -1605,19 +1608,21 @@ On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme 
 \item Si $N,N$ sont deux $A$-modules, $\SHom_A(M,N)$ est naturellement muni d'une structure de $A$-module pour les lois $(f+g)(m)=f(m)+g(m)$, $(a\cdot f)(m)=a\cdot (f(m))$.
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux tout $B$-module $M$ est naturellement un $A$-module pour la multiplication extérieure $ A\times M\rightarrow M$, $(a,n)\rightarrow \phi(a)\cdot n$. On notera $\phi^*M$ ou $M|_A$ lorsqu'il n'y a pas d'ambiguité sur $\phi:A\rightarrow B$ le $A$-module ainsi obtenu à partir du $B$-module $N$. On notera que tout morphisme de $B$-modules $f:M\rightarrow N$ est automatiquement un morphisme de $A$-modules $f|_A=f:M|_A\rightarrow N_A$. En particulier,  une structure de $A$-algèbre $\phi:A\rightarrow B$ sur un anneau $B$ détermine une structure de $A$-module $\phi^*B$ sur $B$. Inversement, une structure de $A$-module $\cdot:A\times B\rightarrow B$ sur le   groupe abélien sous-jacent $(B,+)$ d'un anneau  $B$ détermine une structure de $A$-algèbre $\phi:A\rightarrow B$ sur $B$ en posant $\phi(a)=a\cdot 1_B$. En particulier, si $M$ est un $A$-module, $\SEnd_A(M)$ est naturellement muni d'une structure de $A$-algèbre.
 \item Soit $A$ un anneau commutatif. Par la propriété universelle de $\iota_A:A\rightarrow A[X_1,\dots, X_n]$, la donnée d'un $A[X_1,\dots,X_1]$-module est équivalente à la donnée d'un couple $(M,\underline{\phi})$, où $M$ est un $A$-module et $\underline{\phi}:=(\phi_{1},\dots,\phi_{n})$ est un $n$-uplet d'endomorphismes $A$-linéaires de $M$ qui commutent deux à deux. Par exemple, si $V$ est un $k$-espace vectoriel de dimension finie, et $u\in \SEnd_k(V)$, on peut munir $V$ de la structure $V_u$ de $k[X]$-module définie par $P(X)\cdot v=P(u)(v)$. Si $u,u'\in\SEnd_k(V) $, on a
-$$\\SHom_{k[X]}(V_u,V_{u'})=\lbrace \varphi:V\rightarrow V\; |\; \varphi\circ u=u'\circ \varphi\rbrace.$$
+$$\SHom_{k[X]}(V_u,V_{u'})=\lbrace \varphi:V\rightarrow V\; |\; \varphi\circ u=u'\circ \varphi\rbrace.$$
 Un certain nombre de résultats d'algèbre lin\'raire s'interprètent (et deviennent bien plus naturels!) en termes de $k[X]$-modules.\\
 \end{itemize}
 
- \subsection{}Si $M$ est un $A$-module, un \textit{sous $A$-module} de $M$ est un sous-ensemble $M'\subset M$ tel que $am'+bn'\in M'$, $a,b\in A $, $m',n'\in M'$. \\
+\begin{definition}Si $M$ est un $A$-module, un \textit{sous $A$-module} de $M$ est un sous-ensemble $M'\subset M$ tel que $am'+bn'\in M'$, $a,b\in A $, $m',n'\in M'$.
+\end{definition}
 
- \textbf{Exemple.}
+ \begin{exemple}
  \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
  \item Les sous-$A$-modules du $A$-module régulier $A$ sont les idéaux de $A$.\\
 \item Si $f:M\rightarrow N$ est un morphisme de $A$-module et $M'\subset M$ (resp. $N'\subset N$) est un sous-$A$-module alors $f(M')\subset N$ (resp. $f^{-1}(N')\subset M$) est un sous-$A$-module. En particulier, $\im(f)\subset N$ et $\ker(f)\subset M$ sont des sous-$A$-modules.\\
 \item Si $I\subset A$ est un idéal et $M$ un $A$-module, $IM:=\lbrace am\; |\; a\in I,\; m\in M\rbrace\subset M$ est un sous-$A$-module.
 
 \end{itemize}
+ \end{exemple}
 
 
 
