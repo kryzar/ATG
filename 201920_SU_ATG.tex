@@ -3,6 +3,7 @@
 \usepackage[french]{babel}
 \usepackage[left=2cm, right=2cm, bottom=3.5cm, top=3.5cm]{geometry}
 \usepackage{graphicx,epsfig}
+\usepackage{subcaption}
 \usepackage{color}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -13,6 +14,8 @@
 \usepackage[all, pdftex]{xy}
 \usepackage[hidelinks]{hyperref} % liens cliquables
 \usepackage{setspace} % augmenter l'interlignage, voir un peu avant \begin{document}
+\usepackage{tikz} % pour faire des figures
+\usepackage{stmaryrd}
 
 % Ici sont définis les ennvironnements permettant d'écrire des énoncés (théorèmes, définitions, etc.)
 % on définit d'abord le style de ces environnements :
@@ -57,6 +60,27 @@
 \setcounter{secnumdepth}{6}
 \makeindex
 
+% Paramètres pour Tikz
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+% Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+  xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+  xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+  ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+  ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}
+{\draw[help lines] (\xmin,\ymin) grid (\xmax,\ymax);}
+% Commande \axes52
+\newcommand {\axes} {
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->] (0,\ymin) -- (0,\ymax);
+}
+% Commande qui limite l’affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+
 % En-têtes et pieds de page
 \usepackage{fancyhdr}
 \setlength{\headheight}{15.2pt}
@@ -70,9 +94,9 @@
 \fancyfoot[CO]{}
 \fancyfoot[RO]{Sorbonne université}
 
-% taille par défaut pour les lignes et colonnes
-% des diagrammes commutatifs faits avec xymatrix
-\xymatrixrowsep{80px}\xymatrixcolsep{80px}
+% % taille par défaut pour les lignes et colonnes
+% % des diagrammes commutatifs faits avec xymatrix
+% \xymatrixrowsep{80px}\xymatrixcolsep{80px}
 
 % remplacement des \newcommand par des \DeclaraMathOperator
 % c'est plus adapté
@@ -101,16 +125,17 @@
 \DeclareMathOperator{\CD}{CD}
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Ker}{Ker}
+
 
 \newcommand{\Q}{\mathbb{Q}}
-\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\HH}{\mathbb{H}}
 \newcommand{\F}{\mathbb{F}}
-\newcommand{\G}{\mathbb{G}}
-
+\newcommand{\GG}{\mathbb{G}}
 \renewcommand{\labelitemi}{-}
 
 \title{Algèbre et théorie de Galois}
@@ -208,10 +233,10 @@ Le monoïde $(A ,\cdot)$ n'est pas un groupe en général; on note $A^\times\sub
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item L'anneau nul $A=\lbrace 0\rbrace$ (on n'a pas exclu $1\not=0$ dans la définition d'anneaux).
 \item L'anneau  $\Z$ des entiers. Dans ce cas  $\Z^\times=\lbrace \pm 1\rbrace$.
-\item Les corps commutatifs, par exemple $\Q$, $\R$, $\C$.
+\item Les corps commutatifs, par exemple $\Q$, $\R$, $\CC$.
 \item Si $M$ est un groupe abélien, l'ensemble $\SEnd_{Grp}(M)$ des endomorphismes du groupe  abélien $M$ muni de $(\phi+\psi)(m)=\phi(m)+\psi(m)$ et $(\psi\cdot\phi)(m)=\psi\circ \phi(m)$ est  un anneau (non commutatif en général) de zéro l'application nulle et d'unité l'application identité. Dans ce cas,  $\SEnd_{Grp}(M)^\times=\SAut_{Grp}(M)$.
 \item Si $M$ est un espace vectoriel sur un corps commutatif $k$, l'ensemble $\SEnd_k(M)$ des endomorphismes du $k$-espace vectoriel  $M$ muni de $(\phi+\psi)(m)=\phi(m)+\psi(m)$ et $(\psi\cdot\phi)(m)=\psi\circ \phi(m)$ est un anneau (non commutatif si $M$ est de $k$-dimension $\geq 2$) de zéro l'application nulle et d'unité l'application identité. Dans ce cas, $\SEnd_k(M)^\times=\SGL_k(M)$.
-\item On rencontre aussi beaucoup d'anneaux en analyse: les anneaux $\mathcal{C}(X,\R)$ ou $\mathcal{C}(X,\C)$ de fonctions continues à valeurs réelles  ou complexes sur un espace topologique $X$, les anneaux $L^p(X,\mu)$ de fonctions intégrables  sur un espace mesuré $(X,\mu)$, les anneaux de séries entières \textit{etc}.
+\item On rencontre aussi beaucoup d'anneaux en analyse: les anneaux $\mathcal{C}(X,\R)$ ou $\mathcal{C}(X,\CC)$ de fonctions continues à valeurs réelles  ou complexes sur un espace topologique $X$, les anneaux $L^p(X,\mu)$ de fonctions intégrables  sur un espace mesuré $(X,\mu)$, les anneaux de séries entières \textit{etc}.
 \end{itemize}
 	\end{exemples}
 
@@ -235,7 +260,7 @@ On dit qu'un morphisme d'anneaux $\phi:A\rightarrow B$ est injectif, (resp. surj
 \subsection{Sous-anneaux}Si $A$ est un anneau, un sous-anneau\index{Sous-anneau} de $A$ est un sous-ensemble $A'\subset A$ tel que $1_A\in A'$ et $a'-b'\in A'$, $a'\cdot b'\in A'$, $a',b'\in A'$. \\
 
 \begin{exemples}\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item $\Z$ est un sous anneau de $\Q$, $\Q$ est un sous-anneau de $\R$, $\R$ est un sous-anneau de $\C$.
+\item $\Z$ est un sous anneau de $\Q$, $\Q$ est un sous-anneau de $\R$, $\R$ est un sous-anneau de $\CC$.
 \item Si $M$ est un espace vectoriel sur un corps commutatif $k$, $\SEnd_k(M)$ est un sous-anneau de $\SEnd_{Grp}(M)$.
 \item $Z(A):=\lbrace a\in A\;|\; a\cdot b=b\cdot a,\; b\in A\rbrace\subset A$ est un sous-anneau de $A$, appelé le centre\index{Centre (Anneau)} de $A$. Par exemple $Z(\SEnd_k(M))=k\Id_M$ et $Z(A)=A$ si et seulement si $A$ est commutatif.
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux, et $A'\subset A$ (resp. $B'\subset B$) est un sous-anneau alors $\phi(A')\subset B$ (resp. $\phi^{-1}(B')\subset A$) est un sous-anneau. En particulier, $\im(\phi)\subset B$ est un sous-anneau mais  $\ker(\phi)\subset A$ n'est un sous-anneau que si $A$ ou $B$ est l'anneau nul, sinon il ne contient pas $1$ (on verra un peu plus loin que $\ker(\phi)$ est ce qu'on appelle un idéal).
@@ -266,7 +291,7 @@ On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme 
 \begin{exercice}[Quaternions] On considère le $\R$-espace vectoriel $\HH$ de base $1,i,j,k$ muni du produit $\HH\times \HH\rightarrow \HH$ définie par $i^2=j^2=k^2=-1$, $ij=-ji=k$, $jk=-kj=i$, $ki=-ik=j$.
  \begin{enumerate}
  \item Montrer que $(\HH,+,\cdot)$ est un anneau à division, non commutatif. Déterminer son centre   et en déduire que c'est  une $\R$-algèbre.
- \item On note $i$ une racine carré de $-1$ dans $\C$ et on considère les matrices $$I:=\left(\begin{tabular}[c]{ll}
+ \item On note $i$ une racine carré de $-1$ dans $\CC$ et on considère les matrices $$I:=\left(\begin{tabular}[c]{ll}
  $i$&$0$\\
  $0$&$-i$
  \end{tabular}\right),\; J:=\left(\begin{tabular}[c]{ll}
@@ -276,7 +301,7 @@ On remarquera que l'application identité $\Id:B\rightarrow B$ est un morphisme 
  $0$&$i$\\
  $i$&$0$
  \end{tabular}\right).$$
- Montrer que le sous-$\R$-espace vectoriel de $M_2(\C)$ engendré par $\Id$, $I$, $J$, $K$ est un sous-$\R$-algèbre de $(M_2(\C),+,\cdot)$ isomorphe à $\HH$.
+ Montrer que le sous-$\R$-espace vectoriel de $M_2(\CC)$ engendré par $\Id$, $I$, $J$, $K$ est un sous-$\R$-algèbre de $(M_2(\CC),+,\cdot)$ isomorphe à $\HH$.
 \end{enumerate}
 \end{exercice}
 
@@ -556,7 +581,7 @@ $$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\
 
   \textbf{Exemples.}\index{Caractéristique} (Caractéristique d'un anneau) Le noyau du morphisme caractéristique $c_A:\Z\rightarrow A$ est un idéal de $\Z$ donc de la forme $\ker(c_A)=n\Z$ pour un unique entier $n\geq 0$, appelé la caractéristique de $A$.
   \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item $\Z,\Q,\R,\C$ sont de caractéristique $0$;
+\item $\Z,\Q,\R,\CC$ sont de caractéristique $0$;
 \item $\Z/n$ est de caractéristique $n$, $n\geq 0$;
 \item Si $A'\subset A$ est un sous-anneau, $A$ et $A'$ ont même caractéristique. En particulier $A$, $A^I$, $A[X]$ ont même caractéristique. Si $\mathcal{P}$ est un ensemble infini de nombres premiers distincts, l'anneau produit $\prod_{p\in \mathcal{P}}\Z/p\Z$ est de caractéristique $0$.
 \item  Si $\phi : A\rightarrow B$ est une $A$-algèbre, la caractéristique de $B$ divise la caractéristique de $A$.\\
@@ -877,7 +902,7 @@ où $(1)$ utilise encore que $\CD(f)\in A^\times$. On a donc forcément $r=r'$ d
 
 \item $r\geq 1$. En utilisant les isomorphismes canoniques $A[X_1,\dots, X_r]\tilde{\rightarrow} A[X_1,\dots,\hat{X}_i,\cdots , X_r][X_i]$, $i=1,\dots, r$, on peut encore appliquer le Lemme ci-dessus dans $A[X_1,\dots, X_r]$: les polynômes par lesquels on peut diviser sont ceux de la forme $aX_i^{d}+\sum_{\underline{n}\in \N^r,\;|\; n_i<d}a_{\underline{n}}\underline{X}^{\underline{n}}$, avec $a\in A[X_1,\dots,\hat{X}_i,\cdots , X_r]^\times=A^\times$ (car $A$ est intègre donc réduit).\\
 \end{itemize}
- \item On peut montrer que le carré de la valeur absolue usuelle  $|-|^2:\Z[w]\rightarrow \N$ est un stathme euclidien sur certains sous-anneaux de $\C$ de la forme $\Z[w]\subset \C$; c'est par exemple le cas pour $w=\sqrt{-1},^3\sqrt{-1},\sqrt{-2}$.
+ \item On peut montrer que le carré de la valeur absolue usuelle  $|-|^2:\Z[w]\rightarrow \N$ est un stathme euclidien sur certains sous-anneaux de $\CC$ de la forme $\Z[w]\subset \CC$; c'est par exemple le cas pour $w=\sqrt{-1},^3\sqrt{-1},\sqrt{-2}$.
  \end{enumerate}
 
 
@@ -1564,15 +1589,161 @@ et, par propriété universelle de la limite projective, un unique morphisme d'a
 
 
 
-   \textbf{Exercice.} Montrer que si $P\in A[X]$ est premier à $X$ alors $c_{XA[X]}(P)\in A[[X]]^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{A[X]_{XA[X]}}\tilde{\rightarrow} A[[X]]$, où $A[X]\rightarrow  A[[X]]$ est la complétion $XA[X]_{XA[X]}$-adique de $A[X]_{XA[X]}$.\\
+ \textbf{Exercice.} Montrer que si $P\in A[X]$ est premier à $X$ alors $c_{XA[X]}(P)\in A[[X]]^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{A[X]_{XA[X]}}\tilde{\rightarrow} A[[X]]$, où $A[X]\rightarrow  A[[X]]$ est la complétion $XA[X]_{XA[X]}$-adique de $A[X]_{XA[X]}$.\\
 
- \end{enumerate}
- \chapter{Un peu de géométrie (Hors programme)}
+\end{enumerate}
 
+\chapter{Un peu de géométrie (Hors programme)}
 
+L'objectif\footnote{Chapitre rédigé par Quentin Dupré, à partir du
+  cours dispensé en classe par Anna Cadoret} de ce chapitre est de
+fournir une motivation géométrique aux (nombreuses) définitions
+algébriques énoncées dans les chapitres précédents.
 
+\begin{definition}[variété algébrique affine]
+  On appelle \textit{variété algébrique (affine)} le lieu d'annulation
+  de $r$ polynômes à $n$ indéterminées
+  $P_1,\dotsc,P_r\in\CC[X_1,\dotsc,X_n]$. On la note
+  $V(P_1,\dotsc,P_r):=\{\underline{x}\in\CC^n:\forall i\in\llbracket
+  1,\dotsc,n\rrbracket, P_i(\underline{x})=0\}$ ou encore $V(\langle
+  P_1,\dotsc,P_r\rangle):=\{\underline{x}\in\CC^n:\forall P\in\langle
+  P_1,\dotsc,P_r\rangle, P(\underline{x})=0\}$.
+\end{definition}
 
+\begin{remarque}
+  Les deux définitions sont bien équivalentes. Le lecteur est invité à
+  le vérifier.
+\end{remarque}
 
+On peut vouloir munir une telle variété d'une topologie. La topologie
+de Zariski répond à cette volonté.
+
+\begin{definition}[topologie de Zariski]
+  Soient $P_1,\dotsc,P_r\in\CC[X_1,\dotsc,x_n]$. La topologie de
+  Zariski sur la variété algébrique $V(P_1,\dotsc,P_r)$ est la
+  topologie dont les fermés sont les idéaux $V(I)$ où $I$ est un idéal
+  de $\CC[X_1,\dotsc,X_n]$ contenant l'idéal $\langle P_1,\dotsc,P_r\rangle$.
+\end{definition}
+
+Nous allons maintenant donner un exemple fondamental de variétés
+algébriques que nous reprendrons tout au long du chapitre.
+
+\begin{exemple}[courbes planes dans $\CC^2$]
+  On considère ici des variétés $C=V(P)$ où $P\in\CC[X,Y]$.
+  \begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,rotate=90] plot(\x,0);
+        \draw[red,thick,rotate=90] plot(\x,-1);
+      \end{tikzpicture}
+      \caption{$X^2-X$}
+      \label{fig:non_connexe}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    % (or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick] plot(\x,0);
+        \draw[red,thick,rotate=90] plot(\x,0);
+      \end{tikzpicture}
+      \caption{$XY$}
+      \label{fig:croix}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    % (or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,smooth] plot(\x,\x*\x);
+      \end{tikzpicture}
+      \caption{$Y-X^2$}
+      \label{fig:parabolle}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,domain=-1:1,smooth,samples=400] plot(\x,{sqrt((\x)^2+(\x)^3)});
+        \draw[red,thick,domain=-1:1,smooth,samples=400] plot(\x,{-sqrt((\x)^2+(\x)^3)});
+      \end{tikzpicture}
+      \caption{$Y^2-X^2-X^3$}
+      \label{fig:alpha}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,samples=400] plot(\x, {(\x*\x)^(1/3)});
+      \end{tikzpicture}
+      \caption{$X^2-Y^3$}
+      \label{fig:ailes}
+    \end{subfigure}
+    
+    \caption{Courbes algébriques dans $\CC^2$}
+    \label{fig:courbes_algebriques}
+  \end{figure}
+\end{exemple}
+
+\begin{remarque}
+  En général, $V(P_1,\dotsc,P_r)$ est très difficile à
+  comprendre. L'idée fondamentale est donc d'édudier
+  $V:=V(P_1,\dotsc,P_r)$ via les fonctions algébriques sur $V\subset\CC^n$.
+\end{remarque}
+
+\begin{definition}
+  Soit $V:=V(P_1,\dotsc,P_r)$ (où
+  $P_1,\dotsc,P_r\in\CC[X_1,\dotsc,X_r]$) une variété algébrique.
+  On a alors un morphisme d'anneaux
+  \begin{align}
+    I_v: \CC[X_1,\dotsc,X_n] &\to \CC^V \\
+    F &\mapsto \underline{x}\in V\mapsto \underline{F}(\underline{x})\in\CC 
+  \end{align}
+  où la fonction $\underline{F}$ est polynomiale.
+  Ce morphisme se factorise en $\CC[X_1,\dotsc,X_n]/\sqrt{\langle
+    P_1,\dotsc,P_r\rangle}\to \CC[V]$. On dit que $\CC[V]\subset\CC^V$
+  est \textit{l'anneau des fonctions algébriques sur $V$}.
+  $\sqrt{\langle P_1,\dotsc,P_r\rangle}\subset
+  \Ker(I_v:\CC[X_1,\dotsc,X_n]\twoheadrightarrow\CC[V])$ (théorème des
+  zéros de Hilbert).
+\end{definition}
+
+\begin{remarque}
+  Ce qui est remarquable en géométrie algébrique est l'existence d'une
+  correspondance bijective (équivalence de catégories) entre deux
+  mondes a priori distincts.
+  \begin{table}[h]
+    \centering
+    \begin{tabular}[h]{ccc}
+      $\CC$-algèbres de type fini & & variétés algébriques affines \\
+      morphismes de $\CC$-algèbres & $\leftrightarrow$  & morphismes $F_{|V_1}^{V_2}\to
+                                       V_2$\\
+      $\CC[V]$ & & $V$
+    \end{tabular}
+  \end{table}
+
+  On dispose ainsi d'un dictionnaire :
+
+  \begin{table}[h]
+    \centering
+    \begin{tabular}[h]{ccc}
+      propriétés algébriques de $\CC[V]$ & & propriétés géonétriques
+                                             de $V$ \\
+                                         & $\leftrightarrow$ &\\
+      \og preuve \fg{} & & \og intuition\fg{}
+    \end{tabular}
+  \end{table}
+\end{remarque}
+
+\begin{exemple}
+  Si l'on considère les courbes \ref{fig:croix} et \ref{fig:alpha}, on
+  semble y trouver en zéro les mêmes types de propriétés, alors que
+  celles-ci paraissent différentes sur la courbe
+  \ref{fig:ailes}. Cette intuition géométrique et visuelle se montre
+  algébriquement.
+\end{exemple}
 
 
 \part{Modules sur un anneaux}
@@ -2432,7 +2603,7 @@ Si $A$ est un anneau principal et $a,b\in A$, calculer
 $(A/a)\otimes_A (A/b)$.
 \item Montrer qu'on a un isomorphisme canonique de $A$-algèbres $A[X_1]\otimes_A\cdots\otimes_AA[X_n]\tilde{\rightarrow} A[X_1,\dots, X_n]$.
 \item Si $\varphi: A\rightarrow B$ est un morphisme d'anneaux et $P\in A[X]$, montrer qu'on a un isomorphisme canonique de $B$-algèbres $$B\otimes_A (A[X]/P)\tilde{\rightarrow} B[X]/\varphi(P)$$ (on note encore $\varphi: A[X]\rightarrow B[X]$ le morphisme obtenu en appliquant $\varphi$ aux coefficients). \\
-Calculer $\C \otimes_{\R}\C$. Est-ce un corps? Même question avec $\Q(i)\otimes_{\Q}\Q(\sqrt{2})$.
+Calculer $\CC \otimes_{\R}\CC$. Est-ce un corps? Même question avec $\Q(i)\otimes_{\Q}\Q(\sqrt{2})$.
 \end{enumerate}
 
 \textbf{Remarque.} On notera les similitudes suivantes au niveau des propriétés universelles.
@@ -2457,7 +2628,7 @@ Ex.: $\Q=\Frac(\Z)$, si $k$ est un corps, $k(T_1,\dots, T_r)=\Frac(k[T_1,\dots, 
 \item pour chaque premier $0\not=p$, la valeur absolue $p$-adique $|x|_p=p^{-v_p(x)}$. On obtient ainsi  On obtient ainsi le corps des $p$-adiques $\Q_p=\widehat{\Q^{|-|_p}}$;
 \end{itemize}
 \item Si $\frak{m}\subset A$ est un idéal maximal, $A/\frak{m}$ est un corps.  \\
-Ex.: si $A$ est un anneau principal et $p$ un élément irréductible, $A/p$ est un corps: $\F_p=\Z/p$, $\C=\R[T]/(T^2+1)$, $\Q[T]/T^p+T^{p-1}+\cdots+1$, $p$: premier, \textit{etc.}
+Ex.: si $A$ est un anneau principal et $p$ un élément irréductible, $A/p$ est un corps: $\F_p=\Z/p$, $\CC=\R[T]/(T^2+1)$, $\Q[T]/T^p+T^{p-1}+\cdots+1$, $p$: premier, \textit{etc.}
 \item Si $\frak{p}\subset A$ est un idéal premier, $A_\frak{p}$ est un anneau local d'unique idéal maximal $\frak{p}A_\frak{p}$ donc $\kappa(\frak{p})=A_\frak{p}/\frak{p}A_\frak{p}$ est un corps, \textit{etc.}
 \end{itemize}
 
@@ -2497,14 +2668,14 @@ $x$ est algébrique sur $k$&$\Leftrightarrow$&$[k(x):k]<+\infty$&$\Leftrightarro
 $x$ est transcendant sur $k$&$\Leftrightarrow$&$[k(x):k]=+\infty$&$\Leftrightarrow$&$k[x]\subsetneq k(x)$;\\
 \end{tabular}$$
 
-\ref{AlgTr}.2 \textbf{Exemple.} Considérons l'extension $\C/\Q$. Les nombres $i,\sqrt{2}$ \textit{etc} sont algébriques par définition.
+\ref{AlgTr}.2 \textbf{Exemple.} Considérons l'extension $\CC/\Q$. Les nombres $i,\sqrt{2}$ \textit{etc} sont algébriques par définition.
 \begin{itemize}
-\item Si $a\in \C$ est algébrique, $\exp(a)$ est transcendant (Lindemann, $\sim 1880$); en particulier, $e$ ($a=1$) et $\pi$ ($a=i\pi$) sont transcendants sur $\Q$.
-\item  Si $a,b\in \C$ sont algébriques sur $\Q$ et $a\not=0,1$, $b\notin \Q$, $a^b=\exp(b\log a)$ est transcendant  sur $\Q$ ($7$ème problème de Hilbert, Gelfond, $\sim$ 1930); en particulier,  $e^\pi$ ($a=e^\pi$, $b=i$) est transcendant sur $\Q$.
-\item On ne sait pas si $e+\pi$ est transcendant. Il est par contre possible que d'ici la fin de l'année (2018), on sache que si $a,b\in \C$ sont algébriques sur $\Q$, $\exp(a)\log(b)$ soit transcendant  sur $\Q$.
+\item Si $a\in \CC$ est algébrique, $\exp(a)$ est transcendant (Lindemann, $\sim 1880$); en particulier, $e$ ($a=1$) et $\pi$ ($a=i\pi$) sont transcendants sur $\Q$.
+\item  Si $a,b\in \CC$ sont algébriques sur $\Q$ et $a\not=0,1$, $b\notin \Q$, $a^b=\exp(b\log a)$ est transcendant  sur $\Q$ ($7$ème problème de Hilbert, Gelfond, $\sim$ 1930); en particulier,  $e^\pi$ ($a=e^\pi$, $b=i$) est transcendant sur $\Q$.
+\item On ne sait pas si $e+\pi$ est transcendant. Il est par contre possible que d'ici la fin de l'année (2018), on sache que si $a,b\in \CC$ sont algébriques sur $\Q$, $\exp(a)\log(b)$ soit transcendant  sur $\Q$.
 \end{itemize}
 En fait, sauf cas très particulier, on ne sait pas dire si un nombre complexe pris `au hasard' est transcendant sur  $\Q$ alors que moralement, `presque tous' les nombres complexes sont transcendants sur $\Q$ puisque
-  $\Q$ est dénombrable alors que   $\R$ (donc $\C) $ n'est pas dénombrable.  \\
+  $\Q$ est dénombrable alors que   $\R$ (donc $\CC) $ n'est pas dénombrable.  \\
 
 
 
@@ -2512,7 +2683,7 @@ En fait, sauf cas très particulier, on ne sait pas dire si un nombre complexe p
 
  Pour $|I|=1$, on retrouve la notion d'élément transcendant sur $k$.\\
 
- \textbf{Exemple.} Considérons encore l'extension $  \C/\Q$. On en sait encore moins sur l'indépendance algébrique que sur l'alternative algébrique/transcendant. Le seul résultat un peu général dont on dispose est que si $a_1,\dots, a_n\in \C$ sont algébriques  et linéairement indépendants sur $\Q$,   les $\exp(a_1),\dots, \exp(a_n)$ sont algébriquement indépendants sur $\Q$ (Lindeman-Weierstrass, $\sim$ 1885).\\
+ \textbf{Exemple.} Considérons encore l'extension $  \CC/\Q$. On en sait encore moins sur l'indépendance algébrique que sur l'alternative algébrique/transcendant. Le seul résultat un peu général dont on dispose est que si $a_1,\dots, a_n\in \CC$ sont algébriques  et linéairement indépendants sur $\Q$,   les $\exp(a_1),\dots, \exp(a_n)$ sont algébriquement indépendants sur $\Q$ (Lindeman-Weierstrass, $\sim$ 1885).\\
 
 \subsection{}\label{TrPure}On dit qu'une extension de corps  $K/k$  est \textit{transcendante pure}\index{Transcendante pure (Extension de corps)}  s'il existe $a_i\in K$, $i\in I$   algébriquement indépendants sur $k$ tels que $K=k(a_i,\; i\in I)$. Le lemme suivant résulte immédiatement de la définition. \\
 
@@ -2553,7 +2724,7 @@ $$[K_1(a):K_1]\leq [K_1(a_0,\dots, a_d,a):K_1]=[K_1(a_0,\dots, a_d,a):K_1(a_0,\d
 $$[k(a-b):k], [k(ab^{-1}):k]\leq [k(a,b):k]\leq [k(a)(b):k(a)][k(a):k]\leq [k(b):k][k(a):k]<+\infty$$
  \ie{} $a-b, ab^{-1}\in \overline{k}\cap K$ (de degré sur $k$ $\leq  [k(b):k][k(a):k]$). \end{proof}
 
- \textbf{Exercice.} Notons $\overline{\Q}:=\overline{\Q^\C}\subset  \C$. Montrer que $\overline{\Q}\subsetneq \C$ et que tout élément de $\C\setminus \overline{\Q}$ est transcendant sur $\overline{\Q}$ mais que  $\overline{\Q}\subset  \C$ n'est pas une extension transcendante pure.\\
+ \textbf{Exercice.} Notons $\overline{\Q}:=\overline{\Q^\CC}\subset  \CC$. Montrer que $\overline{\Q}\subsetneq \CC$ et que tout élément de $\CC\setminus \overline{\Q}$ est transcendant sur $\overline{\Q}$ mais que  $\overline{\Q}\subset  \CC$ n'est pas une extension transcendante pure.\\
 
  D'après  \ref{AlgTF}, une extension de corps est finie si et seulement si elle est algébrique et  de type  fini. Si $k\subset K$ est finie  et   si $a_1,\dots, a_n$$K=k(a_1,\dots, a_n)$ est un système de générateurs de $K$ comme extension de corps de $k$, \ref{AlgTr} montre que  $K=k(a_1,\dots, a_n)=k(a_1)\cdots(a_n)=k[a_1]\cdots [a_n]=k[a_1,\dots, a_n]$ donc $K$ est aussi une $k$-algèbre de type finie. Cette dernière propriété suffit en fait  à caractériser les extensions finies; c'est le Théorème des zéros de Hilbert ou Nullstellensatz. \\
 
@@ -2574,11 +2745,11 @@ ce qui impose $k(a_1)=A$ et contredit notre observation préliminaire.
 \end{proof}
 \subsection{}\label{Hilbert2}\textbf{Corollaire.} \textit{Soit $A$ une $k$-algèbre de type fini. Pour tout $\frak{m}\in \spm(A)$, $A/\frak{m}$ est une extension finie de $k$.}\\
 
-\textbf{Exemple.} En particulier, si $k=\C$,  \ref{AlgTr}.3 (3) montre que pour tout $\frak{m}\in \spm(A)$, $A/\frak{m}=\C$. Rappelons qu'une sous-variété algébrique affine de $\C^n$ est par définition un sous-ensemble $V$ de $\C^n$ de la forme
-$$V=V(I)=\lbrace \underline{x}\in \C^n\; |\; P(\underline{x})=0, \; P\in I\rbrace.$$ Notons $\C[V]:=C[X_1,\dots, X_n]/I$. Les propriétés universelles de la $\C$-algèbre des polynômes à $n$ indéterminées et du quotient donnent une bijection canonique
-$$V\tilde{\rightarrow}\SHom_{Alg/\C}(\C[V],\C)$$
-et le Corollaire \ref{Hilbert2}, une bijection canonique  $$\SHom_{Alg/\C}(\C[V],\C)\tilde{\rightarrow} \spm(\C[V]).$$
-La composée $V\tilde{\rightarrow} \spm(\C[V])$ est donnée explicitement par $\underline{x}\rightarrow \ker(ev_{\underline{x}}:\C[X_1,\dots,X_n]\rightarrow \C)/I$. En particulier, comme $\C[V]$ est noethérien,  $\spm(\C[V])\not=\varnothing$. Cela montre qu'une sous-variété algébrique affine de $\C^n$ a  toujours un point. En particulier, les idéaux maximaux de $\C[X_1,\dots, X_n]$ sont exactement les $\sum_{1\leq i\leq n}\C[X_1,\dots, X_n](X_i-x_i)$, $\underline{x}\in \C^n$.
+\textbf{Exemple.} En particulier, si $k=\CC$,  \ref{AlgTr}.3 (3) montre que pour tout $\frak{m}\in \spm(A)$, $A/\frak{m}=\CC$. Rappelons qu'une sous-variété algébrique affine de $\CC^n$ est par définition un sous-ensemble $V$ de $\CC^n$ de la forme
+$$V=V(I)=\lbrace \underline{x}\in \CC^n\; |\; P(\underline{x})=0, \; P\in I\rbrace.$$ Notons $\CC[V]:=C[X_1,\dots, X_n]/I$. Les propriétés universelles de la $\CC$-algèbre des polynômes à $n$ indéterminées et du quotient donnent une bijection canonique
+$$V\tilde{\rightarrow}\SHom_{Alg/\CC}(\CC[V],\CC)$$
+et le Corollaire \ref{Hilbert2}, une bijection canonique  $$\SHom_{Alg/\CC}(\CC[V],\CC)\tilde{\rightarrow} \spm(\CC[V]).$$
+La composée $V\tilde{\rightarrow} \spm(\CC[V])$ est donnée explicitement par $\underline{x}\rightarrow \ker(ev_{\underline{x}}:\CC[X_1,\dots,X_n]\rightarrow \CC)/I$. En particulier, comme $\CC[V]$ est noethérien,  $\spm(\CC[V])\not=\varnothing$. Cela montre qu'une sous-variété algébrique affine de $\CC^n$ a  toujours un point. En particulier, les idéaux maximaux de $\CC[X_1,\dots, X_n]$ sont exactement les $\sum_{1\leq i\leq n}\CC[X_1,\dots, X_n](X_i-x_i)$, $\underline{x}\in \CC^n$.
 
  \subsection{}\label{Hilbert3}\textbf{Corollaire.} \textit{Soit $A$ une $k$-algèbre de type fini. Alors pour tout idéal $I\subset A$, $\sqrt{I}=\displaystyle{\bigcap_{\frak{m}\in \spm(A),\; I\subset \frak{m}}\frak{m}}$.}
 
@@ -2596,7 +2767,7 @@ La composée $V\tilde{\rightarrow} \spm(\C[V])$ est donnée explicitement par $\
  \end{itemize}
  \end{proof}
 
- \textbf{Exemple.} Reprenons les notations de l'Exemple \ref{Hilbert2}. Considérons le morphisme de $\C$-algèbres canonique $-|_V:\C[X_1,\dots,X_n]\rightarrow \C^V$ qui envoie $P\in \C[X_1,\dots, X_n]$ sur l'application $ev_-(P)|_V:V\rightarrow \C$, $\underline{x}\rightarrow ev_{\underline{x}}(P)=P(\underline{x})$. On a clairement $I\subset I(V):=\ker(-|_V)$ et le Corollaire \ref{Hilbert3} montre qu'en fait $I= \ker(-|_V)$ (rappelons qu'on a supposé $I=\sqrt{I}$). Le morphisme de $\C$-algèbre  $-|_V:\C[X_1,\dots,X_n]\rightarrow \C^V$ se factorise donc en un morphisme injectif $\C[V]\hookrightarrow \C^V$; on dit que $\C[V]$ est la $\C$-algèbre des applications polynômiales sur $V$.  On en déduit aussi que les applications $I\rightarrow V(I)  $ et $V\rightarrow I(V)$ sont des bijections  inverses l'une de l'autres entre l'ensemble des idéaux radiciels de $\C[X_1,\dots, X_n]$ et les sous-variétés algébriques affines de $\C^n$.
+ \textbf{Exemple.} Reprenons les notations de l'Exemple \ref{Hilbert2}. Considérons le morphisme de $\CC$-algèbres canonique $-|_V:\CC[X_1,\dots,X_n]\rightarrow \CC^V$ qui envoie $P\in \CC[X_1,\dots, X_n]$ sur l'application $ev_-(P)|_V:V\rightarrow \CC$, $\underline{x}\rightarrow ev_{\underline{x}}(P)=P(\underline{x})$. On a clairement $I\subset I(V):=\ker(-|_V)$ et le Corollaire \ref{Hilbert3} montre qu'en fait $I= \ker(-|_V)$ (rappelons qu'on a supposé $I=\sqrt{I}$). Le morphisme de $\CC$-algèbre  $-|_V:\CC[X_1,\dots,X_n]\rightarrow \CC^V$ se factorise donc en un morphisme injectif $\CC[V]\hookrightarrow \CC^V$; on dit que $\CC[V]$ est la $\CC$-algèbre des applications polynômiales sur $V$.  On en déduit aussi que les applications $I\rightarrow V(I)  $ et $V\rightarrow I(V)$ sont des bijections  inverses l'une de l'autres entre l'ensemble des idéaux radiciels de $\CC[X_1,\dots, X_n]$ et les sous-variétés algébriques affines de $\CC^n$.
 
  \section{Bases de transcendance, degré de transcendance}Soit $K/k$ une extension de corps. Une \textit{base de transcendance}\index{Base de transcendance (Extension de corps)} de $K/k$ est une famille $a_i\in K$, $i\in I$ d'éléments algébriquement indépendants sur $k$ tels que $K/k(a_i,i\in I) $ est algébrique.
 
@@ -2618,8 +2789,8 @@ La composée $V\tilde{\rightarrow} \spm(\C[V])$ est donnée explicitement par $\
   \textbf{Exemples.}
  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
  \item La première partie de la preuve montre que si $k\subset K$ est de type fini alors $trdeg_k(K)$ est fini et $\leq$ au nombre minimal de générateurs de $k\subset K$. Dans ce cas,  si on note $n:=trdeg_k(K)$ on a  $X_1,\dots, X_n\in K$ algébriquement indépendants sur $k$ tels que $K/k(X_1,\dots, X_n)$ est algébrique. Mais comme $K/k$ est de type fini,  $K/k(X_1,\dots, X_n)$ l'est \textit{a fortiori} donc, en fait, $K/k(X_1,\dots, X_n)$ est même finie.
-\item  Comme $\Q(X_1,\dots, X_n)$ est dénombrable et $\C$ ne l'est pas, on voit par contre que $\C/\Q$ est de degré de transcendance infini.
-\item On dit qu'une variété algébrique affine $V=V(I)\subset \C^n$ est irréductible si $\C[V]:=\C[X_1,\dots, X_n]/\sqrt{I}$ est intègre. Dans ce cas, on peut introduire le corps des fractions $\C(V)$ de $\C[V]$ et définir la dimension  de la variété algébrique affine $V$ comme étant le degré de transcendance de $\C(V)$ sur $\C$. Par exemple, l'extension de corps $\C[X,Y]/\langle Y^2-X^3-X-1\rangle/k$   est de degré de transcendance $1$ - donc $ V(Y^2-X^3-X-1)\subset \C^2$ est une courbe - mais ce n'est pas une extension transcendante pure, ce qui se traduit par le fait qu'on ne peut pas donner une paramétrisation rationnelle de $ V(Y^2-X^3-X-1)$.
+\item  Comme $\Q(X_1,\dots, X_n)$ est dénombrable et $\CC$ ne l'est pas, on voit par contre que $\CC/\Q$ est de degré de transcendance infini.
+\item On dit qu'une variété algébrique affine $V=V(I)\subset \CC^n$ est irréductible si $\CC[V]:=\CC[X_1,\dots, X_n]/\sqrt{I}$ est intègre. Dans ce cas, on peut introduire le corps des fractions $\CC(V)$ de $\CC[V]$ et définir la dimension  de la variété algébrique affine $V$ comme étant le degré de transcendance de $\CC(V)$ sur $\CC$. Par exemple, l'extension de corps $\CC[X,Y]/\langle Y^2-X^3-X-1\rangle/k$   est de degré de transcendance $1$ - donc $ V(Y^2-X^3-X-1)\subset \CC^2$ est une courbe - mais ce n'est pas une extension transcendante pure, ce qui se traduit par le fait qu'on ne peut pas donner une paramétrisation rationnelle de $ V(Y^2-X^3-X-1)$.
  \end{enumerate}
 
  \subsection{}\textbf{Lemme.} \textit{Soit $K_1\subset K_2\subset K_3$ des extensions de corps. On a}
@@ -2644,11 +2815,11 @@ $=[K_1(\mathcal{E}_1,A_0,\dots, A_{d-1},\mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1,
 $$k\subset \overline{k}^K\subset \overline{k}^K(\mathcal{B})\subset K$$
 avec $ \overline{k}^K/k$ algébrique, $ \overline{k}^K(\mathcal{B})/ \overline{k}^K$ transcendante pure et $K/ \overline{k}^K(\mathcal{B})$ algébrique. Si, de plus, $K/k$ est de type fini alors $ \overline{k}^K/k$   et $K/ \overline{k}^K(\mathcal{B})$ sont finies et   $ \overline{k}^K(\mathcal{B})/ \overline{k}^K$ est de degré de transcendance finie. Les extensions de corps de type fini apparaissent naturellement en (et leur étude est motivée par) géométrie algébrique comme dans l'Exemple (3) de \ref{BaseTranscendance}. Il s'agit d'un sujet très vaste et encore largement ouvert. \\
 
- Dans la suite du cours, nous allons nous intéresser au cas de degré de transcendance $0$, qui est déjà très riche  dès lors que le corps de base $k$ est suffisamment 'compliqué' (on verra   ce que compliqué veut dire plus loin...). Il s'agit donc de comprendre les variétés algébriques de dimension $0$ sur un corps $k$ \ie{} les solutions d'une equation polynômiale à une indéterminée et à coefficients dans $k$. Ce problème concret remonte au 19ème siècle. A cette époque, on savait déjà depuis longtemps résoudre par radicaux (\ie{} en n'utilisant que les opérations $+,-,\times, -/-,^n\sqrt{-}$) des équations de degré $\leq 4$ (les formules de Cardan en degré $3$ et Ferrari en degré 4 remontent au milieu du 16ème siècle) mais pas au-delà.  Ruffini et Abel, au tout début du 19ème siècle, ont annoncé  qu'il `n'existait pas de formule universelle pour résoudre une équation de degré donné $\geq 5$'. Mais c'est Galois, dans son \textit{Mémoire sur les conditions de résolubilité des équations par radicaux} (écrit en 1831; Galois avait $20$ ans et devait mourir tué en duel l'année d'après), qui a eu l'intuition prodigieuse pour l'époque de relier le problème de la résolubilité d'une équation polynomiale aux symétries de ses zéros. Plus précisément, si $P\in \Q[T]$ est de degré $n$ et se factorise en $n$ facteurs de degré $1$ distincts  (ce que l'on appelera un polynôme séparable) dans $\C$
-$$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \C[T]$$
- on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de façon limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\C$ si et seulement si le groupe $G_P$ est résoluble (\ie{} si $D^nG_P=1$ pour $n\gg 0$ où les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\
+ Dans la suite du cours, nous allons nous intéresser au cas de degré de transcendance $0$, qui est déjà très riche  dès lors que le corps de base $k$ est suffisamment 'compliqué' (on verra   ce que compliqué veut dire plus loin...). Il s'agit donc de comprendre les variétés algébriques de dimension $0$ sur un corps $k$ \ie{} les solutions d'une equation polynômiale à une indéterminée et à coefficients dans $k$. Ce problème concret remonte au 19ème siècle. A cette époque, on savait déjà depuis longtemps résoudre par radicaux (\ie{} en n'utilisant que les opérations $+,-,\times, -/-,^n\sqrt{-}$) des équations de degré $\leq 4$ (les formules de Cardan en degré $3$ et Ferrari en degré 4 remontent au milieu du 16ème siècle) mais pas au-delà.  Ruffini et Abel, au tout début du 19ème siècle, ont annoncé  qu'il `n'existait pas de formule universelle pour résoudre une équation de degré donné $\geq 5$'. Mais c'est Galois, dans son \textit{Mémoire sur les conditions de résolubilité des équations par radicaux} (écrit en 1831; Galois avait $20$ ans et devait mourir tué en duel l'année d'après), qui a eu l'intuition prodigieuse pour l'époque de relier le problème de la résolubilité d'une équation polynomiale aux symétries de ses zéros. Plus précisément, si $P\in \Q[T]$ est de degré $n$ et se factorise en $n$ facteurs de degré $1$ distincts  (ce que l'on appelera un polynôme séparable) dans $\CC$
+$$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \CC[T]$$
+ on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de façon limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\CC$ si et seulement si le groupe $G_P$ est résoluble (\ie{} si $D^nG_P=1$ pour $n\gg 0$ où les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\
 
- Mais encore faut-il pouvoir calculer ces groupes $G_P$. Sur des exemples simples, on peut deviner intuitivement ce à quoi ressemble ces groupes. Par exemple, les solutions de  $P=(T^2+1)(T^2-2)=0$ sont $\pm i$, $\pm \sqrt{2}$ et si on peut échanger $i$ avec $-i$ (ce sont les racines de $T^2+1$) et $\sqrt{2}$ avec $-\sqrt{2}$ (ce sont les racines de $T^2-2$), on ne peut pas échanger $i$ et $\sqrt{2}$. Dans ce cas, $G_P$ est le sous-groupe de $\mathcal{S}_4$ engendré par les transpositions $(1,2)$ et $(3,4)$ \ie{}  $\Z/2\times \Z/2$. Cependant, très vite  cette approche empirique ne suffit plus. La résolution conceptuelle du problème est donnée par ce qu'on appelle maintenant la correspondance de Galois. Dans le cas particulier considéré ici - $P\in \Q[T]$ est de degré $n$ et a $n$ zéros distincts $\alpha_1,\dots,\alpha_n$ dans  $\C$ - $G_P$ est isomorphe au groupe $\S\SAut(K_P/\Q)$  des $\Q$-automorphismes de l'extension de corps $K_P:=\Q(\alpha_1,\dots,\alpha_n)/\Q$ et les sous-groupes    $H\subset \SAut(K_P/\Q)$ correspondent bijectivement aux  sous-extensions $\Q\subset L\subset K_P $ par $H\rightarrow K_P^H:=\lbrace x\in K_P\;|\; \sigma (x)=x;\; \sigma\in H\rbrace$ et $L\rightarrow \SAut(K_P/L)$. Par exemple,
+ Mais encore faut-il pouvoir calculer ces groupes $G_P$. Sur des exemples simples, on peut deviner intuitivement ce à quoi ressemble ces groupes. Par exemple, les solutions de  $P=(T^2+1)(T^2-2)=0$ sont $\pm i$, $\pm \sqrt{2}$ et si on peut échanger $i$ avec $-i$ (ce sont les racines de $T^2+1$) et $\sqrt{2}$ avec $-\sqrt{2}$ (ce sont les racines de $T^2-2$), on ne peut pas échanger $i$ et $\sqrt{2}$. Dans ce cas, $G_P$ est le sous-groupe de $\mathcal{S}_4$ engendré par les transpositions $(1,2)$ et $(3,4)$ \ie{}  $\Z/2\times \Z/2$. Cependant, très vite  cette approche empirique ne suffit plus. La résolution conceptuelle du problème est donnée par ce qu'on appelle maintenant la correspondance de Galois. Dans le cas particulier considéré ici - $P\in \Q[T]$ est de degré $n$ et a $n$ zéros distincts $\alpha_1,\dots,\alpha_n$ dans  $\CC$ - $G_P$ est isomorphe au groupe $\S\SAut(K_P/\Q)$  des $\Q$-automorphismes de l'extension de corps $K_P:=\Q(\alpha_1,\dots,\alpha_n)/\Q$ et les sous-groupes    $H\subset \SAut(K_P/\Q)$ correspondent bijectivement aux  sous-extensions $\Q\subset L\subset K_P $ par $H\rightarrow K_P^H:=\lbrace x\in K_P\;|\; \sigma (x)=x;\; \sigma\in H\rbrace$ et $L\rightarrow \SAut(K_P/L)$. Par exemple,
 \begin{itemize}
 \item Pour $P=X^5+10X^3-10X^2+35X-18$, $G_P=\mathcal{A}_5$;
 \item Pour $P=X^5+10X^3-15$, $G_P=\mathcal{S}_5$.
@@ -2681,18 +2852,18 @@ $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \C[T]$$
 
 \textbf{Exemple.}
 \begin{enumerate}
-\item $\C$ est algébriquement clos. \\
+\item $\CC$ est algébriquement clos. \\
 
 
- Utilisons la caractérisation (1). Soit $P=X^n+a_{n-1}X^{n-1}+\dots+a_0\in \C[X]$.  Dire que $P$ a une racine dans $\C$ revient à dire que la fonction  continue $x\rightarrow |P(x)|$ atteint son minimum sur $\C$ et que celui-ci vaut $0$. Observons déjà qu'elle atteint bien son minimum. En effet,   puisque  $\displaystyle{\lim_{|x|\rightarrow +\infty}|P(x)|}=+\infty$, il existe $R>0$ tel que $|x|>r$ implique $|P(x)|>|a_0|=|P(0)|$ donc  la fonction continue $x\rightarrow |P(x)|$ atteint son minimum   sur le compact $B(0,R):=\lbrace x\in \C\; |\; |x|\leq R\rbrace $ (et ce minimum est $\leq |a_0|$). Quitte à faire un changement de variable de la forme $X\rightarrow X-x$, on peut supposer que $x\rightarrow |P(x)|$ atteint son minimum en $0$ donc que ce minimum vaut $|a_0|$. Si $a_0=0$, on a gagné. Sinon, quitte à remplacer $P$ par $a_0^{-1}P$, on peut supposer que $a_0=1$. Soit $v$ le plus petit entier $\geq 1$ tel que $a_v\not= 0$. Écrivons $a_v=-|a_v|\exp(-iv\theta)$. On a alors $P(r\exp(i\theta))=1-|a_v|r^v+ O_0(r^{v+1}) $ donc, lorsque $x\rightarrow 0$, on a $|P(0)|\leq 1-|a_v|r^v+ O_0(r^{v+1})<1$: contradiction. \\
+ Utilisons la caractérisation (1). Soit $P=X^n+a_{n-1}X^{n-1}+\dots+a_0\in \CC[X]$.  Dire que $P$ a une racine dans $\CC$ revient à dire que la fonction  continue $x\rightarrow |P(x)|$ atteint son minimum sur $\CC$ et que celui-ci vaut $0$. Observons déjà qu'elle atteint bien son minimum. En effet,   puisque  $\displaystyle{\lim_{|x|\rightarrow +\infty}|P(x)|}=+\infty$, il existe $R>0$ tel que $|x|>r$ implique $|P(x)|>|a_0|=|P(0)|$ donc  la fonction continue $x\rightarrow |P(x)|$ atteint son minimum   sur le compact $B(0,R):=\lbrace x\in \CC\; |\; |x|\leq R\rbrace $ (et ce minimum est $\leq |a_0|$). Quitte à faire un changement de variable de la forme $X\rightarrow X-x$, on peut supposer que $x\rightarrow |P(x)|$ atteint son minimum en $0$ donc que ce minimum vaut $|a_0|$. Si $a_0=0$, on a gagné. Sinon, quitte à remplacer $P$ par $a_0^{-1}P$, on peut supposer que $a_0=1$. Soit $v$ le plus petit entier $\geq 1$ tel que $a_v\not= 0$. Écrivons $a_v=-|a_v|\exp(-iv\theta)$. On a alors $P(r\exp(i\theta))=1-|a_v|r^v+ O_0(r^{v+1}) $ donc, lorsque $x\rightarrow 0$, on a $|P(0)|\leq 1-|a_v|r^v+ O_0(r^{v+1})<1$: contradiction. \\
 \item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K\subset  K$ est un corps algébriquement clos. En effet, on sait déjà que $  \overline{k}^K$ un corps. De plus, comme $K$ est algébriquement clos,  tout $P\in  \overline{k}[T]\setminus k (\subset K[T]\setminus K)$ admet une racine $x\in K$. Mais par construction $x$ est algébrique sur $\overline{k}^K$ et comme $\overline{k}^K$ est par définition algébrique sur $k$, $x$ est algébrique sur $k$ \ie{} $x\in \overline{k}^K$.
 \end{enumerate}
 \subsection{}\label{CloAlgDef} Soit $k$ un corps, une \textit{clôture algébrique}\index{Clôture algébrique (Extension de corps)} de $k$ est une extension algébrique $  \overline{k}/k$ avec $ \overline{k}$ algébriquement clos. Il résulte immédiatement de la définition que si $  \overline{k}/k$ est une clôture algébrique alors pour toute sous extension $K/k$ de $\overline{k}/k$, $\overline{k}/K$ est  une côture algébrique de $K$.\\
 
 \textbf{Exemple.}
 \begin{enumerate}
-\item  $\R\subset \C$ est une clôture algébrique de $\R$. \\
-\item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K/k $ est une clôture algébrique de $k$. Par exemple,   $ \overline{\Q}^\C/\Q $ est une clôture algébrique de $\Q$.
+\item  $\R\subset \CC$ est une clôture algébrique de $\R$. \\
+\item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K/k $ est une clôture algébrique de $k$. Par exemple,   $ \overline{\Q}^\CC/\Q $ est une clôture algébrique de $\Q$.
 \end{enumerate}
 
  L'objectif des deux paragraphes suivants est de démontrer la\\
@@ -2779,7 +2950,7 @@ $$(*)\;\; 1=\sum_{P\in\mathcal{F}}F_P P(X_P)$$ avec $F_P\in k[X_Q,\; Q\in \mathc
  $$\SAut_{Alg/k}(K_1)\tilde{\rightarrow} \SAut_{Alg/k}(K_2),\; \sigma\rightarrow \phi\circ \sigma\circ \phi^{-1}.$$
  En particulier, si $\overline{k}/k$, $\overline{k}'/k$ sont deux clôtures algébriques de $k$, on sait qu'il existe toujours un $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow }\overline{k}'$  donc que $\SAut(\overline{k}/k)$ ne dépend pas - à isomorphisme près - du choix de la cl\^^oture algébrique $\overline{k}/k$.\\
 
-   \textbf{Exemple.} $\C=\R[T]/T^2+1$. Notons $\overline{T}:= i$.  On a $\SAut(\C/\R)=\SHom_{Alg/\R}(\R[T]/T^2+1,\C)=\lbrace \overline{ev}_{i}=\Id, \overline{ev}_{-i}=\overline{-}\rbrace$. \\
+   \textbf{Exemple.} $\CC=\R[T]/T^2+1$. Notons $\overline{T}:= i$.  On a $\SAut(\CC/\R)=\SHom_{Alg/\R}(\R[T]/T^2+1,\CC)=\lbrace \overline{ev}_{i}=\Id, \overline{ev}_{-i}=\overline{-}\rbrace$. \\
 
   Si $\phi:K_1\tilde{\rightarrow} K_2$ est un isomorphisme de corps, la propriété universelle de $c_1:K_1\rightarrow K_1[T]$ appliquée à la $K_1$-algèbre $K_1\stackrel{\phi}{\rightarrow} K_2\stackrel{c_2}{\rightarrow}  K_2[T]$ donne un unique isomorphisme de $K$-algèbres
  $\phi:K_1[T]\rightarrow K_2[T]$ tel que $\phi\circ c_1=c_2\circ \phi$ (ici, $c_i:K_i\rightarrow K_i[T]$, $i=1,2$ sont les morphismes canoniques). Explicitement $\phi(\sum_{n\geq 0}a_nT^n)=\sum_{n\geq 0}\phi(a_n)T^n$. Par construction, pour tout $x_1\in K_1$ on a
@@ -2814,7 +2985,7 @@ $$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}
 
 
 \textbf{Exemple.}\begin{enumerate}
-\item  $  \C/\R$: les conjugués sur $\R$ de $z\in \C$ sont $z$ et $\overline{z}$.    \\
+\item  $  \CC/\R$: les conjugués sur $\R$ de $z\in \CC$ sont $z$ et $\overline{z}$.    \\
 \item $\overline{\Q}/\Q$: les conjugués sur $Q$ de $^3\sqrt{5}$  sont $^3\sqrt{5}$, $j^3\sqrt{5}$, $j^2\;^3\sqrt{5}$ (où $j$ est une racine de $T^2+T+1$ \ie{} une racine primitive $3$ième de l'unité).
 \end{enumerate}
 
@@ -3202,7 +3373,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
 
 \section{}\label{GaloisInv2}\textbf{Corollaire.}  \textit{Pour tout groupe fini $G$ il existe une extension galoisienne $K/k$ de groupe  $Gal(K/k)=G $.}
       \begin{proof}D'après \ref{GaloisInv1}, il suffit de montrer qu'il existe un corps $K$ tel que  $G$ est un sous-groupe de $ \SAut(K)$. Or on peut toujours plonger $G$ dans un groupe de permutations $\mathcal{S}_n$ (\textit{e.g} en faisant agir $G$ sur lui-même par translation et en prenant $n=|G|$). Or pour n'importe quel corps $k$, $\mathcal{S}_n$ l'action de $\mathcal{S}_n$ par permutation des coordonnées induit un $k$-plongement canonique   $\mathcal{S}_n\hookrightarrow \SAut(k(X_1,\dots, X_n)/k)$.      \end{proof}
-     \textbf{Remarque.} Un problème beaucoup plus difficile est de savoir si, étant donné un corps $k$, tout groupe fini $G$ est le groupe de Galois d'une extension galoisienne $K/k$ ou, de façon équivalente, est un quotient de $\SAut(\overline{k}/k)$; c'est ce qu'on appelle le problème de Galois inverse pour $k$.  Il y a des corps $k$ pour lesquels on sait que la réponse est non (les corps algébriquement clos, les corps finis, $\R$, les extensions finies de $\Q_p$ \textit{etc.}) car le groupe $\SAut(\overline{k}/k)$ est trop simple. En fait, la complexité du  groupe $\SAut(\overline{k}/k)$ est une bonne mesure de la complexité arithmétique de $k$ (plus   $\SAut(\overline{k}/k)$ a de quotients finis, plus il y a de possibilités pour les groupes de Galois des polynômes à coefficients dans $k$ et donc plus c'est difficile de résoudre une équation à coeffiicients dans $k$). Par exemple, on ne sait pas résoudre le problème de GAlois inverse pour  $\Q$ ou  les extensions de type fini de $\Q$ - par exemple  $\Q(T)$ (en fait, si on savait le résoudre pour $\Q(T)$ on saurait le résoudre pour $\Q$; c'est une conséquence du théorème d'irréductibilité de Hilbert). On sait par contre le résoudre - par des méthodes géométriques - pour   des corps comme $\C(T)$, $\overline{\Q}(T)$, $\Q_p(T)$.
+     \textbf{Remarque.} Un problème beaucoup plus difficile est de savoir si, étant donné un corps $k$, tout groupe fini $G$ est le groupe de Galois d'une extension galoisienne $K/k$ ou, de façon équivalente, est un quotient de $\SAut(\overline{k}/k)$; c'est ce qu'on appelle le problème de Galois inverse pour $k$.  Il y a des corps $k$ pour lesquels on sait que la réponse est non (les corps algébriquement clos, les corps finis, $\R$, les extensions finies de $\Q_p$ \textit{etc.}) car le groupe $\SAut(\overline{k}/k)$ est trop simple. En fait, la complexité du  groupe $\SAut(\overline{k}/k)$ est une bonne mesure de la complexité arithmétique de $k$ (plus   $\SAut(\overline{k}/k)$ a de quotients finis, plus il y a de possibilités pour les groupes de Galois des polynômes à coefficients dans $k$ et donc plus c'est difficile de résoudre une équation à coeffiicients dans $k$). Par exemple, on ne sait pas résoudre le problème de GAlois inverse pour  $\Q$ ou  les extensions de type fini de $\Q$ - par exemple  $\Q(T)$ (en fait, si on savait le résoudre pour $\Q(T)$ on saurait le résoudre pour $\Q$; c'est une conséquence du théorème d'irréductibilité de Hilbert). On sait par contre le résoudre - par des méthodes géométriques - pour   des corps comme $\CC(T)$, $\overline{\Q}(T)$, $\Q_p(T)$.
 
  \section{}\label{Galois2}\textbf{Proposition} \textit{Soit $K/k$ une extension galoisienne et $k\subset L\subset K$ une sous-extension.
  \begin{enumerate}
