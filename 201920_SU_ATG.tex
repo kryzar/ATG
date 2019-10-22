@@ -96,7 +96,7 @@
 
 % % taille par défaut pour les lignes et colonnes
 % % des diagrammes commutatifs faits avec xymatrix
-% \xymatrixrowsep{80px}\xymatrixcolsep{80px}
+\xymatrixrowsep{1.8cm}\xymatrixcolsep{1.8cm}
 
 % remplacement des \newcommand par des \DeclaraMathOperator
 % c'est plus adapté
@@ -1775,7 +1775,7 @@ On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme 
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item  Si $A=\Z$, les $\Z$-modules sont les groupes abéliens.\\
 \item  Si $A=k$ est un corps commutatif, les $k$-modules sont les $k$-espaces vectoriels.\\
-\item On peut toujours voir un anneau $A$ comme un $A$-module sur lui-même en prenant pour multiplication extérieure le produit $\cdot:A\times A\rightarrow A$. Cet exemple qui semble tautologique est en fait fondamental! On va s'en rendre compte rapidement. Plus généralement, tout idéal $I\subset A$ muni de $\cdot:A\times I\rightarrow I$ induite par le produit de $A$ est un $A$-module.
+\item On peut toujours voir un anneau $A$ comme un $A$-module sur lui-même en prenant pour multiplication extérieure le produit $\cdot:A\times A\rightarrow A$. Cet exemple qui semble tautologique est en fait fondamental! On va s'en rendre compte rapidement. Plus généralement, tout idéal $I\subset A$ muni de $\cdot:A\times I\rightarrow I$ induite par le produit de $A$ est un $A$-module. On dit alors que $A$ est \textit{le} $A$-module régulier.
 \item Si $N,N$ sont deux $A$-modules, $\SHom_A(M,N)$ est naturellement muni d'une structure de $A$-module pour les lois $(f+g)(m)=f(m)+g(m)$, $(a\cdot f)(m)=a\cdot (f(m))$.
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux tout $B$-module $M$ est naturellement un $A$-module pour la multiplication extérieure $ A\times M\rightarrow M$, $(a,n)\rightarrow \phi(a)\cdot n$. On notera $\phi^*M$ ou $M|_A$ lorsqu'il n'y a pas d'ambiguité sur $\phi:A\rightarrow B$ le $A$-module ainsi obtenu à partir du $B$-module $N$. On notera que tout morphisme de $B$-modules $f:M\rightarrow N$ est automatiquement un morphisme de $A$-modules $f|_A=f:M|_A\rightarrow N_A$. En particulier,  une structure de $A$-algèbre $\phi:A\rightarrow B$ sur un anneau $B$ détermine une structure de $A$-module $\phi^*B$ sur $B$. Inversement, une structure de $A$-module $\cdot:A\times B\rightarrow B$ sur le   groupe abélien sous-jacent $(B,+)$ d'un anneau  $B$ détermine une structure de $A$-algèbre $\phi:A\rightarrow B$ sur $B$ en posant $\phi(a)=a\cdot 1_B$. En particulier, si $M$ est un $A$-module, $\SEnd_A(M)$ est naturellement muni d'une structure de $A$-algèbre.
 \item Soit $A$ un anneau commutatif. Par la propriété universelle de $\iota_A:A\rightarrow A[X_1,\dots, X_n]$, la donnée d'un $A[X_1,\dots,X_1]$-module est équivalente à la donnée d'un couple $(M,\underline{\phi})$, où $M$ est un $A$-module et $\underline{\phi}:=(\phi_{1},\dots,\phi_{n})$ est un $n$-uplet d'endomorphismes $A$-linéaires de $M$ qui commutent deux à deux. Par exemple, si $V$ est un $k$-espace vectoriel de dimension finie, et $u\in \SEnd_k(V)$, on peut munir $V$ de la structure $V_u$ de $k[X]$-module définie par $P(X)\cdot v=P(u)(v)$. Si $u,u'\in\SEnd_k(V) $, on a
@@ -1783,7 +1783,7 @@ $$\SHom_{k[X]}(V_u,V_{u'})=\lbrace \varphi:V\rightarrow V\; |\; \varphi\circ u=u
 Un certain nombre de résultats d'algèbre lin\'raire s'interprètent (et deviennent bien plus naturels!) en termes de $k[X]$-modules.\\
 \end{itemize}
 
-\begin{definition}Si $M$ est un $A$-module, un \textit{sous $A$-module} de $M$ est un sous-ensemble $M'\subset M$ tel que $am'+bn'\in M'$, $a,b\in A $, $m',n'\in M'$.
+\begin{definition}[Sous-module]Si $M$ est un $A$-module, un sous $A$-module de $M$ est un sous-ensemble $M'\subset M$ tel que $am'+bn'\in M'$, $a,b\in A $, $m',n'\in M'$.
 \end{definition}
 
  \begin{exemple}
@@ -1807,21 +1807,23 @@ $(a,\underline{m}=(m_{i})_{i\in I})$&$\rightarrow$&$a\cdot\underline{m}=(a\cdot 
 \end{tabular}$$
 Avec cette structure de $A$-module, les projections canoniques $p_{j}:\prod_{i\in I}M_{i}\rightarrow M_{j}$, $j\in I$ deviennent des morphismes de $A$-modules.\\
 
-  On note $\bigoplus_{i\in I}M_{i}\subset \prod_{i\in I}M_{i}$ le sous $A$-module des $\underline{m}=(m_{i})_{i\in I}$ tels que
+\begin{definition}[Somme directe]On appelle somme directe de la famille $M_i, i \in I$ et l'on note $\bigoplus_{i\in I}M_{i}\subset \prod_{i\in I}M_{i}$ le sous $A$-module des $\underline{m}=(m_{i})_{i\in I}$ tels que
  $$|\lbrace i\in I\; |\; m_{i}\not=0\rbrace|<+\infty.$$
+\end{definition}
  Les injections canoniques $\iota_{j}:M_{j}\hookrightarrow \bigoplus_{i\in I}M_{i}$, $j\in I$ sont des morphismes de $A$-modules. Si $I$ est fini, on a tautologiquement $\bigoplus_{i\in I}M_{i}= \prod_{i\in I}M_i$.\\
 
- \textbf{Lemme.} (Propriété universelle du produit et de la somme directe) \textit{Pour toute famille   $M_{i}$, $i\in I$  de $A$-modules, il existe des morphismes de $A$-modules $p_i:\Pi\rightarrow M_i$, $i\in I$ et $\iota_i:M_i\rightarrow \Sigma$, $i\in I$ tels que
+ \begin{lemme}[Propriété universelle du produit et de la somme directe] Pour toute famille   $M_{i}$, $i\in I$  de $A$-modules, il existe des morphismes de $A$-modules $p_i:\Pi\rightarrow M_i$, $i\in I$ et $\iota_i:M_i\rightarrow \Sigma$, $i\in I$ tels que
  \begin{enumerate}
  \item Pour toute famille de morphismes de $A$-modules $f_{i}:M\rightarrow M_{i}$, $i\in I$ il existe un unique morphisme de $A$-modules $f:M\rightarrow \Pi$ tel que $p_{i}\circ f=f_{i}$, $i\in I$.
  \item  Pour toute famille de morphismes de $A$-modules $f_{i}:M_{i}\rightarrow M$, $i\in I$ il existe un unique morphisme de $A$-modules $f:\Sigma \rightarrow M$ tel que $f\circ\iota_{i}=f_{i}$, $i\in I$.
- \end{enumerate}}
+ \end{enumerate}
+	\end{lemme}
 
 \begin{proof} On vérifie comme d'habitude que les morphismes de $A$-modules $p_{j}:\prod_{i\in I}M_{i}\rightarrow M_{j}$, $j\in I$ et  $\iota_{j}:M_{j}\hookrightarrow \bigoplus_{i\in I}M_{i}$, $j\in I$ construits ci-dessus conviennent.  \end{proof}
 
- On peut aussi réécrire \ref{ProduitSommeDirecte} en disant que, pour tout $A$-module $M$ les morphismes canoniques
-$$\\SHom_{A}(M,\prod_{i\in I}M_{i})\rightarrow \prod_{i\in I}\SHom_{A}(M,M_{i}), \; f\rightarrow (p_i\circ f)_{i\in I}$$
-$$\SHom_{A}(\oplus_{i\in I}M_{i},M)\rightarrow \prod_{i\in I}\SHom_{A}(,M_{i}M), \; f\rightarrow ( f\circ \iota_i)_{i\in I}$$
+\begin{remarque}On peut aussi réécrire \ref{ProduitSommeDirecte} en disant que, pour tout $A$-module $M$ les morphismes canoniques
+	\begin{align*}\SHom_{A}(M,\prod_{i\in I}M_{i}) &\to \prod_{i\in I}\SHom_{A}(M,M_{i}) \\ f &\mapsto (p_i\circ f)_{i\in I}\end{align*}
+	\begin{align*}\SHom_{A}(\oplus_{i\in I}M_{i},M) &\to \prod_{i\in I}\SHom_{A}(,M_{i}M) \\ f&\mapsto ( f\circ \iota_i)_{i\in I}\end{align*}
 sont des isomorphismes ou encore, plus visuellement:
 $$\xymatrix{
 	&&M_i\ar[dr]^{\iota_i}\ar@/^1pc/[drr]^{f_i}&& \\
@@ -1829,12 +1831,14 @@ $$\xymatrix{
 	&&M_j\ar[ur]_{\iota_j}\ar@/_1pc/[urr]_{f_j}&&
 }$$
 
-  Comme d'habitude, le produit $p_{j}:\prod_{i\in I}M_{i}\rightarrow M_{j}$, $j\in I$ et la somme directe $\iota_{j}:M_{j}\hookrightarrow \bigoplus_{i\in I}M_{i}$, $j\in I$ sont uniques à unique isomorphisme près. \\
+\end{remarque}
+
+  Comme d'habitude, le produit $p_{j}:\prod_{i\in I}M_{i}\rightarrow M_{j}$, $j\in I$ et la somme directe $\iota_{j}:M_{j}\hookrightarrow \bigoplus_{i\in I}M_{i}$, $j\in I$ sont uniques à \textit{unique} isomorphisme près. \\
 
 
- Si $M_{i}=M$ pour tout $i\in I$, on notera $M^{I}:=\prod_{i\in I}M_{i}$ et $M^{(I)}:=\oplus_{i\in I}M_{i}$. Par construction, on a des isomorphismes   canoniques
-$$ \SHom(A^{(I)},-)\simeq \prod_{i\in I}\SHom(A,-)\simeq (-)^{I}$$
-et on dit que $A^{(I)}$ est le \textit{$A$-module libre de base $I$}\index{Libre (Module)}.\\
+\begin{remarque}Si $M_{i}=M$ pour tout $i\in I$, on notera $M^{I}:=\prod_{i\in I}M_{i}$ et $M^{(I)}:=\oplus_{i\in I}M_{i}$. Par construction, on a des isomorphismes   canoniques
+$$ \SHom(A^{(I)},M)\simeq \prod_{i\in I}\SHom(A,M)\simeq M^{I}$$
+et on dit que $A^{(I)}$ est le \textit{$A$-module libre de base $I$}\index{Libre (Module)}.\end{remarque}
 
 
  Soit $f_i:M_i\rightarrow N_i$, $i\in I$ une famille de morphismes de $A$-modules. En appliquant la propriété universelle des $p_j:\prod_{i\in I}N_i\rightarrow N_j$, $j\in I$ à la famille de morphismes de $A$-modules
@@ -1845,17 +1849,27 @@ on obtient un unique morphisme de $A$-modules $f:=\oplus_{i\in I}f_i:\oplus_{i\i
 
 \section{Sous-module engendré par une partie, sommes}  Si $M_{i}\subset M$, $i\in I$ est une famille de sous $A$-modules de $M$, on vérifie immédiatement que l'intersection $$\bigcap_{i\in I}M_{i}\subset M$$ est encore un sous-$A$-module de $M$.\\
 
- Si $X\subset M$ est un sous-ensemble, on note
-$\langle X\rangle$ l'intersection de tous les sous $A$-modules $M'\subset M$ contenant $X$. D'après ce qui précède, c'est encore un sous $A$-module de $M$
-et, par construction, c'est le plus petit sous $A$-module de $M$ contenant $X$. On dit que $\langle X\rangle$ est le \textit{sous $A$-module} engendré par $X$ et on vérifie qu'il coincide avec l'ensemble des éléments de la forme $\sum_{x\in X}a(x)x$, où $a:X\rightarrow A$ est une application à support fini. La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $-\dot x: A\rightarrow M$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propri\ 'etés suivantes sont équivalentes :
+\begin{definition}Si $X\subset M$ est un sous-ensemble, on note $\langle X\rangle$ l'intersection de tous les sous $A$-modules $M'\subset M$ contenant $X$. D'après ce qui précède, c'est encore un sous $A$-module de $M$ et, par construction, c'est le plus petit sous $A$-module de $M$ contenant $X$. On dit que $\langle X\rangle$ est le \textit{sous $A$-module} engendré par $X$.\end{definition}
+
+	\begin{remarque}On vérifie qu'il coincide avec l'ensemble des éléments de la forme $\sum_{x\in X}a(x)x$, où $a:X\rightarrow A$ est une application à support fini.
+	\end{remarque}
+
+La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $-\dot x: A\rightarrow M$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propriétés suivantes sont équivalentes :
 \begin{enumerate}
 \item  $M=\langle X\rangle$;
 \item Le morphsime de $A$-modules $p:A^{(X)}\rightarrow M$ est surjectif.
 \end{enumerate}
 On dit alors que $X$ est un système de générateurs de $M$ comme $A$-modules (ou que $M$ est engendré par $X$ comme $A$-module).   Si on peut prendre $X$ fini, on dit que $M$ est un $A$-module \textit{de type fini}\index{Type fini (module)}.\\
 
+\begin{exemple}
+	\begin{itemize}
+		\item Si $A$ est un corps, les $A$-modules de type fini sont les $A$-espaces vectoriels de dimension finie.
+		\item Si $A$ est noethérien, tout sous $A$-module de $A$ (c'est à dire les idéaux de l'anneau $A$) est de type fini.
+		\item Si $\mathrm{card}(X) <+\infty$, $A^{(X)}$ est un $A$-module de type fini, engendré par les $e_x := (\delta_{xy})_{y\in X}$.
+	\end{itemize}
+\end{exemple}
 
- Si $M_{i}\subset M$, $i\in I$ est une famille de sous $A$-modules de $M$, on note $$\sum_{i\in I}M_{i}=\langle \bigcup_{i\in I}M_{i}\rangle\subset M.$$
+ Si $M_{i}\subset M$, $i\in I$ est une famille de sous $A$-modules de $M$, on note $$\sum_{i\in I}M_{i}=\left\langle \bigcup_{i\in I}M_{i}\right\rangle = \left\{ \sum_{i\in I} m_i : m_I \in M_I, \mathrm{card}\{i \in I : m_i\neq 0\}<+\infty\right\}\subset M.$$
 Là encore la propriété universelle de $\iota_i:M_i\hookrightarrow \oplus_{i\in I}M_i$, $i\in I$ appliquée aux morphismes  de $A$-modules $M_i\subset \sum_{i\in I}M_i$ (inclusion), $i\in I$ nous donne un unique morphisme de $A$-modules - automatiquement surjectif - $p:\oplus_{i\in I}M_i\twoheadrightarrow \sum_{i\in I}M_i(\subset M)$ tel que $p\circ \iota_i(m_i)=m_i$, $m_i\in M_i$, $i\in I$.
 
 \section{Quotients}\index{Noyau (module)}\index{Conoyau (module)}\index{Quotient (module)}
@@ -1873,18 +1887,20 @@ $(a,\overline{m})$&$\rightarrow$&$a\cdot\overline{m}:=\overline{\mu}_{a}(m)(=\ov
 \end{tabular}$$
  On vérifie immédiatement que cela définit bien une structure de $A$-module sur $M/M'$ et que c'est   l'unique structure de $A$-module sur $M/M'$ qui fait de  $\overline{(-)}:M\rightarrow M/M'$ un morphisme de $A$-modules. De plus,
 
-\subsection{}\label{Quotient}\textbf{Lemme.} (Propriété universelle du quotient) \textit{Pour tout sous-$A$-module $M'\subset M$ il existe un morphisme de $A$-modules $p:M\rightarrow Q$ tel que
-pour tout morphisme de $A$-modules $f:M\rightarrow N$ tels que $M'\subset \ker(f)$, il existe unique morphisme de $A$-modules $\overline{f}:Q\rightarrow N'$ tel que $\overline{f}\circ p=f$.}\\
+\label{Quotient}
+\begin{lemme}[Propriété universelle du quotient] Pour tout sous-$A$-module $M'\subset M$ il existe un morphisme de $A$-modules $p:M\rightarrow Q$ tel que pour tout morphisme de $A$-modules $f:M\rightarrow N$ tels que $M'\subset \ker(f)$, il existe unique morphisme de $A$-modules $\overline{f}:Q\rightarrow N'$ tel que $\overline{f}\circ p=f$.
+\end{lemme}
 
 \begin{proof} On vérifie comme d'habitude que le morphisme de $A$-modules $p_M:M\twoheadrightarrow M/M'$ construit ci-dessus convient. \end{proof}
 
 
- On peut aussi réécrire \ref{Quotient} en disant que, pour tout $A$-module $N$ le  morphisme  canonique
+\begin{remarque}On peut aussi réécrire \ref{Quotient} en disant que, pour tout $A$-module $N$ le  morphisme  canonique
 $$\SHom_{A}(M/M',N)\rightarrow \lbrace M\stackrel{f}{\rightarrow}N\; |\; M'\subset \ker(f)  \rbrace,\;\overline{f}\rightarrow \overline{f}\circ\overline{(-)}  $$
 est un isomorphisme ou encore, plus visuellement:
 
 $$\xymatrix{M'\ar[r]\ar@/^1.5pc/[rr]^{0}&M\ar[r]^{f}\ar[d]_{\overline{(-)}}&N\\
 &M/M'\ar@{.>}[ur]_{\exists ! \overline{f}}&}$$
+\end{remarque}
 
 
 
@@ -1893,25 +1909,35 @@ $$\xymatrix{M'\ar[r]\ar@/^1.5pc/[rr]^{0}&M\ar[r]^{f}\ar[d]_{\overline{(-)}}&N\\
 $$\xymatrix{&\ker(f)\ar@{_{(}->}[d]\ar[dl]^\simeq&&&\\
 \ker(f)\ar@{^{(}->}[r]&M\ar@{->>}[d]_{\overline{(-)}}\ar@{->>}[r]^{f|^{\hbox{\rm\tiny im}(f)}}&\im(f)\ar@{^{(}->}[r]&N\ar@{->>}[r]&N/\im(f)=:\hbox{\rm coker}(f)\\
 &M/\ker(f)=:\hbox{\rm coim}(f)\ar[ur]_{\simeq}&&}$$
- On a donc une correspondance bijective entre sous $A$-modules et noyaux de morphismes de $A$-modules d'une part et $A$-modules quotients et images de morphismes de $A$-modules d'autre part. Même si les $A$-modules im$(f)$ et $M/\ker(f)$ sont isomorphes, on notera parfois $\hbox{\rm coim}(f):=M/\ker(f)$ (coimage). On note $\hbox{\rm coker}(f):=M'/\im(f)$ (conoyaux). \\
 
-\subsection{}\textbf{Suites exactes, lemme du serpent et lemme des cinq}\label{SuiteExacte}\index{Suite exacte (Module)}\index{Suite exacte courte (Module)}\index{Suite exacte courte scindée (Module)@Suite exacte courte scindée (Module)}
+\begin{definition}[Coimage, conoyau]On a donc une correspondance bijective entre sous $A$-modules et noyaux de morphismes de $A$-modules d'une part et $A$-modules quotients et images de morphismes de $A$-modules d'autre part. Même si les $A$-modules $\im(f)$ et $M/\ker(f)$ sont isomorphes, on notera parfois $\hbox{\rm coim}(f):=M/\ker(f)$ (coimage). On note $\hbox{\rm coker}(f):=M'/\im(f)$ (conoyaux).
+\end{definition}
+
+\subsection{Suites exactes, lemme du serpent, lemme des cinq}\label{SuiteExacte}\index{Suite exacte (Module)}\index{Suite exacte courte (Module)}\index{Suite exacte courte scindée (Module)@Suite exacte courte scindée (Module)}
 
 
- On dit qu'une suite de morphismes de $A$-modules
+\begin{definition}On dit qu'une suite de morphismes de $A$-modules
 $$M_{0}\stackrel{u_{0}}{\rightarrow} M_{1}\stackrel{u_{1}}{\rightarrow} M_{2}\stackrel{u_{2}}{\rightarrow}   \cdots\stackrel{u_{n}}{\rightarrow} M_{n+1}$$
-est exacte\index{Exacte (Suite de morphismes)} si $\im(u_{i})=\ker(u_{i+1})$ pour tout $0\leq i\leq n-1$.  Une suite exacte courte est une suite exacte de la forme:
-$$0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0.$$
-La notion de suite exacte est au coeur de l'étude de la structure des $A$-module. La raison première est que c'est l'outil qui permet de 'dévisser' un $A$-module compliqué ($M$) en deux $A$-modules plus simples ($M'$ et $M''$).  \\
+est exacte\index{Exacte (Suite de morphismes)} si $\im(u_{i})=\ker(u_{i+1})$ pour tout $0\leq i\leq n-1$.
+\end{definition}
 
-\ref{SuiteExacte}.1 \textbf{Lemme.} \textit{Soit $$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow}  M''\rightarrow 0$$
+\begin{definition}
+	Une suite exacte courte est une suite exacte de la forme:
+$$0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0.$$
+Autrement dit $\ker(v) = \im(u)$ ; $\ker(u) = \{0\} $, \ie{} $u$ est injectif et $\im(v) = M''$, \ie{} $v$ est surjectif.\end{definition}
+
+\begin{remarque}La notion de suite exacte est au coeur de l'étude de la structure des $A$-module. La raison première est que c'est l'outil qui permet de 'dévisser' un $A$-module compliqué ($M$) en deux $A$-modules plus simples ($M'$ et $M''$).\end{remarque}
+
+\begin{lemme}Soit $$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow}  M''\rightarrow 0$$
 une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes sont équivalentes :
 \begin{enumerate}
 \item il existe un morphisme de $A$-modules $s:M''\rightarrow M$ tel que $v\circ s=\Id_{M''}$;
 \item il existe un morphisme de $A$-modules $s:M'\rightarrow M'$ tel que $s\circ u=\Id_{M'}$;
 \item il existe un isomorphisme de $A$ modules $f:M\tilde{\rightarrow}M'\oplus M''$ tel que $\iota_{M'}=f\circ u$ et $p_{M''}\circ f=v$.\\
-\end{enumerate} }
- On dit qu'une suite exacte courte vérifiant les conditions équivalentes ci-dessus est \textit{scindée}.
+\end{enumerate}
+\end{lemme}
+
+\begin{definition}On dit qu'une suite exacte courte vérifiant les conditions équivalentes ci-dessus est \textit{scindée}.\end{definition}
 
  \begin{proof} On peut par exemple montrer $(1)\Rightarrow (2)\Rightarrow (3)\Rightarrow (1)$. \\
 
