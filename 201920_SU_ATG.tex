@@ -1745,6 +1745,69 @@ algébriques que nous reprendrons tout au long du chapitre.
   algébriquement.
 \end{exemple}
 
+% ICI LA TOPOLOGIE : JE NE SAIS PAS COMMENT LE RÉDIGER
+
+Insérer ici le dictionnaire sur la topologie
+
+\begin{exemple}
+  \begin{description}
+  \item[Courbe \ref{fig:non_connexe} ] $\CC[V]=\CC[X,Y]/(X^2-X)\simeq
+    \CC[X,Y]/(X) \times \CC[X,Y]/(X-1)$ d'après le théorème chinois.
+    $V$ n'est pas connexe : il y a deux composantes connexes $V(X)$ et
+    $V(X-1)$.
+  \item[Courbe \ref{fig:croix}] $\CC[V] = \CC[X,Y]/(XY)$ n'est pas
+    intègre car $\overline{XY}=0$ alors que $\overline{X}\neq 0$ et
+    $\overline{Y}\neq 0$.  Deux idéaux premiers minimaux
+    $\langle X\rangle,\langle Y\rangle$ qui correspondent aux deux
+    composantes irréductibles $V(X)$ et
+    $V(Y)$.\\
+    En revanche, $V$ est connexe.
+    $\CC[X,Y]/(XY)\not\simeq A_1\times A_2$ car il n'existe pas
+    d'idempotent.\\
+    $e_1=(1,0), e_2=(0,1)\\
+    e_1^2 = e_1, e_2^2=e_2, e_1e_2=0, e_1,e_2\notin\{0,1\}$\\
+    Soit $\overline{P}\in\CC[X,Y]/(XY)$ tel que
+    $\overline{P}\neq \overline{0},\overline{1}$ et
+    $\overline{P}^2=\overline{P}$. Alors
+    $\overline{P}^2-\overline{P}=\overline{0}$ donc $XY\mid P(P-1)$.
+    En utilisant la factorialité de $\CC[X,Y]$, on a $X\mid P$ ou
+    $X\mid P-1$ et $Y\mid P$ ou $Y\mid P-1$. Les différentes
+    possibilités sont alors :
+    \begin{itemize}
+    \item $X,Y\mid P\implies XY\mid P\implies
+      \overline{P}=\overline{0}$,
+    \item $X,Y\mid P-1\implies XY\mid P-1\implies
+      \overline{P}=\overline{1}$,
+    \item $(X\mid P, Y\mid P-1)\implies P=UX=1+VY$ contradictoire avec le
+    choix d'irréductibles (on peut aussi évaluer ce polynôme en
+    $(0,0)$ pour obtenir une contradiction).
+  \end{itemize}
+  Dans tous les cas, on obtient une contradiction. Un tel
+  $\overline{P}$ n'existe donc pas.
+\item[Courbes \ref{fig:parabolle}, \ref{fig:alpha} et
+  \ref{fig:ailes}] $Y-X^2, Y^2-X^2-X^3$ et $X^2-Y^3$ sont
+  irréductibles dans $\CC[X,Y]$ donc premiers par factorialité de
+  l'anneau, $V$ est par conséquent irréductible et $\CC[V]$ est intègre.    
+\end{description}
+\end{exemple}
+
+Ici le dictionnaire sur les singularités.
+
+\begin{exemple}
+  
+\end{exemple}
+
+\begin{remarque}
+  Pour étudier plus finement les singularités, il faut en quelque
+  sorte zoomer sur celles-ci. Algébriquement, cela correspond à
+  localiser ou à compléter.
+  Pour étudier $V$ en $(0,0)$, on localise $A/I=\CC[V]$ en
+  $\mathfrak{m}/I=\langle \overline{X},\overline{Y}\rangle$ où
+  $\mathfrak{m}/I$ est un idéal maximal, $A=\CC[X_1,\dotsc,X_n],
+  I=\langle P_1,\dotsc,P_r\rangle$ et $\mathfrak{m}=\langle
+  X,Y\rangle$. % n'y a-t-il pas des problèmes de notation entre les X,
+               % Y et les X_i ?
+\end{remarque}
 
 \part{Modules sur un anneaux}
 \textit{}\\
