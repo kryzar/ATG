@@ -321,7 +321,7 @@ $\phi(a)=(\phi_i(a))_{i\in I}$, $a\in A$. Cela montre l'unicité de $\phi$  sous
 \end{proof}
 
 \begin{remarque}On peut aussi réécrire \ref{Produit} en disant que, pour tout anneau $A$  l'application  canonique
-$$\SHom(A,\prod_{i\in I}A_{i})\rightarrow \prod_{i\in I}\SHom (A,A_{i}), \; \phi\rightarrow (p_i\circ \phi)_{i\in I}$$
+	\begin{align*}\SHom(A,\prod_{i\in I}A_{i}) &\to \prod_{i\in I}\SHom (A,A_{i}) \\ \phi &\mapsto (p_i\circ \phi)_{i\in I}\end{align*}
 est bijective.\end{remarque}
 		Plus visuellement:
 $$\xymatrix{&&A_i \\
@@ -379,11 +379,11 @@ d'où l'unicité de $ev_b^\phi$ sous réserve d'existence.  Pour conclure, il fa
 \begin{remarque}Le même argument  formel que celui utilisé dans \ref{Produit}.2 montre que la $A$-algèbre $\iota_A:A\rightarrow A[X]$ est unique à unique isomorphisme  près.\end{remarque}
 
 	\begin{remarque}On peut aussi réécrire \ref{Poly}.3 en disant que, pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
-$$\SHom_A(A[X],B)\rightarrow B,\; f\rightarrow f(X)$$
-	est bijective. On adopte  en général la notation plus intuitive $ev_{b}^\phi(P)=P( b)$ et on dit que $ev_{b}^\phi$ est le morphisme d'évaluation en $b$.\end{remarque}
+		\begin{align*} \SHom_A(A[X],B) &\to B \\ f &\mapsto f(X)\end{align*}
+	est bijective. On adopte en général la notation plus intuitive $ev_{b}^\phi(P)=P( b)$ et on dit que $ev_{b}^\phi$ est le morphisme d'évaluation en $b$.\end{remarque}
 
  Soit $\phi:A  \rightarrow B $ un morphisme  d'anneaux commutatifs. En appliquant la propriété universelle des $\iota_A:A\rightarrow A[X]$  à la $A$-algèbre
-$$A\stackrel{\phi}{\rightarrow} B\stackrel{\iota_B}{\rightarrow}B[X]$$
+$$A\overset{\phi}{\to} B\overset{\iota_B}{\to}B[X]$$
 on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ tel que $\iota_B\circ \phi=\phi\circ \iota_A$; explicitement $\tilde{\phi}(\sum_{n\geq 0}a_xX^n)=\sum_{n\geq 0}\phi(a_n)X^n$.\\
 
 	$$ \xymatrix{ A\ar[r]^\Phi \ar[d]^{\iota_A} & B \ar[d]_{\iota_B} \\ A[X]\ar[r]_{\tilde{\Phi}} & B[X] } $$
@@ -398,7 +398,7 @@ on obtient un unique morphisme d'anneaux  $\tilde{\phi}:A[X]\rightarrow B[X]$ te
   $$ \xymatrix{ & B \\ A \ar[ru]^\Phi \ar[rd]_{\iota_A} & & \mathbb{N} \ar[lu]_\nu \ar[ld]^{\nu_A} \\ & P \ar[uu]_{ev} } $$
 
  Ou encore: pour toute $A$-algèbre $\phi:A\rightarrow B$  l'application canonique
-$$\SHom_A(A[X],B)\rightarrow \SHom_{Mono}(\N,B),\; f\rightarrow f\circ \nu_A.$$
+\begin{align}\SHom_A(A[X],B) &\to \SHom_{Mono}(\N,B) \\ f &\mapsto f\circ \nu_A.\end{align}
  est bijective. Explicitement, $\nu_A:(\N,+)\rightarrow (A[X],\cdot)$ est le morphisme qui envoie $n$ sur $X^n$ donc si $f:A[X]\rightarrow B$ est un morphisme de $A$-algèbres, $f\circ \nu_A:(\N,+)\rightarrow (B,\cdot)$  est le morphisme qui envoie $n$ sur $f(X)^n$.\\
 
  \subsection{Construction de $A[N]$}
@@ -459,7 +459,7 @@ est bijective. Son inverse est l'application qui à $b \in B^\times$ associe l'u
 
 \begin{definition}[Morphisme d'évaluation]Pour toute $A$-algèbre $\phi:A\rightarrow B$, en notant
  $$\frak{B}^\times_r:= \lbrace \underline{b}=(b_1,\dots, b_r)\in (B^\times)^r\;|\; b_ib_j=b_jb_i,\; 1\leq i,j\leq r\rbrace,$$  l'application canonique
-	\begin{align*} \SHom_A(A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}],B) &\to \frak{B}_r \\ f&\to (f(X_1),\dots, f(X_r))\end{align*}
+	\begin{align*} \SHom_A(A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}],B) &\to \frak{B}_r^\times \\ f&\to (f(X_1),\dots, f(X_r))\end{align*}
 
 est bijective. Son inverse est l'application qui à $\underline{b}=(b_1,\dots, b_r)\in \frak{B}^\times_r$ associe l'unique morphisme de $A$-algèbres $ev_{\underline{b}}^\phi:A[X_1,X_1^{-1},\cdots, X_r,X_r^{-1}]\rightarrow B$ tel que $ev_{\underline{b}}^\phi(X_i)=b_i$, $i=1,\dots r$ (donc $ev_{\underline{b}}^\phi(\sum_{\underline{n}\in \Z^r}a_{\underline{n}}\underline{X}^{\underline{n}})=\sum_{\underline{n}\in \Z^r}\phi(a_{\underline{n}})\underline{b}^{\underline{n}}$)\end{definition}
 
