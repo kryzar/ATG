@@ -1810,11 +1810,10 @@ Ici le dictionnaire sur les singularités.
 \end{remarque}
 
 \part{Modules sur un anneaux}
-\textit{}\\
  On rappelle que sauf mention explicite du contraire tous les anneaux sont commutatifs.
 \chapter{Premières définitions et constructions}
 \section{Définitions}
-\begin{definition}Soit $A$ un anneau, un $A$-module\index{Module} (à gauche) est un couple$((M,+),\cdot)$ formé d'un groupe abélien  $(M,+)$ (on notera $0$ son élément neutre et $-m$ l'inverse d'un élément $m\in M$)) et d'une application $ \cdot :A\times A\rightarrow A$ - appelées la multiplication extérieure -  vérifiant les axiomes suivants:
+\begin{definition}Soit $A$ un anneau, un $A$-module\index{Module} (à gauche) est un couple $((M,+),\cdot)$ formé d'un groupe abélien  $(M,+)$ (on notera $0$ son élément neutre et $-m$ l'inverse d'un élément $m\in M$)) et d'une application $ \cdot :A\times M\to M$ - appelée la multiplication extérieure -  vérifiant les axiomes suivants:
 \begin{enumerate}
 \item $a\cdot (m+n)=a\cdot m+a\cdot n $, $a\in A$, $m,n\in M$;
 \item $(a+b)\cdot m=a\cdot m+b\cdot m$, $a,b\in A$, $m\in M$;
@@ -1823,7 +1822,7 @@ Ici le dictionnaire sur les singularités.
 \end{enumerate}
 \end{definition}
 
-De façon équivalente, l'application $A\rightarrow \SEnd_{Grp}(M)$ est un morphisme d'anneaux.
+De façon équivalente, l'application \begin{align*} A &\to \SEnd_{Grp}(M) \\ a &\mapsto a.\mathrm{Id}\end{align*} est un morphisme d'anneaux.
 
 \begin{definition}Étant donnés deux  $A$-modules $M,N$, un morphisme de $A$-modules est un morphisme de groupes $f:(M,+)\rightarrow (N,+)$   $A$-linéaire \textit{i.e} qui vérifie:
   $$f(a\cdot m)=a\cdot f(m),\; a\in A,\; m\in M.$$
