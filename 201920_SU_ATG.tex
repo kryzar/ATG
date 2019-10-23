@@ -1809,6 +1809,19 @@ Ici le dictionnaire sur les singularités.
                % Y et les X_i ?
 \end{remarque}
 
+\begin{definition}
+  Une bonne définition de « être lisse » pour une courbe algébrique est : \\
+  V est lisse $\iff$ $\forall m\in \spm(\CC[V])$, $\CC[V]_m$ est un anneau de valuation discrète.
+\end{definition}
+% C'est un test
+Pour la complétion, on a :
+\begin{table}[h]
+  \centering
+  \begin{tabular}[h]{ccc}
+     $\CC[V]_m$ & $\leftrightarrow$ & Complétion par la topologie m-adique $\widehat{\CC[V]_m}$
+  \end{tabular}
+\end{table}
+
 \part{Modules sur un anneaux}
  On rappelle que sauf mention explicite du contraire tous les anneaux sont commutatifs.
 \chapter{Premières définitions et constructions}
@@ -1985,10 +1998,11 @@ est exacte\index{Exacte (Suite de morphismes)} si $\im(u_{i})=\ker(u_{i+1})$ pou
 
 \begin{definition}
 	Une suite exacte courte est une suite exacte de la forme:
-$$0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0.$$
+$$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0.$$
 Autrement dit $\ker(v) = \im(u)$ ; $\ker(u) = \{0\} $, \ie{} $u$ est injectif et $\im(v) = M''$, \ie{} $v$ est surjectif.\end{definition}
 
-\begin{remarque}La notion de suite exacte est au coeur de l'étude de la structure des $A$-module. La raison première est que c'est l'outil qui permet de 'dévisser' un $A$-module compliqué ($M$) en deux $A$-modules plus simples ($M'$ et $M''$).\end{remarque}
+\begin{remarque}La notion de suite exacte est au coeur de l'étude de la structure des $A$-module. La raison première est que c'est l'outil qui permet de 'dévisser' un $A$-module compliqué ($M$) en deux $A$-modules plus simples ($M'$ et $M''$).\\
+En général si $M'\subset M$ est un sous-module de M il n'existe pas forcément un sous $A$-module $M''\subset M$ tel que $M\simeq M'\oplus M''$. Plus précisément :\end{remarque}
 
 \begin{lemme}Soit $$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow}  M''\rightarrow 0$$
 une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes sont équivalentes :
@@ -2009,20 +2023,19 @@ une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes s
 
  $(3)\Rightarrow (1)$: Si $f:M\tilde{\rightarrow} M'\oplus M''$ est un isomorphisme de $A$-modules tel que $p_{M''}\circ f=v$ et   $f\circ u=\iota_{M'}$, on peut   considérer $s:= f^{-1}\circ \iota_{M''}:M''\rightarrow M $. Par construction $vs(m)=vf^{-1}  \iota_{M''}=p_{M''}\iota_{M''}=\Id_{M''}$.\end{proof}
 
-\ref{SuiteExacte}.2 \textbf{Exemple.}
-\begin{enumerate}
-\item Si $n\geq 2$ est un entier, la suite de $\Z$-modules $0\rightarrow \Z\stackrel{n\cdot}{\rightarrow} \Z\rightarrow \Z/n\rightarrow 0$ n'est pas scindée.
+\ref{SuiteExacte}.2 
+\begin{exercices} 
+\begin{enumerate} 
+\item Montrer que, si $n\geq 2$ est un entier, la suite exacte courte de $\Z$-modules $0\rightarrow \Z\stackrel{n\cdot}{\rightarrow} \Z\rightarrow \Z/n\rightarrow 0$ n'est pas scindée.
 \item On considère les structure de   $\Z[X]$-modules  suivantes sur $\Z^2$
 \begin{enumerate}
-\item $X\cdot (a,b)=(b,a)$
-\item $X\cdot (a,b)=(a+b,b)$
+\item $X\cdot (a,b)=(b,a)$ et la suite exacte courte $0\rightarrow \Z\stackrel{a\rightarrow (a,a)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0$
+\item $X\cdot (a,b)=(a+b,b)$ et la suite exacte courte $0\rightarrow \Z\stackrel{a\rightarrow (a,0)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0.$
 \end{enumerate}
-Dans le cas (a), la suite exacte courte de $\Z[X]$-modules
-$$0\rightarrow \Z\stackrel{a\rightarrow (a,a)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0$$
-est-elle scindée? Même question avec dans le cas (b), la suite exacte courte de $\Z[X]$-modules
-$$0\rightarrow \Z\stackrel{a\rightarrow (a,0)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0.$$
-\end{enumerate}
+Les suites exactes courtes sont-elles scindées ? Que se passe-t-il ? Même question si l'on remplace $\Z$ par $\Q$
 
+\end{enumerate}
+\end{exercices}
 
 
 
