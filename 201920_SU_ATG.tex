@@ -1423,16 +1423,16 @@ $-/-$ :&$S\times A$&$\rightarrow$&$S^{-1}A$\\
 		F\ar@{.>}[ur]_{\exists ! \phi_S}}
 	$$
 
- \begin{proof} Montrons que  $S^{-1}A$ muni de la structure d'anneau ci-dessus et le morphisme canonique $\iota_S:A\rightarrow S^{-1}A$ conviennent. Soit $\phi:A\rightarrow B$  un morphisme d'anneaux tel que $\phi(S)\subset B^\times$.  Si $\phi_S:S^{-1}A\rightarrow B$ existe la relation $\phi=  \phi_S\circ \iota_S$ impose que  $\tilde{\phi}:S^{-1}A\rightarrow B$ est unique puisqu'on doit nécessairement avoir
- $$\phi_S(A/s)=\phi_S((a/1)(1/s))=\phi_S(a/1)\phi_S((s/1)^{-1})=\phi(a)\phi(s)^{-1},\; (s,a)\in S\times A.$$
+ \begin{proof} Montrons que  $S^{-1}A$ muni de la structure d'anneau ci-dessus et le morphisme canonique $\iota_S:A\rightarrow S^{-1}A$ conviennent. Soit $\phi:A\rightarrow B$  un morphisme d'anneaux tel que $\phi(S)\subset B^\times$.  Si $\phi_S:S^{-1}A\rightarrow B$ existe la relation $\phi=  \phi_S\circ \iota_S$ impose que  $\phi_S :S^{-1}A\rightarrow B$ est unique puisqu'on doit nécessairement avoir
+ $$\phi_S(a/s)=\phi_S((a/1)(1/s))=\phi_S(a/1)\phi_S((s/1)^{-1})=\phi(a)\phi(s)^{-1},\; (s,a)\in S\times A.$$
  Considérons donc l'application  \begin{tabular}[t]{lclc}
- $\phi_S:$&$ S\times A $&$\rightarrow$&$B$\\
+	 $\tilde{\phi} : $&$ S\times A $&$\rightarrow$&$B$\\
  &$(a,s) $&$\rightarrow$&$ \phi(s)^{-1}\phi(a)$.
  \end{tabular}
  Si $(s,a)\sim (s',a')$  \ie{} il existe $s''\in S$ tels que $s''(s'a-sa')=0$, on a $\phi(s'')(\phi(s')\phi(a)-\phi(s)\phi(a'))=\phi(s''(s'a-sa'))=\phi(0)=0$. Mais comme $\phi(s),\phi(s'),\phi(s'')\in B^{\times}$, on peut réécrire cette égalité comme
  $$\phi_S(s,a)=\phi(s)^{-1}\phi(a)=\phi(s')^{-1}\phi(a')=\phi_S(s',a').$$
  Cela montre que l'application $\phi_S: S\times A  \rightarrow  B$ se factorise  en
- $$\xymatrix{S\times A \ar[r]^{\tilde{\phi}}\ar[d]_{  -/-}& B\\
+ $$\xymatrix{S\times A \ar[r]^{\tilde{\phi}_S}\ar[d]_{  -/-}& B\\
  S^{-1}A \ar[ur]_{\phi_S}&} $$
 Par construction $\phi=  \phi_S\circ \iota_S$ et on vérifie que $\phi_S:S^{-1}A\rightarrow B$ est bien un morphisme d'anneaux.
   \end{proof}
@@ -1441,8 +1441,12 @@ Par construction $\phi=  \phi_S\circ \iota_S$ et on vérifie que $\phi_S:S^{-1}A
 
  \begin{exercices}
 	 \begin{enumerate}
-		\item  Montrer qu'on a un isomorphisme  d'anneaux canonique \\ $S^{-1}(A[X])\tilde{\rightarrow} (S^{-1}A)[X]$.
-		 \item Soit $p,q$ deux premiers distincts. Déterminer les idéaux premiers $\frak{p}$ de $A:=\Z/pq$ et déterminer dans chaque cas le localisé $(A\setminus \frak{p})^{-1}A$.
+		\item  Montrer qu'on a un isomorphisme  d'anneaux canonique \\ $S^{-1}(A[X])\tilde{\rightarrow} (S^{-1}A)[X]$. \\
+			Correction. \textit{On va utiliser les propriétés universelles de la localisation et de l'algèbre des polynômes à une indéterminée pour construire un morphisme dans les deux sens.  Considérons le morphisme d'anneaux $\phi:A\stackrel{\iota_S}{\rightarrow}S^{-1}A \stackrel{\iota_{S^{-1}A}}{\rightarrow}(S^{-1}A)[X]$. Par propriété universelle de $\iota_A:A\rightarrow A[X]$, il s'étend en un unique morphisme de $A$-algèbre $\phi:A[X]\rightarrow (S^{-1}A)[X]$ tel que $\phi(X)=X$. De plus, $\phi(S)=\iota_{S^{-1}A}(\iota_S(S))\subset \iota_{S^{-1}A}((S^{-1}A)^\times)=(S^{-1}A)[X]^\times$ donc par propriété universelle de $\iota_S:A[X]\rightarrow S^{-1}(A[X])$, $\phi:A[X]\rightarrow (S^{-1}A)[X]$ s'étend en un unique morphisme d'anneaux $\phi_S:S^{-1}(A[X])\rightarrow (S^{-1}A)[X]$ tel que $\phi_S\circ \iota_S=\phi$. Dans l'autre sens, considérons le morphisme d'anneaux $\psi:A\stackrel{\iota_A}{\rightarrow}A[X] \stackrel{\iota_{S}}{\rightarrow}S^{-1}A([X])$. On a $\psi(S)=\iota_S(\iota_A(S))\subset S^{-1}A([X])^\times$ donc par propriété universelle de $\iota_S:A\rightarrow S^{-1}A$ il existe un unique morphisme d'anneaux $\psi_S:S^{-1}A\rightarrow S^{-1}A([X])$ tel que $\psi_S\circ \iota_S=\psi$. Enfin, par la propriété universelle de $\iota_{S^{-1}A}:S^{-1}A\rightarrow S^{-1}A$, il existe un unique morphisme de $S^{-1}A$-algèbre $\psi_S:(S^{-1}A)[X]\rightarrow S^{-1}(A[X])$ tel que $\psi_S(X)=X$. On vérifie immédiatement sur les constructions que $\psi_S\circ \phi_S=Id$ et $\phi_S\circ \psi_S=Id$.} 
+		 \item Soit $p,q$ deux premiers distincts. Déterminer les idéaux premiers $\frak{p}$ de $A:=\Z/pq$ et déterminer dans chaque cas le localisé $(A\setminus \frak{p})^{-1}A$. \\
+			 Correction. \textit{Les idéaux de $A$ sont les images par la projection canonique $\Z\twoheadrightarrow A$ des idéaux de $\Z$ contenant l'idéal $pq\Z$. Or $\Z$ est principal donc ses idéaux sont tous de la forme $n\Z$ et la condition $pq\Z\subset n\Z$ est équivalente à $n|pq$. On n'a donc que quatre possibilités: $A$, $\lbrace 0\rbrace$, $\frak{p}:=p\Z/pq\Z$ et $\frak{q}:=q\Z/pq\Z$. On a $\Z/p\Z\tilde{\rightarrow}A/\frak{p}$ et  $\Z/q\Z\tilde{\rightarrow}A/\frak{q}$ donc $spec(A)=\lbrace \frak{p},\frak{q}\rbrace$. J'affirme qu'on a un isomorphisme  (nécessairement unique)   $\phi_\frak{p}:A/\frak{p}\tilde{\rightarrow} A_\frak{p}$ tel que le diagramme canonique suivant commute $$\xymatrix{&A\ar[dr]^{\iota_{A\setminus \frak{p}}}\ar[dl]_{p_{\frak{p}}}&\\
+ A/\frak{p}\ar[rr]^\simeq_{ \phi_\frak{p}}&& A_\frak{p}.}$$
+ (et idem pour $\frak{q}$). On va utiliser les propriétés universelles de $p_\frak{p}:A\rightarrow A/\frak{p}$ et $\iota_{A\setminus \frak{p}}:A\rightarrow A_\frak{p}$. Par le lemme chinois $A\tilde{\rightarrow}\Z/p\times \Z/q$  et $\frak{p}$ s'identifie à  l'idéal engendré par $e_2:=(0,1)$; notons aussi $e_1:=(1,0)$. Soit $\iota_\frak{p}:A\rightarrow A_\frak{p}$ le morphisme de localisation. On a pour tout $a\in \frak{p}$, $e_1a=0$. Or, comme $e_1\in A\setminus \frak{p}$, on a $\iota_\frak{p}(e_1)\in A_\frak{p}^\times$ donc $0=\iota_\frak{p}(e_1a)=\iota_\frak{p}(e_1)\iota_\frak{p}(a)$ implique en simplifiant par $\iota_\frak{p}(e_1)\in A_\frak{p}^\times$, $\iota_\frak{p}(a)=0$. Autrement dit, on vient de montrer que $\frak{p}\subset \ker(\iota_\frak{p})$; le morphisme canonique $ \iota_\frak{p}:A\rightarrow A_\frak{p}$ se factorise donc en un unique morphisme $\phi_\frak{p}:A/\frak{p}\rightarrow A_\frak{p}$ tel que $\phi_\frak{p}\circ p_\frak{p}=\iota_\frak{p}$.  Considérons maintenant la projection canonique $p_\frak{p}:A\rightarrow A/\frak{p}$. Puisque $\frak{p}$ est maximal, pour tout   $a\in A\setminus \frak{p}$ il existe $b\in A$ tel que $ab-1\in \frak{p}$ donc $1=p_\frak{p}(ab)=p_\frak{p}(a)p_\frak{p}(b)$. Ce qui montre que $p_\frak{p}(A\setminus \frak{p})\subset (A/\frak{p})^\times$. Donc il existe un unique morphisme d'anneaux $\psi_\frak{p}:A_\frak{p}\rightarrow A/\frak{p}$ tel que $\psi_\frak{p}\circ \iota_{A\setminus \frak{p}}=p_\frak{p}$. Mais on a alors par construction $\psi_\frak{p}\circ \phi_\frak{p}\circ p_\frak{p}=p_\frak{p}$, ce qui par unicité dans la propriété universelle de $p_\frak{p}:A\rightarrow A/\frak{p}$ (appliquée à $p_\frak{p}:A\rightarrow A/\frak{p}$!) impose $\psi_\frak{p}\circ \phi_\frak{p}=Id$. De m\^eme avec la localisation, $\phi_\frak{p}\circ \psi_\frak{p}\circ \iota_{A\setminus \frak{p}}=\iota_{A\setminus \frak{p}}$ impose $\phi_\frak{p}\circ \psi_\frak{p}=Id$.}
 		 \item Montrer que si $A$ est intègre (resp. réduit, resp. intégralement clos, resp. factoriel) alors $S^{-1}A$ l'est aussi.\\
 	 \end{enumerate}
  \end{exercices}
@@ -1465,7 +1469,7 @@ Par construction $\phi=  \phi_S\circ \iota_S$ et on vérifie que $\phi_S:S^{-1}A
 \end{exemples}
 
 \subsection{Morphismes}
-Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $S\subset A$, $T\subset B$ des parties multiplicatives telles que $\phi(S)\subset T$. On a en particulier $\iota_T\circ \phi(S)\subset \iota_T(T)\subset (T^{-1}B)^\times$ donc par propriété universelle de $\iota_S:A\rightarrow S^{-1}A$ il existe un unique morphisme d'anneaux $\tilde{\phi}:S^{-1}A\rightarrow T^{-1}B$ tel que $\iota_T\circ \phi=\tilde{\phi}\circ \iota_S$; explicitement $\tilde{\phi}(a/s)=\phi(a)/\phi(s)$ dans $T^{-1}B$. Si $\phi:A\rightarrow B$, $\psi:B\rightarrow C$ sont des morphismes d'anneaux et $S\subset A$, $T\subset B$, $U\subset C$ des parties multiplicatives telles que $\phi(S)\subset T$, $\psi(T)\subset U$, on a $S^{-1}(\psi\circ \phi)=(\tilde{\phi})\circ (T^{-1}\psi)$. \\
+Soit $\phi:A\rightarrow B$ un morphisme d'anneaux et $S\subset A$, $T\subset B$ des parties multiplicatives telles que $\phi(S)\subset T$. On a en particulier $\iota_T\circ \phi(S)\subset \iota_T(T)\subset (T^{-1}B)^\times$ donc par propriété universelle de $\iota_S:A\rightarrow S^{-1}A$ il existe un unique morphisme d'anneaux $\phi_{S,T}:S^{-1}A\rightarrow T^{-1}B$ tel que $\iota_T\circ \phi=\phi_{S,T}\circ \iota_S$; explicitement $\phi_{S,T}(a/s)=\phi(a)/\phi(s)$ dans $T^{-1}B$. Si $\phi:A\rightarrow B$, $\psi:B\rightarrow C$ sont des morphismes d'anneaux et $S\subset A$, $T\subset B$, $U\subset C$ des parties multiplicatives telles que $\phi(S)\subset T$, $\psi(T)\subset U$, on a $(\psi\circ \phi)_{S,U}=\psi_{T,U}\circ \phi_{S,T}$. \\
 
 	$$\xymatrix{
 		A \ar[r]^\phi \ar@{^{(}->}[d]_{\iota_S} & B \ar@{^{(}->}[d]^{\iota_T} \\
@@ -1855,7 +1859,7 @@ On remarquera que l'application identité $\Id:M\rightarrow M$ est un morphisme 
 \item Si $\phi:A\rightarrow B$ est un morphisme d'anneaux tout $B$-module $M$ est naturellement un $A$-module pour la multiplication extérieure $ A\times M\rightarrow M$, $(a,n)\rightarrow \phi(a)\cdot n$. On notera $\phi^*M$ ou $M|_A$ lorsqu'il n'y a pas d'ambiguité sur $\phi:A\rightarrow B$ le $A$-module ainsi obtenu à partir du $B$-module $N$. On notera que tout morphisme de $B$-modules $f:M\rightarrow N$ est automatiquement un morphisme de $A$-modules $f|_A=f:M|_A\rightarrow N_A$. En particulier,  une structure de $A$-algèbre $\phi:A\rightarrow B$ sur un anneau $B$ détermine une structure de $A$-module $\phi^*B$ sur $B$. Inversement, une structure de $A$-module $\cdot:A\times B\rightarrow B$ sur le   groupe abélien sous-jacent $(B,+)$ d'un anneau  $B$ détermine une structure de $A$-algèbre $\phi:A\rightarrow B$ sur $B$ en posant $\phi(a)=a\cdot 1_B$. En particulier, si $M$ est un $A$-module, $\SEnd_A(M)$ est naturellement muni d'une structure de $A$-algèbre.
 \item Soit $A$ un anneau commutatif. Par la propriété universelle de $\iota_A:A\rightarrow A[X_1,\dots, X_n]$, la donnée d'un $A[X_1,\dots,X_1]$-module est équivalente à la donnée d'un couple $(M,\underline{\phi})$, où $M$ est un $A$-module et $\underline{\phi}:=(\phi_{1},\dots,\phi_{n})$ est un $n$-uplet d'endomorphismes $A$-linéaires de $M$ qui commutent deux à deux. Par exemple, si $V$ est un $k$-espace vectoriel de dimension finie, et $u\in \SEnd_k(V)$, on peut munir $V$ de la structure $V_u$ de $k[X]$-module définie par $P(X)\cdot v=P(u)(v)$. Si $u,u'\in\SEnd_k(V) $, on a
 $$\SHom_{k[X]}(V_u,V_{u'})=\lbrace \varphi:V\rightarrow V\; |\; \varphi\circ u=u'\circ \varphi\rbrace.$$
-Un certain nombre de résultats d'algèbre lin\'raire s'interprètent (et deviennent bien plus naturels!) en termes de $k[X]$-modules.\\
+Un certain nombre de résultats d'algèbre linéaire s'interprètent (et deviennent bien plus naturels!) en termes de $k[X]$-modules.\\
 \end{itemize}
 
 \begin{definition}[Sous-module]Si $M$ est un $A$-module, un sous $A$-module de $M$ est un sous-ensemble $M'\subset M$ tel que $am'+bn'\in M'$, $a,b\in A $, $m',n'\in M'$.
@@ -1865,7 +1869,7 @@ Un certain nombre de résultats d'algèbre lin\'raire s'interprètent (et devien
  \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
  \item Les sous-$A$-modules du $A$-module régulier $A$ sont les idéaux de $A$.\\
 \item Si $f:M\rightarrow N$ est un morphisme de $A$-module et $M'\subset M$ (resp. $N'\subset N$) est un sous-$A$-module alors $f(M')\subset N$ (resp. $f^{-1}(N')\subset M$) est un sous-$A$-module. En particulier, $\im(f)\subset N$ et $\ker(f)\subset M$ sont des sous-$A$-modules.\\
-\item Si $I\subset A$ est un idéal et $M$ un $A$-module, $IM:=\lbrace am\; |\; a\in I,\; m\in M\rbrace\subset M$ est un sous-$A$-module.
+\item Si $I\subset A$ est un idéal et $M$ un $A$-module, $$IM:=\lbrace \sum_{m\in M}a(m)m\; |\; a:M\rightarrow I \;\hbox{\rm à support fini} \rbrace\subset M$$ est un sous-$A$-module.
 
 \end{itemize}
  \end{exemple}
@@ -1896,7 +1900,7 @@ Avec cette structure de $A$-module, les projections canoniques $p_{j}:\prod_{i\i
 
 \begin{proof} On vérifie comme d'habitude que les morphismes de $A$-modules $p_{j}:\prod_{i\in I}M_{i}\rightarrow M_{j}$, $j\in I$ et  $\iota_{j}:M_{j}\hookrightarrow \bigoplus_{i\in I}M_{i}$, $j\in I$ construits ci-dessus conviennent.  \end{proof}
 
-\begin{remarque}On peut aussi réécrire \ref{ProduitSommeDirecte} en disant que, pour tout $A$-module $M$ les morphismes canoniques
+\begin{remarque}On peut aussi réécrire le lemme en disant que, pour tout $A$-module $M$ les morphismes canoniques
 	\begin{align*}\SHom_{A}(M,\prod_{i\in I}M_{i}) &\to \prod_{i\in I}\SHom_{A}(M,M_{i}) \\ f &\mapsto (p_i\circ f)_{i\in I}\end{align*}
 	\begin{align*}\SHom_{A}(\oplus_{i\in I}M_{i},M) &\to \prod_{i\in I}\SHom_{A}(,M_{i}M) \\ f&\mapsto ( f\circ \iota_i)_{i\in I}\end{align*}
 sont des isomorphismes ou encore, plus visuellement:
@@ -1929,7 +1933,8 @@ on obtient un unique morphisme de $A$-modules $f:=\oplus_{i\in I}f_i:\oplus_{i\i
 	\begin{remarque}On vérifie qu'il coincide avec l'ensemble des éléments de la forme $\sum_{x\in X}a(x)x$, où $a:X\rightarrow A$ est une application à support fini.
 	\end{remarque}
 
-La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $-\dot x: A\rightarrow M$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propriétés suivantes sont équivalentes :
+La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $- x: A\rightarrow M,\; a\rightarrow a  x$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propriétés suivantes sont équivalentes :
+
 \begin{enumerate}
 \item  $M=\langle X\rangle$;
 \item Le morphsime de $A$-modules $p:A^{(X)}\rightarrow M$ est surjectif.
@@ -1948,25 +1953,26 @@ On dit alors que $X$ est un système de générateurs de $M$ comme $A$-modules (
 Là encore la propriété universelle de $\iota_i:M_i\hookrightarrow \oplus_{i\in I}M_i$, $i\in I$ appliquée aux morphismes  de $A$-modules $M_i\subset \sum_{i\in I}M_i$ (inclusion), $i\in I$ nous donne un unique morphisme de $A$-modules - automatiquement surjectif - $p:\oplus_{i\in I}M_i\twoheadrightarrow \sum_{i\in I}M_i(\subset M)$ tel que $p\circ \iota_i(m_i)=m_i$, $m_i\in M_i$, $i\in I$.
 
 \section{Quotients}\index{Noyau (module)}\index{Conoyau (module)}\index{Quotient (module)}
- Soit $M'\subset M$ un sous $A$-module. C'est en particulier un sous groupe abélien et on dispose donc du quotient $p_M:=\overline{(-)}:M\rightarrow M/M'$ comme groupe  abélien . On peut munir $M/M'$ d'une structure de $A$-module comme suit. Pour tout $a\in A$, l'application
+Soit $M'\subset M$ un sous $A$-module. C'est en particulier un sous groupe abélien et on dispose donc du quotient $p_{M'}: M\rightarrow M/M',\; m\rightarrow p_{M'}(m)=:\overline{m}$ comme groupe  abélien . On peut munir $M/M'$ d'une structure de $A$-module comme suit. Pour tout $a\in A$, l'application
+
 $$\begin{tabular}[t]{llll}
 $\mu_{a}$:&$M$&$\rightarrow$&$M/M'$\\
 &$m$&$\rightarrow$&$\overline{a\cdot m}$
 \end{tabular}$$
-est un morphisme de groupes ab\' eliens tel que $M'\subset \ker(\mu_{a})$; il se factorise donc en
-$$\xymatrix{M\ar[r]^{\mu_{a}}\ar[d]_{\overline{(-)}}&M/M'\\
+est un morphisme de groupes abéliens tel que $M'\subset \ker(\mu_{a})$; il se factorise donc en
+$$\xymatrix{M\ar[r]^{\mu_{a}}\ar[d]_{p_{M'}}&M/M'\\
 M/M'\ar[ur]_{\overline{\mu}_{a}}&}$$
 On pose alors $$\begin{tabular}[t]{cll}
 $A\times M/M'$&$\rightarrow$&$M/M'$\\
 $(a,\overline{m})$&$\rightarrow$&$a\cdot\overline{m}:=\overline{\mu}_{a}(m)(=\overline{a\cdot m})$.
 \end{tabular}$$
- On vérifie immédiatement que cela définit bien une structure de $A$-module sur $M/M'$ et que c'est   l'unique structure de $A$-module sur $M/M'$ qui fait de  $\overline{(-)}:M\rightarrow M/M'$ un morphisme de $A$-modules. De plus,
+ On vérifie immédiatement que cela définit bien une structure de $A$-module sur $M/M'$ et que c'est   l'unique structure de $A$-module sur $M/M'$ qui fait de  $p_{M'} :M\rightarrow M/M'$ un morphisme de $A$-modules. De plus,
 
 \label{Quotient}
 \begin{lemme}[Propriété universelle du quotient] Pour tout sous-$A$-module $M'\subset M$ il existe un morphisme de $A$-modules $p:M\rightarrow Q$ tel que pour tout morphisme de $A$-modules $f:M\rightarrow N$ tels que $M'\subset \ker(f)$, il existe unique morphisme de $A$-modules $\overline{f}:Q\rightarrow N'$ tel que $\overline{f}\circ p=f$.
 \end{lemme}
 
-\begin{proof} On vérifie comme d'habitude que le morphisme de $A$-modules $p_M:M\twoheadrightarrow M/M'$ construit ci-dessus convient. \end{proof}
+\begin{proof} On vérifie comme d'habitude que le morphisme de $A$-modules $p_M':M\twoheadrightarrow M/M'$ construit ci-dessus convient. \end{proof}
 
 
 \begin{remarque}On peut aussi réécrire \ref{Quotient} en disant que, pour tout $A$-module $N$ le  morphisme  canonique
@@ -1992,8 +1998,8 @@ $$\xymatrix{&\ker(f)\ar@{_{(}->}[d]\ar[dl]^\simeq&&&\\
 
 
 \begin{definition}On dit qu'une suite de morphismes de $A$-modules
-$$M_{0}\stackrel{u_{0}}{\rightarrow} M_{1}\stackrel{u_{1}}{\rightarrow} M_{2}\stackrel{u_{2}}{\rightarrow}   \cdots\stackrel{u_{n}}{\rightarrow} M_{n+1}$$
-est exacte\index{Exacte (Suite de morphismes)} si $\im(u_{i})=\ker(u_{i+1})$ pour tout $0\leq i\leq n-1$.
+$$   \cdots M_{n-1}\stackrel{u_{n-1}}{\rightarrow}  M_n\stackrel{u_{n}}{\rightarrow} M_{n+1}\stackrel{u_{n+1}}{\rightarrow} \cdots$$
+est exacte\index{Exacte (Suite de morphismes)} si $\hbox{\rm im}(u_{n})=\ker(u_{n+1})$ pour tout $n$.
 \end{definition}
 
 \begin{definition}
@@ -2001,14 +2007,14 @@ est exacte\index{Exacte (Suite de morphismes)} si $\im(u_{i})=\ker(u_{i+1})$ pou
 $$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0.$$
 Autrement dit $\ker(v) = \im(u)$ ; $\ker(u) = \{0\} $, \ie{} $u$ est injectif et $\im(v) = M''$, \ie{} $v$ est surjectif.\end{definition}
 
-\begin{remarque}La notion de suite exacte est au coeur de l'étude de la structure des $A$-module. La raison première est que c'est l'outil qui permet de 'dévisser' un $A$-module compliqué ($M$) en deux $A$-modules plus simples ($M'$ et $M''$).\\
+\begin{remarque}La notion de suite exacte est au coeur de l'étude de la structure des $A$-modules. La raison première est que c'est l'outil qui permet de 'dévisser' un $A$-module compliqué ($M$) en deux $A$-modules plus simples ($M'$ et $M''$).\\
 En général si $M'\subset M$ est un sous-module de M il n'existe pas forcément un sous $A$-module $M''\subset M$ tel que $M\simeq M'\oplus M''$. Plus précisément :\end{remarque}
 
 \begin{lemme}Soit $$0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow}  M''\rightarrow 0$$
-une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes sont équivalentes :
+une suite exacte courte de $A$-modules. Les propriétés suivantes sont équivalentes :
 \begin{enumerate}
 \item il existe un morphisme de $A$-modules $s:M''\rightarrow M$ tel que $v\circ s=\Id_{M''}$;
-\item il existe un morphisme de $A$-modules $s:M'\rightarrow M'$ tel que $s\circ u=\Id_{M'}$;
+\item il existe un morphisme de $A$-modules $r:M \rightarrow M'$ tel que $r\circ u=\Id_{M'}$;
 \item il existe un isomorphisme de $A$ modules $f:M\tilde{\rightarrow}M'\oplus M''$ tel que $\iota_{M'}=f\circ u$ et $p_{M''}\circ f=v$.\\
 \end{enumerate}
 \end{lemme}
@@ -2019,7 +2025,7 @@ une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes s
 
   $(1)\Rightarrow (2)$: Si $s:M''\rightarrow M$ est un morphisme de $A$-modules tel que $vs=\Id_{M''}$ on vérifie que le morphisme de $A$-modules $\Id-sv:M\rightarrow M$ a son image contenue dans $\ker(v)=u(M')$ et que  $t:=(u|^{u(M')})^{-1}\circ (\Id-sv):M\rightarrow M'$ vérifie bien $tu=\Id_{M'}$.\\
 
-  $(2)\Rightarrow (3)$: Si $s:M\rightarrow M'$ est un morphisme de $A$-modules tel que $su=\Id_{M'}$, on peut considérer $f:=s\oplus v:M\rightarrow M'\oplus M''$. Par construction, $p_{M''}\circ f=v$ et $f\circ u(s(m))=s(m)=\iota_{M'}(s(m))$ donc, comme  $s:M\rightarrow M'$ est surjective, $f\circ u=\iota_{M'}$. Enfin, $f:M\rightarrow M'\oplus M''$ est un isomorphisme. Il est injectif car si $f(m)=0$ alors $v(m)=0$ \ie{} $m\in \ker(v)=u(M')$ donc $m=u(m')$ et $m'=su(m')=0$. Donc, en fait $m=0$. Il est surjectif car pour tout $m'\in M'$, $m''\in M''$, on peut écrire $m''=v(m)=v(m-us(m)+u(m'))$ et $m'=su(m')=s(m-us(m)+u(m'))$.\\
+  $(2)\Rightarrow (3)$: Si $r:M\rightarrow M'$ est un morphisme de $A$-modules tel que $r\circ u=\Id_{M'}$, on peut considérer $f:=s\oplus v:M\rightarrow M'\oplus M''$. Par construction, $p_{M''}\circ f=v$ et $f\circ u(s(m))=s(m)=\iota_{M'}(s(m))$ donc, comme  $s:M\rightarrow M'$ est surjective, $f\circ u=\iota_{M'}$. Enfin, $f:M\rightarrow M'\oplus M''$ est un isomorphisme. Il est injectif car si $f(m)=0$ alors $v(m)=0$ \ie{} $m\in \ker(v)=u(M')$ donc $m=u(m')$ et $m'= r\circ u(m')=0$. Donc, en fait $m=0$. Il est surjectif car pour tout $m'\in M'$, $m''\in M''$, on peut écrire $m''=v(m)=v(m-ur(m)+u(m'))$ et $m'=ru(m')=s(m-us(m)+u(m'))$.\\
 
  $(3)\Rightarrow (1)$: Si $f:M\tilde{\rightarrow} M'\oplus M''$ est un isomorphisme de $A$-modules tel que $p_{M''}\circ f=v$ et   $f\circ u=\iota_{M'}$, on peut   considérer $s:= f^{-1}\circ \iota_{M''}:M''\rightarrow M $. Par construction $vs(m)=vf^{-1}  \iota_{M''}=p_{M''}\iota_{M''}=\Id_{M''}$.\end{proof}
 
@@ -2028,13 +2034,15 @@ une suite exacte courte de $A$-modules. Montrer que les propriétés suivantes s
 \begin{enumerate} 
 \item Montrer que, si $n\geq 2$ est un entier, la suite exacte courte de $\Z$-modules $0\rightarrow \Z\stackrel{n\cdot}{\rightarrow} \Z\rightarrow \Z/n\rightarrow 0$ n'est pas scindée.
 \item On considère les structure de   $\Z[X]$-modules  suivantes sur $\Z^2$
-\begin{enumerate}
-\item $X\cdot (a,b)=(b,a)$ et la suite exacte courte $0\rightarrow \Z\stackrel{a\rightarrow (a,a)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0$
-\item $X\cdot (a,b)=(a+b,b)$ et la suite exacte courte $0\rightarrow \Z\stackrel{a\rightarrow (a,0)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0.$
 \end{enumerate}
-Les suites exactes courtes sont-elles scindées ? Que se passe-t-il ? Même question si l'on remplace $\Z$ par $\Q$
 
+\begin{enumerate}
+\item $X\cdot (a,b)=(a+b,b)$ et la suite exacte courte $0\rightarrow \Z\stackrel{a\rightarrow (a,0)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0.$
+\item $X\cdot (a,b)=(b,a)$ et la suite exacte courte $0\rightarrow \Z\stackrel{a\rightarrow (a,a)}{\rightarrow} \Z^2\rightarrow \Z\rightarrow 0$
 \end{enumerate}
+
+Déterminer si ces suites exactes courtes sont scindées. Même question si l'on remplace $\Z$ par $\Q$
+
 \end{exercices}
 
 
@@ -2059,7 +2067,7 @@ est exacte.
 $$M'[p]\rightarrow M[p]\rightarrow M''[p]\rightarrow\rightarrow M'/p\rightarrow M/p\rightarrow M''/p\rightarrow 0,$$
 (où on a noté $M[p]:=\lbrace m\in M\; |\; pm=0\rbrace$ et $M/p:=M/(pM)$).
 \end{enumerate}
-\item  Soit
+\item (Lemme des cinq) Soit
 $$\xymatrix{M_{1}\ar[r]\ar[d]^{\alpha_{1}}&M_{2}\ar[r]\ar[d]^{\alpha_{2}}&M_{3}\ar[r]\ar[d]^{\alpha_{3}}&M_{4}\ar[r]\ar[d]^{\alpha_{4}}&M_{5}\ar[d]^{\alpha_{5}}\\
 N_{1}\ar[r]&N_{2}\ar[r]&N_{3}\ar[r]&N_{4}\ar[r] &N_{5}}$$
 un diagramme commutatif de morphismes de $A$-modules dont les lignes horizontales sont exactes.
@@ -2077,14 +2085,27 @@ un diagramme commutatif de morphismes de $A$-modules dont les lignes horizontale
 
  Soit $A$ un anneau commutatif. \\
 
-\section{Lemme}\label{Noetherien}\textit{
-Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
+\section{Lemme}\label{Noetherien}
+
+\begin{lemme}Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item Toute suite croissante de sous $A$-modules $$M_{0}\subset M_{1}\subset\dots\subset M_{n}\subset M_{n+1}\subset\dots\subset M$$
-est stationnaire à partir d'un certain rang;
-\item Tout ensemble non vide de sous $A$-modules de $M$ possède un élément maximal pour l'inclusion;
-\item Tout sous $A$-module de $M$ est de type fini.\\
-\end{enumerate}}
+
+	\item Le $\mathbb{Z}$-module $\Q$ n'est ni noetherien ni artinien. En effet, on a la suite infinie de sous $\Z$-modules
+	$$\cdots\subset p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z\subsetneq p^{-1}\Z\subsetneq \cdots\subsetneq p^{-n}\Z\subset p^{-n-1}\Z\subsetneq \cdots $$
+	\item Le $\mathbb{Z}$-module régulier est noetherien mais pas artinien. Il est noetherien car $\Z$ est principal donc tous ses idéaux sont de type fini (et m\^eme engendrés par un seul élément). Il n'est pas artinien car on a toujours la suite infinie
+	$$\cdots\subset p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z$$
+	\item Le $\mathbb{Z}$-module $\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}\subset \Q/\Z$ est artinien mais pas noetherien. En effet, les éléments de $M:=\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}$ sont tous  d'ordre fini, une puissance de $p$. Pour chaque $n\in \Z$, $n\geq 0$ notons $M_n:=\Z\frac{1}{p^n}+\Z/\Z\subset \Z$. On a la suite strictement croissante de sous-$\Z$-modules 
+	$$M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$$
+	donc $M$ n'est pas noetherien. Soit maintenant $N\subset M$ un sous-$\Z$-module. Distinguons deux cas. 
+	\begin{enumerate}
+	\item Le sup des ordre des éléments de $N$ est fini, égal à  $p^n$. Soit $a\in N$ d'ordre maximal $p^n$; on peut donc écrire $a=\frac{b}{p^{n}} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^n-1$, $p\not| b$. Comme $p$ est premier, il existe $u,v\in \Z$ tels que $ub+vp^n=1$ donc $ua=\frac{1}{p_n}\in N$. Cela montre que $M_n\subset N$. Inversement, tout élément de $a\in N$ s'écrit sous la forme $a=\frac{u}{p^m} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^m-1$, $p\not| b$ et $m\leq n$. Mais on peut aussi écrire  $a=\frac{up^{n-m}}{p^n}$. Cela montre que $N\subset M_n$.
+	\item Il existe une application strictement croissante $\phi:\N\rightarrow \N$ tel que $N$ contient un élément $a_n$ d'ordre exactement $p^{\phi(n)}$, $n\geq 0$. L'argument précédent montre que $\Z a_n=M_{\phi(n)}\subset N$. Donc $M=\cup_{n\geq 0}M_n\subset N$.
+	\end{enumerate}
+	Les seuls sous $\Z$-modules de $M$ sont donc $M$ et  les $M_n$, $n\geq 0$. Comme ils sont strictement ordonnés pour l'inclusion $ M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$, on en déduit que $M$ est artinien.
+	\item Tout $\mathbb{Z}$-module fini est à la fois noetherien et artinien. Si $A$ est une algèbre sur un corps $k$, tout $A$-module de $k$-dimension finie est à la fois noetherien et artinien.
+
+\end{enumerate}
+\end{lemme}
 
  Un $A$-module $M$ vérifiant les conditions équivalentes du Lemme \ref{Noetherien} est dit \textit{noethérien}\index{Noethérien (Module)}.\\
 
@@ -3049,7 +3070,7 @@ $$(*)\;\; 1=\sum_{P\in\mathcal{F}}F_P P(X_P)$$ avec $F_P\in k[X_Q,\; Q\in \mathc
 
  \subsection{}\label{NormalePrel}Pour une extension de corps $K/k$ on notera $\SAut(K/k):=\SAut_{Alg/k}(K)$ le groupe des automorphismes de la $k$-algèbre $k\rightarrow K$. Si $K_1/k$, $K_2/k$ sont deux extensions de corps tout $k$-isomorphisme $\phi:K_1\tilde{\rightarrow }K_2$    induit un isomorphisme de groupes
  $$\SAut_{Alg/k}(K_1)\tilde{\rightarrow} \SAut_{Alg/k}(K_2),\; \sigma\rightarrow \phi\circ \sigma\circ \phi^{-1}.$$
- En particulier, si $\overline{k}/k$, $\overline{k}'/k$ sont deux clôtures algébriques de $k$, on sait qu'il existe toujours un $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow }\overline{k}'$  donc que $\SAut(\overline{k}/k)$ ne dépend pas - à isomorphisme près - du choix de la cl\^^oture algébrique $\overline{k}/k$.\\
+ En particulier, si $\overline{k}/k$, $\overline{k}'/k$ sont deux clôtures algébriques de $k$, on sait qu'il existe toujours un $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow }\overline{k}'$  donc que $\SAut(\overline{k}/k)$ ne dépend pas - à isomorphisme près - du choix de la clôture algébrique $\overline{k}/k$.\\
 
    \textbf{Exemple.} $\CC=\R[T]/T^2+1$. Notons $\overline{T}:= i$.  On a $\SAut(\CC/\R)=\SHom_{Alg/\R}(\R[T]/T^2+1,\CC)=\lbrace \overline{ev}_{i}=\Id, \overline{ev}_{-i}=\overline{-}\rbrace$. \\
 
