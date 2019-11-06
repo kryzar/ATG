@@ -1933,7 +1933,7 @@ on obtient un unique morphisme de $A$-modules $f:=\oplus_{i\in I}f_i:\oplus_{i\i
 	\begin{remarque}On vérifie qu'il coincide avec l'ensemble des éléments de la forme $\sum_{x\in X}a(x)x$, où $a:X\rightarrow A$ est une application à support fini.
 	\end{remarque}
 
-La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $- x: A\rightarrow M,\; a\rightarrow a  x$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propriétés suivantes sont équivalentes :
+La propriété universelle de $\iota_x:A\hookrightarrow A^{(X)}$, $x\in X$ appliquée aux morphismes  de $A$-modules $- x: A\rightarrow M,\; a\rightarrow a  x$, $x\in X$ nous donne un unique morphisme de $A$-modules  $p_X:A^{(X)}\rightarrow M$ tel que $p_X\circ \iota_x(a)=ax$, $x\in X$. On vérifie immédiatement que les propriétés suivantes sont équivalentes :
 
 \begin{enumerate}
 \item  $M=\langle X\rangle$;
@@ -2087,27 +2087,19 @@ un diagramme commutatif de morphismes de $A$-modules dont les lignes horizontale
 
 \section{Lemme}\label{Noetherien}
 
-\begin{lemme}Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
-\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-
-	\item Le $\mathbb{Z}$-module $\Q$ n'est ni noetherien ni artinien. En effet, on a la suite infinie de sous $\Z$-modules
-	$$\cdots\subset p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z\subsetneq p^{-1}\Z\subsetneq \cdots\subsetneq p^{-n}\Z\subset p^{-n-1}\Z\subsetneq \cdots $$
-	\item Le $\mathbb{Z}$-module régulier est noetherien mais pas artinien. Il est noetherien car $\Z$ est principal donc tous ses idéaux sont de type fini (et m\^eme engendrés par un seul élément). Il n'est pas artinien car on a toujours la suite infinie
-	$$\cdots\subset p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z$$
-	\item Le $\mathbb{Z}$-module $\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}\subset \Q/\Z$ est artinien mais pas noetherien. En effet, les éléments de $M:=\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}$ sont tous  d'ordre fini, une puissance de $p$. Pour chaque $n\in \Z$, $n\geq 0$ notons $M_n:=\Z\frac{1}{p^n}+\Z/\Z\subset \Z$. On a la suite strictement croissante de sous-$\Z$-modules 
-	$$M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$$
-	donc $M$ n'est pas noetherien. Soit maintenant $N\subset M$ un sous-$\Z$-module. Distinguons deux cas. 
-	\begin{enumerate}
-	\item Le sup des ordre des éléments de $N$ est fini, égal à  $p^n$. Soit $a\in N$ d'ordre maximal $p^n$; on peut donc écrire $a=\frac{b}{p^{n}} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^n-1$, $p\not| b$. Comme $p$ est premier, il existe $u,v\in \Z$ tels que $ub+vp^n=1$ donc $ua=\frac{1}{p_n}\in N$. Cela montre que $M_n\subset N$. Inversement, tout élément de $a\in N$ s'écrit sous la forme $a=\frac{u}{p^m} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^m-1$, $p\not| b$ et $m\leq n$. Mais on peut aussi écrire  $a=\frac{up^{n-m}}{p^n}$. Cela montre que $N\subset M_n$.
-	\item Il existe une application strictement croissante $\phi:\N\rightarrow \N$ tel que $N$ contient un élément $a_n$ d'ordre exactement $p^{\phi(n)}$, $n\geq 0$. L'argument précédent montre que $\Z a_n=M_{\phi(n)}\subset N$. Donc $M=\cup_{n\geq 0}M_n\subset N$.
-	\end{enumerate}
-	Les seuls sous $\Z$-modules de $M$ sont donc $M$ et  les $M_n$, $n\geq 0$. Comme ils sont strictement ordonnés pour l'inclusion $ M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$, on en déduit que $M$ est artinien.
-	\item Tout $\mathbb{Z}$-module fini est à la fois noetherien et artinien. Si $A$ est une algèbre sur un corps $k$, tout $A$-module de $k$-dimension finie est à la fois noetherien et artinien.
-
-\end{enumerate}
+\begin{lemme}Soit $M$ un $A$-module.
+  Les conditions suivantes sont équivalentes.
+  \begin{enumerate}
+  \item Toute suite croissante de sous-$A$-modules de $M$ est stationnaire.
+  \item Tout ensemble non vide de sous-$A$-modules de $M$ admet un élément
+    maximal pour l'inclusion.
+  \item Tout sous-$A$-module de $M$ est de type fini.
+  \end{enumerate}
 \end{lemme}
 
- Un $A$-module $M$ vérifiant les conditions équivalentes du Lemme \ref{Noetherien} est dit \textit{noethérien}\index{Noethérien (Module)}.\\
+\begin{definition}
+   Un $A$-module $M$ vérifiant les conditions équivalentes du lemme \ref{Noetherien} est dit \textit{noethérien}\index{Noethérien (Module)}.\\
+\end{definition}
 
 \begin{proof} (1) $\Rightarrow$ (2): Si (2) n'était pas vrai, il existerait un ensemble non vide $\mathcal{E}$ de sous $A$-modules de $M$ ne contenant aucun élément maximal pour l'inclusion. Soit $M_{0}\in \mathcal{E}$. Comme $M_{0}$ n'est pas maximal pour l'inclusion, il existe $M_{1}\in\mathcal{E}$ tel que $M_{0}\subsetneq M_{1}$. On itère l'argument avec $M_{1}$ et on construit ainsi une suite strictement croissante infinie de sous $A$-modules de $M$, ce qui contredit (1).\\
  (2) $\Rightarrow$ (3): Soit $M'\subset M$ un sous $A$-module et $\mathcal{E}$ l'ensemble des sous $A$-modules de type fini de $M'$. Comme le module trivial $\lbrace 0\rbrace$ est dans $\mathcal{E}$, $\mathcal{E}$ est non-vide donc admet un élément $M''$ maximal pour l'inclusion. Pour tout $m\in M'$, le $A$-module $M''+Am$ est dans $\mathcal{E}$ et contient $M''$. Par maximalité de $M''$, on a $M''+Am=M''$ donc $m\in M''$.\\
@@ -2127,17 +2119,31 @@ est stationnaire à partir d'un certain rang;
 \item Tout ensemble non vide de sous $A$-modules de $M$ possède un élément minimal pour l'inclusion.
 \end{enumerate}}
 
- Un $A$-module $M$ vérifiant les conditions équivalentes du Lemme \ref{Artinien} est dit \textit{artinien}\index{Artinien (module)}. On laisse en exercice la preuve du Lemme \ref{Artinien}, qui est exactement similaire à celle du Lemme \ref{Noetherien}\\
+Un $A$-module $M$ vérifiant les conditions équivalentes du lemme
+\ref{Artinien} est dit \textit{artinien}\index{Artinien (module)}. On
+laisse en exercice la preuve du lemme \ref{Artinien}, qui est
+exactement similaire à celle du lemme \ref{Noetherien}\\
 
 
 
 
-\section{Exemple}
-\begin{enumerate}
-\item Le $\mathbb{Z}$-module $\Q$ n'est ni noethérien ni artinien.\\
-\item Le $\mathbb{Z}$-module régulier est noethérien mais pas artinien.\\
-\item Le $\mathbb{Z}$-module $\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}\subset \Q/\Z$ est artinien mais pas noethérien (observer que les sous $\mathbb{Z}$-modules de $\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}$ sont les $(\mathbb{Z}\frac{1}{p^{n}}+\mathbb{Z})/\mathbb{Z}$, $n\geq 0$).\\
-\item Tout $\mathbb{Z}$-module fini est à la fois noethérien et artinien. Si $A$ est une algèbre sur un corps $k$, tout $A$-module de $k$-dimension finie est à la fois noethérien et artinien.
+ \section{Exemple}
+ \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+
+	\item Le $\mathbb{Z}$-module $\Q$ n'est ni noetherien ni artinien. En effet, on a la suite infinie de sous $\Z$-modules
+	$$\cdots\subsetneq p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z\subsetneq p^{-1}\Z\subsetneq \cdots\subsetneq p^{-n}\Z\subsetneq p^{-n-1}\Z\subsetneq \cdots $$
+	\item Le $\mathbb{Z}$-module régulier est noetherien mais pas artinien. Il est noetherien car $\Z$ est principal donc tous ses idéaux sont de type fini (et m\^eme engendrés par un seul élément). Il n'est pas artinien car on a toujours la suite infinie
+	$$\cdots\subsetneq p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z$$
+	\item Le $\mathbb{Z}$-module $\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}\subset \Q/\Z$ est artinien mais pas noetherien. En effet, les éléments de $M:=\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}$ sont tous  d'ordre fini, une puissance de $p$. Pour chaque $n\in \Z$, $n\geq 0$ notons $M_n:=\Z\frac{1}{p^n}+\Z/\Z\subset \Z$. On a la suite strictement croissante de sous-$\Z$-modules 
+	$$M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$$
+	donc $M$ n'est pas noetherien. Soit maintenant $N\subset M$ un sous-$\Z$-module. Distinguons deux cas. 
+	\begin{enumerate}
+	\item Le sup des ordres des éléments de $N$ est fini, égal à  $p^n$. Soit $a\in N$ d'ordre maximal $p^n$; on peut donc écrire $a=\frac{b}{p^{n}} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^n-1$, $p\nmid b$. Comme $p$ est premier, il existe $u,v\in \Z$ tels que $ub+vp^n=1$ donc $ua=\frac{1}{p_n}\in N$. Cela montre que $M_n\subset N$. Inversement, tout élément $a\in N$ s'écrit sous la forme $a=\frac{u}{p^m} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^m-1$, $p\nmid b$ et $m\leq n$. Mais on peut aussi écrire  $a=\frac{up^{n-m}}{p^n}$. Cela montre que $N\subset M_n$.
+	\item Il existe une application strictement croissante $\phi:\N\rightarrow \N$ tel que $N$ contient un élément $a_n$ d'ordre exactement $p^{\phi(n)}$, $n\geq 0$. L'argument précédent montre que $\Z a_n=M_{\phi(n)}\subset N$. Donc $M=\cup_{n\geq 0}M_n\subset N$.
+	\end{enumerate}
+	Les seuls sous $\Z$-modules de $M$ sont donc $M$ et  les $M_n$, $n\geq 0$. Comme ils sont strictement ordonnés pour l'inclusion $ M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$, on en déduit que $M$ est artinien.
+	\item Tout $\mathbb{Z}$-module fini est à la fois noetherien et artinien. Si $A$ est une algèbre sur un corps $k$, tout $A$-module de $k$-dimension finie est à la fois noetherien et artinien.
+
 \end{enumerate}
 
 \section{Lemme}\label{Exo1}\textit{
@@ -2186,25 +2192,6 @@ On vérifie que $f^{\infty}(M)$, $f^{-\infty}(M)$ ainsi définis conviennent. Le
 \end{proof}
 
 
-   $$***$$
-
- Syllabus prochaines séances:\\
-$$ \begin{tabular}[t]{l}
-
-Modules indécomposables, Krull-Schmidt\\
-Modules de type fini sur les anneaux principaux\\
-\end{tabular}$$
-  \begin{tabular}[t]{l}
-\textit{anna.cadoret@imj-prg.fr}\\
- IMJ-PRG, Sorbonne Université\\
- Paris, FRANCE
-\end{tabular}
-
-% Ajout de l'index à la table des matières
-\clearpage
-\addcontentsline{toc}{chapter}{Index}
-\printindex
-\end{document}
 \chapter{Modules indécomposables, Krull-schmidt}
 
 
@@ -2394,7 +2381,7 @@ telle que $$M\simeq A/I_{1}\oplus\dots\oplus A/I_{r}.$$}
 \begin{proof} Comme $M$ est artinien et noethérien, d'après le Théorème de Krull-Schmidt   \ref{KS}, $M$ se décompose de façon unique comme somme directe de modules indécomposables. D'après le Théorème \ref{IndecompPrinc}, cette décomposition s'écrit
 
 $$M\simeq \bigoplus_{\frak{p}}\bigoplus_{n\geq 0}A/\frak{p}^{\alpha_{M,\frak{p}}(n)},$$
-où la première somme est indexée par l'ensemble $\Spec(A)$ des idéaux premiers non nuls de $A$ et $$\alpha_{M,-}:\Spec(A)\rightarrow \mathbb{Z}_{\geq 0}^{(\mathbb{Z}_{\geq 0})}$$ est une application à support fini telle que $ \alpha_{M,\frak{p}}=(\alpha_{M,\frak{p}}(n))_{n\geq 0}$ est une suite décroissante dont les termes sont nuls pour $n\gg 0$. Pour chaque $\frak{p}\in \hbox{\rm \Spec}(A)$ choisissons un générateur $p$ de $\frak{p}$ comme $A$-module. Soit $n\geq 0$ le plus grand des entiers tels qu'il existe $\frak{p}\in \Spec(A)$ pour lequel $\alpha_{M,\frak{p}}(n)\not=0$ et posons $$a_{n+1-j}:=\prod_{\frak{p}}p^{\alpha_{M,\frak{p}}(j)},\; j=1,\dots, n.$$
+où la première somme est indexée par l'ensemble $\Spec(A)$ des idéaux premiers non nuls de $A$ et $$\alpha_{M,-}:\Spec(A)\rightarrow \mathbb{Z}_{\geq 0}^{(\mathbb{Z}_{\geq 0})}$$ est une application à support fini telle que $ \alpha_{M,\frak{p}}=(\alpha_{M,\frak{p}}(n))_{n\geq 0}$ est une suite décroissante dont les termes sont nuls pour $n\gg 0$. Pour chaque $\frak{p}\in \Spec(A)$ choisissons un générateur $p$ de $\frak{p}$ comme $A$-module. Soit $n\geq 0$ le plus grand des entiers tels qu'il existe $\frak{p}\in \Spec(A)$ pour lequel $\alpha_{M,\frak{p}}(n)\not=0$ et posons $$a_{n+1-j}:=\prod_{\frak{p}}p^{\alpha_{M,\frak{p}}(j)},\; j=1,\dots, n.$$
 La suite d'idéaux $I_{i}:=Aa_{j}$, $j=1,\dots, n$ vérifie alors la propriété de l'énoncé. Leur unicité résulte de l'unicité dans le théorème de Krull-Schmidt. \end{proof}
 
  On dit que la suite $A\supsetneq  I_{1}\supset I_{2}\supset\dots\supset I_{r}\supsetneq 0$ est la \textit{suite des invariants}\index{Invariants (Modules)} du $A$-module $M$.\\
@@ -2466,7 +2453,7 @@ On a donc montré que si $f,g:M\rightarrow N$ sont des morphismes de $A$-modules
 
 
 
-\paragraph{}\textbf{Exercice.} Soit $M$ un $\Z$-module libre de rang fini $m$ et $\phi\in \SEnd_{\Z}(M) $ tel que $\phi\otimes\Q\in \hbox{\rm \SAut}_{\Q}(M\otimes \Q)$ est inversible. Montrer que $\phi(M)\subset M$ est d'indice fini et calculer $[M:\Phi(M)$.\\
+\paragraph{}\textbf{Exercice.} Soit $M$ un $\Z$-module libre de rang fini $m$ et $\phi\in \SEnd_{\Z}(M) $ tel que $\phi\otimes\Q\in\SAut_{\Q}(M\otimes \Q)$ est inversible. Montrer que $\phi(M)\subset M$ est d'indice fini et calculer $[M:\Phi(M)$.\\
 
 
  \chapter{Produit tensoriel}\index{Produit tensoriel (Modules)}
@@ -2737,6 +2724,25 @@ Coproduits finis&$\oplus_{1\leq i\leq n}M_i$&$A_1\otimes_A\cdots\otimes_AA_n$\\
 Produit&$\prod_{i\in I}M_i$&$\prod_{i\in I}A_i$\\
 \end{tabular}$$
 
+
+$$***$$
+ Syllabus prochaines séances:\\
+$$ \begin{tabular}[t]{l}
+
+Modules indécomposables, Krull-Schmidt\\
+Modules de type fini sur les anneaux principaux\\
+\end{tabular}$$
+  \begin{tabular}[t]{l}
+\textit{anna.cadoret@imj-prg.fr}\\
+ IMJ-PRG, Sorbonne Université\\
+ Paris, FRANCE
+\end{tabular}
+
+% Ajout de l'index à la table des matières
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+\end{document}
 
 
 \part{Extensions de corps et théorie de Galois}
@@ -3207,7 +3213,7 @@ On note en général $P':=\partial P$, $P\in k[T]$ et on dit que $P'$ est le pol
 \item Si $p=0$, $P\in k$.
 \item Si $p>0$, il existe - un unique polynôme $Q\in k[T]$ tel que $P=Q_1(T^p)$. Par récurrence il existe donc un unique $r\in\Z_{\geq 1}$ et un unique polynôme $Q_r\in k[T]$ tels que $Q_r'\not= 0$ et $ P=Q_r(T^{p^r})$
 \end{itemize}
-Ecrivons $P=\sum_{n\geq 0} a_nT^n$ donc $P'=\sum_{n\geq 1} na_nT^{n-1}=0$ si et seulement si $na_n=0$, $n\geq1$. Si $p=0$, cela impose $a_n=0$, $n\geq 1$ donc $P=a_0$. Si $p>0$, cela impose $a_n=0$, $n\geq 1$, $p\not| n$ donc $P= \sum_{n\geq 0} a_{np}T^{np}=\sum_{n\geq 0} a_{np}(T^p)^n=Q(T^p)$ avec $Q_1=\sum_{n\geq 0} a_{np}T^n$.\\
+Ecrivons $P=\sum_{n\geq 0} a_nT^n$ donc $P'=\sum_{n\geq 1} na_nT^{n-1}=0$ si et seulement si $na_n=0$, $n\geq1$. Si $p=0$, cela impose $a_n=0$, $n\geq 1$ donc $P=a_0$. Si $p>0$, cela impose $a_n=0$, $n\geq 1$, $p\nmid n$ donc $P= \sum_{n\geq 0} a_{np}T^{np}=\sum_{n\geq 0} a_{np}(T^p)^n=Q(T^p)$ avec $Q_1=\sum_{n\geq 0} a_{np}T^n$.\\
 \end{enumerate}
 
   \subsection{}\label{Separable1}\textbf{Lemme.} \textit{Pour $P\in k[T]$ les propriétés suivantes sont équivalentes.
@@ -3433,9 +3439,9 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
   \section{}\textbf{Exemples classiques.} Si $k$ est corps  on note $\mu_n(k):=Z_k(T^n-1)\subset k^\times$;   c'est un sous-groupe fini donc cyclique (Lemme 2 de la preuve de \ref{Separable4}) de $k^\times$.
  \subsection{}\textbf{Corps finis.} Pour tout $r\in \Z_{\geq 1}$, $\F_{p^r}/\F_p$ est galoisienne puisque c'est le corps de décomposition du polynôme séparable $T^{p^r}-T\in \F_p[T]$ sur $\F_p$. En outre, $F:\F_{p^r}\rightarrow \F_{p^r}$, $x\rightarrow x^p\in \SGal(\F_{p^r}/\F_p)$. De plus, si $x\in \F_{p^r}^\times$ est un générateur, les éléments $x,F(x),\dots, F^{r-1}(x)$ sont tous distincts donc $F$ est d'ordre $\geq r$. Mais par la caractérisation (3) d'une extension galoisienne $|\SGal(\F_{p^r}/\F_p)|=[ \F_{p^r}:\F_p]=r$. Donc $F:\F_{p^r}\rightarrow \F_{p^r}$ est d'ordre exactement $r$ et $$\SGal(\F_{p^r}/\F_p)=\langle F\rangle\simeq \Z/r.$$
 
- \subsection{}\label{GaloisCyc}\textbf{Extensions cyclotomiques.} Pour tout corps $k$ et $n\in \Z_{\geq 1}$, la $n$-ième \textit{extension cyclotomique}\index{Cyclotomique (Extension de corps)} $k_n/k$ de $k$  est par définition le corps de décomposition  de $T^n-1\in k[T]$ sur $k$. Si on note $p$ la caractéristique de $k$ et si $p>0$ on a, en écrivant $n=p^rm$,  $p\not| m$
+ \subsection{}\label{GaloisCyc}\textbf{Extensions cyclotomiques.} Pour tout corps $k$ et $n\in \Z_{\geq 1}$, la $n$-ième \textit{extension cyclotomique}\index{Cyclotomique (Extension de corps)} $k_n/k$ de $k$  est par définition le corps de décomposition  de $T^n-1\in k[T]$ sur $k$. Si on note $p$ la caractéristique de $k$ et si $p>0$ on a, en écrivant $n=p^rm$,  $p\nmid m$
  $$T^n-1=(T^m-1)^{p^r}$$
- donc $k_n=k_m$. On peut par conséquent supposer que $p\not| n$ donc que $T^n-1\in k[T]$ est séparable et $k_n/k$ galoisienne. Fixons une clôture algébrique $\overline{k}/k$.  Puisque $T^n-1$ est séparable $\mu_n:=\mu_n(\overline{k})=Z_{\overline{k}}(T^n-1) \subset \overline{k}^\times$ est (cyclique) d'ordre $n$. De plus, pour tout $\sigma\in \SGal(k_n/k)$ et $\zeta, \zeta'\in \mu_n$ on a $\sigma(\zeta\zeta')=\sigma(\zeta)\sigma(\zeta')$ puisque $\sigma$ est un morphisme de corps. Donc la restriction à $\mu_n\subset k_n$ induit un morphisme de groupes $$\chi_k:\SGal(k_n/k)\rightarrow \SAut_{Grp}(\mu_n) $$
+ donc $k_n=k_m$. On peut par conséquent supposer que $p\nmid n$ donc que $T^n-1\in k[T]$ est séparable et $k_n/k$ galoisienne. Fixons une clôture algébrique $\overline{k}/k$.  Puisque $T^n-1$ est séparable $\mu_n:=\mu_n(\overline{k})=Z_{\overline{k}}(T^n-1) \subset \overline{k}^\times$ est (cyclique) d'ordre $n$. De plus, pour tout $\sigma\in \SGal(k_n/k)$ et $\zeta, \zeta'\in \mu_n$ on a $\sigma(\zeta\zeta')=\sigma(\zeta)\sigma(\zeta')$ puisque $\sigma$ est un morphisme de corps. Donc la restriction à $\mu_n\subset k_n$ induit un morphisme de groupes $$\chi_k:\SGal(k_n/k)\rightarrow \SAut_{Grp}(\mu_n) $$
  qui est injectif puisque $k_n=k(\mu_n)$. Le choix d'un générateur $\zeta_n$ de $\mu_n$ définit un isomorphisme de groupes  (non canonique) $\Z/n\tilde{\rightarrow} \mu_n$ et donc un isomorphisme de groupes $\SAut_{Grp}(\mu_n)\tilde{\rightarrow} \SAut_{Grp}(\Z/n)=\Z/n^\times$. Modulo ces isomorphismes, on a   $$\sigma(\zeta_n)=\zeta_n^{\chi_k(\sigma)},\; \sigma\in \SGal(k_n/k).$$
  L'image de  $\SGal(k_n/k)$ dans $(\Z/n)^\times$ dépend de l'arithmétique du corps. Voici un exemple.\\
 
@@ -3448,11 +3454,11 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
   \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
   \item $\Phi_n\in \Z[T]$. En effet $T^n-1=\prod_{d|n}\Phi_d$ dans $\Q[T]$. Comme $\Z$ est factoriel, on a en particulier
  $1=C_\Z(T^n-1)=\prod_{d|n}C_\Z(\Phi_d)$. Mais comme   $\Phi_d$  est unitaire , on a $C_\Z(\Phi_d)=\frac{1}{a_d} $ pour un certain $a_d\in \Z_{\geq 1}$, $d|n$. Cela impose $C_\Z(\Phi_d)=1$ \ie{} $\Phi_d\in \Z[T]$, $d|n$.
- \item Soit $\zeta\in \frak{u}_n$ et notons $P$ le polynôme minimal de $\zeta$ sur $\Q$. On veut montrer que $P=\Phi_n$. Comme les éléments de $\frak{u}_n$ sont tous de la forme $\zeta^m$ pour un certain $m\in \Z_{\geq 1}$, $gcd(m,n)=1$,  il suffit de prouver que si $p$ est un nombre premier $\not|n$, $\zeta^p$ est aussi une racine de $P$. Sinon, notons $Q$ le polynôme  minimal de $\zeta^p$ sur $\Q$. Comme $P\not= Q$ et $P,Q|\Phi_n$ dans $\Q[T]$, $PQ|\Phi_n$ dans $\Q[T]$. On peut donc écrire $\Phi_n=PQR$ dans $\Q[T]$. Comme $\Phi_n\in \Z[T]$ et $P,Q,R$ sont unitaires, le même argument de contenu qu'en (1) montre que $P,Q,R\in \Z[T]$.
+ \item Soit $\zeta\in \frak{u}_n$ et notons $P$ le polynôme minimal de $\zeta$ sur $\Q$. On veut montrer que $P=\Phi_n$. Comme les éléments de $\frak{u}_n$ sont tous de la forme $\zeta^m$ pour un certain $m\in \Z_{\geq 1}$, $gcd(m,n)=1$,  il suffit de prouver que si $p$ est un nombre premier $\nmidn$, $\zeta^p$ est aussi une racine de $P$. Sinon, notons $Q$ le polynôme  minimal de $\zeta^p$ sur $\Q$. Comme $P\not= Q$ et $P,Q|\Phi_n$ dans $\Q[T]$, $PQ|\Phi_n$ dans $\Q[T]$. On peut donc écrire $\Phi_n=PQR$ dans $\Q[T]$. Comme $\Phi_n\in \Z[T]$ et $P,Q,R$ sont unitaires, le même argument de contenu qu'en (1) montre que $P,Q,R\in \Z[T]$.
  \item Puisque $Q(\zeta^p)=0$, $P|Q(T^p)$  dans $\Q[T]$ donc - toujours par l'argument de contenu -  dans $\Z[T]$. Notons $F\rightarrow \overline{F}$ le morphisme de réduction modulo $p$, $\Z[T]\rightarrow \Z/p[T]$. On a donc $\overline{P}|\overline{Q}(T^p)=\overline{Q}(T)^p$ dans $\F_p[T]$. Mais puisque $\F_p[T]$ est factoriel, tout diviseur irréductible de $\overline{P}$ est en particulier un diviseur irréductible de $\overline{Q}$. Fixons $\Pi\in \F_p[T]$  un diviseur irréductible  de $\overline{P}$ donc de $\overline{Q}$. On a donc $$\Pi^2|\overline{P}\overline{Q} |\overline{\Phi}_n|T^n-\overline{1}$$ dans $\F_p[T]$. On peut donc écrire $T^n-\overline{1}= \Pi^2\Xi$ dans $\F_p[T]$. En particulier, $nT^{n-1}=2\Pi\Pi'\Xi+\Pi^2\Xi'$ donc $\Pi|T^n$ dans $\F_p[T]$ donc $\Pi| (T^n-\overline{1})-T^n=\overline{1}$ dans $\F_p[T]$: contradiction.
   \end{enumerate}
   \end{proof}
-   \subsection{}\label{GaloisRad}\textbf{Extensions radicielles.} Soit $k$ un corps de caractéristique $p\geq 0$ et $n\in \Z_{\geq 1}$ tel que $|\mu_n:=\mu_n(k)|=n$ \ie{} si $p>0$, $p\not| n$ et $k$ contient toutes les racines $n$-ièmes de $1$. Fixons $a\in k$ et notons $k_{n,a}/k$ un corps de décomposition de $T^n-a$; puisque $T^n-a\in k[T]$ est séparable,  $k_{n,a}/k$ est galoisienne.
+   \subsection{}\label{GaloisRad}\textbf{Extensions radicielles.} Soit $k$ un corps de caractéristique $p\geq 0$ et $n\in \Z_{\geq 1}$ tel que $|\mu_n:=\mu_n(k)|=n$ \ie{} si $p>0$, $p\nmid n$ et $k$ contient toutes les racines $n$-ièmes de $1$. Fixons $a\in k$ et notons $k_{n,a}/k$ un corps de décomposition de $T^n-a$; puisque $T^n-a\in k[T]$ est séparable,  $k_{n,a}/k$ est galoisienne.
    Si $\alpha\in Z_k(T^n-a)$ on a $Z_{\overline{k}}(T^n-a)=Z_k(T^n-a)=\lbrace \zeta \alpha\; |\; \alpha\in \mu_n\rbrace$. Donc $k_{n,a}=k(\alpha)$ et on dispose   d'un morphisme de groupes  injectif
    $$\begin{tabular}[t]{ccc}
    $Gal(k_{n,a}/k)$&$\hookrightarrow$&$\mu_n$\\
@@ -3577,7 +3583,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
   \subsection{}\label{GaloisReso}\textbf{Théorème.} \textit{Un polynôme séparable $P\in k[T]$ est résoluble par radicaux sur $k$ si et seulement si $G_P$ est résoluble.}
 
  \begin{proof} Notons $p\geq 0$ la caractéristique de $k$. Supposons d'abord $P\in k[T]$  résoluble par radicaux sur $k$ et soit  $$K_P={n+1}\supset K_n\supset\cdots \supset K_1\supset K_0=k$$
- une suite de sous-extensions telles que $K_{i+1}=K_i(x_i)$ et $x_i^{n_i}\in K_i$, $i=0,\dots, n$. On peut supposer que $p\not| n_i$ et que $T^{n_i}-x_i^{n_i}\in K_i[T]$ est irréductible sur $K_i$, $i=0,\dots, n$. Comme $K_P/K_i$ est galoisienne et contient $x_i$, $K_P$ contient les racines $n_i$ième de $1$. Donc, en posant $n=pgcm(n_0,\dots, n_n)$, $K_P$ contient les racines $n$ième de $1$. On peut donc supposer que $K_1=k(\zeta)$ pour $\zeta\in K_P$ une racine primitive $n$ième de $1$. Chacune des extensions $K_{i+1}/K_i$ est alors galoisienne de groupe $Gal(K_{i+1}/K_i)$ abélien. Mais $K_i/k$ n'a aucune raison d'être galoisienne pour $n\geq 2$. Remplaçons donc les $K_i/k$ par leur clôture galoisienne. Comme $K_{n+1}/k$ est galoisienne et par minimalité de la clôture galoisienne on a des inclusions
+ une suite de sous-extensions telles que $K_{i+1}=K_i(x_i)$ et $x_i^{n_i}\in K_i$, $i=0,\dots, n$. On peut supposer que $p\nmid n_i$ et que $T^{n_i}-x_i^{n_i}\in K_i[T]$ est irréductible sur $K_i$, $i=0,\dots, n$. Comme $K_P/K_i$ est galoisienne et contient $x_i$, $K_P$ contient les racines $n_i$ième de $1$. Donc, en posant $n=pgcm(n_0,\dots, n_n)$, $K_P$ contient les racines $n$ième de $1$. On peut donc supposer que $K_1=k(\zeta)$ pour $\zeta\in K_P$ une racine primitive $n$ième de $1$. Chacune des extensions $K_{i+1}/K_i$ est alors galoisienne de groupe $Gal(K_{i+1}/K_i)$ abélien. Mais $K_i/k$ n'a aucune raison d'être galoisienne pour $n\geq 2$. Remplaçons donc les $K_i/k$ par leur clôture galoisienne. Comme $K_{n+1}/k$ est galoisienne et par minimalité de la clôture galoisienne on a des inclusions
 
  $$\xymatrix{K_{n+1}\ar@{=}[d]&\supset&K_n\ar@{_{(}->}[d]&\supset&\cdots&\supset&K_2\ar@{_{(}->}[d]&\supset &K_1\ar@{=}[d]\supset& K_0=k\ar@{=}[d]\\
 K_{n+1} &\supset&\widehat{K}_n&\supset&\cdots&\supset&\widehat{K}_2&\supset & K_1\supset& K_0=k\\}$$
