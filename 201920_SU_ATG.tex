@@ -2253,18 +2253,18 @@ deux suites exactes de $A$-modules. Alors $\beta'\alpha$ est surjectif si et seu
 \chapter{Modules de type fini sur les anneaux principaux}
 
 
-\section{}\label{Strategy}Soit $M$ un $A$-module. Un élément $m\in M$ est dit \textit{de torsion}\index{Torsion (module)} s'il existe $0\not=a \in A$ tel que $am=0$. On note $T_{M}\subset M$ l'ensemble des éléments de torsion de $M$. On vérifie immédiatement que c'est un sous $A$-module et que le $A$-module $M/T_{M}$ est sans torsion. Le $A$-module $M$ s'insère donc dans la suite exacte courte
+\section{Préambule}\label{Strategy}Supposons que $A$ soit un anneau principa, et soit $M$ un $A$-module. Un élément $m\in M$ est dit \textit{de torsion}\index{Torsion (module)} s'il existe $0\not=a \in A$ tel que $am=0$. On note $T_{M}\subset M$ l'ensemble des éléments de torsion de $M$. On vérifie immédiatement que c'est un sous $A$-module et que le $A$-module $M/T_{M}$ est sans torsion. Le $A$-module $M$ s'insère donc dans la suite exacte courte
 $$(*)\;\; 0\rightarrow T_{M}\rightarrow M\rightarrow M/T_{M}\rightarrow 0,$$
 où $T_{M}$ est de torsion et $M/T_{M}$ est sans torsion. Cela indique la voie pour classifier les $A$-modules de type fini: montrer que la suite exacte courte $(*)$ se scinde, ce qui par  le Lemme \ref{SuiteExacte}.1 impliquera automatiquement que $$M\tilde{\rightarrow }T_{M}\oplus M/T_{M}$$ et réduit donc le problème de la classification des $A$-modules de type fini à
 \begin{itemize}
 \item la classification des $A$-modules de type fini sans torsion;
 \item la classification des $A$-modules de type fini de torsion.\\
 \end{itemize}
- En fait, on va plutôt procéder dans l'ordre suivant. Notons que comme $A$ est noterien et $M$ de type fini, $M$ est noethérien. Donc $T_M$ et $M/T_M$ sont aussi noethériens donc de type fini.\\
+ En fait, on va plutôt procéder dans l'ordre suivant. Notons que comme $A$ est noethérien (car principal) et $M$ de type fini, $M$ est noethérien. Donc $T_M$ et $M/T_M$ sont aussi noethériens donc de type fini.\\
 \begin{enumerate}
 \item Tout d'abord, la raison pour laquelle on se restreint aux $A$-modules de type fini provient du lemme suivant.\\
 
-\ref{Strategy}.1 \textbf{Lemme.} \textit{Un $A$-module de type fini est noethérien. Un $A$-module de type fini et de torsion est noethérien et artinien.}
+		\begin{lemme}Un $A$-module de type fini est noethérien. Un $A$-module de type fini et de torsion est noethérien et artinien.\end{lemme}
 
 \begin{proof}   Comme $A$ est principal, tous ses sous $A$-modules (=idéaux) sont de type fini donc $A$ est noethérien; la première partie de l'énoncé résulte donc du Lemme \ref{Exo1}.  Supposons $M$ de torsion. Soit $m_{1},\dots,m_{r}\in M$ un système de générateurs. Pour chaque $i=1,\dots, r$ on peut trouver un élément $0\not=a_{i}\in A$ tel que $a_{i}m_{i}=0$. On a donc une factorisation
 $$\xymatrix{A^{r}\ar@{->>}[r]^{(m_{1},\dots,m_{r})}\ar@{->>}[d]&M\\
@@ -2278,7 +2278,7 @@ Chacun de ces idéaux est de la forme $I_{n}=Aa_{n}$ avec $0\not= a_{n}\in A$ et
 \item On va ensuite montrer que tout  $A$-modules   libre (sur un anneau intègre) est classifié par son rang et qu'un $A$-module de type fini sans torsion sur un anneau principal   est   libre de rang fini. Cela permettra aussi d'appliquer l'observation suivante.\\
 
 
-\ref{Strategy}.2 \textbf{Lemme.} \textit{Si $M''$ est un $A$-module libre alors toute suite exacte courte de $A$-modules $0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0$ est scindée.}
+	\begin{lemme}Si $M''$ est un $A$-module libre alors toute suite exacte courte de $A$-modules $0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0$ est scindée.\end{lemme}
 \begin{proof}On construit une section en utilisant la propriété universelle de la somme directe. Plus précisément, quitte à composer $v$ par un isomorphisme,  on peut supposer que $M''=A^{(I)}$. Pour chaque $i\in I$ notons $e_i=(\delta_{i,j})_{j\in I}\in A^{(I)}$ et choisissons   $m_i\in I$ tel que $v(m_i)=e_i$. Le choix de $m_i$ définit un   morphisme de $A$-module $s_i:Ae_i\stackrel{e_i\rightarrow m_i}{\rightarrow}Am_i\hookrightarrow M $. Par proprièté universelle des $\iota_i:Ae_i\rightarrow A^{(I)}$, $i\in I$, on en déduit un unique morphisme $s:A^{(I)}\rightarrow M$ tel que $s\circ \iota_i=s_i$, $i\in I$. Par construction $v\circ s=\Id$. On conclut par l'Exercice \ref{SuiteExacte}.1.
 \end{proof}
 \item D'après  le Lemme \ref{Strategy}.1 et le Théorème de Krull-Schmidt \ref{KS}, $T_M$ est totalement décomposable; le point sera donc de classifier les modules indécomposables de torsion sur un anneau principal $A$. On montrera que ce sont exactement les $A$-modules de la forme $A/\frak{p}^n$, où $\frak{p}$ est un idéal premier (=maximal) de $A$ et $n\geq 0$.
@@ -2289,7 +2289,7 @@ Chacun de ces idéaux est de la forme $I_{n}=Aa_{n}$ avec $0\not= a_{n}\in A$ et
 
 \section{Classification des $A$-modules de type fini sans torsion} Supposons d'abord que $A$ est seulement un anneau commutatif intègre.\\
 
-\subsection{}\textbf{Lemme.}\label{Free1}\textit{Un $A$-module de type fini sans torsion est isomorphe à un sous $A$-module d'un $A$-module libre de type fini. }
+\begin{lemme}Un $A$-module de type fini sans torsion est isomorphe à un sous $A$-module d'un $A$-module libre de type fini.\end{lemme}
 \begin{proof} Soit $m_{1},\dots m_{r}\in M$ un système de générateur. L'ensemble
 $$\mathcal{S}:=\lbrace I\subset \lbrace 1,\dots, r\rbrace\; |\; A^{I}\stackrel{(m_{i})_{i\in I}}{\hookrightarrow} M\rbrace$$
 est non vide puisque $M$ est sans torsion donc contient un élément $I\subset \lbrace 1,\dots, r\rbrace$ maximal  pour l'inclusion. Notons $$N:=\sum_{i\in I}Am_{i}\simeq A^{I}.$$ Par maximalité de $I$, pour chaque $j\in I^{c}:=\lbrace 1,\dots, r\rbrace\setminus I $ il existe $0\not= a_{j}\in A$ tel que $a_{j}m_{j}\in N$. Notons $a:=\prod_{j\in I^{c}}a_{j}\in A$; c'est un élément non nul de $A$ puisque $A$ est intègre. On en déduit que le morphisme de $A$-module
@@ -2299,11 +2299,11 @@ $m$&$\rightarrow$&$am$
 \end{tabular}$$
 est injectif, puisque $M$ est sans torsion. \end{proof}
 
-\subsection{}\textbf{Lemme.} (Classification des $A$-modules libres de type fini par le rang)\label{Rang} \textit{
+\begin{lemme}[Classification des $A$-modules libres de type fini par le rang]\label{Rang}
 \begin{enumerate}
 \item Le $A$-module libre $A^{(I)}$ est de type fini si et seulement si $|I|<+\infty$.
 \item Soit $I, J $ deux ensembles finis. Alors $A^{(I)}$ et $A^{(J)}$ sont isomorphes comme $A$-modules si et seulement si $|I|=|J|$.
-\end{enumerate} }
+\end{enumerate}\end{lemme}
 \begin{proof}L'idée est de se ramener au cas des espaces vectoriels sur un corps pour lesquels le lemme est connu. Soit donc $M$ un $A$-module libre de type fini et $\frak{m}\subset A$ un idéal maximal. Comme $M$ est de type fini, le $k:=A/\frak{m}$ espace vectoriel $M/\frak{m}M$ est de dimension finie - disons $r$ - sur $k$. Soit $I$ un ensemble pour lequel on a un isomorphisme de $A$-modules
 $$f:A^{(I)}\tilde{\rightarrow}M.$$
 Posons $m_{i}:=f(e_{i})$, où $e_{i}$ est le '$i$-ème vecteur de la base canonique', $i\in I$. On va montrer que $|I|=r$. Pour cela, il suffit de montrer que les images $\overline{m}_{i}$, $i\in I$ des $m_{i}$, $i\in I$ dans $M/\frak{m}M$ forment une $k$-base de $M/\frak{m}M$. Puisque $f$ est surjective, les $\overline{m}_{i}$, $i\in I$ forment une famille génératrice. Montrons qu'elle est libre. Soit $a:I\rightarrow A$ à support fini telle que
@@ -2314,14 +2314,14 @@ Comme $M=\oplus_{i\in I}Am_{i}$ et $A\tilde{\rightarrow} Am_i$, $a\rightarrow am
 
  Supposons maintenant que \textit{$A$ est principal}.
 
-\subsection{}\textbf{Lemme.}\label{Free2} \textit{Un sous $A$-module d'un $A$-module libre de rang fini $r$ est un $A$-module libre de rang $\leq r$.}
+	\begin{lemme}\label{Free2} Un sous $A$-module d'un $A$-module libre de rang fini $r$ est un $A$-module libre de rang $\leq r$.\end{lemme}
 
 \begin{proof} On procède par récurrence sur  $r$. Si $r=1$, cela résulte du fait que $A$ est principal. Supposons que l'énoncé du Lemme \ref{Free2} est vérifié pour tout $A$-module libre de rang $\leq r$. Soit $M\subset A^{\oplus (r+1)}$ un sous $A$-module. Notons $p_{r+1}:A^{\oplus (r+1)}\twoheadrightarrow A$ la $r+1$-ième projection canonique. Comme $\ker(p_{r+1})\simeq A^{\oplus r}\subset A^{\oplus (r+1)}$ est un $A$-module libre de rang $r$, par hypothèse de récurrence, le sous $A$-module $M\cap \ker(p_{r+1})\subset \ker(p_{r+1})$ est un $A$-module libre de rang $s\leq r$. Comme $p_{r+1}(M)\subset A$ est un idéal et que $A$ est principal, il existe $d_0\in A$ et $m_{0}\in M$ tel que $p_{r+1}(M)=Ad_0\stackrel{\cdot d_0}{\tilde{\leftarrow}}A$ et on conclut par le Lemme \ \ref{Strategy}.2. \end{proof}
 
 
  On vient donc de montrer
 
- \subsection{}\textbf{Corollaire.} \textit{Un $A$-module de type fini sans torsion est libre de rang fini. Plus précisément, l'application $\Z_{\geq 0}\rightarrow \hbox{\rm Mod}_{/A}$, $r\rightarrow A^{\oplus r}$ induit une bijection de  $\Z_{\geq 0}$ sur l'ensemble des classes d'isomorphismes de $A$-modules de type fini  sans torsion.}\\
+	\begin{corollaire}Un $A$-module de type fini sans torsion est libre de rang fini. Plus précisément, l'application $\Z_{\geq 0}\rightarrow \hbox{\rm Mod}_{/A}$, $r\rightarrow A^{\oplus r}$ induit une bijection de  $\Z_{\geq 0}$ sur l'ensemble des classes d'isomorphismes de $A$-modules de type fini  sans torsion.\end{corollaire}
 
  En particulier, $M/T_{M}$ est un $A$-module libre de rang fini - disons $r$ - donc, par le Lemme \ref{Strategy}.2 on a $$M\simeq T_{M}\oplus M/T_{M}\simeq T_{M}\oplus A^{\oplus r}.$$
  Il reste  à classifier les $A$-modules  de type fini qui sont de torsion.
@@ -2330,9 +2330,9 @@ Comme $M=\oplus_{i\in I}Am_{i}$ et $A\tilde{\rightarrow} Am_i$, $a\rightarrow am
 
  Soit $A$ un anneau principal.
 
-\subsection{}\textbf{Théorème.}\label{IndecompPrinc}\textit{Les $A$-modules de type fini de torsion qui sont indécomposables sont exactement les $A$-modules de la forme
+	\begin{theoreme}\label{IndecompPrinc}Les $A$-modules de type fini de torsion qui sont indécomposables sont exactement les $A$-modules de la forme
 $A/\frak{p}^{n}$,
-où $\frak{p}\subset A$ est un idéal premier non nul et $n\in\mathbb{Z}_{\geq 0}$.}
+	où $\frak{p}\subset A$ est un idéal premier non nul et $n\in\mathbb{Z}_{\geq 0}$.\end{theoreme}
 \begin{proof} Vérifions d'abord qu'un $A$-module de la forme $A/\frak{p}^{n}$ est indécomposable. Observons que
 $$\SEnd_{A}(A/\frak{p}^{n})\simeq \SEnd_{A/\frak{p}^{n}}(A/\frak{p}^{n})\simeq A/\frak{p}^{n}$$
 a un unique idéal maximal  (c'est par exemple la factorialité de $A$) - $\frak{p}/\frak{p}^{n}$, donc est local (ici $A/\frak{p}^n$ est commutatif). Le fait que $A/\frak{p}^{n}$ est indécomposable résulte alors du lemme \ref{EndoIndecomp}.\\
@@ -2342,24 +2342,22 @@ l'idéal annulateur de $m$ et on se fixe un générateur $a_{m}\in Ann_{A}(m)$. 
 $$Ann_{A}(M):=\bigcap_{m\in M}Ann_{A}(m)\subset A$$
 l'idéal annulateur de $M$.\\
 
- \ref{IndecompPrinc}.1 \textbf{Lemme.}\textit{
-Il existe $m\in M$ tel que $Ann_{A}(m)=Ann_{A}(M)$. }\\
-
-
+\ref{IndecompPrinc}.1.\begin{lemme}
+Il existe $m\in M$ tel que $Ann_{A}(m)=Ann_{A}(M)$.
+\end{lemme}
 
  Notons $B:=A/Ann_{A}(m)=A/Ann_{A}(M)$ et considérons la suite exacte courte
 $$0\rightarrow B\stackrel{\cdot m}{\rightarrow} M\rightarrow M/Am\rightarrow 0. $$
-On notera que comme $Ann_{A}(M)$ annnule $M$, cette suite est également une suite de $B$-modules. \\
+On notera que comme $Ann_{A}(M)$ annnule $M$, cette suite est également une suite de $B$-modules.
 
- \ref{IndecompPrinc}.2 \textbf{Lemme.} \textit{La suite exacte courte de $B$-modules $$0\rightarrow B\stackrel{\cdot m}{\rightarrow} M\rightarrow M/Am\rightarrow 0$$
-est scindée. }\\
-
+	\begin{lemme}\label{IndecompPrinc1}La suite exacte courte de $B$-modules $$0\rightarrow B\stackrel{\cdot m}{\rightarrow} M\rightarrow M/Am\rightarrow 0$$
+est scindée.\end{lemme}
 
  Elle est donc \textit{a fortiori} scindée comme suite exacte courte de $A$-modules \ie{}
 $$M\simeq A/Ann_{A}(M)\oplus M/Am$$
 comme $A$-module. Mais comme $M$ est indécomposable (et non nul), on en déduit $M=Am\simeq A/Ann_{A}(M)=A/Aa_{m}$. On conclut par la factorialité de $A$, le Lemme  des restes Chinois et l'indécomposabilité de $M$. \end{proof}
 
-\textit{Preuve du lemme \ref{IndecompPrinc}.1.} Soit $m_{1},\dots, m_{r}$ un système de générateurs de $M$ comme $A$-module. On a $$Ann_{A}(M)=\cap_{1\leq i\leq r}Ann_{A}(m_{i}).$$
+	\textit{Preuve du lemme \ref{IndecompPrinc1} }Soit $m_{1},\dots, m_{r}$ un système de générateurs de $M$ comme $A$-module. On a $$Ann_{A}(M)=\cap_{1\leq i\leq r}Ann_{A}(m_{i}).$$
  Il suffit donc de montrer que pour tout $m_{1},m_{2}\in M$ il existe $m_{3}\in M$ tel que $$Ann_{A}(m_{1})\cap Ann_{A}(m_{2})=Ann_{A}(m_{3}).$$
 Ecrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant la décomposition en produit de facteurs irréductibles de $a_{1}$ et $a_{2}$, on peut écrire $a_{1}=\alpha_{1}\beta_{1}$ et $a_{2}=\alpha_{2}\beta_{2}$ avec $\alpha_{1}$, $\alpha_{2}$ premier entre eux de produit 'le' plus petit commun multiple de $a_{1}$ et $a_{2}$. Posons $m_{3}:=\beta_{1}m_{1}+\beta_{2}m_{2}$ et vérifions que $m_{3}$ convient. On a clairement $Ann_{A}(m_{1})\cap Ann_{A}(m_{2})\subset Ann_{A}(m_{3})$. Pour l'inclusion réciproque, soit $a\in Ann_{A}(m_{3})$. On a $a\beta_{1}m_{1}=-a\beta_{2}m_{2}$. Par Bézout, il existe $u,v\in A$ tels que $u\alpha_{1}+v\alpha_{2}=1$. On a donc
 $$a\beta_{1}m_{1}=(u\alpha_{1}+v\alpha_{2})a\beta_{1}m_{1}=au\underbrace{a_{1}m_{1}}_{=0}+v\alpha_{2}a\beta_{1}m_{1}= -av\underbrace{a_{2}m_{2}}_{=0}=0.$$
