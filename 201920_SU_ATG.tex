@@ -126,6 +126,7 @@
 \DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Anna}{Ann}
 
 
 \newcommand{\Q}{\mathbb{Q}}
@@ -1129,7 +1130,7 @@ Noter que comme $P$ n'a qu'un nombre fini de coefficients non nuls, les $v_p(P)$
 \item  Pour tout $p\in\mathcal{P}_A$, $\overline{F}\not=0$ in $A/pA[X]$,
 \end{enumerate}
 où $\overline{F}$ est l'image de $F$ par le morphisme canonique $A[X]\rightarrow A[X]/pA[X]\tilde{\rightarrow} (A/pA)[X]$. La propriété (1) est  stable par produit puisque $A[X]$ est un anneau et la propriété (2) est stable par produit car $(A/pA)[X]$ est aussi un anneau intègre; ici on utilise que $p$ est irréductible donc premier puisque $A$ est factoriel.\end{proof}
-%Ecrivons
+%Écrivons
 %$$\begin{tabular}[t]{ll}
 %$P=a_0+\cdots+a_mX^m$&, $a_m\not=0$\\
 %$Q=b_0+\cdots+b_nX^n$&, $b_n\not=0$\\
@@ -1188,7 +1189,7 @@ avec $u\in A^\times$ et comme $F$ est par définition non inversible et ne peut 
  \item \textbf{(Critère de réduction)} Soit $A,B$ des anneaux intègres et $L$ le corps des fractions de $B$. Soit $\phi:A\rightarrow B$ un morphisme d'anneaux. La propriété universelle de $\iota_A:A\rightarrow A[X]$ appliquée avec $A\stackrel{\phi}{\rightarrow}B\stackrel{\iota_B}{\hookrightarrow} B[X]$ donne un unique morphisme d'anneaux $\tilde{\phi}:A[X]\rightarrow B[X]$ tel que $\tilde{\phi}\circ \iota_A=\iota_B\circ\phi$ (explicitement $\tilde{\phi}(\sum_{n\geq 0}a_nX^n)=\sum_{n\geq 0}\phi(a_n)X^n$). Soit $P\in A[X]$. Montrer  que si $\deg(\tilde{\phi}(P))=\deg(P)$ et $\tilde{\phi}(P)$ est irréductible dans $L[X]$ alors $P$ ne peut s'écrire sous la forme $P=P_1P_2$ avec $P_1,P_2\in A[X]$ de degré $\geq 1$.\\
 
 
-   Correction. \textit{Ecrivons  $P=P_1P_2$ avec   $P_1,P_2\in A[X]$ et $\deg(P_1)\leq \deg(P_2)$. On veut montrer que $P_1\in A$. Notons que par construction $\deg(\tilde{\phi}(P))\leq \deg(P)$. Puisque $\tilde{\phi}:A[X]\rightarrow B[X]$ est un morphisme d'anneaux, on a $\tilde{\phi}(P)=\tilde{\phi}(P_1)\tilde{\phi}(P_2)$ dans $L[X]$. Puisque  $\tilde{\phi}(P)\in L[X]$ est irréductible par hypothèse, on a $\tilde{\phi}(P_1)\in K$ ou $\tilde{\phi}(P_2)\in K$. Enfin, puisque $$\deg(P_1)+\deg(P_2)\geq \deg(\tilde{\phi}(P_1))+\deg(\tilde{\phi}(P_2))=\deg(\tilde{\phi}(P))=\deg(P)=\deg(P_1)+\deg(P_2),$$
+   Correction. \textit{Écrivons  $P=P_1P_2$ avec   $P_1,P_2\in A[X]$ et $\deg(P_1)\leq \deg(P_2)$. On veut montrer que $P_1\in A$. Notons que par construction $\deg(\tilde{\phi}(P))\leq \deg(P)$. Puisque $\tilde{\phi}:A[X]\rightarrow B[X]$ est un morphisme d'anneaux, on a $\tilde{\phi}(P)=\tilde{\phi}(P_1)\tilde{\phi}(P_2)$ dans $L[X]$. Puisque  $\tilde{\phi}(P)\in L[X]$ est irréductible par hypothèse, on a $\tilde{\phi}(P_1)\in K$ ou $\tilde{\phi}(P_2)\in K$. Enfin, puisque $$\deg(P_1)+\deg(P_2)\geq \deg(\tilde{\phi}(P_1))+\deg(\tilde{\phi}(P_2))=\deg(\tilde{\phi}(P))=\deg(P)=\deg(P_1)+\deg(P_2),$$
   on a $\deg(\tilde{\phi}(P_i))=\deg(P_i)$, $i=1,2$. Donc (on a supposé $\deg(P_1)\leq \deg(P_2)$) $\tilde{\phi}(P_1)\in K$, ce qui implique $\deg(P_1)=\deg(\tilde{\phi}(P_1))=0$ donc $P_1\in A$ comme annoncé.}\\
 
   \textbf{Remarque.} La terminologie `critère de réduction' vient du fait qu'on applique en général ce critère avec les morphismes   $p_I: A\twoheadrightarrow A/I$ de réduction modulo un idéal $I\subset A$. En général, on prend même $I=\frak{m}$ maximal,  ce qui permet de se ramener au cas de l'algèbre de polynôme $(A/\frak{m})[X]$ qui est un anneau euclidien puisque $A/\frak{m}$ est un corps. Typiquement, si $A=\Z$, on peut chercher un `bon' nombre premier  $p$ tel que la réduction modulo $p$ de $P\in \Z[X]$ soit irréductible dans  $\Z/p[X]$. On verra dans la partie du cours sur la théorie de Galois, qu'on comprend plutôt bien les   irréductibles de $\Z/p[X]$.\\
@@ -2253,7 +2254,7 @@ deux suites exactes de $A$-modules. Alors $\beta'\alpha$ est surjectif si et seu
 \chapter{Modules de type fini sur les anneaux principaux}
 
 
-\section{Préambule}\label{Strategy}Supposons que $A$ soit un anneau principa, et soit $M$ un $A$-module. Un élément $m\in M$ est dit \textit{de torsion}\index{Torsion (module)} s'il existe $0\not=a \in A$ tel que $am=0$. On note $T_{M}\subset M$ l'ensemble des éléments de torsion de $M$. On vérifie immédiatement que c'est un sous $A$-module et que le $A$-module $M/T_{M}$ est sans torsion. Le $A$-module $M$ s'insère donc dans la suite exacte courte
+\section{Préambule}\label{Strategy}Supposons que $A$ soit un anneau principal, et soit $M$ un $A$-module. Un élément $m\in M$ est dit \textit{de torsion}\index{Torsion (module)} s'il existe $0\not=a \in A$ tel que $am=0$. On note $T_{M}\subset M$ l'ensemble des éléments de torsion de $M$. On vérifie immédiatement que c'est un sous $A$-module et que le $A$-module $M/T_{M}$ est sans torsion. Le $A$-module $M$ s'insère donc dans la suite exacte courte
 $$(*)\;\; 0\rightarrow T_{M}\rightarrow M\rightarrow M/T_{M}\rightarrow 0,$$
 où $T_{M}$ est de torsion et $M/T_{M}$ est sans torsion. Cela indique la voie pour classifier les $A$-modules de type fini: montrer que la suite exacte courte $(*)$ se scinde, ce qui par  le Lemme \ref{SuiteExacte}.1 impliquera automatiquement que $$M\tilde{\rightarrow }T_{M}\oplus M/T_{M}$$ et réduit donc le problème de la classification des $A$-modules de type fini à
 \begin{itemize}
@@ -2342,6 +2343,7 @@ l'idéal annulateur de $m$ et on se fixe un générateur $a_{m}\in Ann_{A}(m)$. 
 $$Ann_{A}(M):=\bigcap_{m\in M}Ann_{A}(m)\subset A$$
 l'idéal annulateur de $M$.\\
 
+	\phantomsection
 \ref{IndecompPrinc}.1.\begin{lemme}
 Il existe $m\in M$ tel que $Ann_{A}(m)=Ann_{A}(M)$.
 \end{lemme}
@@ -2357,25 +2359,26 @@ est scindée.\end{lemme}
 $$M\simeq A/Ann_{A}(M)\oplus M/Am$$
 comme $A$-module. Mais comme $M$ est indécomposable (et non nul), on en déduit $M=Am\simeq A/Ann_{A}(M)=A/Aa_{m}$. On conclut par la factorialité de $A$, le Lemme  des restes Chinois et l'indécomposabilité de $M$. \end{proof}
 
-	\textit{Preuve du lemme \ref{IndecompPrinc1} }Soit $m_{1},\dots, m_{r}$ un système de générateurs de $M$ comme $A$-module. On a $$Ann_{A}(M)=\cap_{1\leq i\leq r}Ann_{A}(m_{i}).$$
+	\textit{Preuve du lemme \ref{IndecompPrinc1} }Soit $m_{1},\dots, m_{r}$ un système de générateurs de $M$ comme $A$-module. On a $$Ann_{A}(M)=\bigcap_{1\leq i\leq r}Ann_{A}(m_{i}).$$
  Il suffit donc de montrer que pour tout $m_{1},m_{2}\in M$ il existe $m_{3}\in M$ tel que $$Ann_{A}(m_{1})\cap Ann_{A}(m_{2})=Ann_{A}(m_{3}).$$
-Ecrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant la décomposition en produit de facteurs irréductibles de $a_{1}$ et $a_{2}$, on peut écrire $a_{1}=\alpha_{1}\beta_{1}$ et $a_{2}=\alpha_{2}\beta_{2}$ avec $\alpha_{1}$, $\alpha_{2}$ premier entre eux de produit 'le' plus petit commun multiple de $a_{1}$ et $a_{2}$. Posons $m_{3}:=\beta_{1}m_{1}+\beta_{2}m_{2}$ et vérifions que $m_{3}$ convient. On a clairement $Ann_{A}(m_{1})\cap Ann_{A}(m_{2})\subset Ann_{A}(m_{3})$. Pour l'inclusion réciproque, soit $a\in Ann_{A}(m_{3})$. On a $a\beta_{1}m_{1}=-a\beta_{2}m_{2}$. Par Bézout, il existe $u,v\in A$ tels que $u\alpha_{1}+v\alpha_{2}=1$. On a donc
+Écrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant la décomposition en produit de facteurs irréductibles de $a_{1}$ et $a_{2}$, on peut écrire $a_{1}=\alpha_{1}\beta_{1}$ et $a_{2}=\alpha_{2}\beta_{2}$ avec $\alpha_{1}$, $\alpha_{2}$ premier entre eux de produit 'le' plus petit commun multiple de $a_{1}$ et $a_{2}$. Posons $m_{3}:=\beta_{1}m_{1}+\beta_{2}m_{2}$ et vérifions que $m_{3}$ convient. On a clairement $Ann_{A}(m_{1})\cap Ann_{A}(m_{2})\subset Ann_{A}(m_{3})$. Pour l'inclusion réciproque, soit $a\in Ann_{A}(m_{3})$. On a $a\beta_{1}m_{1}=-a\beta_{2}m_{2}$. Par Bézout, il existe $u,v\in A$ tels que $u\alpha_{1}+v\alpha_{2}=1$. On a donc
 $$a\beta_{1}m_{1}=(u\alpha_{1}+v\alpha_{2})a\beta_{1}m_{1}=au\underbrace{a_{1}m_{1}}_{=0}+v\alpha_{2}a\beta_{1}m_{1}= -av\underbrace{a_{2}m_{2}}_{=0}=0.$$
 Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{2}$ en particulier $a$ est un multiple commun de $\alpha_{1}$ et $\alpha_{2}$ donc de $\alpha_{1}\alpha_{2}=\ppcm(a_{1},a_{2})$. Donc $a\in Ann_{A}(m_{1})\cap Ann_{A}(m_{2})$. $\square$\\
 
-\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Am$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
+\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_Agc(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Am$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
 ensemble ordonné inductif donc admet un élément maximal $(u,N)$ (en fait, ici, on peut invoquer le fait que $M$ est noethérien, ce qui permet d'éviter le Lemme de Zorn). Montrons que $N=M$. Sinon, soit $\mu\in M\setminus N$ et montrons qu'on peut étendre $u:N\rightarrow B$ en $u_1:N+B\mu\rightarrow B$. Pour cela, il faut `deviner' la bonne valeur de $u_1(\mu)$. Introduisons l'idéal
 $$\frak{i}:=\lbrace b\in B\; |\; b\mu\in N\rbrace\subset B.$$
-Ecrivons $Ann_A(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \ie{}
+Écrivons $Ann_Agc(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \ie{}
  $a=\alpha   b$ pour un certain $\alpha\in A$.
 Notons $u(b\mu)=\overline{c}$ (on note $\overline{-}$ les classes modulo $Aa$). On a $u(a\mu)=0=\alpha \overline{c}$ donc $\alpha c=qa=q\alpha b$ dans $A$. Mais comme $A$ est intègre $c=q  b$. On a donc envie de poser $u_1(\mu)=\overline{q}$. Définissons $u_0:N\oplus B\rightarrow B$ par $u_0(n\oplus \lambda )=u(n)+   \lambda\overline{q}$. On a $$\ker(N\oplus B \twoheadrightarrow N+B\mu, n\oplus \lambda\rightarrow n+\lambda \mu)=\lbrace \beta b\mu\oplus -\beta b\; |\; \beta\in B\rbrace\subset \ker(u_0)$$
 En effet,  $u_0( \beta b\mu\oplus -\beta b)=u(\beta b\mu)-\beta b\overline{q}=\beta u(b\mu)-\beta b\overline{q}=\beta \overline{c}-\beta b\overline{q}=0$.
 Donc $u_0:N\oplus B\rightarrow B$ passe au quotient en $u_1:N+B\mu\rightarrow B$ avec  $u_1|_N=u$. Cela contredit la maximalité de $(u,N)$. $\square$\\
 
 
-\subsection{}\textbf{Corollaire.}\label{StructureTors} \textit{Soit $M$ un $A$-module de type fini de torsion. Il existe une unique suite décroissante d'idéaux
+\begin{corollaire}\label{StructureTors}Soit $M$ un $A$-module de type fini de torsion. Il existe une unique suite décroissante d'idéaux
 $$A\supsetneq I_{1}\supset I_{2}\supset\dots\supset I_{r}\supsetneq 0$$
-telle que $$M\simeq A/I_{1}\oplus\dots\oplus A/I_{r}.$$}
+telle que $$M\simeq A/I_{1}\oplus\dots\oplus A/I_{r}.$$
+\end{corollaire}
 \begin{proof} Comme $M$ est artinien et noethérien, d'après le Théorème de Krull-Schmidt   \ref{KS}, $M$ se décompose de façon unique comme somme directe de modules indécomposables. D'après le Théorème \ref{IndecompPrinc}, cette décomposition s'écrit
 
 $$M\simeq \bigoplus_{\frak{p}}\bigoplus_{n\geq 0}A/\frak{p}^{\alpha_{M,\frak{p}}(n)},$$
@@ -3244,7 +3247,7 @@ On note en général $P':=\partial P$, $P\in k[T]$ et on dit que $P'$ est le pol
 \item Si $p=0$, $P\in k$.
 \item Si $p>0$, il existe - un unique polynôme $Q\in k[T]$ tel que $P=Q_1(T^p)$. Par récurrence il existe donc un unique $r\in\Z_{\geq 1}$ et un unique polynôme $Q_r\in k[T]$ tels que $Q_r'\not= 0$ et $ P=Q_r(T^{p^r})$
 \end{itemize}
-Ecrivons $P=\sum_{n\geq 0} a_nT^n$ donc $P'=\sum_{n\geq 1} na_nT^{n-1}=0$ si et seulement si $na_n=0$, $n\geq1$. Si $p=0$, cela impose $a_n=0$, $n\geq 1$ donc $P=a_0$. Si $p>0$, cela impose $a_n=0$, $n\geq 1$, $p\nmid n$ donc $P= \sum_{n\geq 0} a_{np}T^{np}=\sum_{n\geq 0} a_{np}(T^p)^n=Q(T^p)$ avec $Q_1=\sum_{n\geq 0} a_{np}T^n$.\\
+Écrivons $P=\sum_{n\geq 0} a_nT^n$ donc $P'=\sum_{n\geq 1} na_nT^{n-1}=0$ si et seulement si $na_n=0$, $n\geq1$. Si $p=0$, cela impose $a_n=0$, $n\geq 1$ donc $P=a_0$. Si $p>0$, cela impose $a_n=0$, $n\geq 1$, $p\nmid n$ donc $P= \sum_{n\geq 0} a_{np}T^{np}=\sum_{n\geq 0} a_{np}(T^p)^n=Q(T^p)$ avec $Q_1=\sum_{n\geq 0} a_{np}T^n$.\\
 \end{enumerate}
 
   \subsection{}\label{Separable1}\textbf{Lemme.} \textit{Pour $P\in k[T]$ les propriétés suivantes sont équivalentes.
