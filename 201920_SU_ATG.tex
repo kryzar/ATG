@@ -2195,7 +2195,7 @@ On vérifie que $f^{\infty}(M)$, $f^{-\infty}(M)$ ainsi définis conviennent. Le
 \chapter{Modules indécomposables, Krull-schmidt}
 
 
-\section{Modules indécomposables}  Un $A$-module $M$ est dit \textit{indécomposable} s'il est non nul et ne peut s'écrire sous la forme $M=M'\oplus M''$ avec $M',M''\subset M$ deux sous $A$-modules non nuls. Un $A$-module $M$ est dit \textit{totalement décomposable}\index{Indecomposable (Module)@Indécomposable (Module)} s'il peut s'écrire sous la forme $M=M_{1}\oplus \dots\oplus M_{r}$ avec $M_{1},\dots,M_{r}\subset M$ des sous $A$-modules indécomposables.\\
+\section{Modules indécomposables}  Un $A$-module $M$ est dit \textit{indécomposable} s'il est non nul et ne peut s'écrire sous la forme $M=M'\oplus M''$ avec $M',M''\subset M$ deux sous $A$-modules non nuls. Un $A$-module $M$ est dit \textit{totalement décomposable}\index{Indecomposable (Module)@Indécomposable (Module)} s'il peut s'écrire sous la forme $M=M_{1}\oplus \dots\oplus M_r$ avec $M_{1},\dots,M_r\subset M$ des sous $A$-modules indécomposables.\\
 
  Un anneau $E$ est dit \textit{local} \index{Local (Anneau)} si  $E\setminus E^\times$ est un idéal; auquel cas, $E\setminus E^\times$ est l'unique idéal  bilatère maximal de $E$.\\
 
@@ -2363,7 +2363,7 @@ Ecrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant
 $$a\beta_{1}m_{1}=(u\alpha_{1}+v\alpha_{2})a\beta_{1}m_{1}=au\underbrace{a_{1}m_{1}}_{=0}+v\alpha_{2}a\beta_{1}m_{1}= -av\underbrace{a_{2}m_{2}}_{=0}=0.$$
 Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{2}$ en particulier $a$ est un multiple commun de $\alpha_{1}$ et $\alpha_{2}$ donc de $\alpha_{1}\alpha_{2}=\ppcm(a_{1},a_{2})$. Donc $a\in Ann_{A}(m_{1})\cap Ann_{A}(m_{2})$. $\square$\\
 
-\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Bm$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
+\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_A(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Am$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
 ensemble ordonné inductif donc admet un élément maximal $(u,N)$ (en fait, ici, on peut invoquer le fait que $M$ est noethérien, ce qui permet d'éviter le Lemme de Zorn). Montrons que $N=M$. Sinon, soit $\mu\in M\setminus N$ et montrons qu'on peut étendre $u:N\rightarrow B$ en $u_1:N+B\mu\rightarrow B$. Pour cela, il faut `deviner' la bonne valeur de $u_1(\mu)$. Introduisons l'idéal
 $$\frak{i}:=\lbrace b\in B\; |\; b\mu\in N\rbrace\subset B.$$
 Ecrivons $Ann_A(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \ie{}
@@ -2415,11 +2415,16 @@ $0$&&&$U$&$C(P_i)$\\
 \end{tabular}\right),$$
 où   $U$ est ma matrice carrée de taille $d_i\times d_i$ avec $u_{1,d_i}=1$ et $u_{i,j}=0$ sinon.\\
 
-\subsection{}\textbf{Base adaptée}\label{BA} La forme suivante du théorème de structure est aussi très utile en pratique. \\
+\subsection{Base adaptée\label{BA}} La forme suivante du théorème de structure est aussi très utile en pratique. \\
 
-
-\paragraph{}\textbf{Théorème. } (Base adaptée) \textit{Soit $A$ un anneau principal, $M$ un $A$-module libre de rang $r$ et $N\subset M$ un sous-$A$-module. Il existe un unique entier $0\leq s\leq r$, une unique suite $Ad_1\supset Ad_2\supset\cdots \supset Ad_s$ d'idéaux de $A$ et $m_1,\dots,m_r\in M$ tels que }
+\begin{theoreme}[base adaptée]
+  Soit $A$ un anneau principal, $M$ un $A$-module libre de rang $r$ et
+  $N\subset M$ un sous-$A$-module. Il existe un unique entier
+  $0\leq s\leq r$, une unique suite
+  $Ad_1\supset Ad_2\supset\cdots \supset Ad_s$ d'idéaux de $A$ et
+  $m_1,\dots,m_r\in M$ tels que
 $$N=\bigoplus_{1\leq i\leq s}Ad_i m_i\subset \bigoplus_{1\leq i\leq r}Am_i=M.$$
+\end{theoreme}
 
 \begin{proof} L'unicité de $s$ et de la suite  $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ résulte du Corollaire \ref{StructureTors} car $r-s$ est le rang de la partie libre de $M/N$ et $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ est la suite des invariants de la partie de torsion de  $M/N$. L'existence est un peu plus délicate. On procède par reccurence sur $r$. Si $r=1$, c'est la traduction du fait que $A$ est principal. Si $r\geq 1$, l'idée est de construire $d_1, e_1$ à partir de l'inclusion $N\hookrightarrow M$. Pour cela, on introduit l'ensemble $\mathcal{E}$ des idéaux de la forme $f(N)\subset A$, où $f:M\rightarrow A$ est un morphisme de $A$-module. Comme $A$ est noethérien, $\mathcal{E}$ contient au moins un élément maximal $f(N)=Ad=Af(n)$.
 \begin{enumerate}
@@ -2449,84 +2454,126 @@ On a donc montré que si $f,g:M\rightarrow N$ sont des morphismes de $A$-modules
 
 \textbf{Remarque.} Dans le cas où $A=k$ est un corps commutatif, on retrouve le thèorème de classification des classes d'équivalence par le rang de la matrice. \\
 
-
+\begin{proof}
+  En effet, les seules suites possibles sont $\underset{r}{k\supset\dotsb\supset
+    k}\supset \underset{n-r}{0\supset\dotsb\supset 0}$
+  On retrouve le théorème de classification des classes d'équivalence
+  des matrices sur un corps par le rang.
+\end{proof}
 
 \paragraph{}\textbf{Exercice.} Soit $M$ un $\Z$-module libre de rang fini $m$ et $\phi\in \SEnd_{\Z}(M) $ tel que $\phi\otimes\Q\in\SAut_{\Q}(M\otimes \Q)$ est inversible. Montrer que $\phi(M)\subset M$ est d'indice fini et calculer $[M:\Phi(M)$.\\
 
 
- \chapter{Produit tensoriel}\index{Produit tensoriel (Modules)}
+\chapter{Produit tensoriel}\index{Produit tensoriel (Modules)}
 
-\section{Construction}Soit $M_{1} ,\dots, M_{r}$ et $M$ des $A$-modules.  Notons $$L_{r,A}(M_{1}\times\cdots\times M_{r},M)$$ l'ensemble des applications $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ qui sont $r$-$A$-linéaires \ie{} telles que $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dots,r$. \\
+\section{Construction}
 
+Soient $M_1,\dotsc, M_r$ une famille de $A$-modules et $M$ un $A$-module. Notons $$L_{r,A}(M_1\times\dotsb\times M_r,M)$$ l'ensemble des applications $f:M_1\times\cdots\times M_r\rightarrow M$ qui sont $r$-$A$-multilinéaires \ie{} telles que $f\circ \iota_i:M_i\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dotsc,r$. \\
 
-
- Notons $$\Sigma:= A^{(M_{1}\times\cdots\times M_{r})},$$
-le $A$-module libre engendré par $M_{1}\times\cdots\times M_{r}$, $(m_1,\dots, m_r)\in M_{0}$ l'élément correspondant au terme avec des $0$ partout sauf en l'indice $(m_1,\dots, m_r)$
+Notons $$\Sigma:= A^{(M_1\times\dotsb\times M_r)},$$
+le $A$-module libre engendré par $M_1\times\dotsc\times M_r$, $(m_1,\dots, m_r)\in M_{0}$ l'élément correspondant au terme avec des $0$ partout sauf en l'indice $(m_1,\dotsc, m_r)$
  et $R \subset \Sigma$ le sous $A$-module engendré par les éléments de la forme
-$$(m_{1},\dots, a_{i}m_{i}+a_{i}'m_{i}',\dots, m_{r})-a_{i}(m_{1},\dots, m_{i},\dots, m_{r})-a_{i}'(m_{1},\dots, m_{i}',\dots, m_{r}).$$
-En posant $M_1\otimes_{A}\cdots \otimes_{A} M_r:=\Sigma/R$ et $$\begin{tabular}[t]{llllll}
-$p:$&$M_{1}\times\cdots\times M_{r}$&$\rightarrow$&$A^{(M_{1}\times\cdots\times M_{r})}$&$\rightarrow$&$M_1\otimes_{A}\cdots \otimes_{A} M_r$\\
-&$(m_{1},\dots,m_{r})$&$\rightarrow$&$1\cdot (m_{1},\dots,m_{r})$&$\rightarrow$&$(m_{1},\dots,m_{r})$mod$M_{00}=:m_{1}\otimes\cdots\otimes m_{r}$
+$$(m_{1},\dotsc, a_{i}m_{i}+a_{i}'m_{i}',\dotsc, m_{r})-a_{i}(m_{1},\dotsc, m_{i},\dotsc, m_{r})-a_{i}'(m_{1},\dotsc, m_{i}',\dotsc, m_{r}).$$
+En posant $M_1\otimes_{A}\dotsb \otimes_{A} M_r:=\Sigma/R$ et $$\begin{tabular}[t]{llllll}
+$p:$&$M_1\times\dotsb\times M_r$&$\rightarrow$&$A^{(M_1\times\dotsb\times M_r)}$&$\rightarrow$&$M_1\otimes_{A}\dotsb \otimes_{A} M_r$\\
+&$(m_{1},\dots,m_{r})$&$\mapsto$&$1\cdot (m_{1},\dots,m_{r})$&$\mapsto$&$(m_{1},\dots,m_{r})$ mod $M_{00}=:m_{1}\otimes\cdots\otimes m_{r}$
 \end{tabular}$$
-on vérifie facilement que $p:M_{1}\times\cdots\times M_{r}\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ est une application $A$-$r$-linéaire. On prendra garde que $p:M_{1}\times\cdots\times M_{r}\rightarrow M_1\otimes_{A}\cdots \otimes _{A}M_r$  n'est pas surjective en général mais que, $M_1\otimes_{A}\cdots \otimes_{A} M_r$ est engendré comme $A$-module par les éléments de la forme $m_{1}\otimes\cdots\otimes m_{r}$.
+on vérifie facilement que $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ est une application $A$-$r$-linéaire. On prendra garde que $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes _{A}M_r$  n'est pas surjective en général mais que, $M_1\otimes_{A}\cdots \otimes_{A} M_r$ est engendré comme $A$-module par les éléments de la forme $m_{1}\otimes\cdots\otimes m_{r}$.
 
+\begin{remarque}
+  Les éléments de $M_1\otimes_A\dotsb\otimes_A M_r$ ne sont pas tous de la forme $m_1\otimes\dotsb\otimes m_r$ pour $(m_1,\dotsc,m_r)\in M_1\times\dotsb\times M_r$ (\ie{} $p$ n'est en général pas surjective).
+  En effet, il n'y a aucune raison pour que $a\cdot m_1\otimes\dotsb\otimes m_r+b\cdot n_1\otimes\dotsb\otimes n_r$ soit de la forme $\mu_1\otimes\dotsb\otimes \mu_r$. Par contre, $M_1 \otimes_A \dotsb\otimes_A M_r$ est un quotient de $\Sigma:=\bigoplus_{\underline{m}\in M_1\times\dotsb\times M_r} Ae_{\underline{m}}$. Il est engendré, comme $A$-module, par les $m_1\otimes\dotsb\otimes m_r$
+\end{remarque}
 
-\subsection{}\label{PTUniv}\textbf{Lemme.} (Propriété universelle du produit tensoriel) \textit{Pour toute famille $M_{1} ,\dots, M_{r}$ de  $A$-modules, il existe un $A$-module $T$ et une application $r$-$A$-linéaire $p:M_1\times\cdots\times M_r\rightarrow T$ tels que pour tout $A$-module $M$ et pour toute application  $r$-$A$-linéaire $f:M_1\times\cdots\times M_r\rightarrow M$ il existe un unique morphisme de $A$-modules $\overline{f}:T\rightarrow M$ tel que $\overline{f}\circ p=f$.}
-% Notons $$L_{r,A}(M_{1}\times\cdots\times M_{r},M)$$ l'ensemble des applications $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ qui sont $r$-$A$-linéaires \ie{} telles que $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dots,r$. La structure de $A$-module sur $M$ induit une structure de $A$-module sur  $L_{r,A}(M_{1}\times\cdots\times M_{r},M)$ et on vérifie immédiatement que
-%$$L_{r,A}(M_{1}\times\cdots\times M_{r},-):Mod_{/A}\rightarrow Mod_{/A}$$
-%est un foncteur.
-\begin{proof}Vérifions  que $T:=M_1\otimes_{A}\cdots \otimes_{A} M_r$ et  l'application $r$-$A$-linéaire $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ conviennent. Si $\overline{f}:M_1\otimes\cdots \otimes M_r\rightarrow M$, la condition $p\circ \overline{f}=f$ impose $\overline{f}(m_1\otimes\cdots\otimes m_r)=f(m_1,\dots, m_r)$. Comme $M_1\otimes_{A}\cdots \otimes_{A} M_r$  est engendré, comme $A$-module, par les éléments de la forme $m_1\otimes\cdots\otimes m_r$, cela montre l'unicité de $\overline{f}$ sous réserve de son existence. Par propriété universelle des $\iota_{\underline{m}}:A\hookrightarrow A^{(M_{1}\times\cdots\times M_{r})}$, $\underline{m}=(m_1,\dots, m_r)\in M_1\times\cdots\times M_r$, il existe un unique morphisme de $A$-modules $F:M_{0}=A^{(M_{1}\times\cdots\times M_{r})}\rightarrow M$ tel que $F\circ \iota_{\underline{m}}:A\rightarrow M$ est le morphisme qui envoie $1$ sur $f(m_1,\dots, m_r)$. Comme $f:M_{1}\times\cdots\times M_{r}\rightarrow M$ est $r$-$A$-linéaire,  $M_{00}\subset \ker(F)$ donc $F:M_{0} \rightarrow M $ se factorise en un morphisme de $A$-modules $\overline{f}:M_1\otimes_{A} \cdots\otimes_{A} M_r\rightarrow M$ tel que $p\circ \overline{f}=F$; en particulier  $$p\circ \overline{f}(m_1,\dots,m_r)=F(m_1,\dots, m_r)=f(m_1,\dots, m_r),\; (m_1,\dots, m_r)\in M_{1}\times\cdots\times M_{r}.$$
+\begin{definition}[tenseurs élémentaires]
+  On dit parfois que les éléments de la forme $m_1\otimes\dotsb\otimes m_r$ sont des tenseurs élémentaires.
+\end{definition}
+
+\begin{lemme}[propriété universelle du produit tensoriel]\label{PTUniv}
+  Pour toute famille $M_1 ,\dots, M_r$ de $A$-modules, il existe un
+  $A$-module $T$ et une application $r$-$A$-linéaire
+  $p:M_1\times\cdots\times M_r\rightarrow T$ tels que pour tout
+  $A$-module $M$ et pour toute application $r$-$A$-linéaire
+  $f:M_1\times\cdots\times M_r\rightarrow M$ il existe un unique
+  morphisme de $A$-modules $\overline{f}:T\rightarrow M$ tel que
+  $\overline{f}\circ p=f$.
+\end{lemme}
+
+\begin{remarque}
+  Notons $$L_{r,A}(M_1\times\cdots\times M_r,M)$$ l'ensemble des
+  applications $f:M_1\times\cdots\times M_r\rightarrow M$ qui
+  sont $r$-$A$-linéaires \ie{} telles que
+  $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de
+  $A$-modules, $i=1,\dots,r$. La structure de $A$-module sur $M$
+  induit une structure de $A$-module sur
+  $L_{r,A}(M_1\times\cdots\times M_r,M)$ et on vérifie
+  immédiatement que
+  $$L_{r,A}(M_1\times\cdots\times M_r,-):Mod_{/A}\rightarrow Mod_{/A}$$
+  est un foncteur.
+\end{remarque}
+
+\begin{proof}Vérifions  que $T:=M_1\otimes_{A}\cdots \otimes_{A} M_r$ et  l'application $r$-$A$-linéaire $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ conviennent. Si $\overline{f}:M_1\otimes\cdots \otimes M_r\rightarrow M$, la condition $p\circ \overline{f}=f$ impose $\overline{f}(m_1\otimes\cdots\otimes m_r)=f(m_1,\dots, m_r)$. Comme $M_1\otimes_{A}\cdots \otimes_{A} M_r$  est engendré, comme $A$-module, par les éléments de la forme $m_1\otimes\cdots\otimes m_r$, cela montre l'unicité de $\overline{f}$ sous réserve de son existence. Par propriété universelle des $\iota_{\underline{m}}:A\hookrightarrow A^{(M_1\times\cdots\times M_r)}$, $\underline{m}=(m_1,\dots, m_r)\in M_1\times\cdots\times M_r$, il existe un unique morphisme de $A$-modules $F:M_{0}=A^{(M_1\times\cdots\times M_r)}\rightarrow M$ tel que $F\circ \iota_{\underline{m}}:A\rightarrow M$ est le morphisme qui envoie $1$ sur $f(m_1,\dots, m_r)$. Comme $f:M_1\times\cdots\times M_r\rightarrow M$ est $r$-$A$-linéaire,  $M_{00}\subset \ker(F)$ donc $F:M_{0} \rightarrow M $ se factorise en un morphisme de $A$-modules $\overline{f}:M_1\otimes_{A} \cdots\otimes_{A} M_r\rightarrow M$ tel que $p\circ \overline{f}=F$; en particulier  $$p\circ \overline{f}(m_1,\dots,m_r)=F(m_1,\dots, m_r)=f(m_1,\dots, m_r),\; (m_1,\dots, m_r)\in M_1\times\cdots\times M_r.$$
 \end{proof}
 
- Comme d'habitude, $p:M_{1}\times\cdots\times M_{r}\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ est unique à unique isomorphisme près.\\
+ Comme d'habitude, $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ est unique à unique isomorphisme près.\\
 
 
  On peut aussi réécrire \ref{PTUniv} en disant que pour tout $A$-module $M$ l'application canonique
-$$\SHom_A(M_{1}\times\cdots\times M_{r},M)\rightarrow L_{r,A}(M_{1}\times\cdots\times M_{r},M),\; f\rightarrow p\circ f$$
+$$\SHom_A(M_1\times\cdots\times M_r,M)\rightarrow L_{r,A}(M_1\times\cdots\times M_r,M),\; f\rightarrow p\circ f$$
 est bijective ou encore, plus visuellement,
-$$\xymatrix{M_{1}\times\cdots\times M_{r}\ar[r]^{\forall f}\ar[d]_{p}&M\\
-M_{1}\otimes_{A}\cdots\otimes_{A}M_{r}\ar@{.>}[ur]_{\exists ! \overline{f}}}$$
+$$\xymatrix{M_1\times\cdots\times M_r\ar[r]^{\forall f}\ar[d]_{p}&M\\
+M_1\otimes_{A}\cdots\otimes_{A}M_r\ar@{.>}[ur]_{\exists ! \overline{f}}}$$
 
 
  Si $f_{i}:M_{i}\rightarrow N_{i}$, $i=1,\dots ,r $ sont $r$ morphismes de $A$-modules, l'application
 $$\begin{tabular}[t]{llll}
-$(f_{1},\dots, f_{r})$&$M_{1}\times\dots\times M_{r}$&$\rightarrow$&$N_{1}\otimes_{A}\dots\otimes_{A}N_{r}$\\
+$(f_{1},\dots, f_{r})$&$M_1\times\dots\times M_r$&$\rightarrow$&$N_{1}\otimes_{A}\dots\otimes_{A}N_{r}$\\
 &$(m_{1},\dots,m_{r})$&$\rightarrow$&$f_{1}(m_{1})\otimes\dots\otimes f_{r}(m_{r})$
 \end{tabular}$$
-est $r$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $f_{1}\otimes_{A}\dots\otimes_{A}f_{r}:M_{1}\otimes_{A}\dots\otimes_{A}M_{r}\rightarrow N_{1}\otimes_{A}\dots\otimes_{A}N_{r}$ tel que $f_{1}\otimes_{A}\dots\otimes_{A}f_{r}(m_{1}\otimes\dots m_{r})=(f_{1},\dots, f_{r})(m_{1},\dots,m_{r})=f_{1}(m_{1})\otimes\dots\otimes f_{r}(m_{r})$.
+est $r$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $f_{1}\otimes_{A}\dots\otimes_{A}f_{r}:M_1\otimes_{A}\dots\otimes_{A}M_r\rightarrow N_{1}\otimes_{A}\dots\otimes_{A}N_{r}$ tel que $f_{1}\otimes_{A}\dots\otimes_{A}f_{r}(m_{1}\otimes\dots m_{r})=(f_{1},\dots, f_{r})(m_{1},\dots,m_{r})=f_{1}(m_{1})\otimes\dots\otimes f_{r}(m_{r})$.
 
 
 \section{Propriétés élémentaires}\label{Ad1}
 
-
-\subsection{}\label{PTSum}\textbf{Lemme.} (Le produit tensoriel 'commute' aux sommes directes) \textit{Soit $M_i$, $i\in I$ et $M$ des $A$-modules. On a un isomorphisme canonique}
+\begin{lemme}[\og commutation\fg{} du produit tensoriel aux sommes directes]\label{PTSum}
+Soit $M_i$, $i\in I$ et $M$ des $A$-modules. On a un isomorphisme canonique
 $$\begin{tabular}[t]{lll}
 $M\otimes_A(\bigoplus_{i\in I}M_{i})$&$\tilde{\rightarrow}$&$\bigoplus_{i\in I}(M\otimes_AM_{i})$\\
 $m\otimes(m_i)_{i\in I}$&$\rightarrow$&$(m\otimes m_i)_{i\in I}$\\
 \end{tabular}$$
+\end{lemme}
+
 \begin{proof}Vérifions d'abord que $\phi:M\otimes_A(\bigoplus_{i\in I}M_{i}) \rightarrow  \bigoplus_{i\in I}(M\otimes_AM_{i})$ est bien définie. L'application $\Phi:M\times \bigoplus_{i\in I}M_{i}\rightarrow  \bigoplus_{i\in I}(M\otimes_AM_{i})$, $(m,(m_i)_{i\in I})\rightarrow (m\otimes m_i)_{i\in I}$ est $2$-$A$-linéaire donc par propriété universelle de $p:M\times (\bigoplus_{i\in I}M_{i})\rightarrow M\otimes_A(\bigoplus_{i\in I}M_{i})$ se factorise effectivement en un morphisme de $A$-module $\phi:M\otimes_A(\bigoplus_{i\in I}M_{i}) \rightarrow  \bigoplus_{i\in I}(M\otimes_AM_{i})$ tel que $p\circ \phi=\Phi$. Inversement, pour tout $i\in I$ l'application $\Psi_i:M\times M_i\rightarrow M\otimes_A(\bigoplus_{i\in I}M_{i})$, $(m,m_i)\rightarrow m\otimes \iota_i(m_i)$ est $2$-$A$-linéaire donc  par propriété universelle de $p:M\times M_{i}\rightarrow M\otimes_A M_i$ se factorise  en un morphisme de $A$-module $\psi_i:M\otimes_A M_{i} \rightarrow  M\otimes_A(\bigoplus_{i\in I}M_{i})$ tel que $p\circ \psi_i=\Psi_i$. Puis, par propriété universelle de $\iota_i:M\otimes_A M_i\rightarrow \bigoplus_{i\in I}(M\otimes_AM_{i}) $, $i\in I$ on obtient un unique morphisme de $A$-module $\psi:\bigoplus_{i\in I}(M\otimes_AM_{i})\rightarrow M\otimes_A(\bigoplus_{i\in I}M_{i})$ tel que $\psi\circ \iota_i=\Psi_i$, $i\in I$. On vérifie sur les constructions que $\phi$, $\psi$ sont inverses l'un de l'autre.\end{proof}
 
 
 
  Les preuves des lemmes suivant sont du même acabit \ie{} purement formelles et laissées en exercice au lecteur.
 
-\subsection{}\label{PTComAss}\textbf{Lemme.} (Commutativité et associativité) \textit{Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques}
+
+\begin{lemme}[commutativité et associativité]\label{PTComAss}
+Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques
 $$\begin{tabular}[t]{ccc}
 $L\otimes_{A}(M\otimes_A N)$&$\tilde{\rightarrow}$&$(L\otimes_A M)\otimes_A N$\\
-$l \otimes(m\otimes n)$&$\rightarrow$&$(l\otimes m )\otimes n$\\
+$l \otimes(m\otimes n)$&$\mapsto$&$(l\otimes m )\otimes n$\\
 &&\\
 $M\otimes_{A}N$&$\tilde{\rightarrow}$&$N\otimes_A M $\\
-$m \otimes n$&$\rightarrow$&$n\otimes m  $\\
+$m \otimes n$&$\mapsto$&$n\otimes m  $\\
 \end{tabular}$$
+\end{lemme}
 
-\subsection{}\label{PTTaut}\textbf{Lemme.}  \textit{Soit  $M$ un $A$-module. On a un isomorphisme canonique}
+\begin{lemme}\label{PTTaut}
+$A$ est l'\og unité\fg{} pour le produit tensoriel, c'est-à-dire que pour tout $A$-module $M$, on a un isomorphisme canonique
 $$\begin{tabular}[t]{ccc}
 $A\otimes_{A}M$&$\tilde{\rightarrow}$&$M$\\
-$a\otimes m$&$\rightarrow$&$am$
+$a\otimes m$&$\mapsto$&$am$
 \end{tabular}$$
+\end{lemme}
+
 
 
 \subsection{}Soit $I$ un ensemble. Pour $i\in I$ on rappelle qu'on note $e_i:=(\delta_{i,j})_{j\in I}\in A^{(I)}$ le $i$-ème élément de la base canonique de $A^{(I)}$.\\
+
+
 
 
 \textbf{Lemme.} \textit{Soit $I_1,\dots, I_r$ des ensembles. On a un isomorphisme de $A$-modules canonique}
@@ -2540,22 +2587,28 @@ $A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}$ &$(\tilde{\rightarrow}A^{(I_1)}
 \end{tabular}$$
 On peut aussi donner un argument direct. En effet, l'application  $A^{(I_1)}\times \cdots\times A^{(I_r)}\tilde{\rightarrow}A^{(I_1\times\dots\times  I_r)}$, $((a_{i_1})_{i_1\in I_1}, \cdots,(a_{i_r})_{i_r\in I_r})\rightarrow (a_{i_1}\cdots a_{i_r})_{(i_1,\dots, i_r)\in I_1\times\cdots\times I_r}$ est $r$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $\phi:A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)} \rightarrow A^{(I_1\times\dots\times  I_r)}$ tel que $\phi((a_{i_1})_{i_1\in I_1}\otimes \cdots \otimes (a_{i_r})_{i_r\in I_r})= (a_{i_1}\cdots a_{i_r})_{(i_1,\dots, i_r)\in I_1\times\cdots\times I_r})$. Inversement, pour chaque $(i_1,\dots, i_r)\in I_1\times\cdots\times I_r$ on dispose du morphisme de $A$-modules $\psi_{(i_1,\dots, i_r)}:A\rightarrow A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}\tilde{\rightarrow}A^{(I_1\times\dots\times  I_r)}$, $a\rightarrow a e_{i_1}\otimes\cdots\otimes e_{i_r}$ donc, par propriété universelle de la somme directe, d'un morphisme de $A$-modules $\psi=\oplus_{(i_1,\dots, i_r)\in I_1\times\cdots\times I_r}\psi_{(i_1,\dots, i_r)}: A^{(I_1\times\dots\times  I_r)}\rightarrow A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}$ tel que $\psi\circ \iota_{(i_1,\dots, i_r)}=\psi_{(i_1,\dots, i_r)}$, $(i_1,\dots, i_r)\in I_1\times\cdots\times I_r$. On vérifie sur les définitions que $\phi$ et $\psi$ sont inverses l'une de l'autre. \end{proof}
 
- En particulier, si $M_i$ est un $A$-module  libre  de rang fini $d_i$, $i=1,\dots, r$, $M_{1}\otimes_{A}\cdots\otimes_{A}M_{r}$ est un $A$-module libre de rang $d_1\dots d_r$.
+En particulier, si $M_i$ est un $A$-module  libre  de rang fini $d_i$, $i=1,\dots, r$, $M_1\otimes_{A}\cdots\otimes_{A}M_r$ est un $A$-module libre de rang $d_1\dots d_r$.
 
-\subsection{}\textbf{Lemme.} \textit{Soit $M,N$ des $A$-modules. On a des morphismes de $A$-modules canoniques}
-$$ \begin{tabular}[t]{cll}
-$M^{\vee}\otimes_AN$&$ \rightarrow $&$\SHom_A(M,N)$\\
-$f\otimes n $&$\rightarrow$&$f(-)n$;\\
-\end{tabular},\;\;
-  \begin{tabular}[t]{cll}
-$M^{\vee}\otimes_AN^{\vee}$&$ \rightarrow $&$(M\otimes_AN)^{\vee}$\\
-$f\otimes g $&$\rightarrow$&$m\otimes n\rightarrow f(m)g(n)$.\\
-\end{tabular}$$
-et $$\begin{tabular}[t]{cll}
-$\SEnd_A(M)\otimes_A\SEnd_A(N)$&$ \rightarrow $&$\SEnd_A(M\otimes_AN)$\\
-$f\otimes g $&$\rightarrow$&$m\otimes n\rightarrow f(m)\otimes g(n)$;\\
-\end{tabular}$$
-\textit{Si de plus $M$ et $N$ sont libres de rang fini, ces trois morphismes sont des isomorphismes.}
+\begin{definition}
+  Soient $M$ un $A$-module. On note $M^\vee:=\mathrm{Hom}_A(M,A)$ qu'on appelle le dual de $M$.
+\end{definition}
+ 
+\begin{lemme}
+  Soit $M,N$ des $A$-modules. On a des morphismes de $A$-modules canoniques
+  $$ \begin{tabular}[t]{cll}
+       $M^{\vee}\otimes_AN$&$ \rightarrow $&$\SHom_A(M,N)$\\
+       $f\otimes n $&$\mapsto$&$f(-)n$;\\
+     \end{tabular},\;\;
+     \begin{tabular}[t]{cll}
+       $M^{\vee}\otimes_AN^{\vee}$&$ \rightarrow $&$(M\otimes_AN)^{\vee}$\\
+       $f\otimes g $&$\mapsto$&$m\otimes n\rightarrow f(m)g(n)$.\\
+     \end{tabular}$$
+     et $$\begin{tabular}[t]{cll}
+            $\SEnd_A(M)\otimes_A\SEnd_A(N)$&$ \rightarrow $&$\SEnd_A(M\otimes_AN)$\\
+            $f\otimes g $&$\mapsto$&$m\otimes n\mapsto f(m)\otimes g(n)$;\\
+          \end{tabular}$$
+          Si de plus $M$ et $N$ sont libres de rang fini, ces trois morphismes sont des isomorphismes.
+        \end{lemme}
 
 \begin{proof}Les morphismes se construisent en utilisant la propriété universelle du produit tensoriel. En général, il n'y a par contre pas de façon canonique de construire des inverses de ces morphismes (et d'ailleurs, ce ne sont pas toujours des isomorphismes). Mais si  $M$ et $N$ sont libres de rang fini, on peut vérifier que ces trois morphismes envoient à chaque fois une base sur une base. \end{proof}
 \section{Adjonctions}
@@ -2723,26 +2776,6 @@ Produit&$\prod_{i\in I}M_i$&$\prod_{i\in I}A_i$\\
 \end{tabular}$$
 
 
-$$***$$
- Syllabus prochaines séances:\\
-$$ \begin{tabular}[t]{l}
-
-Modules indécomposables, Krull-Schmidt\\
-Modules de type fini sur les anneaux principaux\\
-\end{tabular}$$
-  \begin{tabular}[t]{l}
-\textit{anna.cadoret@imj-prg.fr}\\
- IMJ-PRG, Sorbonne Université\\
- Paris, FRANCE
-\end{tabular}
-
-% Ajout de l'index à la table des matières
-\clearpage
-\addcontentsline{toc}{chapter}{Index}
-\printindex
-\end{document}
-
-
 \part{Extensions de corps et théorie de Galois}
  Dans cette partie du cours, sauf mention explicite du contraire, tous les anneaux considérés sont commutatifs. On rappelle qu'un corps (commutatif) est un anneau (commutatif) dont tous les éléments non nuls sont inversibles. On a vu dans les chapitres précédents un certain nombre de techniques pour construire des corps intéressants. Par exemple,
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
@@ -2840,7 +2873,7 @@ En fait, sauf cas très particulier, on ne sait pas dire si un nombre complexe p
 \item $K_3/K_1$ est algébrique si et seulement si $K_2/K_1$ et $K_1/K_3$ sont algébriques.
 \end{enumerate}}
 
-\begin{proof} Les implications $\Rightarrow$   sont immédiates. L'implication $\Leftarrow$  de (1) résulte de \ref{Dim}.  Pour l'implication $\Leftarrow$ de (2), fixons  $a\in K_3$ et montrons que $a$ est algébrique sur $K_1$. Comme $a$ est algébrique sur $K_2$, en écrivant son polynôme minimal sous la forme $P_a=T^d+\sum_{0\leq i\leq d-1}a_iTî\in K_2[T]$, on voit que  $a$ est aussi algébrique sur le sous-corps  $K_1(a_0,\dots, a_d)  $ de $K_2$ \textit{i.e} $[K_1(a_0,\dots, a_d,a):K_1(a_0,\dots, a_d)]<+\infty$. Mais comme $K_1(a_0,\dots, a_d)/K_1$ est algébrique de type fini, elle est finie par \ref{AlgTF} donc
+\begin{proof} Les implications $\Rightarrow$   sont immédiates. L'implication $\Leftarrow$  de (1) résulte de \ref{Dim}.  Pour l'implication $\Leftarrow$ de (2), fixons  $a\in K_3$ et montrons que $a$ est algébrique sur $K_1$. Comme $a$ est algébrique sur $K_2$, en écrivant son polynôme minimal sous la forme $P_a=T^d+\sum_{0\leq i\leq d-1}a_iT^i\in K_2[T]$, on voit que  $a$ est aussi algébrique sur le sous-corps  $K_1(a_0,\dots, a_d)  $ de $K_2$ \textit{i.e} $[K_1(a_0,\dots, a_d,a):K_1(a_0,\dots, a_d)]<+\infty$. Mais comme $K_1(a_0,\dots, a_d)/K_1$ est algébrique de type fini, elle est finie par \ref{AlgTF} donc
 $$[K_1(a):K_1]\leq [K_1(a_0,\dots, a_d,a):K_1]=[K_1(a_0,\dots, a_d,a):K_1(a_0,\dots, a_d)][K_1(a_0,\dots, a_d):K_1]<+\infty.$$ \end{proof}
 
 
@@ -2852,11 +2885,11 @@ $$[k(a-b):k], [k(ab^{-1}):k]\leq [k(a,b):k]\leq [k(a)(b):k(a)][k(a):k]\leq [k(b)
 
  \textbf{Exercice.} Notons $\overline{\Q}:=\overline{\Q^\CC}\subset  \CC$. Montrer que $\overline{\Q}\subsetneq \CC$ et que tout élément de $\CC\setminus \overline{\Q}$ est transcendant sur $\overline{\Q}$ mais que  $\overline{\Q}\subset  \CC$ n'est pas une extension transcendante pure.\\
 
- D'après  \ref{AlgTF}, une extension de corps est finie si et seulement si elle est algébrique et  de type  fini. Si $k\subset K$ est finie  et   si $a_1,\dots, a_n$$K=k(a_1,\dots, a_n)$ est un système de générateurs de $K$ comme extension de corps de $k$, \ref{AlgTr} montre que  $K=k(a_1,\dots, a_n)=k(a_1)\cdots(a_n)=k[a_1]\cdots [a_n]=k[a_1,\dots, a_n]$ donc $K$ est aussi une $k$-algèbre de type finie. Cette dernière propriété suffit en fait  à caractériser les extensions finies; c'est le Théorème des zéros de Hilbert ou Nullstellensatz. \\
+ D'après  \ref{AlgTF}, une extension de corps est finie si et seulement si elle est algébrique et  de type  fini. Si $k\subset K$ est finie  et   si $a_1,\dots, a_n$$K=k(a_1,\dots, a_n)$ est un système de générateurs de $K$ comme extension de corps de $k$, \ref{AlgTr} montre que  $K=k(a_1,\dots, a_n)=k(a_1)\cdots(a_n)=k[a_1]\cdots [a_n]=k[a_1,\dots, a_n]$ donc $K$ est aussi une $k$-algèbre de type fini. Cette dernière propriété suffit en fait  à caractériser les extensions finies; c'est le Théorème des zéros de Hilbert ou Nullstellensatz. \\
 
 \section{Nullstellensatz}
 
-\subsection{}\label{Hilbert1}\textbf{Proposition.} (Nullstellensatz) \textit{Soit $  K/k$ une extension de corps. Si $K$ est une $k$-algèbre de type finie alors $K$ est une extension finie de $k$.}
+\subsection{}\label{Hilbert1}\textbf{Proposition.} (Nullstellensatz) \textit{Soit $  K/k$ une extension de corps. Si $K$ est une $k$-algèbre de type fini alors $K$ est une extension finie de $k$.}
 
 \begin{proof} Commençons par observer que le corps des fractions $k(X)$ de l'anneau des polynômes à une indéterminée sur $k$ n'est pas une $k$-algèbre de type fini. Sinon, on aurait   $k(X)=k[a_1,\dots, a_n]$ où $a_i=P_i/Q_i$ avec $0\not= P_i,Q_i\in k[X]$, $i=1,\dots, n$. Posons  $Q:=Q_1,\dots Q_n\in k[X]$. Par construction $k(X)\subset k[X]_{Q}$. Mais si $P\in k[X]$ est premier avec $Q$, $1/P\notin k[X]_Q$: contradiction.\\
 \indent On procède par récurrence sur le nombre $n$ de générateurs de $K$ comme $k$-algèbre. Plus précisément, pour tout $n\geq 0$ considérons l'assertion suivante
@@ -3250,7 +3283,7 @@ $|Z_{\overline{k}}(P)|$&$\leq \deg(P)$&$=\deg(P)$
         est surjectif de noyau le nilradical de $A$. En particulier, $\dim_k(A)\geq |\SHom_{Alg/k}(A,k)|$.}
 
 
-        \begin{proof}Il s'agit de la combinaison d'un cas facile du Nullstellensatz et du Lemme des restes chinois. Plus précisément,  comme $A$ est de $k$-dimension finie - donc en particulier de type finie comme $k$-algèbre - et que $k$ est algébriquement clos, le  Nullstellensatz nous donne une bijection canonique
+        \begin{proof}Il s'agit de la combinaison d'un cas facile du Nullstellensatz et du Lemme des restes chinois. Plus précisément,  comme $A$ est de $k$-dimension finie - donc en particulier de type fini comme $k$-algèbre - et que $k$ est algébriquement clos, le  Nullstellensatz nous donne une bijection canonique
         $$\SHom_{Alg/k}(A,k)\tilde{\rightarrow} \spm(A),\; (\phi:A\rightarrow k)\rightarrow \ker(\phi)$$
         (d'inverse $\frak{m} \rightarrow (A\rightarrow A/\frak{m})=k$). On a vu qu'il résultait aussi du Nullstellensatz
         que le radical de Jacobson et le nilradical de $A$ coincident, d'où l'assertion sur le noyau.  La surjectivité résultera du Lemme des restes chinois si l'on sait que $A$ n'a qu'un nombre fini d'idéaux maximaux. Mais  en notant $n:=\dim_kA$, $A$ a au plus $n$ idéaux maximaux deux à deux distincts. En effet, si on avait $n+1$ idéaux maximaux  $\frak{m}_1,\dots, \frak{m}_{n+1}$ deux à deux distincts, le Lemme des restes chinois nous donnerait un morphisme surjectif de $k$-algèbres (donc de $k$-espaces vectoriels)
@@ -3452,7 +3485,11 @@ $$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=
   \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
   \item $\Phi_n\in \Z[T]$. En effet $T^n-1=\prod_{d|n}\Phi_d$ dans $\Q[T]$. Comme $\Z$ est factoriel, on a en particulier
  $1=C_\Z(T^n-1)=\prod_{d|n}C_\Z(\Phi_d)$. Mais comme   $\Phi_d$  est unitaire , on a $C_\Z(\Phi_d)=\frac{1}{a_d} $ pour un certain $a_d\in \Z_{\geq 1}$, $d|n$. Cela impose $C_\Z(\Phi_d)=1$ \ie{} $\Phi_d\in \Z[T]$, $d|n$.
- \item Soit $\zeta\in \frak{u}_n$ et notons $P$ le polynôme minimal de $\zeta$ sur $\Q$. On veut montrer que $P=\Phi_n$. Comme les éléments de $\frak{u}_n$ sont tous de la forme $\zeta^m$ pour un certain $m\in \Z_{\geq 1}$, $gcd(m,n)=1$,  il suffit de prouver que si $p$ est un nombre premier $\nmidn$, $\zeta^p$ est aussi une racine de $P$. Sinon, notons $Q$ le polynôme  minimal de $\zeta^p$ sur $\Q$. Comme $P\not= Q$ et $P,Q|\Phi_n$ dans $\Q[T]$, $PQ|\Phi_n$ dans $\Q[T]$. On peut donc écrire $\Phi_n=PQR$ dans $\Q[T]$. Comme $\Phi_n\in \Z[T]$ et $P,Q,R$ sont unitaires, le même argument de contenu qu'en (1) montre que $P,Q,R\in \Z[T]$.
+ \item Soit $\zeta\in \frak{u}_n$ et notons $P$ le polynôme minimal de
+   $\zeta$ sur $\Q$. On veut montrer que $P=\Phi_n$. Comme les
+   éléments de $\frak{u}_n$ sont tous de la forme $\zeta^m$ pour un
+   certain $m\in \Z_{\geq 1}$, $gcd(m,n)=1$,  il suffit de prouver que
+   si $p$ est un nombre premier $\nmid n$, $\zeta^p$ est aussi une racine de $P$. Sinon, notons $Q$ le polynôme  minimal de $\zeta^p$ sur $\Q$. Comme $P\not= Q$ et $P,Q|\Phi_n$ dans $\Q[T]$, $PQ|\Phi_n$ dans $\Q[T]$. On peut donc écrire $\Phi_n=PQR$ dans $\Q[T]$. Comme $\Phi_n\in \Z[T]$ et $P,Q,R$ sont unitaires, le même argument de contenu qu'en (1) montre que $P,Q,R\in \Z[T]$.
  \item Puisque $Q(\zeta^p)=0$, $P|Q(T^p)$  dans $\Q[T]$ donc - toujours par l'argument de contenu -  dans $\Z[T]$. Notons $F\rightarrow \overline{F}$ le morphisme de réduction modulo $p$, $\Z[T]\rightarrow \Z/p[T]$. On a donc $\overline{P}|\overline{Q}(T^p)=\overline{Q}(T)^p$ dans $\F_p[T]$. Mais puisque $\F_p[T]$ est factoriel, tout diviseur irréductible de $\overline{P}$ est en particulier un diviseur irréductible de $\overline{Q}$. Fixons $\Pi\in \F_p[T]$  un diviseur irréductible  de $\overline{P}$ donc de $\overline{Q}$. On a donc $$\Pi^2|\overline{P}\overline{Q} |\overline{\Phi}_n|T^n-\overline{1}$$ dans $\F_p[T]$. On peut donc écrire $T^n-\overline{1}= \Pi^2\Xi$ dans $\F_p[T]$. En particulier, $nT^{n-1}=2\Pi\Pi'\Xi+\Pi^2\Xi'$ donc $\Pi|T^n$ dans $\F_p[T]$ donc $\Pi| (T^n-\overline{1})-T^n=\overline{1}$ dans $\F_p[T]$: contradiction.
   \end{enumerate}
   \end{proof}
@@ -3590,20 +3627,11 @@ K_{n+1} &\supset&\widehat{K}_n&\supset&\cdots&\supset&\widehat{K}_2&\supset & K_
  ce qui montre que $Gal(\widetilde{K}_P/k)$ est extension d'un groupe résoluble  par un groupe abélien donc est résoluble.
   \end{proof}
 
- \section{}\textbf{Spécialisation.}  Si le degré de $P$ est $\geq 5$, on ne dispose  pas de formule universelle pour calculer les racines de $P$ et déterminer $G_P$  est en général une question difficile. Le critère de spécialisation que nous allons voir permet souvent de réduire la question au problème de la factorisation des polynômes sur les corps finis, problème qu'on sait résoudre algorithmiquement.
+  \section{}\textbf{Spécialisation.}  Si le degré de $P$ est $\geq 5$, on ne dispose  pas de formule universelle pour calculer les racines de $P$ et déterminer $G_P$  est en général une question difficile. Le critère de spécialisation que nous allons voir permet souvent de réduire la question au problème de la factorisation des polynômes sur les corps finis, problème qu'on sait résoudre algorithmiquement.
+ 
 
-
-
-
-
-
-
- $$***$$
-
- Syllabus prochaines séances:\\
-$$ \begin{tabular}[t]{l}
- \\
-\end{tabular}$$
+  $$***$$
+ 
   \begin{tabular}[t]{l}
 \textit{anna.cadoret@imj-prg.fr}\\
  IMJ-PRG, Sorbonne Université\\
