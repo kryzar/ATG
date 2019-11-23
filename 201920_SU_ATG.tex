@@ -2445,10 +2445,10 @@ Enfin, en appliquant à nouveau (1) à la projection $M=A\mu\oplus   \displaysty
 
 \begin{theoreme}[Classes d'équivalence] \textit{On considère l'action de $\SGL_n(A)\times \SGL_m(A)$ sur $M_{n,m}(A)$ donnée par $(P,Q)\cdot M=PMQ^{-1}$. L'ensemble des classes d'équivalence $M_{n,m}(A)/\SGL_n(A)\times \SGL_m(A)$ est canoniquement en bijection avec les suites $Ad_1\supset Ad_2\supset \dots\supset Ad_n$ d'idéaux de $A$.}\end{theoreme}
 \begin{proof} On suppose $m\geq n$. Notons $M:=A^m$, $N:=A^n$ et soit $f:M\rightarrow N\in \SHom_A(M,N)$. Par le théorème de la base adaptée pour $f(M)\subset N$ il existe un unique $0\leq r\leq n$, une unique suite d'idéaux $A\supsetneq Ad_1\supset Ad_2\supset\dots\supset Ad_r$ et des éléments $\nu_1,\dots, \nu_n\in N$ tels que
-$$f(M)=\oplus_{1\leq i\leq r}Ad_i\nu_i\subset \oplus_{1\leq i\leq n}A\nu_i=N. $$
+$$f(M)=\bigoplus_{1\leq i\leq r}Ad_i\nu_i\subset \bigoplus_{1\leq i\leq n}A\nu_i=N. $$
 Comme $f(M)$ est un $A$-module libre, la suite exacte courte
 $$0\rightarrow \ker(f)\rightarrow M\stackrel{f}{\rightarrow}f(M)\rightarrow 0$$
-est scindée. Notons $s:f(M)\rightarrow M$ un scindage. On a alors $M\simeq \ker(f)\oplus s(f(N))$. Comme $A$ est principal et $M$ est un $A$-module libre, $\ker(f)\subset M$ est encore un $A$-module libre. En concaténant une $A$-base de $\ker(f)$ et la $A$-base $s(\nu_1),\dots, s(\nu_n)$ de $f(N)$, on obtient une $A$-base $\mu_1,\dots, \mu_n$ de $M$. La matrice de $f$ dans les bases $\mu_1,\dots, \mu_m$ et $\nu_1,\dots,\nu_n$ est de la forme
+	est scindée. Notons $s:f(M)\rightarrow M$ un scindage. On a alors $M\simeq \ker(f)\oplus f(M)$. Comme $A$ est principal et $M$ est un $A$-module libre, $\ker(f)\subset M$ est encore un $A$-module libre. En concaténant une $A$-base de $\ker(f)$ et la $A$-base $s(\nu_1 d_1),\dots, s(\nu_n d_n)$ de $s(f(M)) = M$, on obtient une $A$-base $\mu_1,\dots, \mu_n$ de $M$. La matrice de $f$ dans les bases $\mu_1,\dots, \mu_m$ et $\nu_1,\dots,\nu_n$ est de la forme
 $$D(d_1,\dots, d_n):=\left(\begin{tabular}[c]{ccccc}
 $d_1$&$0$&$\cdots$&$0$&$0$\\
 $0$&$d_2$&&$0$&$0$\\
