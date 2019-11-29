@@ -2539,6 +2539,7 @@ est $r$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $f_{1}\ot
 
 
 \section{Propriétés élémentaires}\label{Ad1}
+\subsection{Propriétés}
 
 \begin{lemme}[\og commutation\fg{} du produit tensoriel aux sommes directes]\label{PTSum}
 Soit $M_i$, $i\in I$ et $M$ des $A$-modules. On a un isomorphisme canonique
@@ -2576,7 +2577,7 @@ $a\otimes m$&$\mapsto$&$am$
 
 
 
-\subsection{}Soit $I$ un ensemble. Pour $i\in I$ on rappelle qu'on note $e_i:=(\delta_{i,j})_{j\in I}\in A^{(I)}$ le $i$-ème élément de la base canonique de $A^{(I)}$.\\
+\subsection{Espace dual}Soit $I$ un ensemble. Pour $i\in I$ on rappelle qu'on note $e_i:=(\delta_{i,j})_{j\in I}\in A^{(I)}$ le $i$-ème élément de la base canonique de $A^{(I)}$.\\
 
 
 
@@ -2619,10 +2620,10 @@ En particulier, si $M_i$ est un $A$-module  libre  de rang fini $d_i$, $i=1,\dot
 \section{Adjonctions}
 
 
-\subsection{}\textbf{$-\otimes_A M$ versus $\SHom_A(M,-)$}\\
+\subsection{$-\otimes_A M$ versus $\SHom_A(M,-)$}
 
 
-\textbf{Lemme.}\label{Ad1Prop}(Adjonction-1) \textit{Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques}
+\begin{lemme}[adjonction 1]\label{Ad1Prop}Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques\end{lemme}
 $$
  \begin{tabular}[t]{ccccc}
 $\SHom_{A}(L,\SHom_{A}(M,N))$&$\tilde{\rightarrow}$&$L_{r,A}(L \times M,N)$&$\tilde{\rightarrow}$&$\SHom_{A}(L\otimes_{A}M,N)$\\
@@ -2632,7 +2633,7 @@ $l\rightarrow \beta(l,-)$&$\leftarrow$&$\beta$&&
 \textit{(Le deuxième isomorphisme est simplement la propriété universelle du produit tensoriel).}\\
 
 
-\textbf{Exercice} Soit $M$ un $A$-module.
+\begin{exercice}Soit $M$ un $A$-module.
 Montrer  que pour toute suite exacte courte de $A$-modules $$0\rightarrow N'\stackrel{u}{\rightarrow} N\stackrel{v}{\rightarrow} N'' \rightarrow 0$$
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item La suite $$0\rightarrow \SHom_{A}(M,N')\stackrel{u\circ }{\rightarrow} \SHom_{A}(M,N)\stackrel{v\circ }{\rightarrow} \SHom_{A}(M,N'')$$
@@ -2640,26 +2641,31 @@ est exacte.
 \item La suite $$M\otimes_AN'\stackrel{\Id\otimes u}{\rightarrow} M\otimes_AN\stackrel{\Id\otimes v}{\rightarrow} M\otimes_AN'' \rightarrow 0$$
 est exacte.
 \end{enumerate}
+\end{exercice}
 
-\subsection{}\textbf{Extension/Restriction des scalaires.}\label{Ad2} Soit $\phi:A\rightarrow B$ une $A$-algèbre. A tout $B$-module $M$ on peut associer un $A$-module noté $M|_A$ (ou $\phi_*M$) dont le groupe abélien sous-jacent est encore $M$ et dont la structure de $A$-module est définie par $a\cdot m=\phi(a)m$, $a\in A$, $m\in M$. Tout morphisme de $B$-modules $f:M\rightarrow N$ induit alors  tautologiquement un morphisme de $A$-modules $f|_A:M|_A\rightarrow N|_A$. On voudrait, inversement, associer à tout $A$-module $M$ un $B$-module $\phi^*M$ et à tout morphisme de $A$-modules $f:M\rightarrow N$ un morphisme  de  $B$-modules $\phi^*f:\phi^*M\rightarrow \phi^*N$. \\
+\subsection{Extension et restriction des scalaires}\label{Ad2} Soit $\phi:A\rightarrow B$ une $A$-algèbre. A tout $B$-module $M$ on peut associer un $A$-module noté $M|_A$ (ou $\phi_*M$) dont le groupe abélien sous-jacent est encore $M$ et dont la structure de $A$-module est définie par $a\cdot m=\phi(a)m$, $a\in A$, $m\in M$. Tout morphisme de $B$-modules $f:M\rightarrow N$ induit alors  tautologiquement un morphisme de $A$-modules $f|_A:M|_A\rightarrow N|_A$. On voudrait, inversement, associer à tout $A$-module $M$ un $B$-module $\phi^*M$ et à tout morphisme de $A$-modules $f:M\rightarrow N$ un morphisme  de  $B$-modules $\phi^*f:\phi^*M\rightarrow \phi^*N$. \\
 
  Soit $M$ un   $B$-module et $N$ un $A$-module. Pour tout $b_0\in B$, l'application
 $$\begin{tabular}[t]{lll}
 $ M\times N$&$\rightarrow$&$M\otimes_{A}N(:=(M|_A)\otimes_AN)$\\
 $(m,n)$&$\rightarrow$&$(b_{0}m)\otimes n$
 \end{tabular}$$
-est $2$-$A$-linéaire donc  se factorise en un morphisme de $A$-module $ b_0\cdot : M\otimes_A N\rightarrow  M\otimes_A N$, $m\otimes n\rightarrow b_0\cdot (m\otimes n):=(b_0m)\otimes n$. On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $\Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi^*N:=B\otimes_AN$ et $\phi^*f:=\Id_B\otimes f:\phi^*N\rightarrow \phi^*N'$. \\
+est $2$-$A$-linéaire donc  se factorise en un morphisme de $A$-module
+\begin{align*} b_0\cdot : M\otimes_A N &\to  M\otimes_A N \\ m\otimes n &\mapsto b_0\cdot (m\otimes n):=(b_0m)\otimes n\end{align*}
+On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $\Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi_*N:=B\otimes_AN$ et $\phi_*f:=\Id_B\otimes f:\phi_*N\rightarrow \phi_*N'$. \\
 
 
  Les  constructions $\phi_*$, $\phi^*$ sont liées par le lemme suivant.\\
 
-\paragraph{}\label{Ad2Lemma}\textbf{Lemme.} (Adjonction-2) \textit{Soit $M$ un $A$-module et $N$ un $B$-module. On a un isomorphisme canonique (de $\mathbb{Z}$-modules)}
+\begin{lemme}[adjonction 2]\label{Ad2Lemma}Soit $M$ un $A$-module et $N$ un $B$-module. On a un isomorphisme canonique (de $\mathbb{Z}$-modules)
 $$  \begin{tabular}[t]{cll}
 $\SHom_{A}(M, N|_A)$&$\tilde{\rightarrow}$&$ \SHom_{B}(B\otimes_AM,N)$\\
 $f$&$\rightarrow$&$b\otimes m\rightarrow bf(m)$\\
 $f(1\otimes -)$&$\leftarrow$&$f$
 \end{tabular}$$
-\paragraph{}\textbf{Exercice (Transitivité de l'extension des scalaires).}
+\end{lemme}
+
+\begin{exercice}[Transitivité de l'extension des scalaires]
 
 \begin{enumerate}
 \item Soit $M,M' $ des $B$-modules et $N$ un $A$-module. Montrer qu'on a un isomorphisme canonique de $B$-modules
@@ -2668,14 +2674,17 @@ En déduire qu'on a un isomorphisme canonique de $B$-modules $M\otimes_B(B\otime
 \item Soit $A\rightarrow B\rightarrow C$ des morphismes d'anneaux et $M$ un $A$-module. Montrer qu'on a un isomorphisme canonique
 $$C\otimes_B(B\otimes_AM)\tilde{\rightarrow} C\otimes_AN.$$
 \end{enumerate}
+\end{exercice}
 
-\paragraph{}\textbf{Extension des scalaires par un quotient.} Soit $M$ un $A$-module et $I\subset A$ un idéal. Notons $IM\subset M$ le sous-$A$-module engendré par les éléments de la forme $am$, $a\in I$, $m\in M$. Par propriété universelle du quotient, l'application $$\begin{tabular}[t]{clc}
+\begin{definition}[Extension des scalaires par un quotient] Soit $M$ un $A$-module et $I\subset A$ un idéal. Notons $IM\subset M$ le sous-$A$-module engendré par les éléments de la forme $am$, $a\in I$, $m\in M$. Par propriété universelle du quotient, l'application $$\begin{tabular}[t]{clc}
  $A\times M/IM$&$\rightarrow$&$M/IM$\\
  $(a,\overline{m})$&$\rightarrow$&$a\overline{m}=\overline{am}$
  \end{tabular}$$
- donnée par la structure de $A$-module sur $M/IM$ se factorise en une application $A/I\times M/IM\rightarrow M/IM$, qui fait de $M/IM$ un $A/I$-module. Le l\\
+ donnée par la structure de $A$-module sur $M/IM$ se factorise en une application $A/I\times M/IM\rightarrow M/IM$, qui fait de $M/IM$ un $A/I$-module. 
+ \end{definition}
 
- \textbf{Lemme.} (Propriété universelle de  $M\rightarrow M/IM$) \textit{Pour tout  $A$-module $M$ et idéal $I\subset A$, il existe un $A/I$-module $Q$ et un morphisme de $A$-modules $p:M\rightarrow (p_I)_*Q$ tel que pour tout $A$ pour tout $A/I$-module $N$ et tout morphisme de $A$-module $\phi:M\rightarrow (p_I)_*N$ il existe un unique morphisme de $A/I$-module $\overline{\phi}:Q\rightarrow N$ tel que $  \overline{\phi}\circ p=\phi$. }\\
+ \begin{lemme}[Propriété universelle de  $M\rightarrow M/IM$] Pour tout  $A$-module $M$ et idéal $I\subset A$, il existe un $A/I$-module $Q$ et un morphisme de $A$-modules $p:M\rightarrow (p_I)_*Q$ tel que pour tout $A$ pour tout $A/I$-module $N$ et tout morphisme de $A$-module $\phi:M\rightarrow (p_I)_*N$ il existe un unique morphisme de $A/I$-module $\overline{\phi}:Q\rightarrow N$ tel que $  \overline{\phi}\circ p=\phi$.
+\end{lemme}
 
 \begin{proof}On vérifie que $p_{IM}:M\rightarrow M/IM$ convient. Si $\overline{\phi}:M/IM\rightarrow N$ existe la condition  $  \overline{\phi}\circ p_{IM}=\phi$  impose $  \overline{\phi}(\overline{m})=\phi(m)$, $m\in M$, d'où l'unicité de $\overline{\phi}$ sous réserve de son existence. Par ailleurs, pour tout $a\in I$, $m\in M$, $\phi(am)=p_I(a)\phi(m)=0$ donc $IM\subset \ker(\phi)$ et $\phi:M\rightarrow N$ se factorise en un morphisme de $A$-modules $\overline{\phi}:M/IM\rightarrow (p_I)_*M$ qui induit tautologiquement un morphisme $ \overline{\phi}:M/IM\rightarrow  N$ de $A/I$-modules. \end{proof}
 
