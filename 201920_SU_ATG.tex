@@ -2652,7 +2652,7 @@ $(m,n)$&$\rightarrow$&$(b_{0}m)\otimes n$
 \end{tabular}$$
 est $2$-$A$-linéaire donc  se factorise en un morphisme de $A$-module
 \begin{align*} b_0\cdot : M\otimes_A N &\to  M\otimes_A N \\ m\otimes n &\mapsto b_0\cdot (m\otimes n):=(b_0m)\otimes n\end{align*}
-On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $\Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi_*N:=B\otimes_AN$ et $\phi_*f:=\Id_B\otimes f:\phi_*N\rightarrow \phi_*N'$. \\
+On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $\Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi^*N:=B\otimes_AN$ et $\phi^*f:=\Id_B\otimes f:\phi^*N\rightarrow \phi^*N'$. \\
 
 
  Les  constructions $\phi_*$, $\phi^*$ sont liées par le lemme suivant.\\
@@ -2669,21 +2669,20 @@ $f(1\otimes -)$&$\leftarrow$&$f$
 
 \begin{enumerate}
 \item Soit $M,M' $ des $B$-modules et $N$ un $A$-module. Montrer qu'on a un isomorphisme canonique de $B$-modules
-$$M'\otimes_B(M\otimes_AN)\tilde{\rightarrow} (M'\otimes_B M)\otimes_A.$$
+$$M'\otimes_B(M\otimes_AN)\tilde{\rightarrow} (M'\otimes_B M)\otimes_A N.$$
 En déduire qu'on a un isomorphisme canonique de $B$-modules $M\otimes_B(B\otimes_AN)\tilde{\rightarrow} M\otimes_AN$;
 \item Soit $A\rightarrow B\rightarrow C$ des morphismes d'anneaux et $M$ un $A$-module. Montrer qu'on a un isomorphisme canonique
 $$C\otimes_B(B\otimes_AM)\tilde{\rightarrow} C\otimes_AN.$$
 \end{enumerate}
 \end{exercice}
 
-\begin{definition}[Extension des scalaires par un quotient] Soit $M$ un $A$-module et $I\subset A$ un idéal. Notons $IM\subset M$ le sous-$A$-module engendré par les éléments de la forme $am$, $a\in I$, $m\in M$. Par propriété universelle du quotient, l'application $$\begin{tabular}[t]{clc}
+\subsubsection{Extension des scalaires par un quotient} Soit $M$ un $A$-module et $I\subset A$ un idéal. Notons $IM\subset M$ le sous-$A$-module engendré par les éléments de la forme $am$, $a\in I$, $m\in M$. Par propriété universelle du quotient, l'application $$\begin{tabular}[t]{clc}
  $A\times M/IM$&$\rightarrow$&$M/IM$\\
  $(a,\overline{m})$&$\rightarrow$&$a\overline{m}=\overline{am}$
  \end{tabular}$$
  donnée par la structure de $A$-module sur $M/IM$ se factorise en une application $A/I\times M/IM\rightarrow M/IM$, qui fait de $M/IM$ un $A/I$-module. 
- \end{definition}
 
- \begin{lemme}[Propriété universelle de  $M\rightarrow M/IM$] Pour tout  $A$-module $M$ et idéal $I\subset A$, il existe un $A/I$-module $Q$ et un morphisme de $A$-modules $p:M\rightarrow (p_I)_*Q$ tel que pour tout $A$ pour tout $A/I$-module $N$ et tout morphisme de $A$-module $\phi:M\rightarrow (p_I)_*N$ il existe un unique morphisme de $A/I$-module $\overline{\phi}:Q\rightarrow N$ tel que $  \overline{\phi}\circ p=\phi$.
+ \begin{lemme}[Propriété universelle de  $M\rightarrow M/IM$] Pour tout  $A$-module $M$ et idéal $I\subset A$, il existe un $A/I$-module $Q$ et un morphisme de $A$-modules $p:M\rightarrow (p_I)_*Q$ tel que pour tout $A/I$-module $N$ et tout morphisme de $A$-module $\phi:M\rightarrow (p_I)_*N$ il existe un unique morphisme de $A/I$-module $\overline{\phi}:Q\rightarrow N$ tel que $  \overline{\phi}\circ p=\phi$.
 \end{lemme}
 
 \begin{proof}On vérifie que $p_{IM}:M\rightarrow M/IM$ convient. Si $\overline{\phi}:M/IM\rightarrow N$ existe la condition  $  \overline{\phi}\circ p_{IM}=\phi$  impose $  \overline{\phi}(\overline{m})=\phi(m)$, $m\in M$, d'où l'unicité de $\overline{\phi}$ sous réserve de son existence. Par ailleurs, pour tout $a\in I$, $m\in M$, $\phi(am)=p_I(a)\phi(m)=0$ donc $IM\subset \ker(\phi)$ et $\phi:M\rightarrow N$ se factorise en un morphisme de $A$-modules $\overline{\phi}:M/IM\rightarrow (p_I)_*M$ qui induit tautologiquement un morphisme $ \overline{\phi}:M/IM\rightarrow  N$ de $A/I$-modules. \end{proof}
@@ -2700,10 +2699,12 @@ $(a, m)$&$\rightarrow$&$\overline{am}$
 est $2$-$A$-linéaire et passe au quotient en une application  $2$-$A$-linéaire $A/I\times M\rightarrow M/IM$ donc se factorise en un morphisme de $A$-modules $f:(A/I)\otimes_A M\rightarrow M/IM$. Inversement, l'application $M\rightarrow (A/I)\otimes_A M$, $m\rightarrow 1\otimes m$ est un morphisme de $A$-modules dont le noyau contient $IM$  donc se factorise en un morphisme de  $A$-modules $M/IM\rightarrow (A/I)\otimes_A M$. Par construction, $f$ et $g$ sont inverses l'une de l'autre. On a donc montré qu'on avait un isomophisme de $A$-modules canoniques
 $$(A/I)\otimes_A M\tilde{\rightarrow} M/IM.$$
 
-\textbf{Exemple.} Soit $A$ un anneau principal, $ a,b\in A$ des éléments premiers entre eux et $M$ un $A$-module tel que $aM=0$. Par Bézout on a alors $bM=M$ donc
-$(A/b)\otimes_AM=0$. Par exemple si $p\not= q$ sont deux nombres premiers, $\Z/p\otimes_\Z \Z/q =0$.\\
+\begin{exemple} Soit $A$ un anneau principal, $ a,b\in A$ des éléments premiers entre eux et $M$ un $A$-module tel que $aM=0$. Par Bézout on a alors $bM=M$ donc
+$(A/b)\otimes_AM=0$. Par exemple si $p\not= q$ sont deux nombres premiers, $\Z/p\otimes_\Z \Z/q =0$.
+\end{exemple}
 
-\paragraph{}\textbf{Extension des scalaires par une localisation.} Soit $S\subset A$ une partie multiplicative et $M$ un $A$-module.  Munissons le produit cartésien $S\times M$ de la relation  $\sim $ définie par $(s,m)\sim (s',m')$ s'il existe $s''\in S$ tel que $s''(s'm-sm')=0$. \\
+\subsubsection{Extension des scalaires par une localisation}
+Soit $S\subset A$ une partie multiplicative et $M$ un $A$-module.  Munissons le produit cartésien $S\times M$ de la relation  $\sim $ définie par $(s,m)\sim (s',m')$ s'il existe $s''\in S$ tel que $s''(s'm-sm')=0$. \\
 
  On vérifie que $\sim$ est une relation d'équivalence. On remarquera que si $M$ est sans $S$-torsion, on peut, dans la définition de $\sim$, simplifier par $s''$ et la relation $\sim$ devient simplement $(s,m),(s',m')\in S\times M$, $(s,m)\sim (s',m')$ si $s'm-sm'=0$.  Mais on prendra garde que si $S$ a de la $S$-torsion,  la relation $(s,m)\sim (s',m')$ si $s'm-sm'=0$ n'est pas transitive donc ne définit pas une relation d'équivalence.\\
 
@@ -2721,14 +2722,16 @@ $-/-$ :&$S\times M$&$\rightarrow$&$S^{-1}M$\\
  $+$&$:S^{-1}M\times S^{-1}M$&$\rightarrow$&$S^{-1}M$\\
  &$(m/s,n/t)$&$\rightarrow$&$(tm+sn)/(st)$
  \end{tabular},\;\; \begin{tabular}[t]{lclc}
- $\cdot $&$:S^{-1}A\times S^{-1}M$&$\rightarrow$&$S^{-1}A$\\
+ $\cdot $&$:S^{-1}A\times S^{-1}M$&$\rightarrow$&$S^{-1}M$\\
  &$(a/s,n/t)$&$\rightarrow$&$(an)/(st)$
  \end{tabular}$$
-munissent $S^{-1}A$ d'une structure de $S^{-1}A$-module et que l'application canonique $\iota_S:=-/1:M\rightarrow (\iota_S)_*S^{-1}M$ est un morphisme de $A$-modules de noyau
+munissent $S^{-1}M$ d'une structure de $S^{-1}A$-module et que l'application canonique $\iota_S:=-/1:M\rightarrow (\iota_S)_*S^{-1}M$ est un morphisme de $A$-modules de noyau
 $\ker(\iota_S)=\lbrace m\in M\; |\; \exists s\in S\; \hbox{\rm tel que}\; sm=0\rbrace$.\\
 
 
-\textbf{Lemme.} (Propriété universelle de la localisation des $A$-modules) \textit{Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$ et pour tout $A$-module $M$ il existe un $S^{-1}A$-module $L$ et un morphisme de $A$-modules $\iota_S:M\rightarrow (\iota_S)_*L$ tel que   pour tout $S^{-1}A$-module $N$ et pour tout  morphisme de $A$-module $f:M\rightarrow N$, il  existe un unique morphisme de $S^{-1}A$-modules $\tilde{f}:L\rightarrow N$ tel que $f=  \tilde{f}\circ \iota_S$.}\\
+\begin{lemme}[Propriété universelle de la localisation des $A$-modules]
+Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$ et pour tout $A$-module $M$ il existe un $S^{-1}A$-module $L$ et un morphisme de $A$-modules $\iota_S:M\rightarrow (\iota_S)_*L$ tel que   pour tout $S^{-1}A$-module $N$ et pour tout  morphisme de $A$-module $f:M\rightarrow N$, il  existe un unique morphisme de $S^{-1}A$-modules $\tilde{f}:L\rightarrow N$ tel que $f=  \tilde{f}\circ \iota_S$.
+\end{lemme}
 
 \begin{proof} On vérifie que $\iota_S:=-/1:M\rightarrow (\iota_S)_*S^{-1}M$ convient... \end{proof}
 
