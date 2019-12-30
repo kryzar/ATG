@@ -927,7 +927,7 @@ où $(1)$ utilise encore que $\CD(f)\in A^\times$. On a donc forcément $r=r'$ d
 
 
 
-\section{Eléments irréductibles, éléments premiers}\label{IrrPrem}On dit que $0\not=p\in A\setminus A^\times$  est \textit{irréductible} si pour tout $a,b\in A$, $p=ab$ implique $a\in A^\times$ ou $b\in A^\times$. On notera $\mathcal{P}_A^\circ\subset A$ l'ensemble des éléments irréductibles de $A$.
+\section{Éléments irréductibles, éléments premiers}\label{IrrPrem}On dit que $0\not=p\in A\setminus A^\times$  est \textit{irréductible} si pour tout $a,b\in A$, $p=ab$ implique $a\in A^\times$ ou $b\in A^\times$. On notera $\mathcal{P}_A^\circ\subset A$ l'ensemble des éléments irréductibles de $A$.
   On munit  $\mathcal{P}_A^\circ$ de la relation d'équivalence $\sim$ définie par: pour tout $p,q\in \mathcal{P}_A^\circ$, $p\sim q$ si et seulement si $Ap=Aq$, ce qui est aussi équivalent à  $A^\times p=A^\times q$.\\
 
    On notera $\mathcal{P}_A\subset \mathcal{P}_A^\circ$ un système de représentants de $\mathcal{P}_A^\circ/\sim$.\\
@@ -940,7 +940,7 @@ où $(1)$ utilise encore que $\CD(f)\in A^\times$. On a donc forcément $r=r'$ d
 
 
 
-   On dit que $0\not=p\in A\setminus A^\times$  est \textit{premier}\index{Premier (Elément)} si   $Ap\in \Spec(A)$. On notera $\mathcal{P}^\dag_A\subset A$ l'ensemble des éléments premiers de $A$. \\
+   On dit que $0\not=p\in A\setminus A^\times$  est \textit{premier}\index{Premier (Élément)} si   $Ap\in \Spec(A)$. On notera $\mathcal{P}^\dag_A\subset A$ l'ensemble des éléments premiers de $A$. \\
 
 
 
@@ -992,7 +992,7 @@ est bijective \ie{} pour tout $0\not=a\in A $ il existe une unique application $
  $A^\times\times \N^{(\mathcal{P}_A)}$&$\rightarrow$&$A\setminus\lbrace 0\rbrace $\\
  $(u,\nu)$&$\rightarrow$&$u\displaystyle{\prod_{p\in\mathcal{P}_A}p^{\nu(p)}}$
  \end{tabular}$$ est surjective.}
-\begin{proof}Notons $\mathcal{F}\subset A$ l'image de $A^\times\times \N^{(\mathcal{P}_A)} \rightarrow A\setminus\lbrace 0\rbrace $. Observons que $\mathcal{F}$ est stable par produit et qu'il contient $\mathcal{P}_A^\circ$, $A^\times$. Si $a\notin \mathcal{F}$, $a\notin\mathcal{P}_A$ donc il existe $a_1,a_2\notin A^\times$ tels que $a=a_1a_2$. En particulier, $Aa\subsetneq Aa_1,Aa_2$. De plus, comme $\mathcal{F}$ est stable par produit, on a $a_1\notin\mathcal{F}$ ou $a_2\notin\mathcal{F}$. Supposons $a_1\notin\mathcal{F}$. En itérant, $ a_1 =a_{1,1}a_{1,2} $ avec $a_{1,1},a_{1,2}\notin A^\times$ - donc $Aa_1\subsetneq Aa_{1,1}, Aa_{1,2}$ - et $a_{1,1}\notin \mathcal{F}$ \textit{etc.} on construit ainsi une suite strictement croissante  $Aa\subsetneq Aa_{1}\subsetneq Aa_{1,1,1}\subsetneq Aa_{1,1,1,1}\subsetneq\cdots$ d'idéaux de A, ce qui contredit la noetherianité de $A$.
+\begin{proof}Notons $\mathcal{F}\subset A$ l'image de $A^\times\times \N^{(\mathcal{P}_A)} \rightarrow A\setminus\lbrace 0\rbrace $. Observons que $\mathcal{F}$ est stable par produit et qu'il contient $\mathcal{P}_A^\circ$, $A^\times$. Si $a\notin \mathcal{F}$, $a\notin\mathcal{P}_A$ donc il existe $a_1,a_2\notin A^\times$ tels que $a=a_1a_2$. En particulier, $Aa\subsetneq Aa_1,Aa_2$. De plus, comme $\mathcal{F}$ est stable par produit, on a $a_1\notin\mathcal{F}$ ou $a_2\notin\mathcal{F}$. Supposons $a_1\notin\mathcal{F}$. En itérant, $ a_1 =a_{1,1}a_{1,2} $ avec $a_{1,1},a_{1,2}\notin A^\times$ - donc $Aa_1\subsetneq Aa_{1,1}, Aa_{1,2}$ - et $a_{1,1}\notin \mathcal{F}$ etc. on construit ainsi une suite strictement croissante  $Aa\subsetneq Aa_{1}\subsetneq Aa_{1,1,1}\subsetneq Aa_{1,1,1,1}\subsetneq\cdots$ d'idéaux de A, ce qui contredit la noetherianité de $A$.
 \end{proof}
 
 
@@ -2794,95 +2794,279 @@ Produit&$\prod_{i\in I}M_i$&$\prod_{i\in I}A_i$\\
 
 
 \part{Extensions de corps et théorie de Galois}
- Dans cette partie du cours, sauf mention explicite du contraire, tous les anneaux considérés sont commutatifs. On rappelle qu'un corps (commutatif) est un anneau (commutatif) dont tous les éléments non nuls sont inversibles. On a vu dans les chapitres précédents un certain nombre de techniques pour construire des corps intéressants. Par exemple,
+
+
+\section*{Préliminaires}
+
+Dans cette partie du cours, sauf mention explicite du contraire, tous les anneaux considérés sont commutatifs. On rappelle qu'un corps (commutatif) est un anneau (commutatif) dont tous les éléments non nuls sont inversibles. On a vu dans les chapitres précédents un certain nombre de techniques pour construire des corps intéressants. Par exemple,
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item Si $A$ est un anneau intègre,  $\Frac(A)$ est un corps.\\
-Ex.: $\Q=\Frac(\Z)$, si $k$ est un corps, $k(T_1,\dots, T_r)=\Frac(k[T_1,\dots, T_r])$, \textit{etc.}
-\item Si $k$ est un corps muni d'une valeur absolue \ie{} d'une application $|-|:k\rightarrow \R_{\geq 0}$ telle que $|x|=0$ si et seulement si $x=0$, $|xy|=|x||y|$ et $|x+y|\leq |x|+ly|$, l'ensemble $Cau(k)\subset k^\N$ des suites de Cauchy de $(k,|-|)$ est une sous-$k$-algèbre et on vérifie facilement que le sous-ensemble $Cau_0(k)\subset Cau(k)$ des suites de Cauchy qui convergent vers $0$ est un idéal maximal. On dit que $\widehat{k}:=\widehat{k^{|-|}}:=Cau(k)/Cau_0(k)$ est le complété de $k$ par rapport à la valeur absolue $|-|$. Par exemple, sur $\Q$, on peut considérer
+\item Si $A$ est un anneau intègre, $\Frac(A)$ est un corps.\\
+Exemples : $\Q=\Frac(\Z)$, si $k$ est un corps, $k(T_1,\dots, T_r)=\Frac(k[T_1,\dots, T_r])$, etc.
+\item Si $k$ est un corps muni d'une valeur absolue \ie{} d'une
+  application $|-|:k\rightarrow \R_{\geq 0}$ vérifiant :
+  \begin{itemize}
+  \item $|x|=0$ si et seulement si $x=0$,
+  \item $|xy|=|x||y|$,
+  \item $|x+y|\leq |x|+ly|$,
+  \end{itemize}
+  alors l'ensemble $\mathrm{Cau}(k)\subset k^\N$ des suites de Cauchy
+  de $(k,|-|)$ est une sous-$k$-algèbre et on vérifie facilement que
+  le sous-ensemble $\mathrm{Cau}_0(k)\subset \mathrm{Cau}(k)$ des
+  suites de Cauchy qui convergent vers $0$ est un idéal maximal. On
+  dit que $\widehat{k}:=\widehat{k^{|-|}}:=Cau(k)/Cau_0(k)$ est le
+  complété de $k$ par rapport à la valeur absolue $|-|$. Par exemple,
+  sur $\Q$, on peut considérer
 \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
 \item la valeur absolue usuelle $|x|=x$ si $x\geq 0$, $|x|=-x$ si $x<0$. On obtient ainsi le corps des réels $\R=\widehat{\Q^{|-|}}$;
-\item pour chaque premier $0\not=p$, la valeur absolue $p$-adique $|x|_p=p^{-v_p(x)}$. On obtient ainsi  On obtient ainsi le corps des $p$-adiques $\Q_p=\widehat{\Q^{|-|_p}}$;
+\item pour chaque nombre premier $p>0$, la valeur absolue $p$-adique
+  $|x|_p=p^{-v_p(x)}$. On obtient ainsi le corps des nombres
+  $p$-adiques $\Q_p=\widehat{\Q^{|-|_p}}$;
 \end{itemize}
 \item Si $\frak{m}\subset A$ est un idéal maximal, $A/\frak{m}$ est un corps.  \\
-Ex.: si $A$ est un anneau principal et $p$ un élément irréductible, $A/p$ est un corps: $\F_p=\Z/p$, $\CC=\R[T]/(T^2+1)$, $\Q[T]/T^p+T^{p-1}+\cdots+1$, $p$: premier, \textit{etc.}
-\item Si $\frak{p}\subset A$ est un idéal premier, $A_\frak{p}$ est un anneau local d'unique idéal maximal $\frak{p}A_\frak{p}$ donc $\kappa(\frak{p})=A_\frak{p}/\frak{p}A_\frak{p}$ est un corps, \textit{etc.}
+Exemple : si $A$ est un anneau principal et $p$ un élément
+irréductible, $A/p$ est un corps : $\F_p=\Z/p$, $\CC=\R[T]/(T^2+1)$, $\Q[T]/(T^p+T^{p-1}+\dotsb+1)$, $p$ premier, etc.
+\item Si $\frak{p}\subset A$ est un idéal premier, $A_\frak{p}$ est un anneau local d'unique idéal maximal $\frak{p}A_\frak{p}$ donc $\kappa(\frak{p})=A_\frak{p}/\frak{p}A_\frak{p}$ est un corps, etc.
 \end{itemize}
 
 
 \chapter{Extensions algébriques, extensions transcendantes}
- Soit $k,K$ deux corps. On dit que $K$ est une extension de $k$ ou une $k$-extension ou que $k$ est un sous-corps de $K$ si  $K$ est une $k$-algèbre \ie{} s'il existe un morphisme  d'anneaux $\phi:k\rightarrow K$; ce morphisme est alors automatiquement injectif, ce qui justifie la terminologie `extension / sous-corps' et le fait que, dans la suite, on notera presque toujours $k\subset K$ ou $K/k$ au lieu de  $\phi:k\rightarrow K$, identifiant implicitement $k$ et son image $\phi(k)\subset K$.  Un morphisme de $k$-extensions $K/k\rightarrow K'/k$ est, par définition, un morphisme de $k$-algèbres. Un morphisme de $k$-extensions est automatiquement injectif et on dit parfois que c'est un $k$-plongement.\\
 
-\section{}\label{Dim}Si $K/k$ est une extension de corps, on notera $[K:k]$ la dimension de $K$ comme espace vectoriel sur $k$ (avec la convention que si $K$ n'est pas de dimension finie sur $k$, $[K:k]=+\infty$). Avec la convention $+\infty\cdot +\infty=+\infty$, on a \\
+\begin{definition}
+  Soient $k,K$ deux corps. On dit que $K$ est une extension de $k$ (ou
+  une $k$-extension, ou encore que $k$ est un sous-corps de $K$) si
+  $K$ est une $k$-algèbre \ie{} s'il existe un morphisme d'anneaux
+  $\phi:k\rightarrow K$
+\end{definition}
 
-\textbf{Lemme.} \textit{Si $K_3/K_2$ et $K_2/K_1$ sont des extensions de corps, $[K_3:K_1]=[K_3:K_2][K_2:K_1]$.}
-\begin{proof}Il suffit d'observer que si $e^3_i$, $i\in I_3$ est une $K_2$-base de $K_3$ et $e^2_i$, $i\in I_2$ est une $K_1$-base de $K_2$ alors $e_{i_2}^3e_{i_3}^2$, $i_2\in I_2$, $i_3\in I_3$ est une $K_1$-base de $K_3$.\end{proof}
-
-
-\section{Eléments algébriques, éléments transcendants} Soit $k\subset K$ un sous-corps. On rappelle que si $X\subset K$ est un sous-ensemble, on a noté  $k[X]\subset K$  la plus petite sous-$k$-algèbre de $K$ contenant $X$ et que   c'est aussi l'image de l'unique morphisme de $k$-algèbre $ k[T_x,\; x\in X ]\rightarrow K$, $T_x\mapsto x $.\\
-
-\subsection{}Si $k\subset K_i\subset K$, $i\in I$ sont des  sous-corps contenant $k$, on vérifie immédiatement que $k\subset \cap_{i\in I}K_i\subset K $ est encore un sous-corps contenant $k$. il existe donc une unique sous-corps $k\subset k(X)\subset K$ contenant $k$, $X$ et minimal pour l'inclusion. On dit que $k\subset k(X)\subset K$ est la sous-$k$-extension de $k\subset K$ engendrée par $X$. Explicitement, $k(X)$ est l'intersection de toutes les sous-corps $k\subset K'\subset K$ tels que $X\subset K'$.  Si $K=k(X)$ on dit que $X$ est un système de générateurs de $K$ comme extension de corps de $k$ (ou que $K$ est engendré par $X$ comme extension de corps de $k$). Si on peut prendre $X$ fini, on dit que $K$ est une extension de corps de type fini de $k$. Comme $k[X]\subset k(X)$ et $k(X)$ est un corps, la propriété universelle du corps des fractions d'un anneau intègre montre qu'on a $k\subset k[X]\subset \Frac(k[X])\subset k(X)\subset K$ et, comme $X\subset \Frac(k[X])$, la minimalité de $k(X)$ assure que $\Frac(k[X])=k(X)$.   \\
-
-\subsection{}\textbf{Alternative algébrique/transcendant}\label{AlgTr} Soit $K/k$ une extension de corps, $x\in K$ et $ev_x:k[X]\twoheadrightarrow k[x]$ l'unique morphisme de $k$-algèbres tel que $ev_x(X)=x$\\
-
-\ref{AlgTr}.1 \textbf{Lemme/définition.}\textit{On a l'alternative suivante.
-\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
-\item Soit $ev_x:k[X]\tilde{\rightarrow} k[x]$ est un isomorphisme de $k$-algèbres et le morphisme $k[X]\stackrel{ev_x}{\tilde{\rightarrow}}k[x]\hookrightarrow k(x)$ se localise en un isomorphisme de corps $k(X)\tilde{\rightarrow} k(x)$. En particulier $k[x]$ (donc a fortiori $k(x)$) est de dimension infinie sur $k$.
-\item Soit il existe un unique polynôme irréductible unitaire $P_x\in k[X]$ tel que $\ker(ev_x)=k[X]P_x$ et le morphisme de $k$-algèbres $ev_x:k[X]\twoheadrightarrow k[x]$ se factorise en un isomorphisme $k[X]/P_x\tilde{\rightarrow} k[x]$. En particulier $k[x]=k(x)$
- et $k(x)$ est de dimension finie sur $k$, égale au degré de $P_x$.\\
- \end{enumerate}}
-
-  Dans le cas (1), on dit que $x\in K$ est \textit{transcendant sur $k$}\index{Transcendant (Elément)} et dans le cas (2) que $x\in K$ est \textit{algébrique}\index{Algébrique (Elément)} sur $k$ de degré $[k(x):k]=\deg(P_x)$ et que $P_x$ est le polynôme irréductible (unitaire) de $x$ sur $k$.\\
+\begin{remarque}
+  Ce morphisme est alors automatiquement injectif, ce qui justifie la
+  terminologie \og extension / sous-corps \fg{} et le fait que, dans
+  la suite, on notera presque toujours $k\subset K$ ou $K/k$ au lieu
+  de  $\phi:k\rightarrow K$, identifiant implicitement $k$ et son
+  image $\phi(k)\subset K$.\\
+  Un morphisme de $k$-extensions $K/k\rightarrow K'/k$ est, par
+  définition, un morphisme de $k$-algèbres. Un morphisme de
+  $k$-extensions est automatiquement injectif et on dit parfois que
+  c'est un $k$-plongement.\\
+\end{remarque}
 
 
-\begin{proof} Si $\ker(ev_x)=0$ on est dans le cas (1) et les assertions sont immédiates. Si  $\ker(ev_x)\not=0$, comme $k[X]$ est principal, il existe un unique polynôme unitaire $P_x$ tel que $\ker(ev_x)=k[X]P_x$ et  le morphisme de $k$-algèbres $ev_x:k[X]\twoheadrightarrow k[x]$ se factorise en un isomorphisme $k[X]/P_x\tilde{\rightarrow} k[x]$. Comme $k[x]\subset K$ est un sous-anneau d'un corps, il est intègre donc  $P_x$ est premier. Comme $k[X]$ est principal, tout idéal premier est maximal, donc $k[x]\subset K$ est un sous-corps de $K$. Comme $k[x]$ contient  $k$ et $x$, c'est nécessairement $k(x)$. Il reste à voir que $k[X]/P_x $ est de dimension le degré $d$ de $P_x$ sur $k$. Mais en utilisant la division euclidienne de   $k[X]$, on voit immédiatement que les classes de  $1,X,\dots, X^{d-1}$ forment une $k$-base de $k[X]/P_x$.
+\section{Degré d'une extension}\label{Dim}
+
+\begin{definition}
+  Si $K/k$ est une extension de corps, on appelle degré de $K/k$, et
+  l'on note $[K:k]$ la dimension de $K$ comme espace vectoriel sur $k$
+  (avec la convention que si $K$ n'est pas de dimension finie sur $k$,
+  $[K:k]=+\infty$).
+\end{definition}
+
+Avec la convention $+\infty\cdot +\infty=+\infty$, on a \\
+
+\begin{lemme}
+  Si $K_3/K_2$ et $K_2/K_1$ sont des extensions de corps,
+  $[K_3:K_1]=[K_3:K_2][K_2:K_1]$.
+\end{lemme}
+
+\begin{proof}
+  Il suffit d'observer que si $e^3_i$, $i\in I_3$ est une $K_2$-base
+  de $K_3$ et $e^2_i$, $i\in I_2$ est une $K_1$-base de $K_2$ alors
+  $e_{i_2}^3e_{i_3}^2$, $i_2\in I_2$, $i_3\in I_3$ est une $K_1$-base
+  de $K_3$.
 \end{proof}
 
- On retiendra en particulier que si $x\in K$
 
-$$\begin{tabular}[t]{ccccc}
-$x$ est algébrique sur $k$&$\Leftrightarrow$&$[k(x):k]<+\infty$&$\Leftrightarrow$&$k[x]=k(x)$;\\
-$x$ est transcendant sur $k$&$\Leftrightarrow$&$[k(x):k]=+\infty$&$\Leftrightarrow$&$k[x]\subsetneq k(x)$;\\
-\end{tabular}$$
+\section{Éléments algébriques, éléments transcendants}
 
-\ref{AlgTr}.2 \textbf{Exemple.} Considérons l'extension $\CC/\Q$. Les nombres $i,\sqrt{2}$ \textit{etc} sont algébriques par définition.
-\begin{itemize}
-\item Si $a\in \CC$ est algébrique, $\exp(a)$ est transcendant (Lindemann, $\sim 1880$); en particulier, $e$ ($a=1$) et $\pi$ ($a=i\pi$) sont transcendants sur $\Q$.
-\item  Si $a,b\in \CC$ sont algébriques sur $\Q$ et $a\not=0,1$, $b\notin \Q$, $a^b=\exp(b\log a)$ est transcendant  sur $\Q$ ($7$ème problème de Hilbert, Gelfond, $\sim$ 1930); en particulier,  $e^\pi$ ($a=e^\pi$, $b=i$) est transcendant sur $\Q$.
-\item On ne sait pas si $e+\pi$ est transcendant. Il est par contre possible que d'ici la fin de l'année (2018), on sache que si $a,b\in \CC$ sont algébriques sur $\Q$, $\exp(a)\log(b)$ soit transcendant  sur $\Q$.
-\end{itemize}
-En fait, sauf cas très particulier, on ne sait pas dire si un nombre complexe pris `au hasard' est transcendant sur  $\Q$ alors que moralement, `presque tous' les nombres complexes sont transcendants sur $\Q$ puisque
-  $\Q$ est dénombrable alors que   $\R$ (donc $\CC) $ n'est pas dénombrable.  \\
+Soit $k\subset K$ un sous-corps. On rappelle que si
+$\mathscr{S}\subset K$ est un sous-ensemble, on a noté
+$k[\mathscr{S}]\subset K$ la plus petite sous-$k$-algèbre de $K$
+contenant $\mathscr{S}$ et que c'est aussi l'image de l'unique
+morphisme de $k$-algèbre $ k[T_x,\; x\in \mathscr{S}]\rightarrow K$,
+$T_x\mapsto x $.\\
 
 
+\subsection{Sous-corps engendré par une partie}
 
-\subsection{}Soit $K/k$ une extension de corps. On dit que $a_i\in K$, $i\in I$ sont algébriquement indépendants sur $k$ si pour tout sous-ensemble fini $J\subset I$, l'unique morphisme de $k$-algèbre $k[X_j,\; j\in J]\rightarrow K$, $X_j\rightarrow a_j$, $j\in J$ est injectif. Sinon, on dit que  $a_i\in K$, $i\in I$ sont algébriquement  liés sur $k$.\\
+Si $k\subset K_i\subset K$, $i\in I$ sont des sous-corps contenant
+$k$, on vérifie immédiatement que
+$k\subset \cap_{i\in I}K_i\subset K $ est encore un sous-corps
+contenant $k$. Il existe donc une unique sous-corps
+$k\subset k(\mathscr{S})\subset K$ contenant $k$, $\mathscr{S}$ et
+minimal pour l'inclusion.
 
- Pour $|I|=1$, on retrouve la notion d'élément transcendant sur $k$.\\
+\begin{definition}
+  On dit que $k\subset k(\mathscr{S})\subset K$ est la
+  sous-$k$-extension de $k\subset K$ engendrée par
+  $\mathscr{S}$. Explicitement, $k(\mathscr{S})$ est l'intersection de
+  toutes les sous-corps $k\subset K'\subset K$ tels
+  que $\mathscr{S}\subset K'$.\\
+  Si $K=k(\mathscr{S})$ on dit que $\mathscr{S}$ est un système de
+  générateurs de $K$ comme extension de corps de $k$ (ou que $K$ est
+  engendré par $\mathscr{S}$ comme extension de corps de $k$). Si on
+  peut prendre $\mathscr{S}$ fini, on dit que $K$ est une extension de
+  corps de type fini de $k$.
+\end{definition}
 
- \textbf{Exemple.} Considérons encore l'extension $  \CC/\Q$. On en sait encore moins sur l'indépendance algébrique que sur l'alternative algébrique/transcendant. Le seul résultat un peu général dont on dispose est que si $a_1,\dots, a_n\in \CC$ sont algébriques  et linéairement indépendants sur $\Q$,   les $\exp(a_1),\dots, \exp(a_n)$ sont algébriquement indépendants sur $\Q$ (Lindeman-Weierstrass, $\sim$ 1885).\\
-
-\subsection{}\label{TrPure}On dit qu'une extension de corps  $K/k$  est \textit{transcendante pure}\index{Transcendante pure (Extension de corps)}  s'il existe $a_i\in K$, $i\in I$   algébriquement indépendants sur $k$ tels que $K=k(a_i,\; i\in I)$. Le lemme suivant résulte immédiatement de la définition. \\
-
-
-
-\textbf{Lemme.} \textit{Soit $K_3/K_2$ et $K_2/K_1$  des extensions de corps. Si $K_3/K_2$ et $K_2/K_1$   sont transcendantes pures alors $K_3/K_1$ est transcendante pure.}\\
-
-
-
-\textbf{Remarque.} La réciproque n'est pas vraie en général mais ce n'est pas évident. En fait, toute sous-extension de $ k(X)/k$ est encore transcendante pure (Luroth $\sim$ 1875). Si $k$ est de caractéristique $0$, toute sous-extension de $  k(X_1,X_2/k$ est  encore transcendante pure  (Castelnuovo $\sim$ 1940) mais ce n'est plus  vrai si $k$ est de caractéristique $p>0$ (Zariski $\sim$ 1958) ou si $n\geq 3$ (Clemens-Griffith $\sim$ 1972). \\
-
-\textbf{Exemple.} L'extension $k(T)[X]/\langle X^2-T\rangle/k$ est transcendante pure par contre, l'extension $k[X,Y]/\langle Y^2-X^3-X-1\rangle/k$ ne l'est pas.\\
+Comme $k[\mathscr{S}]\subset k(\mathscr{S})$ et $k(\mathscr{S})$ est
+un corps, la propriété universelle du corps des fractions d'un anneau
+intègre montre qu'on a
+$k\subset k[\mathscr{S}]\subset \Frac(k[\mathscr{S}])\subset
+k(\mathscr{S})\subset K$ et, comme
+$\mathscr{S}\subset \Frac(k[\mathscr{S}])$, la minimalité de
+$k(\mathscr{S})$ assure que
+$\Frac(k[\mathscr{S}])=k(\mathscr{S})$. \\
 
 
+\subsection{Alternative algébrique/transcendant}\label{AlgTr}
 
-\subsection{}On dit qu'une extension de corps  $K/k$ est  \textit{finie}\index{Finie (Extension de corps)} si $[K:k] <+\infty$ et que   $K/k$ est
-  algébrique si tout $a\in K$ est algébrique sur $k$.\\
+Soit $K/k$ une extension de corps, $x\in K$ et
+$\mathrm{ev}_x:k[X]\twoheadrightarrow k[x]$ l'unique morphisme de
+$k$-algèbres tel que $\mathrm{ev}_x(X)=x$\\
 
-\paragraph{}\label{AlgTF}\textbf{Lemme.} \textit{Soit $K/k$ une extension de corps. Alors $K/k$ est finie si et seulement si $K/k$ est algébrique et de type fini.}
 
- \begin{proof}L'implication $\Rightarrow$ est immédiate. Pour l'implication $\Leftarrow$, écrivons $K=k(a_1,\dots, a_n)$. Pour chaque $i=1,\dots, n$, $a_i\in K$ est algébrique sur $k$ donc \textit{a fortiori} sur $k(a_1,\dots, a_{i-1})$; en particulier, $[ k(a_1,\dots, a_{i-1})(a_i):k(a_1,\dots, a_{i-1}]<+\infty$. Et donc, par   \ref{Dim} on a
- $$[K:k]=\prod_{1\leq i\leq n}[k(a_1,\dots, a_i):k(a_1,\dots, a_{i-1})]<+\infty. $$
-  \end{proof}
+\begin{lemme}
+  On a l'alternative suivante.
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item Soit $\mathrm{ev}_x:k[X]\tilde{\longrightarrow} k[x]$ est un
+    isomorphisme de $k$-algèbres et le morphisme
+    $$k[X]\stackrel{ev_x}{\tilde{\longrightarrow}}k[x]\hookrightarrow
+    k(x)$$ se localise en un isomorphisme de corps
+    $k(X)\tilde{\longrightarrow} k(x)$. En particulier $k[x]$ (donc a
+    fortiori $k(x)$) est de dimension infinie sur $k$.
+  \item Soit il existe un unique polynôme irréductible unitaire
+    $P_x\in k[X]$ tel que $\ker(ev_x)=k[X]P_x$ et le morphisme de
+    $k$-algèbres $\mathrm{ev}_x:k[X]\twoheadrightarrow k[x]$ se
+    factorise en un isomorphisme
+    $k[X]/(P_x)\tilde{\longrightarrow} k[x]$. En particulier
+    $k[x]=k(x)$ et $k(x)$ est de dimension finie sur $k$, égale au
+    degré de $P_x$.\\
+  \end{enumerate}
+\end{lemme}
+
+\begin{definition}
+  Dans le cas (1), on dit que $x\in K$ est \textit{transcendant sur $k$}\index{Transcendant (Élément)} et dans le cas (2) que $x\in K$ est \textit{algébrique}\index{Algébrique (Élément)} sur $k$ de degré $[k(x):k]=\deg(P_x)$ et que $P_x$ est le polynôme irréductible (unitaire) de $x$ sur $k$.\\
+\end{definition}
+
+\begin{proof}
+  Si $\ker(\mathrm{ev}_x)=0$ on est dans le cas (1) et les assertions
+  sont immédiates.\\
+  Si  $\ker(\mathrm{ev}_x)\neq 0$, comme $k[X]$ est principal, il existe un unique polynôme unitaire $P_x$ tel que $\ker(\mathrm{ev}_x)=k[X]P_x$ et  le morphisme de $k$-algèbres $\mathrm{ev}_x:k[X]\twoheadrightarrow k[x]$ se factorise en un isomorphisme $k[X]/P_x\tilde{\rightarrow} k[x]$. Comme $k[x]\subset K$ est un sous-anneau d'un corps, il est intègre donc  $P_x$ est premier. Comme $k[X]$ est principal, tout idéal premier est maximal, donc $k[x]\subset K$ est un sous-corps de $K$. Comme $k[x]$ contient  $k$ et $x$, c'est nécessairement $k(x)$. Il reste à voir que $k[X]/P_x $ est de dimension le degré $d$ de $P_x$ sur $k$. Mais en utilisant la division euclidienne de   $k[X]$, on voit immédiatement que les classes de  $1,X,\dots, X^{d-1}$ forment une $k$-base de $k[X]/P_x$.
+\end{proof}
+
+\begin{remarque}
+  On retiendra en particulier que si $x\in K$
+  $$
+  \begin{tabular}[t]{ccccc}
+    $x$ est algébrique sur $k$&$\Leftrightarrow$&$[k(x):k]<+\infty$&$\Leftrightarrow$&$k[x]=k(x)$;\\
+    $x$ est transcendant sur $k$&$\Leftrightarrow$&$[k(x):k]=+\infty$&$\Leftrightarrow$&$k[x]\subsetneq k(x)$;\\
+  \end{tabular}$$
+\end{remarque}
+  
+\begin{exemple}
+  Considérons l'extension $\CC/\Q$. Les nombres $i,\sqrt{2}$
+  \textit{etc} sont algébriques par définition.
+  \begin{itemize}
+  \item Si $a\in \CC$ est algébrique, $\exp(a)$ est transcendant
+    (Lindemann, $\sim 1880$); en particulier, $e$ ($a=1$) et $\pi$
+    ($a=i\pi$) sont transcendants sur $\Q$.
+  \item Si $a,b\in \CC$ sont algébriques sur $\Q$ et $a\not=0,1$,
+    $b\notin \Q$, $a^b=\exp(b\log a)$ est transcendant sur $\Q$
+    (septième problème de Hilbert, Gelfond, $\sim$ 1930); en
+    particulier, $e^\pi$ ($a=e^\pi$, $b=i$) est transcendant sur
+    $\Q$.
+  \item On ne sait pas si $e+\pi$ est transcendant. Il est par
+    contre possible que d'ici la fin de l'année (2020), on sache que
+    si $a,b\in \CC$ sont algébriques sur $\Q$, $\exp(a)\log(b)$ soit
+    transcendant sur $\Q$.
+  \end{itemize}
+  En fait, sauf cas très particulier, on ne sait pas dire si un
+  nombre complexe pris \og au hasard\fg{} est transcendant sur $\Q$ alors
+  que moralement, \og presque tous\fg{} les nombres complexes sont
+  transcendants sur $\Q$ puisque $\Q$ est dénombrable alors que $\R$
+  (donc $\CC) $ n'est pas dénombrable.
+\end{exemple}
+
+\subsection{Indépendance algébrique}
+
+\begin{definition}
+  Soit $K/k$ une extension de corps.\\
+  On dit que les éléments $a_i\in K$, $i\in I$ sont algébriquement
+  indépendants sur $k$ si pour tout sous-ensemble fini $J\subset I$,
+  l'unique morphisme de $k$-algèbre
+  $\psi:k[X_j,\; j\in J]\rightarrow K$ tel que $psi(X_j)= a_j$,
+  $j\in J$ est injectif.
+  Dans le cas contraire, on dit que les $a_i\in K$, $i\in I$ sont
+  algébriquement liés sur $k$.
+\end{definition}
+
+\begin{remarque}
+  Pour $|I|=1$, on retrouve la notion d'élément transcendant sur $k$.\\
+\end{remarque}
+
+\begin{exemple}
+   Considérons encore l'extension $ \CC/\Q$. On en sait encore moins
+   sur l'indépendance algébrique que sur l'alternative
+   algébrique/transcendant. Le seul résultat un peu général dont on
+   dispose est que si $a_1,\dots, a_n\in \CC$ sont algébriques et
+   linéairement indépendants sur $\Q$, les
+   $\exp(a_1),\dots, \exp(a_n)$ sont algébriquement indépendants sur
+   $\Q$ (Lindeman-Weierstrass, $\sim$ 1885).
+ \end{exemple}
+
+\phantomsection{}\label{TrPure}
+\begin{definition}
+  On dit qu'une extension de corps $K/k$ est \textit{transcendante
+    pure}\index{Transcendante pure (Extension de corps)} s'il existe
+  $a_i\in K$, $i\in I$ algébriquement indépendants sur $k$ tels que
+  $K=k(a_i,\; i\in I)$.
+\end{definition}
+
+Le lemme suivant résulte immédiatement de la définition. \\
+
+\begin{lemme}
+  Soit $K_3/K_2$ et $K_2/K_1$ des extensions de corps. Si $K_3/K_2$
+  et $K_2/K_1$ sont transcendantes pures alors $K_3/K_1$ est
+  transcendante pure.
+\end{lemme}
+
+\begin{remarque}
+  La réciproque n'est pas vraie en général mais ce n'est pas
+  évident. En fait, toute sous-extension de $ k(X)/k$ est encore
+  transcendante pure (Luroth $\sim$ 1875). Si $k$ est de
+  caractéristique $0$, toute sous-extension de $ k(X_1,X_2/k$ est
+  encore transcendante pure (Castelnuovo $\sim$ 1940) mais ce n'est
+  plus vrai si $k$ est de caractéristique $p>0$ (Zariski $\sim$ 1958)
+  ou si $n\geq 3$ (Clemens-Griffith $\sim$ 1972).
+\end{remarque}
+
+\begin{exemple}
+  L'extension $k(T)[X]/\langle X^2-T\rangle/k$ est transcendante pure
+  par contre, l'extension $k[X,Y]/\langle Y^2-X^3-X-1\rangle/k$ ne
+  l'est pas.
+\end{exemple}
+
+
+\begin{definition}
+  On dit qu'une extension de corps $K/k$ est
+  \textit{finie}\index{Finie (Extension de corps)} si $[K:k] <+\infty$
+  et que $K/k$ est algébrique si tout $a\in K$ est algébrique sur $k$.\\
+\end{definition}
+
+\phantomsection{}\label{AlgTF}
+\begin{lemme}
+  Soit $K/k$ une extension de corps. Alors $K/k$ est finie si et
+  seulement si $K/k$ est algébrique et de type fini.
+\end{lemme}
+
+\begin{proof}
+  L'implication $\Rightarrow$ est immédiate. Pour l'implication
+  $\Leftarrow$, écrivons $K=k(a_1,\dots, a_n)$. Pour chaque
+  $i=1,\dots, n$, $a_i\in K$ est algébrique sur $k$ donc a fortiori
+  sur $k(a_1,\dots, a_{i-1})$; en particulier, $[ k(a_1,\dots,
+  a_{i-1})(a_i):k(a_1,\dots, a_{i-1}]<+\infty$. Et donc, par \ref{Dim}
+  on a
+  $$[K:k]=\prod_{1\leq i\leq n}[k(a_1,\dots, a_i):k(a_1,\dots, a_{i-1})]<+\infty.$$
+\end{proof}
 
 \paragraph{}\label{AlgExt}\textbf{Lemme.} \textit{Soit $K_3/K_2$ et $K_2/K_1$  des extensions de corps.
 \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
@@ -2971,7 +3155,7 @@ La composée $V\tilde{\rightarrow} \spm(\CC[V])$ est donnée explicitement par $
 
  \subsection{}\textbf{Lemme.} \textit{Soit $K_1\subset K_2\subset K_3$ des extensions de corps. On a}
  $$trdeg_{K_1}(K_3)=trdeg_{K_1}(K_2)+trdeg_{K_2}(K_3).$$
- \begin{proof} Si $\mathcal{E}_1$ est une base de transcendance de $K_1\subset K_2$ et $\mathcal{E}_2$ est une base de transcendance de $K_2\subset K_3$, il faut vérifier que $\mathcal{E}:=\mathcal{E}_1\cup \mathcal{E}_2$ est une base de transcendance de $K_1\subset K_3$. Les éléments de $\mathcal{E}$ sont clairement algébriquement indépendants sur $K_1$. Soit $x\in K_3$. Comme $\mathcal{E}_2$ est une base de transcendance de $K_2\subset K_3$, il existe un sous-ensemble fini $\mathcal{E}_{2,x}\subset \mathcal{E}_2$ et $P_x=T^d+\sum_{0\leq i\leq d-1}a_iT^i\in K_2(\mathcal{E}_{2,x})[T]$ tel que $ev_x(P)=0$. En écrivant  $a_i=\frac{b_i}{c_i}$ avec $b_i ,c_i\in K_2[\mathcal{E}_{2,x}]$, on voit qu'il existe un sous-ensemble  fini $A_i\subset K_2$ tel que $a_i\in K_1(A_i)(\mathcal{E}_{2,x})$, $i=0,\dots, d-1$. On a donc $$[K_1(A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})(x):K_1(A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})]<+\infty.$$
+ \begin{proof} Si $\mathcal{E}_1$ est une base de transcendance de $K_1\subset K_2$ et $\mathcal{E}_2$ est une base de transcendance de $K_2\subset K_3$, il faut vérifier que $\mathcal{E}:=\mathcal{E}_1\cup \mathcal{E}_2$ est une base de transcendance de $K_1\subset K_3$. Les éléments de $\mathcal{E}$ sont clairement algébriquement indépendants sur $K_1$. Soit $x\in K_3$. Comme $\mathcal{E}_2$ est une base de transcendance de $K_2\subset K_3$, il existe un sous-ensemble fini $\mathcal{E}_{2,x}\subset \mathcal{E}_2$ et $P_x=T^d+\sum_{0\leq i\leq d-1}a_iT^i\in K_2(\mathcal{E}_{2,x})[T]$ tel que $\mathrm{ev}_x(P)=0$. En écrivant  $a_i=\frac{b_i}{c_i}$ avec $b_i ,c_i\in K_2[\mathcal{E}_{2,x}]$, on voit qu'il existe un sous-ensemble  fini $A_i\subset K_2$ tel que $a_i\in K_1(A_i)(\mathcal{E}_{2,x})$, $i=0,\dots, d-1$. On a donc $$[K_1(A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})(x):K_1(A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})]<+\infty.$$
  Comme $\mathcal{E}_1$ est une base de transcendance de $K_1\subset K_2$, on a $[K_1(\mathcal{E}_1)(A_0,\dots, A_{d-1}):K_1(\mathcal{E}_1)]<+\infty$. On en déduit
  $$\begin{tabular}[t]{l}
  $[K_1(\mathcal{E}_1, \mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1, \mathcal{E}_{2,x})]$\\
@@ -3012,9 +3196,9 @@ $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \CC[T]$$
 
  \chapter{Extensions algébriques}\textit{}\\
 
-  On rappelle que si $K/k$ est une extension de corps et $x\in K$, on note $ev_x:k[X]\rightarrow K$ l'unique morphisme de $k$-algèbres qui envoie  $X$ sur $x$ et qu'on écrit en général $ev_x(P)=:P(x)$, $P\in k[X]$.\\
+  On rappelle que si $K/k$ est une extension de corps et $x\in K$, on note $\mathrm{ev}_x:k[X]\rightarrow K$ l'unique morphisme de $k$-algèbres qui envoie  $X$ sur $x$ et qu'on écrit en général $\mathrm{ev}_x(P)=:P(x)$, $P\in k[X]$.\\
 
- \section{Corps algébriquement clos, clôture algébrique}Pour tout $P\in k[X]$ on dit que  $x\in K$ est une \textit{racine}\index{Racine (Polynôme)} de $P$ si $P(x)=0$ (\ie{} $P\in \ker(ev_x)=k[X](X-1)$).
+ \section{Corps algébriquement clos, clôture algébrique}Pour tout $P\in k[X]$ on dit que  $x\in K$ est une \textit{racine}\index{Racine (Polynôme)} de $P$ si $P(x)=0$ (\ie{} $P\in \ker(\mathrm{ev}_x)=k[X](X-1)$).
 
 
   \subsection{}\label{AlgClos}\textbf{Lemme/définition.} \textit{Soit $ k$ un  corps. Les propriétés suivantes sont équivalentes.
@@ -3051,7 +3235,7 @@ $$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \CC[T]$$
 \subsection{}\textbf{Unicité à isomorphisme près de la clôture  algébrique.}\\
 
 \paragraph{}\label{MonoPlonge}Si $K/k$ est une extension de corps et $P\in k[X]$, on notera $$Z_K(P):=\lbrace x\in K\; |\;  P(x)=0\rbrace\subset K$$
-l'ensemble des racines de $P$ dans $K$. Supposons de plus que $P$ est irréductible sur $k$. Pour tout $x\in Z_K(P)$, $ev_x:k[T]\rightarrow K$ induit un $k$-plongement $\overline{ev}_x :k[T]/P\rightarrow K$. Inversement, pour tout $k$-pongement $\phi:k[T]/P\rightarrow K$, $x:=\phi(\overline{T})\in Z_K(P)$ et $\phi=\overline{ev}_x$. On a donc montré  \\
+l'ensemble des racines de $P$ dans $K$. Supposons de plus que $P$ est irréductible sur $k$. Pour tout $x\in Z_K(P)$, $\mathrm{ev}_x:k[T]\rightarrow K$ induit un $k$-plongement $\overline{ev}_x :k[T]/P\rightarrow K$. Inversement, pour tout $k$-pongement $\phi:k[T]/P\rightarrow K$, $x:=\phi(\overline{T})\in Z_K(P)$ et $\phi=\overline{ev}_x$. On a donc montré  \\
 
 
  \textbf{Lemme.} \textit{Soit $k$ un corps et $P\in k[X]$ un polynôme irréductible. Pour toute extension $K/k$ l'application $\phi\rightarrow \phi(\overline{T})$ induit une bijection
@@ -3314,7 +3498,7 @@ $|Z_{\overline{k}}(P)|$&$\leq \deg(P)$&$=\deg(P)$
 \begin{proof} L'indépendance de la clôture algébrique vient du fait que si $\overline{k}'/k$ est une autre clôture algébrique tout $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow}\overline{k}'$  induit une bijection $\phi\circ-:\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow}\SHom_{Alg/k}(K,\overline{k})$. Par la propriété universelle du produit tensoriel de $k$-algèbres on a une bijection canonique
 $$\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow} \SHom_{Alg/\overline{k}}(\overline{k} \otimes_kK,\overline{k}) $$
 Et comme $[K:k]=\dim_{\overline{k}}\overline{k} \otimes_kK$, l'assertion résulte immédiatement du lemme ci-dessous.\end{proof}
- \subsection{}\label{Separable3}Soit $K/k$ une extension de corps. On dit que $x\in K$ est \textit{séparable sur $k$}\index{Séparable (Elément)} si le polynôme minimal $P_x\in k[T]$ de $x$ sur $k$ est séparable. Le corollaire suivant décrit qu'elle est la bonne généralisation - en termes d'extensions de corps - de la notion de polynômes séparables.\\
+ \subsection{}\label{Separable3}Soit $K/k$ une extension de corps. On dit que $x\in K$ est \textit{séparable sur $k$}\index{Séparable (Élément)} si le polynôme minimal $P_x\in k[T]$ de $x$ sur $k$ est séparable. Le corollaire suivant décrit qu'elle est la bonne généralisation - en termes d'extensions de corps - de la notion de polynômes séparables.\\
 
      \textbf{Corollaire.} \textit{Soit $K/k$ une extension algébrique. Les propriétés suivantes sont équivalentes.
     \begin{enumerate}
@@ -3348,7 +3532,7 @@ $$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq \deg(P_x)
       $$| \SHom_{Alg/K_1}( K_3,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/K_1}( K_2,\overline{k}) }|\SHom_{Alg/K_2,\phi}( K_3,\overline{k})|=[K_3:K_2][K_2:K_1]=[K_3:K_1].$$
       Si $K_3/K_1$ n'est pas finie, soit $x\in K_3$. Par hypothèse son polynôme minimal sur $K_2$ s'écrit $P_{x,K_2}=T^n+a_{n-1}T^{n-1}+\cdots+a_0\in K_2[T]$ et est séparable donc $x$ est séparable sur $K_2'=K_1(a_{n-1},\dots, a_0)$ (puisque son  polynôme minimal sur $K_2'$ est encore $ P_{x,K_2}$) \ie{} $K_2'(x)/K_2'$ est séparable; $K_2'(x)/K_2'$ et $K_2'/K_1$ sont donc finies (car algébriques de type fini) et séparables donc $K_2'(x)/K_1$ est séparable par transitivité.     \end{proof}
 
-      \subsection{}\label{Separable4}\textbf{Corollaire.} (Elément primitif) \textit{Toute extension $K/k$ séparable finie est monogène \ie{} de la forme $K=k(x)/k$ pour un certain $x\in K$.}
+      \subsection{}\label{Separable4}\textbf{Corollaire.} (Élément primitif) \textit{Toute extension $K/k$ séparable finie est monogène \ie{} de la forme $K=k(x)/k$ pour un certain $x\in K$.}
 
       \begin{proof} Supposons d'abord que $k$ est \textit{infini}. Pour tout $x\in K$, on a vu que  l'application de restriction $$-|_{k(x)}: \SHom_{Alg/k}( K,\overline{k})\rightarrow  \SHom_{Alg/k}( k(x),\overline{k})$$
       était toujours surjective. De plus, puisque $K/k$ est séparable finie, on a $ |\SHom_{Alg/k}( K,\overline{k})|=[K:k]$ et $|\SHom_{Alg/k}( k(x),\overline{k})|=[k(x):k] $. Donc
@@ -3416,8 +3600,8 @@ Or $0\not= x\in \F_{p^s}$ $\Rightarrow$ $x^{p^s-1}=1$ $\Rightarrow$ $x^{p^r-1}=(
     \section{Polynôme caractéristique, trace et norme}
     \subsection{}Soit $A$ une $k$-algèbre de dimension finie. A tout $a\in K$ on peut associer l'automorphisme de $k$-espace vectoriel $L_a:A\rightarrow A$, $b\rightarrow ab$. On note
  $$\chi_{A/k}(a):=det(L_a-T\Id|A)\in k[T]$$
- son \textit{polynôme caractéristique}\index{Polynôme caractéristique (Elément)},
-    $tr_{A/k}(a):=tr_k(L_a:A\rightarrow A)\in k $ sa \textit{trace}\index{Trace} et $N_{A/k}:=det(L_a)\in k$ son déterminant - appelé \textit{norme}\index{Norme (Elément)}. On dispose en particulier
+ son \textit{polynôme caractéristique}\index{Polynôme caractéristique (Élément)},
+    $tr_{A/k}(a):=tr_k(L_a:A\rightarrow A)\in k $ sa \textit{trace}\index{Trace} et $N_{A/k}:=det(L_a)\in k$ son déterminant - appelé \textit{norme}\index{Norme (Élément)}. On dispose en particulier
  d'une forme linéaire $tr_{A/k}:A\rightarrow k$ et d'un morphisme de groupes $N_{A/k}:A^\times\rightarrow k^\times$.\\
 
     \subsection{}\textbf{Lemme.} \textit{Soit $K/k$ une extension finie. Pour tout $x\in K$, on a $\chi_{K/k}(x)=P_x^{[K:k(x)]}$ où $P_x\in k[T]$ est le  polynôme minimal de $x$ sur $k$. En particulier, $tr_{K/k}(x)=[K:k(x)]tr_{k(x)/k}(x)$ et $N_{K/k}(x)=N_{k(x)/k}(x)^{[K:k(x)]}$.}
@@ -3553,7 +3737,7 @@ En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\
 
 \section{}\label{GaloisInv2}\textbf{Corollaire.}  \textit{Pour tout groupe fini $G$ il existe une extension galoisienne $K/k$ de groupe  $Gal(K/k)=G $.}
       \begin{proof}D'après \ref{GaloisInv1}, il suffit de montrer qu'il existe un corps $K$ tel que  $G$ est un sous-groupe de $ \SAut(K)$. Or on peut toujours plonger $G$ dans un groupe de permutations $\mathcal{S}_n$ (\textit{e.g} en faisant agir $G$ sur lui-même par translation et en prenant $n=|G|$). Or pour n'importe quel corps $k$, $\mathcal{S}_n$ l'action de $\mathcal{S}_n$ par permutation des coordonnées induit un $k$-plongement canonique   $\mathcal{S}_n\hookrightarrow \SAut(k(X_1,\dots, X_n)/k)$.      \end{proof}
-     \textbf{Remarque.} Un problème beaucoup plus difficile est de savoir si, étant donné un corps $k$, tout groupe fini $G$ est le groupe de Galois d'une extension galoisienne $K/k$ ou, de façon équivalente, est un quotient de $\SAut(\overline{k}/k)$; c'est ce qu'on appelle le problème de Galois inverse pour $k$.  Il y a des corps $k$ pour lesquels on sait que la réponse est non (les corps algébriquement clos, les corps finis, $\R$, les extensions finies de $\Q_p$ \textit{etc.}) car le groupe $\SAut(\overline{k}/k)$ est trop simple. En fait, la complexité du  groupe $\SAut(\overline{k}/k)$ est une bonne mesure de la complexité arithmétique de $k$ (plus   $\SAut(\overline{k}/k)$ a de quotients finis, plus il y a de possibilités pour les groupes de Galois des polynômes à coefficients dans $k$ et donc plus c'est difficile de résoudre une équation à coeffiicients dans $k$). Par exemple, on ne sait pas résoudre le problème de GAlois inverse pour  $\Q$ ou  les extensions de type fini de $\Q$ - par exemple  $\Q(T)$ (en fait, si on savait le résoudre pour $\Q(T)$ on saurait le résoudre pour $\Q$; c'est une conséquence du théorème d'irréductibilité de Hilbert). On sait par contre le résoudre - par des méthodes géométriques - pour   des corps comme $\CC(T)$, $\overline{\Q}(T)$, $\Q_p(T)$.
+     \textbf{Remarque.} Un problème beaucoup plus difficile est de savoir si, étant donné un corps $k$, tout groupe fini $G$ est le groupe de Galois d'une extension galoisienne $K/k$ ou, de façon équivalente, est un quotient de $\SAut(\overline{k}/k)$; c'est ce qu'on appelle le problème de Galois inverse pour $k$.  Il y a des corps $k$ pour lesquels on sait que la réponse est non (les corps algébriquement clos, les corps finis, $\R$, les extensions finies de $\Q_p$ etc.) car le groupe $\SAut(\overline{k}/k)$ est trop simple. En fait, la complexité du  groupe $\SAut(\overline{k}/k)$ est une bonne mesure de la complexité arithmétique de $k$ (plus   $\SAut(\overline{k}/k)$ a de quotients finis, plus il y a de possibilités pour les groupes de Galois des polynômes à coefficients dans $k$ et donc plus c'est difficile de résoudre une équation à coeffiicients dans $k$). Par exemple, on ne sait pas résoudre le problème de GAlois inverse pour  $\Q$ ou  les extensions de type fini de $\Q$ - par exemple  $\Q(T)$ (en fait, si on savait le résoudre pour $\Q(T)$ on saurait le résoudre pour $\Q$; c'est une conséquence du théorème d'irréductibilité de Hilbert). On sait par contre le résoudre - par des méthodes géométriques - pour   des corps comme $\CC(T)$, $\overline{\Q}(T)$, $\Q_p(T)$.
 
  \section{}\label{Galois2}\textbf{Proposition} \textit{Soit $K/k$ une extension galoisienne et $k\subset L\subset K$ une sous-extension.
  \begin{enumerate}
