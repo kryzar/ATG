@@ -11,3 +11,4 @@
 - Indenter le code
 - Éventuellement supprimer les `\textbf` au profit d'environnements, mais faire attention à la notation
 - Ajouter les diagrammes
+- Terminer la partie III
