@@ -20,42 +20,23 @@
 % │ Environnements mathématiques │
 % └──────────────────────────────┘
 
-% TODO: Go back to standard styles
-\newtheoremstyle{theoremeStyle}
-	{2em} % Space above
-	{2em} % Space below
-	{\itshape} % Body font
-	{} % Indent amount
-	{\bfseries} % Theorem head font
-	{.} % Punctuation after theorem head
-	{.5em} % Space after theorem head
-	{} % Theorem head spec (can be left empty, meaning `normal')
-\newtheoremstyle{definition}
-	{2em} % Space above
-	{2em} % Space below
-	{} % Body font
-	{} % Indent amount
-	{\bfseries} % Theorem head font
-	{.} % Punctuation after theorem head
-	{.5em} % Space after theorem head
-	{} % Theorem head spec (can be left empty, meaning `normal')
+\theoremstyle{theoreme}
+\newtheorem{theoreme}{Théorème}[subsection]
+\newtheorem{lemme}{Lemme}[subsection]
+\newtheorem{proposition}{Proposition}[subsection]
+\newtheorem{propositiondef}{Proposition-Définition}[subsection]
+\newtheorem{corollaire}{Corollaire}[subsection]
 
-\theoremstyle{theoremeStyle} % les énvironnements définis ci-desosus utiliserons le style theoremeStyle
-\newtheorem{theoreme}{Théorème}[section] % pour avoir une numérotation lisible
-\newtheorem{lemme}[theoreme]{Lemme}
-\newtheorem{proposition}[theoreme]{Proposition}
-\newtheorem{propositiondef}[theoreme]{Proposition-Définition}
-\newtheorem{corollaire}[theoreme]{Corollaire}
-\theoremstyle{definition} % les environnements définis ci-dessous utiliserons le style definition
-\newtheorem{definition}[theoreme]{Définition}
-\newtheorem{remarque}[theoreme]{Remarque}
-\newtheorem{enonce}[theoreme]{Énoncé}
-\newtheorem{exemple}[theoreme]{Exemple}
-\newtheorem{exemples}[theoreme]{Exemples}
-\newtheorem{probleme}[theoreme]{Problème}
-\newtheorem{conjecture}[theoreme]{Conjecture}
-\newtheorem{exercice}[theoreme]{Exercice}
-\newtheorem{exercices}[theoreme]{Exercices}
+\theoremstyle{definition}
+\newtheorem{conjecture}{Conjecture}[subsection]
+\newtheorem{definition}{Définition}[subsection]
+\newtheorem{enonce}{Énoncé}[subsection]
+\newtheorem{exemples}{Exemples}[subsection]
+\newtheorem{exemple}{Exemple}[subsection]
+\newtheorem{exercices}{Exercices}[subsection]
+\newtheorem{exercice}{Exercice}[subsection]
+\newtheorem{probleme}{Problème}[subsection]
+\newtheorem{remarque}{Remarque}[subsection]
 
 % ┌──────┐
 % │ Tikz │
