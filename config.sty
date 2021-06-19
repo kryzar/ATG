@@ -1,0 +1,153 @@
+\usepackage[utf8]{inputenc} % permet d'écrire é et non é, par exemple
+\usepackage[french]{babel}
+\usepackage[left=2.6cm, right=2.6cm]{geometry}
+\usepackage[all, pdftex]{xy}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{graphicx,epsfig}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{subcaption}
+\usepackage{tikz}
+
+% ┌──────────────────────────────┐
+% │ Environnements mathématiques │
+% └──────────────────────────────┘
+
+% TODO: Go back to standard styles
+\newtheoremstyle{theoremeStyle}
+	{2em} % Space above
+	{2em} % Space below
+	{\itshape} % Body font
+	{} % Indent amount
+	{\bfseries} % Theorem head font
+	{.} % Punctuation after theorem head
+	{.5em} % Space after theorem head
+	{} % Theorem head spec (can be left empty, meaning `normal')
+\newtheoremstyle{definition}
+	{2em} % Space above
+	{2em} % Space below
+	{} % Body font
+	{} % Indent amount
+	{\bfseries} % Theorem head font
+	{.} % Punctuation after theorem head
+	{.5em} % Space after theorem head
+	{} % Theorem head spec (can be left empty, meaning `normal')
+
+\theoremstyle{theoremeStyle} % les énvironnements définis ci-desosus utiliserons le style theoremeStyle
+\newtheorem{theoreme}{Théorème}[section] % pour avoir une numérotation lisible
+\newtheorem{lemme}[theoreme]{Lemme}
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{propositiondef}[theoreme]{Proposition-Définition}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\theoremstyle{definition} % les environnements définis ci-dessous utiliserons le style definition
+\newtheorem{definition}[theoreme]{Définition}
+\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{enonce}[theoreme]{Énoncé}
+\newtheorem{exemple}[theoreme]{Exemple}
+\newtheorem{exemples}[theoreme]{Exemples}
+\newtheorem{probleme}[theoreme]{Problème}
+\newtheorem{conjecture}[theoreme]{Conjecture}
+\newtheorem{exercice}[theoreme]{Exercice}
+\newtheorem{exercices}[theoreme]{Exercices}
+
+% ┌──────┐
+% │ Tikz │
+% └──────┘
+
+% Paramètres pour Tikz
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+% Valeurs par défaut : -3, 3, -3, 3
+\tikzset{
+  xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+  xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+  ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+  ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+
+% Commande qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}
+{\draw[help lines] (\xmin,\ymin) grid (\xmax,\ymax);}
+
+% Commande \axes52
+\newcommand {\axes} {
+\draw[->] (\xmin,0) -- (\xmax,0);
+\draw[->] (0,\ymin) -- (0,\ymax);
+}
+
+% Commande qui limite l’affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}
+{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+
+% ┌──────────┐
+% │ Fancyhdr │
+% └──────────┘
+
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername~\thechapter{} : #1}{}}
+\fancyhead[LO]{\leftmark}
+\fancyhead[CO]{}
+\fancyhead[RO]{\thepage}
+\fancyfoot[LO]{Anna Cadoret}
+\fancyfoot[CO]{}
+\fancyfoot[RO]{Sorbonne université}
+
+% ┌────────┐
+% │ Macros │
+% └────────┘
+
+\newcommand{\ie}{\textit{i.e.}} % il suffit désormais de taper \ie{}
+
+\DeclareMathOperator{\Anna}{Ann}
+\DeclareMathOperator{\CD}{CD}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\SAut}{Aut}
+\DeclareMathOperator{\SCH}{CH}
+\DeclareMathOperator{\SEnd}{End}
+\DeclareMathOperator{\SExt}{Ext}
+\DeclareMathOperator{\SGL}{GL}
+\DeclareMathOperator{\SGal}{Gal}
+\DeclareMathOperator{\SHom}{Hom}
+\DeclareMathOperator{\SH}{H}
+\DeclareMathOperator{\SLie}{Lie}
+\DeclareMathOperator{\Scl}{cl}
+\DeclareMathOperator{\Sdim}{dim}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Sres}{res}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\DeclareMathOperator{\spm}{spm}
+\DeclareMathOperator{\supp}{supp}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\renewcommand{\labelitemi}{-}
+
+% ┌──────┐
+% │ Misc │
+% └──────┘
+
+% Taille par défaut pour les lignes et colonnes des diagrammes
+% commutatifs faits avec xymatrix
+\xymatrixrowsep{1.8cm}\xymatrixcolsep{1.8cm}
+
+\usepackage{makeidx}
+\setcounter{secnumdepth}{6}
+\makeindex
