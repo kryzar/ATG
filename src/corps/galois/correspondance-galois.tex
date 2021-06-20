@@ -1,0 +1,191 @@
+ \chapter{Correspondance de Galois}
+ \section{Extensions galoisiennes}
+ \subsection{}\label{Galois1}\textbf{Lemme} \textit{Soit $K/k$ une extension finie. Les propriétés suivantes sont équivalentes.
+ \begin{enumerate}
+ \item $K/k$ est normale et séparable;
+  \item $K/k$ est le corps de décomposition d'un polynôme séparable sur $k$;
+  \item $|\SAut(K/k)|=[K:k]$;
+ \item $k=K^{\hbox{\rm \footnotesize Aut}(K/k)}$;
+ \item Pour tout $x\in K$,  son polynôme minimal   $P_x\in k[T]$  sur $k$ se décompose comme $P_x=\prod_{y\in \hbox{\rm \footnotesize{Aut}}(K/k)\cdot x}(T-y)$ dans $K[T]$;
+ \end{enumerate}}
+\begin{proof} On se fixe une clôture algébrique $\overline{k}/k$. Pour $x\in K$ on note   $P_x\in k[T]$  son polynôme minimal    sur $k$. On va montrer que (1) $\Leftrightarrow$ (i), $i=2,3,4$ et (4) $\Leftrightarrow$ (5)\\
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item (1) $\Rightarrow$ (2) résulte de l'élément primitif \ref{Separable4} et de la définition d'une extension normale. (2) $\Rightarrow$ (1) Si $K$ est le corps de décomposition d'un polynôme $P\in k[T]$ séparable, $K/k$ est normale. Mais par \ref{Separable3}, $K/k$ est aussi séparable puisque si on note $Z_K(P)=\lbrace x_1,\dots, x_n\rbrace$, $K=k(x_1,\dots, x_n)/k$ $K=k(x_1,\dots,x_n)/k$ et chacune des extensions $k(x_1,\dots,x_i)/k(x_1,\dots, x_{i-1})$ est séparable (monogène engendrée par un élément séparable \textit{cf.} caractérisation (3) de \ref{Separable3}). \\
+\item (1) $\Leftrightarrow$ (3) Pour  toute clôture algébrique $k\subset K\subset \overline{k}$ on a toujours $\SAut(K/k)\hookrightarrow \SHom_{Alg/k}(K,\overline{k})$ et $|\SHom_{Alg/k}(K,\overline{k})|\leq [K:k]$. Donc $|\SAut(K/k)|=[K:k]$ si et seulement si $\SAut(K/k)\tilde{\rightarrow}\SHom_{Alg/k}(K,\overline{k})$ (\ie{} $K/k$ est normale) et $ |\SHom_{Alg/k}(K,\overline{k})|= |K:k]$ (\ie{} $K/k$ est séparable).\\
+\item  (1) $\Rightarrow$ (5)  Comme $K/k$ est séparable, pour tout $x\in K$,   son polynôme minimal   $P_x\in k[T]$  sur $k$ se décompose comme $P_x= \prod_{y\in Z_{\overline{k}}(P_x)}(T-y)$ dans $\overline{k}[T]$. Mais comme $K/k$ est normale,
+ $$Z_{\overline{k}}(P_x)=\lbrace \sigma(x)\; |\; \sigma\in \SHom_{Alg/k}(K,\overline{k}) \rbrace = \SAut(K/k)\cdot x.$$
+ (5) $\Rightarrow$ (1)  Pour tout $x\in K$,  la décomposition   $P_x=\prod_{y\in \hbox{\rm \footnotesize{Aut}}(K/k)\cdot x}(T-y)$ dans $K[T]$ montre que $P_x$ est séparable (donc que $K/k$ est séparable) et est totalement décomposé sur $K$ (donc que $K/k$ est normale).
+\item  (5) $\Rightarrow$ (4) Si $x\in K\setminus k$, son polynôme minimal   $P_x\in k[T]$  sur $k$ est de degré $\geq 2$. Or, par hypothèse $P_x=\prod_{y\in \hbox{\rm \footnotesize{Aut}}(K/k)\cdot x}(T-y)$ donc il existe $\sigma\in \SAut(K/k)$ tel que $\sigma(x)\not= x$. Autrement dit $x\in K\setminus K^{\hbox{\rm \footnotesize Aut}(K/k)}$. (4) $\Rightarrow$ (5) Pour tout $x\in K$ notons  $\widetilde{P}_x:=\prod_{y\in \hbox{\rm \footnotesize{Aut}}(K/k)\cdot x}(T-y)\in K[T]$. Dans $\overline{k}[T]$ on a
+ $$\prod_{y\in Z_{\overline{k}}(P_x)}(T-y)=\prod_{y\in \hbox{\rm \footnotesize{Aut}}(\overline{k}/k)\cdot x}(T-y)|P_x.$$
+ Et comme pour tout $\sigma\in \SAut(K/k)$ il existe $\widetilde{\sigma}\in \SAut(\overline{k}/k)$ tel que le diagramme suivant commute (\ref{CloAlgPlonge}) $$\xymatrix{\overline{k}\ar[r]^{\widetilde{\sigma}}_\simeq & \overline{k}\\
+ K\ar[r]^\sigma_\simeq\ar@{_{(}->}[u]&K,\ar@{_{(}->}[u]}$$
+ on a $ \SAut(K/k)\cdot x\subset \SAut(\overline{k}/k)\cdot x$ donc $\widetilde{P}_x|P_x$( dans $\overline{k}[T]$ donc) dans $K[T]$. Par ailleurs,  $\widetilde{P}_x(x)=0$ et pour tout $\sigma\in \SAut(K/k)$ $\sigma \widetilde{P}_x=\widetilde{P}_x$ donc $\widetilde{P}_x\in K^{\hbox{\rm \footnotesize Aut}(K/k)} [T]=k[T]$. Cela impose $P_x|\widetilde{P}_x$ donc $P_x=\widetilde{P}_x$.
+ \end{itemize}
+  \end{proof}
+
+
+   On dit qu'une extension finie $K/k$ qui vérifie les propriétés équivalentes du Lemme \ref{Galois1} est \textit{galoisienne}\index{Galoisienne (Extension de corps)}. Lorsque $K/k$ est galoisienne, on note $\SGal(K/k):=\SAut(K/k)$ et on dit que c'est le \textit{groupe de Galois}\index{Galois (Groupe de)} de $K/k$. \\
+
+   \textbf{Exemple.}  On a vu que $\Q(^3\sqrt{5},j)/\Q$ était galoisienne et que $\SGal(\Q(^3\sqrt{5},j)/\Q)=\mathcal{S}_3$.
+
+  \section{}\textbf{Exemples classiques.} Si $k$ est corps  on note $\mu_n(k):=Z_k(T^n-1)\subset k^\times$;   c'est un sous-groupe fini donc cyclique (Lemme 2 de la preuve de \ref{Separable4}) de $k^\times$.
+ \subsection{}\textbf{Corps finis.} Pour tout $r\in \Z_{\geq 1}$, $\F_{p^r}/\F_p$ est galoisienne puisque c'est le corps de décomposition du polynôme séparable $T^{p^r}-T\in \F_p[T]$ sur $\F_p$. En outre, $F:\F_{p^r}\rightarrow \F_{p^r}$, $x\rightarrow x^p\in \SGal(\F_{p^r}/\F_p)$. De plus, si $x\in \F_{p^r}^\times$ est un générateur, les éléments $x,F(x),\dots, F^{r-1}(x)$ sont tous distincts donc $F$ est d'ordre $\geq r$. Mais par la caractérisation (3) d'une extension galoisienne $|\SGal(\F_{p^r}/\F_p)|=[ \F_{p^r}:\F_p]=r$. Donc $F:\F_{p^r}\rightarrow \F_{p^r}$ est d'ordre exactement $r$ et $$\SGal(\F_{p^r}/\F_p)=\langle F\rangle\simeq \Z/r.$$
+
+ \subsection{}\label{GaloisCyc}\textbf{Extensions cyclotomiques.} Pour tout corps $k$ et $n\in \Z_{\geq 1}$, la $n$-ième \textit{extension cyclotomique}\index{Cyclotomique (Extension de corps)} $k_n/k$ de $k$  est par définition le corps de décomposition  de $T^n-1\in k[T]$ sur $k$. Si on note $p$ la caractéristique de $k$ et si $p>0$ on a, en écrivant $n=p^rm$,  $p\nmid m$
+ $$T^n-1=(T^m-1)^{p^r}$$
+ donc $k_n=k_m$. On peut par conséquent supposer que $p\nmid n$ donc que $T^n-1\in k[T]$ est séparable et $k_n/k$ galoisienne. Fixons une clôture algébrique $\overline{k}/k$.  Puisque $T^n-1$ est séparable $\mu_n:=\mu_n(\overline{k})=Z_{\overline{k}}(T^n-1) \subset \overline{k}^\times$ est (cyclique) d'ordre $n$. De plus, pour tout $\sigma\in \SGal(k_n/k)$ et $\zeta, \zeta'\in \mu_n$ on a $\sigma(\zeta\zeta')=\sigma(\zeta)\sigma(\zeta')$ puisque $\sigma$ est un morphisme de corps. Donc la restriction à $\mu_n\subset k_n$ induit un morphisme de groupes $$\chi_k:\SGal(k_n/k)\rightarrow \SAut_{Grp}(\mu_n) $$
+ qui est injectif puisque $k_n=k(\mu_n)$. Le choix d'un générateur $\zeta_n$ de $\mu_n$ définit un isomorphisme de groupes  (non canonique) $\Z/n\tilde{\rightarrow} \mu_n$ et donc un isomorphisme de groupes $\SAut_{Grp}(\mu_n)\tilde{\rightarrow} \SAut_{Grp}(\Z/n)=\Z/n^\times$. Modulo ces isomorphismes, on a   $$\sigma(\zeta_n)=\zeta_n^{\chi_k(\sigma)},\; \sigma\in \SGal(k_n/k).$$
+ L'image de  $\SGal(k_n/k)$ dans $(\Z/n)^\times$ dépend de l'arithmétique du corps. Voici un exemple.\\
+
+ \textbf{Proposition.} \textit{$\chi_\Q:\SGal(\Q_n/Q)\rightarrow \Z/n^\times$ est un isomorphisme de groupes.}
+
+ \begin{proof} On sait déjà que $\chi_\Q:\SGal(\Q_n/Q)\rightarrow (\Z/n)^\times$  est injectif. Il suffit donc de montrer que $[\Q_n:\Q](=|\SGal(\Q_n/Q)|)= | \Z/n^\times|=:\varphi(n)$. Mais $\Q_n=\Q(\zeta_n)/\Q$. Il suffit donc de montrer que le polynôme minimal $P_{\zeta_n}\in \Q[T]$ de $\zeta_n$ sur $\Q$ est irréductible. Pour cela, notons $\frak{u}_n\subset \mu_n$ le sous-ensemble des générateurs de $\mu_n$ (les racines primitives $n$-ièmes de $1$). Par construction $\frak{u}_n$ est  $\SGal(\Q_n/\Q)$-stable donc le polynôme
+ $\Phi_n=\prod_{u\in \frak{u}_n}(T-u)$ est dans $\Q[T]$ (par la caractérisation (4) de \ref{Galois1}) et il a $\zeta_n$ pour racine. Donc $P_{\zeta_n}|\Phi_n$.  Comme $\deg(\Phi_n)=|\frak{u}_n|=|\Z/n^\times|$, la conclusion résulte du Lemme ci-dessous. \end{proof}
+  \textbf{Lemme.} \textit{$\Phi_n\in \Q[T]$ est irréductible sur $\Q[T]$.}
+  \begin{proof} On procède en plusieurs étapes.
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item $\Phi_n\in \Z[T]$. En effet $T^n-1=\prod_{d|n}\Phi_d$ dans $\Q[T]$. Comme $\Z$ est factoriel, on a en particulier
+ $1=C_\Z(T^n-1)=\prod_{d|n}C_\Z(\Phi_d)$. Mais comme   $\Phi_d$  est unitaire , on a $C_\Z(\Phi_d)=\frac{1}{a_d} $ pour un certain $a_d\in \Z_{\geq 1}$, $d|n$. Cela impose $C_\Z(\Phi_d)=1$ \ie{} $\Phi_d\in \Z[T]$, $d|n$.
+ \item Soit $\zeta\in \frak{u}_n$ et notons $P$ le polynôme minimal de
+   $\zeta$ sur $\Q$. On veut montrer que $P=\Phi_n$. Comme les
+   éléments de $\frak{u}_n$ sont tous de la forme $\zeta^m$ pour un
+   certain $m\in \Z_{\geq 1}$, $gcd(m,n)=1$,  il suffit de prouver que
+   si $p$ est un nombre premier $\nmid n$, $\zeta^p$ est aussi une racine de $P$. Sinon, notons $Q$ le polynôme  minimal de $\zeta^p$ sur $\Q$. Comme $P\not= Q$ et $P,Q|\Phi_n$ dans $\Q[T]$, $PQ|\Phi_n$ dans $\Q[T]$. On peut donc écrire $\Phi_n=PQR$ dans $\Q[T]$. Comme $\Phi_n\in \Z[T]$ et $P,Q,R$ sont unitaires, le même argument de contenu qu'en (1) montre que $P,Q,R\in \Z[T]$.
+ \item Puisque $Q(\zeta^p)=0$, $P|Q(T^p)$  dans $\Q[T]$ donc - toujours par l'argument de contenu -  dans $\Z[T]$. Notons $F\rightarrow \overline{F}$ le morphisme de réduction modulo $p$, $\Z[T]\rightarrow \Z/p[T]$. On a donc $\overline{P}|\overline{Q}(T^p)=\overline{Q}(T)^p$ dans $\F_p[T]$. Mais puisque $\F_p[T]$ est factoriel, tout diviseur irréductible de $\overline{P}$ est en particulier un diviseur irréductible de $\overline{Q}$. Fixons $\Pi\in \F_p[T]$  un diviseur irréductible  de $\overline{P}$ donc de $\overline{Q}$. On a donc $$\Pi^2|\overline{P}\overline{Q} |\overline{\Phi}_n|T^n-\overline{1}$$ dans $\F_p[T]$. On peut donc écrire $T^n-\overline{1}= \Pi^2\Xi$ dans $\F_p[T]$. En particulier, $nT^{n-1}=2\Pi\Pi'\Xi+\Pi^2\Xi'$ donc $\Pi|T^n$ dans $\F_p[T]$ donc $\Pi| (T^n-\overline{1})-T^n=\overline{1}$ dans $\F_p[T]$: contradiction.
+  \end{enumerate}
+  \end{proof}
+   \subsection{}\label{GaloisRad}\textbf{Extensions radicielles.} Soit $k$ un corps de caractéristique $p\geq 0$ et $n\in \Z_{\geq 1}$ tel que $|\mu_n:=\mu_n(k)|=n$ \ie{} si $p>0$, $p\nmid n$ et $k$ contient toutes les racines $n$-ièmes de $1$. Fixons $a\in k$ et notons $k_{n,a}/k$ un corps de décomposition de $T^n-a$; puisque $T^n-a\in k[T]$ est séparable,  $k_{n,a}/k$ est galoisienne.
+   Si $\alpha\in Z_k(T^n-a)$ on a $Z_{\overline{k}}(T^n-a)=Z_k(T^n-a)=\lbrace \zeta \alpha\; |\; \alpha\in \mu_n\rbrace$. Donc $k_{n,a}=k(\alpha)$ et on dispose   d'un morphisme de groupes  injectif
+   $$\begin{tabular}[t]{ccc}
+   $Gal(k_{n,a}/k)$&$\hookrightarrow$&$\mu_n$\\
+   $\sigma$&$\rightarrow$
+&$\frac{\sigma(\alpha)}{\alpha}$   \end{tabular}$$
+d'image l'unique sous-groupe  d'ordre $n_a:=[k_{n,a}:k]|n$ \ie{} $\mu_{n_a}$. En particulier $$\prod_{\zeta\in \mu_{n_a}}(T-\zeta\alpha)=\alpha^{n_a}((\alpha^{-1}T)-\zeta)=T^{n_a}-\alpha^{n_a}\in k[T]$$
+donc $\alpha^{n_a}\in k$. Cela montre que $n_a$ est aussi le plus petit $m\in \Z_{\geq 1}$ tel que  $\alpha^m\in k$ ou, encore (puisque $|Z_k(T^n-1)|=n$), tel que $a^m\in k^{\times n}$. Autrement dit, $[k_{n,a}:k]=n_a$ est l'ordre de l'image de $a$ dans $k^\times/k^{\times n}$. On a donc montré la première partie de la proposition suivante.\\
+
+ \paragraph{}\label{GaloisRadProp}\textbf{Proposition.} \textit{$k_{n,a}/k$ est Galoisienne de degré l'ordre $n_a$ de $a$ dans $k^\times/k^{\times n}$ et on a un isomorphisme de groupes  $$\begin{tabular}[t]{ccc}
+   $Gal(k_{n,a}/k)$&$\tilde{\rightarrow}$&$\mu_{n_a}$\\
+   $\sigma$&$\rightarrow$
+&$\frac{\sigma(\alpha)}{\alpha}$   \end{tabular}$$
+Réciproquement, toute extension $K/k$ galoisienne cyclique de degré $n$ est le corps de décomposition d'un polynôme irréductible  de la forme $T^n-a\in k[T]$.}
+   \begin{proof} Il reste a démontrer la réciproque. Soit donc $K/k$ une extension galoisienne de groupe de Galois $Gal(K/k)\simeq \Z/n$ et $\sigma\in Gal(K/k)$ un générateur. On cherche à construire $\alpha\in K$ tel que $\sigma(\alpha)=\zeta \alpha$ pour $\zeta\in \frak{u}_n$. Tout élément non nul de la forme
+   $$\alpha=\sum_{0\leq i\leq n-1}\zeta^{-i}\sigma^i(x)$$
+   conviendrait. Il faut donc s'assurer que le $k$-endomorphisme $\sum_{0\leq i\leq n-1}\zeta^{-i}\sigma^i:K\rightarrow K$ est non nul. Cela résulte du classique Lemme \ref{Dedekind}.
+   \end{proof}
+
+    \paragraph{}\label{Dedekind}\textbf{Lemme.}  \textit{Soit $K,L$ deux   corps. Tout sous-ensemble fini de $\SHom(K,L)$ est $L$-libre.}
+   \begin{proof}Soit $\phi_1,\dots, \phi_n:K\rightarrow L$ $n$ morphismes de corps deux à deux distincts.  On raisonne par induction sur $n$. Si $n=1$, l'assertion est claire. Si $n\geq 2$ et si  $\phi_1,\dots, \phi_n:K\rightarrow L$ ne sont pas $L$-libre, il existe $x_1,\dots, x_n\in L$, tous non nuls par hypothèses de récurrence, tels que
+   $$x_1\phi_1+\cdots+x_n\phi_n=0.$$
+ On a alors pour tout $x,y\in K$
+$$(x_1\phi_1+\cdots+x_n\phi_n)(xy)= x_1\phi_1(x)\phi_1(y)+\cdots+x_n\phi_n(x)\phi_n(y)=0.$$
+En particulier, pour tout $x\in K$ on a $$(*)\;\;x_1\phi_1(x)\phi_1 +\cdots+x_n\phi_n(x)\phi_n =0. $$ Mais on a aussi,
+   $$(**)\;\; \phi_1(x)(x_1\phi_1+\cdots+x_n\phi_n)=   x_1\phi_1(x)\phi_1+\cdots+x_n\phi_1(x)\phi_n=0.$$
+   Comme $\phi_1\not=\phi_2$, il existe $x\in K$ tel que $\phi_1(x)\not=\phi_2(x)$, ce qui en faisant $(**)-(*)$, implique
+   $$x_2(\phi_1(x)-\phi_2(x))\phi_2+\cdots+x_n(\phi_1(x)-\phi_n(x))\phi_n=0$$
+   avec $x_2(\phi_1(x)-\phi_2(x))\not=0$, ce qui contredit l'hypothèse de récurrence.   \end{proof}
+
+  \paragraph{}\label{RadIt}\textbf{Corollaire.}  \textit{Soit  $K/k$ une extension finie engendrée par des éléments $\alpha_1,\dots ,\alpha_r\in \overline K$ tels que $\alpha_i^n\in k$. Alors $K/k$ est galoisienne de groupe $Gal(K/k)$ abélien.}
+   \begin{proof} L'extension $K/k$ est galoisienne puisque c'est le corps de décomposition du polynôme séparable $(T^n-\alpha_1^n)\cdots (T^n-\alpha_r^n)\in k[T]$ sur $k$. De plus, puisque $K=k(\alpha_1,\dots ,\alpha_r)$ le morphisme de groupes
+
+   $$Gal(K/k)\rightarrow \prod_{1\leq i\leq r}Gal(k(\alpha_i/k)),\;\; \sigma\rightarrow (\sigma|_{k(\alpha_i)})_{1\leq i\leq r}$$
+   est injectif; la conclusion résulte donc de la première partie de \ref{GaloisRadProp}.      \end{proof}
+
+
+
+     \section{}\label{GaloisInv1}\textbf{Lemme.}  \textit{Soit $K$ un corps et $G\subset \SAut(K)$ un sous-groupe fini. Alors $K/K^G$ est galoisienne et $Gal(K/K^G)=G$.}
+     \begin{proof}Pour tout  $x\in K$ le polynôme $\Pi_x:=\prod_{y\in G\cdot x}(T-y)$ est par construction séparable, dans $ K^G[T]$ et $P_x(x)=0$. En particulier $x$ est algébrique sur $K^G$ et son polynôme minimal $P_x\in K^G[T]$ sur $K^G$ divise $\Pi_x$ donc est de degré $\leq |G\cdot x|\leq |G|$. Cela montre que $K/K^G$ est algébrique séparable. Elle est de plus de degré fini $\leq |G|$ sinon il existerait une sous-extension séparable finie $K^G\subset L\subset K$ de degré $[L:K^G]>|G|$. Mais par  \ref{Separable4}, $L=K^G(x)$: contradiction. Par ailleurs, puisque $G\subset \SAut(K/K^G)$, on a $  |G|\leq |\SAut(K/K^G)|\leq [K:K^G]\leq |G|$ donc  $|G|=| \SAut(K/K^G)|=[K:K^G]$, $K/K^G $ est galoisienne et  $Gal(K/K^G)=\SAut(K/K^G)=G$.  \end{proof}
+
+\section{}\label{GaloisInv2}\textbf{Corollaire.}  \textit{Pour tout groupe fini $G$ il existe une extension galoisienne $K/k$ de groupe  $Gal(K/k)=G $.}
+      \begin{proof}D'après \ref{GaloisInv1}, il suffit de montrer qu'il existe un corps $K$ tel que  $G$ est un sous-groupe de $ \SAut(K)$. Or on peut toujours plonger $G$ dans un groupe de permutations $\mathcal{S}_n$ (\textit{e.g} en faisant agir $G$ sur lui-même par translation et en prenant $n=|G|$). Or pour n'importe quel corps $k$, $\mathcal{S}_n$ l'action de $\mathcal{S}_n$ par permutation des coordonnées induit un $k$-plongement canonique   $\mathcal{S}_n\hookrightarrow \SAut(k(X_1,\dots, X_n)/k)$.      \end{proof}
+     \textbf{Remarque.} Un problème beaucoup plus difficile est de savoir si, étant donné un corps $k$, tout groupe fini $G$ est le groupe de Galois d'une extension galoisienne $K/k$ ou, de façon équivalente, est un quotient de $\SAut(\overline{k}/k)$; c'est ce qu'on appelle le problème de Galois inverse pour $k$.  Il y a des corps $k$ pour lesquels on sait que la réponse est non (les corps algébriquement clos, les corps finis, $\R$, les extensions finies de $\Q_p$ etc.) car le groupe $\SAut(\overline{k}/k)$ est trop simple. En fait, la complexité du  groupe $\SAut(\overline{k}/k)$ est une bonne mesure de la complexité arithmétique de $k$ (plus   $\SAut(\overline{k}/k)$ a de quotients finis, plus il y a de possibilités pour les groupes de Galois des polynômes à coefficients dans $k$ et donc plus c'est difficile de résoudre une équation à coeffiicients dans $k$). Par exemple, on ne sait pas résoudre le problème de GAlois inverse pour  $\Q$ ou  les extensions de type fini de $\Q$ - par exemple  $\Q(T)$ (en fait, si on savait le résoudre pour $\Q(T)$ on saurait le résoudre pour $\Q$; c'est une conséquence du théorème d'irréductibilité de Hilbert). On sait par contre le résoudre - par des méthodes géométriques - pour   des corps comme $\CC(T)$, $\overline{\Q}(T)$, $\Q_p(T)$.
+
+ \section{}\label{Galois2}\textbf{Proposition} \textit{Soit $K/k$ une extension galoisienne et $k\subset L\subset K$ une sous-extension.
+ \begin{enumerate}
+ \item $K/L$ est galoisienne et $L=K^{Gal(K/L)}$;
+ \item Pour tout $\sigma\in Gal(K/k)$, $\sigma Gal(K/L)\sigma^{-1}=Gal(K/\sigma(L))$
+ \item $L/k$ est galoisienne (de façon équivalente normale) si et seulement si $Gal(K/L)$ est normal dans $Gal(K/k)$, auquel cas, le morphisme de  restriction $ Gal(K/k)\rightarrow Gal(L/k)$, $\sigma\rightarrow \sigma|_K$ est bien défini et induit   une suite exacte courte de groupes
+  $$1\rightarrow Gal(K/L)\rightarrow Gal(K/k)\rightarrow Gal(L/k)\rightarrow 1.$$
+ \end{enumerate}}
+ \begin{proof} (1) $K/L$ est galoisienne puisque normale et séparable (\ref{Normale5} - Contre-Exemple, \ref{Separable3}) et l'égalité $L=K^{Gal(K/L)}$ résulte alors de la caractérisation (5) de \ref{Galois1}. (2) Pour tout $\sigma\in Gal(K/k)$, $\tau\in Gal(K/L)$ et $x\in L$ on a $\sigma \tau\sigma^{-1}(\sigma(x))=\sigma\tau(x)=\sigma(x)$ donc $\sigma Gal(K/L)\sigma^{-1}\subset Gal(K/\sigma(L))$. Par symétrie, $ \sigma^{-1} Gal(K/\sigma(L))\sigma \subset Gal(K/L)$.
+  (3) La deuxième partie de l'assertion et la condition nécessaire de la première partie résulte de \ref{Normale4}. Pour la condition suffisante, si $Gal(K/L)$ est normal dans $Gal(K/k)$, d'après (2), pour tout $\sigma\in Gal(K/k)$ on a $Gal(K/L)=Gal(K/\sigma(L))=:H$. Mais par (1) on a alors $L=K^H=\sigma(L)$. Comme par ailleurs $K/k$ est galoisienne, si $K\subset \overline{k}$ est une clôture algébrique, tout $\sigma\in \SAut(\overline{k}/k)$ se restreint en $\sigma|_K\in Gal(K/k)$ donc, en fait, on a bien que pour tout $\sigma\in \SAut(\overline{k}/k)$, $\sigma(L)=L$ \ie{} $L/k$ est normale. Enfin $L/k$ est séparable par \ref{Separable3}.   \end{proof}
+
+  \section{}Soit $K/k$ une extension galoisienne. Notons $\mathcal{S}(K/k)$ l'ensemble des sous-extensions de $K/k$ et $\mathcal{S}(Gal(K/k))$ l'ensemble des sous-groupes de $Gal(K/k)$.  \\
+
+\subsection{}\label{Galois3}\textbf{Corollaire} (Correspondance de Galois) \textit{Les applications
+  $$\begin{tabular}[t]{ccc}
+   $\mathcal{S}( Gal(K/k))$&$\rightarrow$&   $\mathcal{S}(K/k)$\\
+  $H$&$\rightarrow $&$K^H:=\lbrace x\in K\; |\; \sigma(x)=x,\; \sigma \in H\rbrace$\\
+  \end{tabular},\;\; \begin{tabular}[t]{ccc}
+   $\mathcal{S}( K/k)$&$\rightarrow$&   $\mathcal{S}(Gal(K/k))$\\
+  $L$&$\rightarrow $&$Gal(K/L)$\\
+  \end{tabular}$$  induisent des bijections inverses l'une de l'autre, décroissantes pour $\subset$ et telles que les sous-extensions  galoisiennes (de façon équivalente normales) de $K/k$ correspondent aux sous-groupes normaux de $Gal(K/k)$.}
+
+  \begin{proof} Résulte de \ref{GaloisInv1} et \ref{Galois2}. \end{proof}
+
+\section{}\textbf{Exemples.}
+ \subsection{Extensions de Kummer de $\Q$} Soit $n\in \Z_{\geq 1}$, $\zeta\in\overline{\Q}$ une racine primitive $n$-ième de l'unité et $a\in \Q$ dont l'image dans $\Q^\times/(\Q^\times)^n$ est d'ordre $n$. On a vu que
+   \begin{itemize}
+   \item (\ref{GaloisRad}) le polynôme $T^n-a\in \Q(\zeta)[T]$ est  irréductible sur $\Q(\zeta)$ et que l'extension $\Q(\zeta,^n\sqrt{a})/\Q(\zeta)$ est galoisienne de groupe $Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))\tilde{\rightarrow }\mu_n$, $\sigma\rightarrow \sigma(^n\sqrt{a})/^n\sqrt{a}$;
+   \item (\ref{GaloisCyc}) le polynôme $\Phi_n\in \Q[T]$ est   irréductible sur $\Q $ et que l'extension $\Q(\zeta)/\Q$ est galoisienne de groupe $\chi_\Q:Gal(\Q(\zeta)/\Q)\tilde{\rightarrow} (\Z/n)^\times$.
+   \end{itemize}
+   L'extension $\Q(\zeta,^n\sqrt{a})/\Q$ est galoisienne puisque c'est un corps de décomposition du polynôme séparable $T^n -a\in \Q[T]$ sur $\Q$ et on a, d'après \ref{Galois2} une suite exacte courte de groupes
+   $$1\rightarrow Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))\rightarrow Gal(\Q(\zeta,^n\sqrt{a})/\Q)\rightarrow Gal(\Q(\zeta)/\Q)\rightarrow 1.$$
+   Cette suite exacte se scinde. En effet, considérons le sous-groupe $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\subset  Gal(\Q(\zeta,^n\sqrt{a})/\Q)$.  En effet, on a clairement $$Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\cap Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))=1$$
+   donc un morphisme de groupe injectif $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\hookrightarrow Gal(\Q(\zeta)/\Q)$.  Mais puisque $\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a})$ est galoisienne, on a aussi
+   $$|Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))|=[\Q(\zeta,^n\sqrt{a}):\Q(\zeta)]=\frac{[\Q(\zeta,^n\sqrt{a}:\Q]}{[\Q(^n\sqrt{a}):\Q]}=\frac{n\phi(n)}{n}=\phi(n)=|Gal(\Q(\zeta)/\Q)|$$
+   d'où, en fait, un isomorphisme de groupes $ Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))\tilde{\rightarrow} Gal(\Q(\zeta)/\Q)$. On peut même calculer facilement l'action par conjugaison de $Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$ sur $Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$: soit $\sigma\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(^n\sqrt{a}))$, $\tau\in Gal(\Q(\zeta,^n\sqrt{a})/\Q(\zeta))$ alors $$\frac{\sigma\tau\sigma^{-1}(^n\sqrt{a})}{^n\sqrt{a}}=\sigma(\frac{\tau(\sigma^{-1}(^n\sqrt{a}))}{\sigma^{-1}(^n\sqrt{a})})=\sigma(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})=(\frac{\tau(^n\sqrt{a})}{^n\sqrt{a}})^{\chi_\Q(\sigma)}=\frac{\tau^{\chi_\Q(\sigma)}(^n\sqrt{a})}{^n\sqrt{a}}$$
+   \ie{} $\sigma\tau\sigma^{-1}=\tau^{\chi_\Q(\sigma)}$. On a donc un isomorphisme de groupes $$Gal(\Q(\zeta,^n\sqrt{a})/\Q)\tilde{\rightarrow} \Z/n\rtimes (\Z/n)^\times,\;\; \sigma\rightarrow (\frac{\sigma(^n\sqrt{a})}{^n\sqrt{a}},\sigma|_{\mu_n})$$
+   avec, à gauche, la structure de produit direct `tautologique' (donnée par l'action naturelle de $\Z/n^\times$ sur $\mu_n$ par $u\cdot\zeta=\zeta^u$).
+    \section{}\textbf{Clôture normale.} Soit $K/k$ une extension algébrique, $ \overline{k}$ une clôture algébrique (contenant $K$) et $ K_i/k$, $i\in I$ des sous-extensions normales de $\overline{k}/k$ contenant $K$. Alors $\cap_{i\in I}K_i/k$ est encore une extension normale contenant $K$ puisque pour tout $\sigma\in\SAut(\overline{k}/k)$, $\sigma(K_i)=K_i$ et  $\sigma(\cap_{i\in I}K_i)=\cap_{i\in I}\sigma(K_i)$. Il existe donc une plus petit sous-extension normale $\widehat{K}/k$ de $\overline{k}/k$  contenant $K$ appelé \textit{clôture normale}\index{Normale (Clôture)} de $K/k$ dans $\overline{k}/k$.\\
+
+
+ \textbf{Lemme.} \textit{Soit $\widetilde{K}/K$ une extension algébrique. Les propriétés suivantes sont équivalentes.
+ \begin{enumerate}
+ \item $\widetilde{K}$ est $K$-isomorphe à $\widehat{K}$;
+ \item $\widetilde{K}/k$ est normale et engendrée, comme $k$-extension de corps par les $\sigma(K)$, $\sigma\in \SHom_k(K,\widetilde{K})$.
+ \end{enumerate}}
+
+  On dit qu'une extension$\widetilde{K}/k$ vérifiant les propriétés équivalentes du lemme ci-dessus est une clôture normale de $K/k$. La propriété (1) montre qu'elle est unique à isomorphisme (non unique) près.
+
+ \begin{proof} Si $\overline{k}'/k$ est une autre clôture algébrique contenant $K$ et $\sigma:\overline{k}\tilde{\rightarrow}\overline{k}'$ un $k$-isomorphisme,  $\sigma(\widehat{K})/k$ est la clôture normale de $\sigma(K)/k$ dans $\overline{k}'/k$. On peut donc supposer que $\widehat{K},\widetilde{K}\subset \overline{k}$.  Comme  $\widetilde{K}/k$ est normale,  $\widehat{K}\subset \widetilde{K}$. En outre,  $\widetilde{K}/k$   est aussi la sous-$k$-extension de $\overline{k}/k$ engendrée comme $k$-extension par les  $\sigma(K)$, $\sigma\in \SHom_k(K,\overline{k})$. Or  tout $\sigma\in \SHom_k(K,\overline{k})$ s'étend en un $k$-plongement $\widehat{\sigma}\in \SHom_k(\widehat{K},\overline{k})$ qui, comme $\widehat{K}/k$ est normale, vérifie $\widehat{\sigma}(\widehat{K})=\widehat{K}$ Donc $\widetilde{K}\subset \widehat{K}$. \end{proof}
+
+
+ \textbf{Exemple.} Si $K/k$ est une extension séparable fini, par \ref{Separable4} il existe $x\in K$ tel que $K=k(x)/k$. Si $P_x\in k[T]$ est le polynôme minimal de $x$ sur $k$, les clôtures normales de $K/k$ sont les corps de décomposition de $P_x$ sur $k$. En particulier, la clôture normale $\widehat{K}/k$ de $K/k$ est alors galoisienne finie (de degré divisant $[K:k]!$) et on dit plutôt que $\widehat{K}/k$ est la \textit{clôture galoisienne}\index{Galoisienne (Clôture)} de $K/k$. Par exemple, $\Q(^3\sqrt{5},j)/\Q$ est la clôture galoisienne de $\Q(^3\sqrt{5})/\Q$.
+
+
+
+      \section{}\textbf{Résolubilité par radicaux.} Étant donné un polynôme   séparable $P\in k[T]$, notons $K_P/k$ un corps de décomposition de $P$ sur $k$ et $G_P:=Gal(K_P/k)$. Si $P$ est de degré $n$ et $Z_K(P)=\lbrace x_1,\dots, x_n\rbrace$, la restriction induit un morphisme de groupes injectifs $$Gal(K_P/k)\hookrightarrow \mathcal{S}(\lbrace x_1,\dots, x_n\rbrace) \simeq \mathcal{S}_n.$$
+
+ \subsection{}\textbf{Lemme.} \textit{$P\in k[T]$ est irréductible sur $k$ si et seulement si l'action de $G_P$ sur $Z_K(P)$ est transitive.}
+
+ \begin{proof} Si $x\in Z_K(P)$, $P\in k[T]$ est irréductible sur $k $ si et seulement si c'est le polynôme minimal de $P_x$ de $x$ sur $k$ \ie{} (caractérisation (5) de \ref{Galois1}) si et seulement si $P=\prod_{y\in Gal(K_P/k)}(T-y)$.  \end{proof}
+
+  A l'opposé, si $P$ se factorise en produit de polynômes irréductibles $P=P_1\cdots P_r$ dans $k[T]$, les sous-extensions $K_{P_i}/k$ de $K_P/k$ étant galoisiennes, on a des suites exactes courtes
+ $$1\rightarrow Gal(K/K_i)\rightarrow G_P\stackrel{-|_{K_{P_i}}}{\rightarrow} G_{P_i})\rightarrow 1,\; i=1,\dots, r$$
+ et un morphisme $G_P\hookrightarrow \prod_{1\leq i\leq r} G_{P_i}$ induit par le produit des $-|_{K_{P_i}:G_P \twoheadrightarrow} G_{P_i}$ est injectif puisque $K_P=k(Z_K(P_1)\cup\dots\cup Z_K(P_r))$.
+
+  \textbf{Exemple.} Soit $\zeta$ une racine primitive $5$ème de $1$. L'extension $\Q(^3\sqrt{5},j,\zeta)/\Q$ est galoisienne puisque c'est le corps de décomposition du polynôme séparable $P=(T^3-5)\Phi_5$. En posant $P_1:=T^3-5$, $P_2=\Phi_5$, on a donc un morphisme de groupes injectif $G_P\hookrightarrow G_{P_1}\times G_{P_2}=\mathcal{S}_3\times (\Z/5)^\times $. De plus $T^3-5$ est irréductible sur $\Q(\zeta)$...\\
+
+
+ \subsection{}On dit qu'un polynôme $P\in k[T]$ est \textit{résoluble par radicaux sur $k$}\index{Résoluble par radicaux (Polynôme)} si ses racines peuvent s'exprimer à partir des  éléments de $k$ en appliquant successivement les opérations $+,-,/, ^n\sqrt{-}$. Autrement dit, cela signifie qu'on a une suite de sous-extensions $$K_P=K_{n+1}\supset K_n\supset\cdots \supset K_1\supset K_0=k$$
+ telles que $K_{i+1}=K_i(x_i)$ et $x_i^{n_i}\in K_i$, $i=0,\dots, n$.\\
+
+
+  On dit qu'un  groupe  $G$ est \textit{résoluble}\index{Résoluble (Groupe)} s'il existe une suite de sous-groupes $$G=:G_0\supset G_1\supset\cdots\supset G_n\supset G_{n+1}=1$$
+ tels que $G_{i+1 }$ est normal dans $G_{i }$ et $G_i/G_{i+1}$ est abélien, $i=0,\dots, n$. (Il n'est pas difficile de vérifier que cette définition est équivalente à celle donnée précédemment à savoir que $D^nG=1$, $n\gg 0$). \\
+
+ \textbf{Exercice.} Montrer que tout sous-groupe et tout quotient d'un groupe résoluble est résoluble et que toute extension de groupes résolubles est résoluble.\\
+
+  \subsection{}\label{GaloisReso}\textbf{Théorème.} \textit{Un polynôme séparable $P\in k[T]$ est résoluble par radicaux sur $k$ si et seulement si $G_P$ est résoluble.}
+
+ \begin{proof} Notons $p\geq 0$ la caractéristique de $k$. Supposons d'abord $P\in k[T]$  résoluble par radicaux sur $k$ et soit  $$K_P={n+1}\supset K_n\supset\cdots \supset K_1\supset K_0=k$$
+ une suite de sous-extensions telles que $K_{i+1}=K_i(x_i)$ et $x_i^{n_i}\in K_i$, $i=0,\dots, n$. On peut supposer que $p\nmid n_i$ et que $T^{n_i}-x_i^{n_i}\in K_i[T]$ est irréductible sur $K_i$, $i=0,\dots, n$. Comme $K_P/K_i$ est galoisienne et contient $x_i$, $K_P$ contient les racines $n_i$ième de $1$. Donc, en posant $n=pgcm(n_0,\dots, n_n)$, $K_P$ contient les racines $n$ième de $1$. On peut donc supposer que $K_1=k(\zeta)$ pour $\zeta\in K_P$ une racine primitive $n$ième de $1$. Chacune des extensions $K_{i+1}/K_i$ est alors galoisienne de groupe $Gal(K_{i+1}/K_i)$ abélien. Mais $K_i/k$ n'a aucune raison d'être galoisienne pour $n\geq 2$. Remplaçons donc les $K_i/k$ par leur clôture galoisienne. Comme $K_{n+1}/k$ est galoisienne et par minimalité de la clôture galoisienne on a des inclusions
+
+ $$\xymatrix{K_{n+1}\ar@{=}[d]&\supset&K_n\ar@{_{(}->}[d]&\supset&\cdots&\supset&K_2\ar@{_{(}->}[d]&\supset &K_1\ar@{=}[d]\supset& K_0=k\ar@{=}[d]\\
+K_{n+1} &\supset&\widehat{K}_n&\supset&\cdots&\supset&\widehat{K}_2&\supset & K_1\supset& K_0=k\\}$$
+ Il reste à voir que $Gal(\widehat{K}_{i+1}/\widehat{K}_i)$ est abélien, $i=0,\dots, n$. Mais $\widehat{K}_{i+1}$ est engendrée comme $k$-extension par les $x_{i+1},\sigma:=\sigma(x_{i+1})$, $\sigma\in Gal(K_{n+1}/k)$. Or $\sigma(x_{i+1})^{n_i}=\sigma(x_{i+1}^{n_i})\in \sigma(K_i)\subset \widehat{K}_i$; la conclusion résulte donc de   \ref{RadIt}. Inversement, supposons $G_P$ résoluble. Notons $n:=[K_P:k]$ et $\widetilde{K}_P/K_P$ un corps de décomposition de $T^n-1\in k[T]\subset K_P[T]$ sur $K_P$. L'extension $\widetilde{K}_P/k$ est encore galoisienne car c'est le corps de décomposition du polynôme séparable $P(T^n-1)/\pgcd(P,T^n-1)\in k[T]$ sur $k$. En particulier, on a une suite exacte courte de groupes finis
+ $$1\rightarrow Gal(\widetilde{K}_P/K_P)\rightarrow Gal(\widetilde{K}_P/k)\rightarrow G_P=Gal(K_P/k)\rightarrow 1,$$
+ ce qui montre que $Gal(\widetilde{K}_P/k)$ est extension d'un groupe résoluble  par un groupe abélien donc est résoluble.
+  \end{proof}
+
+  \section{}\textbf{Spécialisation.}  Si le degré de $P$ est $\geq 5$, on ne dispose  pas de formule universelle pour calculer les racines de $P$ et déterminer $G_P$  est en général une question difficile. Le critère de spécialisation que nous allons voir permet souvent de réduire la question au problème de la factorisation des polynômes sur les corps finis, problème qu'on sait résoudre algorithmiquement.

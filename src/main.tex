@@ -1,0 +1,112 @@
+\documentclass[a4paper, oneside, 12pt]{book}
+\usepackage{config}  % Configuration locale, réglages, macros…
+
+\title{Algèbre et théorie de Galois}
+
+\author{Anna Cadoret \\
+\textit{Cours de Master 1 à Sorbonne Université - version 2019 (en cours
+d'actualisation)}}
+
+\makeindex
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\begin{thebibliography}{99}
+\bibitem[AM69]{AM} M.F. \textsc{Atiyah} et I.G. \textsc{MacDonald},
+  {\it Introduction to Commutative Algebra}, Addison-Wesley,  1969.
+\bibitem[D18]{Dat} J.F. \textsc{Dat}, {\it Algèbre et théorie de Galois}, polycopié de cours disponible sur: https://webusers.imj-prg.fr/~jean-francois.dat/enseignement/AlgebreM1/ATG1718.pdf
+\bibitem[L02]{Lang} S. \textsc{Lang},
+  {\it Algebra (3rd ed.)}, G.T.M. \textbf{211}, Springer, 2002.
+\bibitem[S68]{CL} J.P. \textsc{Serre},
+  {\it Corps locaux}, Hermann, 1968.
+\end{thebibliography}
+
+ \textbf{Remerciements}: Sarah Wajsbrot (promotion 2018-19).\\
+
+\textcolor{red}{Ne pas hésiter à me signaler les coquilles et, le cas échéant, me demander de clarifier  certains arguments/définitions. Tout  commentaire permettant d'améliorer l'exposition est le bienvenu.}\\
+
+ On utilisera les notations $X\twoheadrightarrow Y$, $X\hookrightarrow Y$, $X\tilde{\rightarrow} Y$ (ou $X\stackrel{\simeq}{\rightarrow} Y$) pour une application ensembliste $X\rightarrow Y$ respectivement  surjective, injective, bijective.\\
+
+
+  On aura parfois recours à l'axiome du choix sous l'une des formulations équivalentes suivantes :
+ \begin{itemize}
+ \item Un produit cartésien d'ensembles finis non vides est non vide.
+ \item (Lemme de Zorn) tout ensemble non vide ordonné inductif admet un élément maximal. (On rappelle qu'un ensemble ordonné est dit inductif si toute suite croissante admet un majorant).
+ \end{itemize}
+
+\part{Anneaux - généralités}
+\input{corps/anneaux/premieres-def.tex}
+\input{corps/anneaux/ideaux-quotients.tex}
+\input{corps/anneaux/anneaux-noetheriens.tex}
+\input{corps/anneaux/anneaux-principaux-eucliens.tex}
+\input{corps/anneaux/anneaux-factoriels.tex}
+\input{corps/anneaux/localisation-fractions.tex}
+\input{corps/anneaux/completion.tex}
+\input{corps/anneaux/geometrie.tex}
+
+\part{Modules sur un anneaux}
+
+On rappelle que sauf mention explicite du contraire tous les anneaux considérés
+sont commutatifs unitaires.
+
+\input{corps/modules/premieres-def.tex}
+\input{corps/modules/finitude.tex}
+\input{corps/modules/indecomposables-krull-schmidt.tex}
+\input{corps/modules/type-fini-anneaux-principaux.tex}
+\input{corps/modules/produit-tensoriel.tex}
+
+\part{Extensions de corps et théorie de Galois}
+
+\section*{Préliminaires}
+
+Dans cette partie du cours, sauf mention explicite du contraire, tous les anneaux considérés sont commutatifs. On rappelle qu'un corps (commutatif) est un anneau (commutatif) dont tous les éléments non nuls sont inversibles. On a vu dans les chapitres précédents un certain nombre de techniques pour construire des corps intéressants. Par exemple,
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Si $A$ est un anneau intègre, $\Frac(A)$ est un corps.\\
+Exemples : $\Q=\Frac(\Z)$, si $k$ est un corps, $k(T_1,\dots, T_r)=\Frac(k[T_1,\dots, T_r])$, etc.
+\item Si $k$ est un corps muni d'une valeur absolue \ie{} d'une
+  application $|-|:k\rightarrow \R_{\geq 0}$ vérifiant :
+  \begin{itemize}
+  \item $|x|=0$ si et seulement si $x=0$,
+  \item $|xy|=|x||y|$,
+  \item $|x+y|\leq |x|+ly|$,
+  \end{itemize}
+  alors l'ensemble $\mathrm{Cau}(k)\subset k^\N$ des suites de Cauchy
+  de $(k,|-|)$ est une sous-$k$-algèbre et on vérifie facilement que
+  le sous-ensemble $\mathrm{Cau}_0(k)\subset \mathrm{Cau}(k)$ des
+  suites de Cauchy qui convergent vers $0$ est un idéal maximal. On
+  dit que $\widehat{k}:=\widehat{k^{|-|}}:=Cau(k)/Cau_0(k)$ est le
+  complété de $k$ par rapport à la valeur absolue $|-|$. Par exemple,
+  sur $\Q$, on peut considérer
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item la valeur absolue usuelle $|x|=x$ si $x\geq 0$, $|x|=-x$ si $x<0$. On obtient ainsi le corps des réels $\R=\widehat{\Q^{|-|}}$;
+\item pour chaque nombre premier $p>0$, la valeur absolue $p$-adique
+  $|x|_p=p^{-v_p(x)}$. On obtient ainsi le corps des nombres
+  $p$-adiques $\Q_p=\widehat{\Q^{|-|_p}}$;
+\end{itemize}
+\item Si $\frak{m}\subset A$ est un idéal maximal, $A/\frak{m}$ est un corps.  \\
+Exemple : si $A$ est un anneau principal et $p$ un élément
+irréductible, $A/p$ est un corps : $\F_p=\Z/p$, $\CC=\R[T]/(T^2+1)$, $\Q[T]/(T^p+T^{p-1}+\dotsb+1)$, $p$ premier, etc.
+\item Si $\frak{p}\subset A$ est un idéal premier, $A_\frak{p}$ est un anneau local d'unique idéal maximal $\frak{p}A_\frak{p}$ donc $\kappa(\frak{p})=A_\frak{p}/\frak{p}A_\frak{p}$ est un corps, etc.
+\end{itemize}
+
+\input{corps/galois/extensions-algebriques-transcendantes.tex}
+\input{corps/galois/extensions-algebriques.tex}
+\input{corps/galois/correspondance-galois.tex}
+ 
+
+  $$***$$
+ 
+  \begin{tabular}[t]{l}
+\textit{anna.cadoret@imj-prg.fr}\\
+ IMJ-PRG, Sorbonne Université\\
+ Paris, FRANCE
+\end{tabular}
+
+% Ajout de l'index à la table des matières
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}

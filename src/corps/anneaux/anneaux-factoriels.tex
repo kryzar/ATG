@@ -1,0 +1,413 @@
+ \chapter{Anneaux factoriels}\label{Factoriel} \textit{}\\
+  Soit $A$ un anneau commutatif intègre. \\
+
+  Pour tout $a,b\in A$ on a $Aa=Ab$ si et seulement si $A^\times a=A^\times b$. L'implication $A^\times a=A^\times b$ $\Rightarrow$ $Aa=Ab$ est toujours vraie (sans supposer $A$ intègre). Réciproquement,   si $a=0$ alors $Ab=0$ impose $b=0$ puisque $A$ est intègre. Supposons donc $a,b\not= 0$ et $Aa=Ab$. On peut écrire $a=\alpha b$ et $b=\beta a$ donc $a=\alpha\beta a$ et, comme $A$ est intègre, on peut simplifier par $a$, ce qui montre que $\alpha,\beta\in A^\times$. On note $a\sim b$ (et on dit que $a,b$ sont \textit{associés} dans $A$) la relation $Aa=Ab$ ($\Leftrightarrow$ $A^\times a=A^\times b$); c'est une relation d'équivalence sur $A$.
+
+
+
+
+\section{Éléments irréductibles, éléments premiers}\label{IrrPrem}On dit que $0\not=p\in A\setminus A^\times$  est \textit{irréductible} si pour tout $a,b\in A$, $p=ab$ implique $a\in A^\times$ ou $b\in A^\times$. On notera $\mathcal{P}_A^\circ\subset A$ l'ensemble des éléments irréductibles de $A$.
+  On munit  $\mathcal{P}_A^\circ$ de la relation d'équivalence $\sim$ définie par: pour tout $p,q\in \mathcal{P}_A^\circ$, $p\sim q$ si et seulement si $Ap=Aq$, ce qui est aussi équivalent à  $A^\times p=A^\times q$.\\
+
+   On notera $\mathcal{P}_A\subset \mathcal{P}_A^\circ$ un système de représentants de $\mathcal{P}_A^\circ/\sim$.\\
+
+
+
+  \textbf{Exemple.} On a $\Z^\times=\lbrace \pm 1\rbrace$ et les irr\'ductibles de $\Z$ sont les nombres premiers. Si l'on veut déterminer si un entier $n\in\Z_{\geq 1}$ est premier, on dispose d'un algorithme évident consistant à lister tous les premiers $\leq \sqrt{n}$ et vérifier s'ils divisent $n$ mais cet algorithme devient très vite inutilisable sur machine. Les arithméticiens ont beaucoup étudié et étudient encore  le problème de la construction et de la r\'partition des nombres premiers.  L'une de leurs motivations  est l'application des nombres premiers en cryptographie. Parmi les énoncés classiques  les plus spectaculaires, on trouve par exemple le théorème des nombres premiers, qui dit que si on note $\pi(n)$ le nombre de nombre premiers $0\leq  p\leq n$, on a $\pi(n)\sim_{n\to+\infty} \ln(n)/n$ ou le théorème de   la progression arithmétique, qui dit que pour tout entier $0\not= m,n$ premiers entre eux l'ensemble $m+\Z n$ contient une infinité de nombres premiers. Ces énoncés se démontrent souvent par des méthodes analytiques. \\
+
+   \textbf{Exercice.}  Montrer directement le  théorème de   la progression arithmétique pour $(m,n)=(3,4)$.\\
+
+
+
+   On dit que $0\not=p\in A\setminus A^\times$  est \textit{premier}\index{Premier (Élément)} si   $Ap\in \Spec(A)$. On notera $\mathcal{P}^\dag_A\subset A$ l'ensemble des éléments premiers de $A$. \\
+
+
+
+\ref{IrrPrem}.1 \textbf{Lemme.} \textit{On a toujours $\mathcal{P}_A^\dag\subset \mathcal{P}_A^\circ$.}
+  \begin{proof} En effet, si $Ap\in spec(A)$, pour tout $a,b\in A$, $p=ab$ implique $ab\in Ap$ donc comme $Ap$ est premier, $a\in Ap$ ou $b\in Ap$. Supposons $a\in Ap$ \ie{} $a=\alpha p$. On a alors $p=ab=\alpha bp$  et, comme $A$ est intègre, on peut simplifier par $p$ ce qui donne $\alpha b=1$ donc $b\in A^\times$.\end{proof}
+
+  \textbf{(Contre-)exemple.} En général $\mathcal{P}_A^\dag\subsetneq \mathcal{P}_A^\circ$. Par exemple, dans $A=\Z[i\sqrt{5}]$, $2$ est irréductible mais pas premier. En effet, introduisons la norme $N:A\rightarrow \Z_{\geq 0}$, $a+ib\sqrt{5}\rightarrow |a+ib\sqrt{5}|^2=a^2+5b^2$. On vérifie immédiatement que $N(xy)=N(x)N(y)$, $N(x)=0$ $\Leftrightarrow$ $x=0$ et que
+  $$ x\in A^\times\Leftrightarrow N(x)=1\Leftrightarrow x=\pm 1.$$
+  Vérifions d'abord que $2\in \mathcal{P}_A^\circ$. Si on écrit $2=xy$ on doit avoir $4=N(2)=N(xy)=N(x)N(y)$. En particulier, $N(x)=N(y)=2$ ou $\lbrace N(x),N(y)\rbrace=\lbrace 1,4\rbrace$. Or $2\notin N(A)$ donc nécessairement $N(x)=1$ ou $N(y)=1$ \ie{} $x\in A^\times$ ou $y\in A^\times$. Montrons ensuite que $2$ n'est pas premier. Pour cela, observons que
+ $$2\cdot 3=(1+i\sqrt{5})\cdot (1-i\sqrt{5})=2\times 3\in 2A$$
+  mais que  $1\pm i\sqrt{5}\notin 2A$ car $N(1\pm i\sqrt{5})=6\notin N(2A)=4N(A)\subset 4\Z_{\geq 0}$.    \\
+
+\ref{IrrPrem}.2 On dit qu'un anneau commutatif intègre $A$ est \textit{factoriel}\index{Factoriel (Anneaux)} si pour tout système de représentants $\mathcal{P}_A$ de $\mathcal{P}_A^\circ$ l'application
+$$(\ref{IrrPrem}.2.1)\;\; \begin{tabular}[t]{cll}
+ $A^\times\times \N^{(\mathcal{P}_A)}$&$\rightarrow$&$A\setminus\lbrace 0\rbrace $\\
+ $(u,\nu)$&$\rightarrow$&$u\displaystyle{\prod_{p\in\mathcal{P}_A}p^{\nu(p)}}$
+ \end{tabular}$$
+est bijective \ie{} pour tout $0\not=a\in A $ il existe une unique application $v_-(a):\mathcal{P}_A\rightarrow \N $ à support fini et un unique $u_a\in A^\times $ tels que $ a= u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$ (on parle de `la' décomposition en produit d'irréductibles de $a$).\\
+
+ On prendra garde au fait que l'élément $u_a\in A^\times $  dépend  du choix du système de représentants $\mathcal{P}_A$ de $\mathcal{P}_A^\circ/\sim$ qu'on s'est fixé. Par contre, l'application  $v_{-}(a):\mathcal{P}_A\rightarrow \N $ n'en dépend pas; si on note $\frak{p}:=Ap$, on peut la définir intrinsèquement par $v_{\frak{p}}(a)=\hbox{\rm max}\lbrace n\in\N\;|\; a\in \frak{p}^n\rbrace$. On dit que $v_p(a)$ est la multiplicité ou l'ordre de $a$ en $p$ ou, encore, la valuation $p$-adique de $a$. \\
+
+\ref{IrrPrem}.3 Soit $A$ un anneau factoriel. On prolonge les applications $v_p:A\setminus \lbrace 0\rbrace\rightarrow \N$ en $v_p:A \rightarrow \overline{\N}:=\N\cup\lbrace \infty\rbrace$ par $v_p(0)=\infty$. Avec les conventions $n+\infty=\infty$ et $n\leq \infty$, $n\in \overline{\N}$, il résulte immédiatement de l'unicité dans la définition d'anneaux factoriel que les applications $v_p:A \rightarrow \overline{\N}$ , $p\in \mathcal{P}_A$ vérifient les propriétés élémentaires suivantes.
+\begin{enumerate}
+\item $v_p(ab)=v_p(a)+v_p(b)$, $ a,b\in A $;\\
+\item $v_p(a+b)\geq \hbox{\rm min}\lbrace v_p(a),v_p(b)$  et si $v_p(a)\not= v_p(b)$, $v_p(a+b)= \hbox{\rm min}\lbrace v_p(a),v_p(b)$, $ a,b\in A$, $a\not= p$. \\
+
+  En effet, écrivons $a=p^{v_p(a)}a'$, $b=p^{v_p(b)}b'$ avec $v_p(a')=v_p(b')=0$. Si   $v_p(a)>v_p(b)$, on a $a+b=p^{v_p(b)}(a'p^{v_p(a)-v_p(b)}+b')$ avec $v(a'p^{v_p(a)-v_p(b)}+b')=0$ car $v_p(b')=0$ et $v_p(a'p^{v_p(a)-v_p(b)})= v_p(a)-v_p(b)>0$. Si $v_p(a)=v_p(b)=v$, on a $v_p(a+b)=v +v_p(a'+b')\geq v$.\\
+\item $v_p^{-1}(0)=A\setminus Ap$, $v_p^{-1}(\overline{\N }\setminus\lbrace 0\rbrace)=Ap$.\\
+\end{enumerate}
+
+ On déduit  de (1) et (3) que\\
+
+\ref{IrrPrem}.4 \textbf{Lemme.} \textit{$A$  factoriel $\Rightarrow$   $\mathcal{P}_A^\dag= \mathcal{P}_A^\circ$. }
+\begin{proof}On sait déjà que $\mathcal{P}_A^\dag\subset \mathcal{P}_A^\circ$. Inversement, soit $p\in\mathcal{P}_A^\circ$. Alors pour tout $a,b\in A$, on a $ab\in Ap$ $\Leftrightarrow$ $v_p(a)+v_p(b)=v_p(ab)\geq 1$ $\Leftrightarrow$ $v_p(a)\geq 1$ ou $v_p(b)\geq 1$ $\Leftrightarrow$ $a\in Ap$ ou $b\in Ap$.
+\end{proof}
+
+
+
+\section{Proposition}\label{Implications}\textit{
+\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Principal $\Rightarrow$ (Noethérien intègre $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$) $\Rightarrow$ factoriel.
+\item {[Utilise le Lemme de Zorn]} Factoriel $+$ $\spm(A)=\Spec(A)\setminus \lbrace 0\rbrace$ $\Rightarrow$ Principal.\\
+\end{enumerate}}
+
+
+\ref{Implications}.1 Le lemme suivant montre que ce qui est 'profond' dans la définition d'anneau factoriel c'est surtout l'unicité de la décomposition en produit d'irréductibles. L'existence est vérifiée pour une classe d'anneaux beaucoup plus large.\\
+
+ \textbf{Lemme.} \textit{Si $A$ est un anneau notherien intègre, l'application $$ \begin{tabular}[t]{cll}
+ $A^\times\times \N^{(\mathcal{P}_A)}$&$\rightarrow$&$A\setminus\lbrace 0\rbrace $\\
+ $(u,\nu)$&$\rightarrow$&$u\displaystyle{\prod_{p\in\mathcal{P}_A}p^{\nu(p)}}$
+ \end{tabular}$$ est surjective.}
+\begin{proof}Notons $\mathcal{F}\subset A$ l'image de $A^\times\times \N^{(\mathcal{P}_A)} \rightarrow A\setminus\lbrace 0\rbrace $. Observons que $\mathcal{F}$ est stable par produit et qu'il contient $\mathcal{P}_A^\circ$, $A^\times$. Si $a\notin \mathcal{F}$, $a\notin\mathcal{P}_A$ donc il existe $a_1,a_2\notin A^\times$ tels que $a=a_1a_2$. En particulier, $Aa\subsetneq Aa_1,Aa_2$. De plus, comme $\mathcal{F}$ est stable par produit, on a $a_1\notin\mathcal{F}$ ou $a_2\notin\mathcal{F}$. Supposons $a_1\notin\mathcal{F}$. En itérant, $ a_1 =a_{1,1}a_{1,2} $ avec $a_{1,1},a_{1,2}\notin A^\times$ - donc $Aa_1\subsetneq Aa_{1,1}, Aa_{1,2}$ - et $a_{1,1}\notin \mathcal{F}$ etc. on construit ainsi une suite strictement croissante  $Aa\subsetneq Aa_{1}\subsetneq Aa_{1,1,1}\subsetneq Aa_{1,1,1,1}\subsetneq\cdots$ d'idéaux de A, ce qui contredit la noetherianité de $A$.
+\end{proof}
+
+
+\begin{proof} \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item  Principal $\Rightarrow$ (Noethérien intègre $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$). \\
+
+ Soit $A$ un anneau principal. On sait déjà que  $A$ est  intègre (par définition) et  noethérien (puisque tous ses idéaux sont engendrés par un seul élément). Soit $p\in A $ irréductible; on veut montrer que $ Ap$ est premier. Il suffit de montrer qu'il est maximal. Considérons donc un idéal $Ap\subsetneq I $. Fixons $a\in I\setminus Ap$. Commme $A$ est principal, $Ap\subsetneq Ap+Aa=Ab$ donc $p=\alpha b$ avec $\alpha\in A\setminus A^\times$ (puisque $Ap\subsetneq Ab$). Mais puisque $p$ est irréductible, on a nécessairement $b\in A^\times$ \ie{} $Ab=A$. En particulier $A=Ap+Aa \subset I$.\\
+
+ (Noethérien intègre $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$) $\Rightarrow$ factoriel.\\
+
+ Par le Lemme \ref{Implications}.1, on sait déjà que l'application $A^\times\times \N^{(\mathcal{P}_A)} \rightarrow A\setminus\lbrace 0\rbrace $ est surjective.
+Supposons que
+l'on ait $$a:=u\prod_{p\in \mathcal{P}_A}p^{\mu(p)}=v\prod_{p\in \mathcal{P}_A}p^{\nu(p)}$$
+et que, $\nu(p)>\mu(p)$ pour un certain $p\in \mathcal{P}_A$. Comme $A$ est intègre, on peut simplifier par $p^{\mu(p)}$; on peut donc supposer $\mu(p)=0$ et $\nu(p)>0$. Comme $\nu(p)>0$, $\overline{a}=0$  dans $A/p$. Comme $p\in \mathcal{P}_A^\dag$,  $A/p$ est intègre et comme $\overline{v}\in (A/p)^\times$, il existe forcément $q\in \mathcal{P}_A$ tel que $\overline{q}=0 $ dans $A/p$ \ie{} $q\in Ap$, ce qui force $q=p$ puisque $p,q$ sont irréductibles: contradiction.\\
+
+\item Supposons   $A$ factoriel et $\spm(A)= \Spec(A)\setminus \lbrace 0\rbrace$.\\
+
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Montrons d'abord que tout idéal premier est principal: si $\lbrace 0\rbrace\subsetneq \frak{p}\subsetneq A$ est premier, il contient un élément $0\not=a\notin A^\times$. Comme $a$ est factoriel, on peut écrire $a=u_a\prod_{p\in \mathcal{P}_A}p^{v_p(a)}$. Comme $A/\frak{p}$ est intègre, il existe au moins un $p\in \mathcal{P}_A$ tel que $v_p(a)\geq 1$ et  $\bar{p}=0$ \ie{} $p\in \frak{p}$. En particulier $Ap\subset \frak{p}$. Mais comme $A$ est factoriel, $Ap \in \Spec(A)$ et comme $\spm(A)=\Spec(A)$ par hypothèse, $Ap=\frak{p}$.\\
+\item Soit maintenant $\mathcal{E}$ l'ensemble des idéaux de $A$ qui ne sont pas principaux. Supposons $\mathcal{E}\not=\varnothing$; comme $(\mathcal{E},\subset)$ est un ensemble ordonné inductif, le Lemme de Zorn assure qu'il possède un élément  $0\subsetneq I\subsetneq A$  maximal pour $\subset$. Toujours par le Lemme de Zorn , $I$  est contenu dans un idéal maximal $\frak{m}$, dont on sait qu'il est principal $\frak{m}=Ap$. Introduisons l'ensemble
+$$J:=\lbrace a\in A\;|\; ap\in I\rbrace $$
+Puisque $I$ est un idéal, $I\subset J$ et $J $ est un idéal de $A$. De plus $I=Jp$. Par définition de $J$ on a $Jp\subset I$ et, inversement, puisque $I\subset Ap$, tout $a\in I$ sécrit sous la forme $a=bp$ avec, par définition de $J$, $b\in J$. Si $I\subsetneq J$, par maximalité de $I$ on aurait $J=Aa$ donc $I=Aap$, ce qui contredit $I\in\mathcal{E}$. Donc $I=J$. Ce qui signifie que la multiplication par $p$ induit une bijection (rappelons que $A$ est intègre) $-\cdot p:I\tilde{\rightarrow} I$. Cela contredit la factorialité de $A$. En effet, si $0\not=a\in I$, on peut écrire $a=p^{v_p(a)}b$ avec $v_p(b)=0$. Mais   par définition de $J$, $p^{v_p(a)-1}b\in J=I=pI$ $\Rightarrow$ $p^{v_p(a)-2}b\in J=I=pI$ $\Rightarrow$ $...$ $\Rightarrow$ $b\in J=I=pI$ $\Rightarrow$ $v_p(b)\geq 1$.
+\end{itemize}
+\end{enumerate}
+\end{proof}
+
+\textbf{Remarque.} Si on suppose $A$ noethérien dans (2), on n'a pas besoin d'invoquer le Lemme de Zorn.\\
+
+\ref{Implications}.2 \textbf{(Contre-)Exemples.} Les implications de \ref{Implications}  ne sont pas des équivalences. Par exemple,
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Anneau noethérien $+$ $\mathcal{P}_A^\dag=\mathcal{P}_A^\circ$ non principal: $k[X_1,X_2]$, où $k$ est un corps commutatif;
+\item Anneau factoriel  non noethérien: $k[X_1,\dots,X_n,\dots, X_{n+1},\dots]$, où $k$ est un corps commutatif.
+\end{itemize}
+
+
+
+\section{Polynômes sur les anneaux factoriels}
+
+\subsection{}\textbf{Corps des fractions d'un anneau intègre.}\label{FracInt} Nous allons d'abord construire le corps des fractions d'un anneau intègre. Il s'agit d'un cas particulier de localisation, construction que nous verrons en toute généralité un peu plus loin.\\
+
+ Soit donc $A$ un anneau intègre. On munit le produit ensembliste $A\setminus\lbrace 0\rbrace\times A$ de la relation $\sim $ définie par: pour tout $(s,a),(s',a')\in A\setminus\lbrace 0\rbrace\times A$, $(s,a)\sim (s',a')$ si $ s'a-sa'=0$. \\
+
+ On vérifie facilement que $\sim$ est une relation d'équivalence. On note $\Frac(A):=A\setminus\lbrace 0\rbrace\times A/\sim$ et
+$$ \begin{tabular}[t]{llll}
+$-/-$ :&$A\setminus\lbrace 0\rbrace\times A$&$\rightarrow$&$\Frac(A)$\\
+ &$(s,a)$&$\rightarrow$&$a/s=:s^{-1}a$
+ \end{tabular}$$
+ la projection canonique.   Considérons les applications $+,\cdot: (A\setminus\lbrace 0\rbrace\times A)\times (A\setminus\lbrace 0\rbrace\times A)\rightarrow \Frac(A)$ définies par
+ $$(s,a)+(t,b)= (ta+sb)/(st),\;\; (s,a)\cdot (t,b)= (ab)/(st)$$
+  Si $(s,a)\sim (s',a')$, $(t,b)\sim (t',b')$  on a
+ $$s't'(ta+sb)-st(t'a'+s'b')=(s'a)(t't)+(ss')(t'b)-(sa')(tt')-(ss')(tb')=(s'a-sa')t't+(ss')(t'b-tb')=0$$
+  $$(s't')(ab)-(st)(a'b')= (s'a)(t'b)-(sa')(tb')= 0$$
+ Cela montre que les applications $+,\cdot :(A\setminus\lbrace 0\rbrace\times A)\times (A\setminus\lbrace 0\rbrace\times A) \rightarrow \Frac(A)$  se factorisent en
+ $$\xymatrix{(A\setminus\lbrace 0\rbrace\times A)\times (A\setminus\lbrace 0\rbrace\times A) \ar[r]^{+,\cdot}\ar[d]_{-/-\times -/-}& \Frac(A)\\
+ \Frac(A)\times \Frac(A)\ar[ur]_{+,\cdot}&} $$
+ On laisse en exercice le soin de vérifier que $\Frac(A)$ muni des lois $+,\cdot :\Frac(A)\times \Frac(A)\rightarrow \Frac(A)$ ainsi définies vérifie bien les axiomes d'un anneau commutatif  de zéro $0/1$ et d'unité $1/1$ et que, pour cette structure d'anneau, l'application canonique $$\begin{tabular}[t]{lclc}
+ $\iota_A:$&$A$&$\rightarrow$&$\Frac(A)$\\
+ &$a$&$\rightarrow$&$a/1$
+ \end{tabular}$$
+ est un morphisme d'anneaux injectif.  De plus, tout élément non nul $a/b\in \Frac(A)$ est inversible d'inverse $b/a$; $\Frac(A)$ est donc un corps.\\
+
+ \textbf{Lemme.} (Propriété universelle du corps des fractions) \textit{Pour tout anneau intègre $A$  il existe un morphisme d'anneaux $\iota :A\rightarrow F$ tel que $\iota(A\setminus \lbrace 0\rbrace)\subset F^\times$ et pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ tel que $\phi(A\setminus \lbrace 0\rbrace)\subset B^\times $, il  existe un unique morphisme d'anneaux $ \tilde{\phi}:F\rightarrow B$ tel que $\phi=  \tilde{\phi}\circ \iota $.}\\
+
+  Plus visuellement,
+ $$\xymatrix{A\setminus \lbrace 0\rbrace\ar[r]^\phi\ar@{_{(}->}[d]&B^\times\ar@{_{(}->}[d]\\
+ A\ar[r]^{\forall\phi}\ar@{_{(}->}[d]_{\iota_A}&B\\
+ F\ar@{.>}[ur]_{\exists !\tilde{\phi}}}$$
+
+ \begin{proof} Montrons que  $\Frac(A)$ muni de la structure d'anneau ci-dessus et le morphisme canonique $\iota_A:A\rightarrow \Frac(A)$ conviennent. Soit $\phi:A\rightarrow B$  un morphisme d'anneaux tel que $\phi(A\setminus \lbrace 0\rbrace)\subset B^\times $.  Si $\tilde{\phi}:\Frac(A)\rightarrow B$ existe la relation $\phi=\tilde{\phi}\circ \iota_A$ impose que  $\tilde{\phi}:\Frac(A)\rightarrow B$ est unique puisqu'on doit nécessairement avoir
+ $$\tilde{\phi}(a/s)=\tilde{\phi}((a/1)(1/s))=\tilde{\phi}(a/1) \tilde{\phi}((s/1)^{-1})=\phi(a)\phi(s)^{-1},\; (s,a)\in A\setminus\lbrace 0\rbrace\times A.$$
+ Considérons donc l'application  \begin{tabular}[t]{lclc}
+ $\tilde{\phi}:$&$ A\setminus\lbrace 0\rbrace\times A $&$\rightarrow$&$B$\\
+ &$(s,a) $&$\rightarrow$&$ \phi(s)^{-1}\phi(a)$.
+ \end{tabular}
+ Si $(s,a)\sim (s,a)'$  on a $ \phi(s')\phi(a)-\phi(s)\phi(a') =\phi( (s'a-sa'))=\phi(0)=0$. Mais comme $\phi(s),\phi(s') \in B^{\times}$, on peut réécrire cette égalité comme
+ $$\tilde{\phi}(s,a)=\phi(s)^{-1}\phi(a)=\phi(s')^{-1}\phi(a')=\tilde{\phi}( s',a').$$
+ Cela montre que l'application $\tilde{\phi}:  A\setminus\lbrace 0\rbrace  \rightarrow  B$ se factorise  en
+ $$\xymatrix{ A\setminus\lbrace 0\rbrace\ar[r]^{\tilde{\phi}}\ar[d]_{-/-}& B\\
+\Frac(A) \ar[ur]_{\tilde{\phi}}&} $$
+Par construction $\phi=  \tilde{\phi}\circ \iota_A$ et on vérifie que $\tilde{\phi}: \Frac(A)\rightarrow B$ est bien un morphisme d'anneaux.
+  \end{proof}
+
+  Comme d'habitude, le morphisme d'anneaux  $\iota_A:  A\rightarrow \Frac(A)$ est unique à unique isomorphisme près; on dit que c'est le   \textit{corps des fractions}\index{Corps des fractions (Anneau intègre)} de $A$.\\
+
+\textbf{Exercice.} On dit qu'un anneau $A$ intègre de corps des fraction $K$ est intégralement clos\index{Intégralement clos (Anneaux)} si
+$$A=\lbrace x\in K[X]\; |\; \exists \; P_x=T^d+\sum_{0\leq n\leq d-1}a_nT^n\in A[X]\; \hbox{\rm tel que}\; P_x(x)=0\rbrace.$$
+Montrer qu'un anneau factoriel est intégralement clos.\\
+
+
+\textbf{Exercice.} On note $\Q:=\Frac(\Z)$ et si $K$ est un corps, on note $K(X_1,\dots , X_n):=\Frac(K[X_1,\dots, X_n])$. Montrer que si $A$ est un anneau intègre de corps des fractions $K$ alors $\Frac(A[X_1,\dots, X_n])=K(X_1,\dots, X_n)$.
+
+\subsection{Valuations $p$-adiques}Soit $A$ un anneau factoriel (donc en particulier intègre) et $\iota_A:A\hookrightarrow K:=\Frac(A)$ son corps des fractions. Pour chaque $p\in\mathcal{P}_A$, l'application  $$
+\begin{tabular}[t]{cccc}
+$v_p:$&$A\setminus\lbrace 0\rbrace\times A$&$\rightarrow$&$\overline{\Z}:= \Z\cup\lbrace\infty\rbrace$\\
+&$(s,a)$&$\rightarrow$&$v_p(a)-v_p(s)$
+\end{tabular}$$
+ vérifie $(s,a)\sim (s',a')$ $\Rightarrow$ $v_p(a)-v_p(s)=v_p(a')-v_p(s')$  donc se factorise \textit{via} $$\xymatrix{A\setminus\lbrace 0\rbrace\times A\ar[r]^{v_p}\ar[d]_{-/-}& \overline{\Z}\\
+K\ar[ur]_{v_p}&}$$
+qui vérifie encore
+\begin{enumerate}
+\item $v_p(xy)=v_p(x)+v_p(y)$, $x,y\in K$;
+\item $v_p(x+y)\geq \hbox{\rm min}\lbrace v_p(x),v_p(y)\rbrace$, $x,y\in K$;
+\end{enumerate}
+De plus, $$A^\times=\bigcap_{p\in\mathcal{P}_A}v_p^{-1}(0),\;\; A=\bigcap_{p\in\mathcal{P}_A}v_p^{-1}(\overline{\Z}_{\geq 0} ).$$
+La bijection (\ref{IrrPrem}.2.1) s'étend également en une bijection
+$$ \begin{tabular}[t]{cll}
+ $A^\times\times \overline{\Z}^{(\mathcal{P}_A)}$&$\rightarrow$&$K $\\
+ $(u,\nu)$&$\rightarrow$&$u\displaystyle{\prod_{p\in\mathcal{P}_A}p^{\nu(p)}}$
+ \end{tabular}$$
+ d'inverse
+ $$ \begin{tabular}[t]{cll}
+ $K$&$\rightarrow$&$A^\times\times \overline{\Z}^{(\mathcal{P}_A)}$\\
+ $x$&$\rightarrow$&$(x\displaystyle{\prod_{p\in\mathcal{P}_A}p^{-v_p(x)}},p\rightarrow v_p(x))$
+ \end{tabular}$$
+
+
+
+\subsection{Contenu}\label{Contenu}Supposons toujours $A$ factoriel. Pour tout $p\in\mathcal{P}_A$ on étend $v_p:K\rightarrow \overline{\Z} $ en   $v_p:K[X]\rightarrow \overline{\Z}$ par
+$$v_p(P):=\hbox{\rm min}\lbrace v_p(a_n)\;|\; n\geq 0\rbrace,\;\; P=\sum_{n\geq 0} a_nX^n\in K[X]$$
+  On définit l'application contenu\index{Contenu (Polynôme)} $C_A:K[X]\rightarrow K$ par
+$$C_A(P)=\prod_{p\in \mathcal{P}_A}p^{v_p(P)},\;\; P\in K[X].$$
+Noter que comme $P$ n'a qu'un nombre fini de coefficients non nuls, les $v_p(P)$ sont nuls sauf pour un nombre fini de $p\in\mathcal{P}_A$. On a
+\begin{itemize}
+\item $C_A(P)=0$ si et seulement si $P=0$;
+\item $C_A(P)\in A$ si et seulement si $P\in A[X]$;
+\item Pour tout $a\in K $, $C_A(aP)=aC_A(P)$. En particulier, pour tout $P\in K[X]$, $P=C_A(P)P_1$ avec $C_A(P_1)=1$.  \\
+\end{itemize}
+
+\textbf{Lemme.} \textit{Pour tout $P,Q\in K[X]$ on a $C_A(PQ)=C_A(P)C_A(Q)$.}
+
+
+\begin{proof}Si $P\in K$ ou $Q\in K$, c'est clair. Supposons donc $P,Q\in K[X]\setminus K$. En écrivant $P=C_A(P)P_1$, $Q=C_A(Q)Q_1$ on a $C_A(PQ)=C_A(P)C_A(Q)C_A(P_1Q_1)$. Il suffit donc de montrer que si $C_A(P)=C_A(Q)=1$ alors $C_A(PQ)=1$. Observons que pour $F\in K[X]$ in $K[X]$ on a  $C_A(F)=1$ si et seulement si
+\begin{enumerate}
+\item $F\in A[X]$;
+\item  Pour tout $p\in\mathcal{P}_A$, $\overline{F}\not=0$ in $A/pA[X]$,
+\end{enumerate}
+où $\overline{F}$ est l'image de $F$ par le morphisme canonique $A[X]\rightarrow A[X]/pA[X]\tilde{\rightarrow} (A/pA)[X]$. La propriété (1) est  stable par produit puisque $A[X]$ est un anneau et la propriété (2) est stable par produit car $(A/pA)[X]$ est aussi un anneau intègre; ici on utilise que $p$ est irréductible donc premier puisque $A$ est factoriel.\end{proof}
+%Écrivons
+%$$\begin{tabular}[t]{ll}
+%$P=a_0+\cdots+a_mX^m$&, $a_m\not=0$\\
+%$Q=b_0+\cdots+b_nX^n$&, $b_n\not=0$\\
+%\end{tabular}$$
+%Soit $p\in\mathcal{A}$ et $$r:=\hbox{\rm max}\lbrace 0\leq i\leq m\;|\; v_p(a_i)=0\rbrace,\;\; s:=\hbox{\rm max}\lbrace 0\leq i\leq n\;|\; v_p(b_i)=0\rbrace.$$
+%Le coefficient $c_{r+s}$ de $X^{r+s}$ dans $PQ$ peut s'écrire sous la forme
+%
+%$$\begin{tabular}[t]{ll}
+%$c_{r+s}=a_rb_s$&$+a_{r+1}b_{s-1}+a_{r+2}b_{s-2}+\cdots$\\
+%&$+a_{r-1}b_{s+1}+a_{r-2}b_{s+2}+\cdots$\\
+%\end{tabular}$$
+%Les définitions de $r$, $s$ montrent que $v_p(a_rb_s)=1$ et $v_p(a_{r+1}b_{s-1}+a_{r+2}b_{s-2}+\cdots), v_p(a_{r-1}b_{s+1}+a_{r-2}b_{s+2}+\cdots)\geq 1$ donc, par la propriété (ii) de $v_p$, $v_p(c_{r+s})=0$.
+%
+%\end{proof}
+
+
+
+\subsection{}\label{FactTransfert}\textbf{Proposition.} (Transfert de factorialité) \textit{$A$ factoriel $\Rightarrow$ $A[X]$ factoriel. De plus, les  irréductible de $A[X]$ sont les irréductibles de $A$ et les irréductible de $K[X]$ de contenu $1$.}\\
+
+\begin{proof}L'idée est bien s\^ur d'exploiter que $K[X]$ est factoriel car euclidien. Fixons un système $\mathcal{P}_{K[X]}$ de représentants de $\mathcal{P}^\circ_{K[X]}$ de contenu $1$ (il suffit de remplacer un système de représentants $\mathcal{P}$ donné par les $P/C_A(P)$, $P\in \mathcal{P}$). Notons $\mathcal{P}_{A[X]}$ l'union de $\mathcal{P}_A$ et de  $ \mathcal{P}_{K[X]}$. Comme $A $ est intègre, on sait déjà  que $A[X]^\times=A^\times$. On procède en deux temps.\\
+
+
+\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item  Les éléments de $  \mathcal{P}_{A[X]}$ sont irréductibles.\\
+
+ Il suffit de montrer que les éléments de $  \mathcal{P}_{A[X]}$ sont premiers.\\
+
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Si $p\in \mathcal{P}_A$ comme $A $ est factoriel et $p$ est irréductible, $p$ est premier donc $A/pA$ est intègre. Cela implique que $(A/pA)[X]$ est intègre et on conclut par l'isomorphisme d'anneaux canoniques  $A[X]/pA[X]\tilde{\rightarrow} (A/pA)[X]$.
+\item Si $P\in \mathcal{P}_{K[X]}$, considérons le morphisme canonique $\phi:A[X] \hookrightarrow  K[X] \twoheadrightarrow K[X]/PK[X]$. Par construction $PA[X]\subset \ker(\phi)$. Inversement, si $F\in \ker(\phi)$ alors $F=PQ$ dans $K[X]$. Par le Lemme \ref{Contenu}, $C_A(F)=C_A(P)C_A(Q)=C_A(Q)$ donc $C_A(Q)\in A$ \ie{} $Q\in A[X]$. Donc $F\in PA[X]$ et le morphisme $\phi:A[X] \hookrightarrow  K[X] \twoheadrightarrow K[X]/PK[X]$ se factorise en un morphisme d'anneaux injectif $A/PA[X]\hookrightarrow K[X]/PK[X]$. Comme $K[X]$ est factoriel et $P$ est irréductible, $P$ est premier donc $K[X]/PK[X]$ est intègre. Comme un sous-anneau d'un anneau intègre est intègre, $A[X]/PA[X]$ est donc intègre.\\
+\end{itemize}
+
+\item L'application canonique $  A^\times\times \N^{(\mathcal{P}_A \cup \mathcal{P}_{K[X]})} \rightarrow A[X]\setminus\lbrace 0\rbrace $ est bijective.\\
+
+
+ Comme $K[X]$ est factoriel, l'application $K\setminus\lbrace 0\rbrace \times \N^{(\mathcal{P}_{K[X]})}\rightarrow K[X]\setminus\lbrace 0\rbrace$ est bijective. Elle se restreint en une application (injective!) $A\setminus\lbrace 0\rbrace \times \N^{(\mathcal{P}_{K[X]})}\rightarrow A[X]\setminus\lbrace 0\rbrace$. Cette dernière est en fait bijective car si $F=x\prod_{p\in\mathcal{P}_{K[X]} }P^{v(P)}$ (ici $x\in K\setminus \lbrace 0\rbrace$) est dans $A[X]$, par multiplicativité du contenu, $C_A(F)=x\prod_{p\in\mathcal{P}_{K[X]}} C_A(P)^{v(P)}$ et comme par hypothèse $C_A(P)=1$, $x\in A$. Enfin, par factorialité de $A$, l'application $A^\times\times \N^{(\mathcal{P}_A)}\tilde{\rightarrow} A\setminus\lbrace 0\rbrace$ est bijective donc on obtient la bijection voulue comme
+$$A^\times\times \N^{(\mathcal{P}_A \cup \mathcal{P}_{K[X]})}\tilde{\rightarrow}A^\times\times \N^{(\mathcal{P}_A)}\times \N^{(\mathcal{P}_{K[X]})}\tilde{\rightarrow} A\setminus\lbrace 0\rbrace\times  \N^{(\mathcal{P}_{K[X]})}\tilde{\rightarrow}A[X]\setminus\lbrace 0\rbrace.$$
+
+
+\end{enumerate}
+
+\textbf{Remarque.} On a bien montré en passant que tout irréductible de $A[X]$ admet un représentant dans $ \mathcal{P}_{A[X]}$: si $F\in A[X]$ est irréductible, il s'écrit de façon unique sous la forme $$F= u\prod_{p\in   \mathcal{P}_{A[X]}}p^{v_p(F)}$$
+avec $u\in A^\times$ et comme $F$ est par définition non inversible et ne peut s'écrire  comme produit de deux éléments non-inversibles, on doit forcément avoir $v_p(F)=1$ pour un certain $p\in \mathcal{P}_{A}\cup\mathcal{P}_{K[X]}$ et $v_q(F)=0$, pour tout $p\not=q\in  \mathcal{P}_{A}\cup\mathcal{P}_{K[X]}$
+\end{proof}
+
+\subsection{}\label{FactTransfert}\textbf{Corollaire.} \textit{Pour tout $n\geq 1$, $A$ factoriel $\Rightarrow$ $A[X_1,\dots, X_n]$ factoriel. }
+\begin{proof} Par induction sur $n$ et en utilisant l'isomorphisme  canonique  $$A[X_1,\dots,X_n]\tilde{\rightarrow}A[X_1,\dots,  \dots, X_{n-1}] [X_n].$$
+\end{proof}
+
+
+ \subsection{}\textbf{Exercice - critères d'irréductibilité pour les algèbres de polynômes sur les corps.} Comme dans $\Z$, déterminer  si un élément de $K[X]$ est irréductible est un problème délicat. Voici les deux critères d'irréductibilité les plus classiques pour les algèbres de polynômes.\\
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item \textbf{(Critère d'Eisenstein)} Soit $A$ un anneau factoriel de corps des fractions $ K$ et $P=\sum_{n\geq 0} a_nX^n\in A[X]$. Montrer que s'il existe un irréductible $p$ de $A$ tel que $v_p(a_0)\leq 1$, $v_p(a_n)\geq 1$, $0\leq n\leq \deg(P)-1$ et $v_p(a_{\deg(P)})=0$ alors $P$ est irréductible dans $K[X]$.\\
+
+  \textbf{Application.} Montrer que $P\in K[X]$ est irréductible si et seulement si $P(X+1)\in K[X]$ est irréductible. En déduire que pour tout nombre premier $p$, le polynôme $X^p+X^{p-1}+\cdots+X+1$ est irréductible dans $\Q[X]$. \\
+ \item \textbf{(Critère de réduction)} Soit $A,B$ des anneaux intègres et $L$ le corps des fractions de $B$. Soit $\phi:A\rightarrow B$ un morphisme d'anneaux. La propriété universelle de $\iota_A:A\rightarrow A[X]$ appliquée avec $A\stackrel{\phi}{\rightarrow}B\stackrel{\iota_B}{\hookrightarrow} B[X]$ donne un unique morphisme d'anneaux $\tilde{\phi}:A[X]\rightarrow B[X]$ tel que $\tilde{\phi}\circ \iota_A=\iota_B\circ\phi$ (explicitement $\tilde{\phi}(\sum_{n\geq 0}a_nX^n)=\sum_{n\geq 0}\phi(a_n)X^n$). Soit $P\in A[X]$. Montrer  que si $\deg(\tilde{\phi}(P))=\deg(P)$ et $\tilde{\phi}(P)$ est irréductible dans $L[X]$ alors $P$ ne peut s'écrire sous la forme $P=P_1P_2$ avec $P_1,P_2\in A[X]$ de degré $\geq 1$.\\
+
+
+   Correction. \textit{Écrivons  $P=P_1P_2$ avec   $P_1,P_2\in A[X]$ et $\deg(P_1)\leq \deg(P_2)$. On veut montrer que $P_1\in A$. Notons que par construction $\deg(\tilde{\phi}(P))\leq \deg(P)$. Puisque $\tilde{\phi}:A[X]\rightarrow B[X]$ est un morphisme d'anneaux, on a $\tilde{\phi}(P)=\tilde{\phi}(P_1)\tilde{\phi}(P_2)$ dans $L[X]$. Puisque  $\tilde{\phi}(P)\in L[X]$ est irréductible par hypothèse, on a $\tilde{\phi}(P_1)\in K$ ou $\tilde{\phi}(P_2)\in K$. Enfin, puisque $$\deg(P_1)+\deg(P_2)\geq \deg(\tilde{\phi}(P_1))+\deg(\tilde{\phi}(P_2))=\deg(\tilde{\phi}(P))=\deg(P)=\deg(P_1)+\deg(P_2),$$
+  on a $\deg(\tilde{\phi}(P_i))=\deg(P_i)$, $i=1,2$. Donc (on a supposé $\deg(P_1)\leq \deg(P_2)$) $\tilde{\phi}(P_1)\in K$, ce qui implique $\deg(P_1)=\deg(\tilde{\phi}(P_1))=0$ donc $P_1\in A$ comme annoncé.}\\
+
+  \textbf{Remarque.} La terminologie `critère de réduction' vient du fait qu'on applique en général ce critère avec les morphismes   $p_I: A\twoheadrightarrow A/I$ de réduction modulo un idéal $I\subset A$. En général, on prend même $I=\frak{m}$ maximal,  ce qui permet de se ramener au cas de l'algèbre de polynôme $(A/\frak{m})[X]$ qui est un anneau euclidien puisque $A/\frak{m}$ est un corps. Typiquement, si $A=\Z$, on peut chercher un `bon' nombre premier  $p$ tel que la réduction modulo $p$ de $P\in \Z[X]$ soit irréductible dans  $\Z/p[X]$. On verra dans la partie du cours sur la théorie de Galois, qu'on comprend plutôt bien les   irréductibles de $\Z/p[X]$.\\
+
+  \textbf{Application.} Montrer que $P=X^5-5X^3-6X-1$ est irréductible dans $\Q[X]$.\\
+
+  Correction. \textit{En considérant $\phi:\Z\twoheadrightarrow \Z/2$, on a $\tilde{\phi}(P)=:\overline{P}=X^5+X^3+1$ dans $\F_2[X]$. Clairement $\overline{P}$ n'a pas de racine dans $\F_2$. Donc si $\overline{P}$ n'est pas irréductible, il s'écrit comme produit d'un polynôme  de degré $2$ et d'un polynôme de degré $3$:
+ $$\overline{P}=(X^3+aX^2+bX+c)(X^2+dX+e).$$
+ En développant et en identifiant les coefficients, on obtient le systèmes d'équations dans $\F_2$
+ $$\begin{tabular}[t]{l}
+ $d+a=0$\\
+ $e+ad+b=1$\\
+ $ae+bd+c=0$\\
+ $be+cd=0$
+ $ce=1$
+   \end{tabular}$$
+   Mais dans $\F_2$, $d+a=0$ implique $a=d$. Si $a=d=0$, $c=0$: contradiction. Si $a=d=1$,    $e+b=0$, $e+b+c=0$ donc $c=0$: contradiction.  Cela montre que $\overline{P}$ est irréductible dans $\F_2[X]$. Donc si $P=P_1P_2$ dans $\Z[X]$ avec $\deg(P_1)\leq \deg(P_2)$, on a forcément $P_1\in \Z$ (et en fait $P_1=\pm 1$ car $C_\Z(P)=1=C_\Z(P_1)C_\Z(P_2)=P_1C_\Z(P_2)$). Si $P=P_1P_2$ dans $\Q[X]$  avec $\deg(P_1)\leq \deg(P_2)$, on a $C_\Z(P_1)C_\Z(P_2)=C_\Z(P)=1$ donc $P=P_1P_2=\frac{P_1}{C_\Z(P_1)}\frac{P_2}{C_\Z(P_2)}$ avec, cette fois-ci, $\frac{P_1}{C_\Z(P_1)},\frac{P_2}{C_\Z(P_2)}\in \Z[T]$. Donc $P_1=C_\Z(P_1)\in \Q$. Cela montre bien que $P$ est irréductible dans $\Q[X]$.} \\
+\end{enumerate}
+
+\section{Valuations et anneaux factoriels}\label{Val}
+
+   Soit $K$ un corps.
+
+% coquille corrigée dans la note de bas de page
+% suppression de $$ inutiles
+% utilisation de \{ et \} plutôt que \rbrace et \lbrace
+% \iff (if and only if) pour l'équivalence
+% utilisation des environnements
+
+\subsection{Définitions et anneaux de valuation discrète}
+% \label{ValDef}Une \textit{valuation}\index{Valuation discrète} (de rang $1$) sur $K$ est une application surjective\footnote{On fait cette hypothèse par commodité. Il suffit en fait de supposer que $v:K\rightarrow \overline{\Z}$ est non nulle; on peut alors se ramener au cas surjectif en utilisant que  tout sous groupe non-nul de $\Z$ est isomorphe à $\Z$.}
+%  $v:K\rightarrow \overline{\Z}$  qui vérifie
+% \begin{enumerate}
+% \item $v(xy)=v (x)+v (b), x,y\in K$;
+% \item $v(x+y)\geq \min\{v(x),v(y)\}, x,y\in K$;
+% \item $v(x)=\infty \iff x=0$.
+% \end{enumerate}
+
+\begin{definition}\label{ValDef}
+  Une \textit{valuation}\index{Valuation discrète} (de rang $1$) sur $K$ est une application surjective\footnote{On fait cette hypothèse par commodité. Il suffit en fait de supposer que $v:K\rightarrow \overline{\Z}$ est non nulle; on peut alors se ramener au cas surjectif en utilisant que  tout sous groupe non-nul de $\Z$ est isomorphe à $\Z$.}
+  $v:K\rightarrow \overline{\Z}$  qui vérifie
+  \begin{enumerate}
+  \item $v(xy)=v (x)+v (b), x,y\in K$;
+  \item $v(x+y)\geq \min\{v(x),v(y)\}, x,y\in K$;
+  \item $v(x)=\infty \iff x=0$.
+  \end{enumerate}
+\end{definition}
+
+%\textbf{Remarque.}
+\begin{remarque}
+La propriété (1) peut se réécrire en disant que $v:(K^\times,\cdot)\rightarrow (\Z,+)$ est un morphisme de groupes.
+\end{remarque}
+
+Notons $A_v:=v^{-1}([0,\infty])\subset K$.
+
+% Mise en valeur de la définition énoncée ici
+\begin{definition}
+On dit qu'un anneau est \textit{local}\index{Local (Anneau)} s'il possède un unique idéal maximal.
+\end{definition}
+
+% \subsection{}\label{AVD}\textbf{Lemme.} \textit{L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v, n\in\Z_{\geq 0}$, où $\pi\in A$ est tel que $v(\pi)=1$.}
+% Le lemme est transféré dans un environnement (plus besoin de demander de l'italique ou d'écrire lemme en gras)
+\begin{lemme}\label{AVD}
+  L'ensemble $A_v \subset K$ est un sous-anneau de $K$, de corps des fractions $K$ et tel que $A_v^\times=v^{-1}(0)$ et $\frak{m}_v:= A_v\setminus A_v^\times \subset A_v$ est un idéal. En particulier, $A_v$ est local d'unique idéal maximal $\frak{m}_v$. De plus les seuls idéaux de $A_v$ sont les $\pi^nA_v, n\in\Z_{\geq 0}$, où $\pi\in A$ est tel que $v(\pi)=1$.
+\end{lemme}
+
+\begin{proof} Montrons d'abord que $A_v\subset K$ est un sous-anneau. D'après la propriété (1) d'une valuation, $1\in A$ (utiliser $1^2=1$) et $a,b\in A_v$ implique $ab\in A$. De plus, pour tout $x\in K^\times$  la relation $(-x)^2=x^2$ et la propriété (1) d'une valuation montrent que $v(x)=v(-x)$ ce qui, combiné à la propriété (2) d'une valuation montre que $a,b\in A_v$ implique $a-b\in A_v$. Observons également que la propriété (1) d'une valuation implique $$A_v^\times=\{x\in K^\times\;|\; x,x^{-1}\in A_v\} = v^{-1}(0).$$
+  Les propriétés (1) (respectivement (2)) assurent également que $\frak{m}_v$ est stable par multiplication par les éléments de $A$ (respectivement par différence) donc que $\frak{m}_v\subset A_v$ est un idéal. C'est automatiquement l'unique idéal maximal de $A_v$ puisque $A_v\setminus \frak{m}_v=A_v^\times$.
+  Soit $\pi\in A$ tel que $v(\pi)=1$ (on utilise ici la surjectivité de $v$). Pour un idéal $I\subset A_v$ arbitraire, notons $n:=\min{v(I)}$. On a alors pour tout $a\in I, v(\pi^{-n}a)\geq 0$ donc $a\in A_v\pi^n$. Cela montre que $I\subset A\pi^n$. Inversement, soit $a\in I$ tel que $v(a)=n$. On a alors $v(\pi^{-n}a)=0$ \ie{} $A^\times a=A^\times \pi^n$ donc $A\pi^n=Aa\subset I$. Il reste à voir que $K$ est le corps des fractions de $A_v$; cela résulte du fait que tout $x\in K$ s'écrit sous la forme $x=(x\pi^{-v(x)})\pi^{v(x)}$ avec $ x\pi^{-v(x)}\in A_v^\times$. %correction à la ligne précédente : x\in K (A n'est pas défini)
+\end{proof}
+
+\begin{remarque}
+On dit qu'un anneau de la forme $A_v$ est un \textit{anneau de valuation discrète}\index{Valuation discrète (Anneau)}. Ces anneaux jouent un rôle fondamental en géométrie arithmétique. Ils possèdent plusieurs caractérisations équivalentes. En voici quelques unes.
+\end{remarque}
+
+% Environnement exercice
+\begin{exercice}[{Difficile -- \textit{cf.} \cite[I,\S~2]{CL}}] % -- pour un tiret plus long
+  Soit $A$ un anneau commutatif. Montrer que les propriétés suivantes sont équivalentes.
+  \begin{enumerate}
+  \item $A$ est un anneau de valuation discrète.
+  \item $A$ est local, noethérien et son idéal maximal est principal, engendré par un élément non nilpotent.
+  \item $A$ est intégralement clos et possède un unique idéal premier non nul.\\
+  \end{enumerate}
+\end{exercice}
+
+% \textbf{Exercice.} [Difficile - \textit{cf.} \cite[I,\S 2]{CL}] Soit $A$ un anneau commutatif. Montrer que les propriétés suivantes sont équivalentes.
+% \begin{enumerate}
+% \item $A$ est un anneau de valuation discrète.
+% \item $A$ est local, noethérien et son idéal maximal est principal, engendré par un élément non nilpotent.
+% \item $A$ est intégralement clos et possède un unique idéal premier non nul.\\
+% \end{enumerate}
+
+
+\subsection{Factorialité}
+% remarque placée dans un environnement
+% le tilde avant ; permet l'ajout d'une espace insécable fine
+\begin{remarque}
+  Si $A$ est factoriel de corps des fractions $\iota_A:A\hookrightarrow K:=\Frac(A)$, les applications $v_p:K\rightarrow \overline{\Z}$ pour $p\in\mathcal{P}_A$ sont donc des valuations sur $K$ et la famille de valuations
+  $$\mathcal{V}:=\{v_p:\Frac(A)\rightarrow \overline{\Z}\; |\; p\in\mathcal{P}_A\}$$
+  vérifie les propriétés suivantes :
+  \begin{itemize}
+  \item (\ref{ValDef}.1) pour tout $0\not=x\in K$, $$|\{v\in\mathcal{V} \;|\; v (x)\not=0\}|<+\infty~;$$
+  \item (\ref{ValDef}.2) il existe une famille d'élements $(p_v)_{v\in\mathcal{V}}\in K$ telle que $v(p_w)=\delta_{v,w}, v,w\in\mathcal{V}$~;
+  \item (\ref{ValDef}.3) $A=\displaystyle{\bigcap_{v\in\mathcal{V}}}A_v$.
+  \end{itemize}
+\end{remarque}
+
+
+Inversement, on a
+
+% \subsection{}\label{ValProp}\textbf{Proposition.} \textit{Soit $K$ un corps muni d'une famille $\mathcal{V}$ de valuation $v:K\rightarrow \overline{\Z}$ vérifiant les propriétés (\ref{ValDef}.1), (\ref{ValDef}.2). Alors $$A:=\displaystyle{\bigcap_{v\in\mathcal{V}}}v^{-1}(\overline{\N})\subset K$$ est un sous-anneau qui est factoriel et les $p_v$, $v\in\mathcal{V}$ forme un système de représentants de $\mathcal{P}_A^\circ$.}\\
+
+% correction : orthographe, conjugaison
+\begin{proposition}
+  Soit $K$ un corps muni d'une famille $\mathcal{V}$ de valuations $v:K\rightarrow \overline{\Z}$ vérifiant les propriétés (\ref{ValDef}.1), (\ref{ValDef}.2). Alors $$A:=\displaystyle{\bigcap_{v\in\mathcal{V}}}v^{-1}(\overline{\N})\subset K$$ est un sous-anneau qui est factoriel et les $p_v$, $v\in\mathcal{V}$ forment un système de représentants de $\mathcal{P}_A^\circ$.
+\end{proposition}
+
+\begin{proof}Observons d'abord que  $A\subset K$ est un sous-anneau comme intersection de sous-anneaux (lemme \ref{AVD}). La propriété (1) d'une valuation implique également que $$A^\times=\{ x\in K^\times\;|\; x,x^{-1}\in A\} =\displaystyle{\bigcap_{v\in\mathcal{V}}v^{-1}(\{0\})}.$$
+ Montrons ensuite que les $p_v, v\in\mathcal{A}$ sont irréductibles. Soit donc $v\in \mathcal{V}$. La condition $v(p_v)=1$ assure déjà que $p\notin A^\times$. Écrivons $p_v=ab$ pour $a,b\in A$. On doit avoir $v(p_v)=1=v(a)+v(b)$ et $w(p_v)=0=w(a)+w(b)$ où $v\not=w\in\mathcal{V}$. Comme par définition de $A, w(a),w(b)\geq 0, w\in\mathcal{V}$, ces relations impliquent $v(a)=1$ et $v(b)=0$ ou $v(a)=0$ et $v(b)=1$ et $w(a)=w(b)=0$, $v\not=w\in\mathcal{V}$. Donc $a\in A^\times$ ou $b\in A^\times$.\\
+ Soit maintenant $0\not=a\in A$. Par (\ref{ValDef}.1), on peut définir  $$u_a:=a\prod_{v\in\mathcal{V}}p_v^{-v(a)}\in K^\times,$$
+qui vérifie par construction et la propriété (1) d'une valuation $v(u_a)=0$, $v\in\mathcal{V}$ \ie{} $u_a\in A^\times$. L'écriture  $a=u_a\prod_{v\in\mathcal{V}}p_v^{v(a)}$ montre déjà que les $p_v$, $v\in\mathcal{V}$ forment  un système de représentants des classes d'irrréductibles de $A$. De plus, l'écriture $a=u_a\prod_{v\in\mathcal{V}}p_v^{v(a)}$ est unique. Si on a une écriture $a=u\prod_{v\in\mathcal{V}}p_v^{v'(a)}$
+avec $u'\in A^\times$, $v_-'(a):\mathcal{V}\rightarrow \N\in\N^{(\mathcal{V})}$, l'égalité
+ $$u^{'-1} u_a=\prod_{v\in\mathcal{V}}p_v^{v'(a)-v(a)}\in A^\times$$
+implique, par évaluation en chacune des $v\in\mathcal{V}$ et en utilisant (\ref{ValDef}.2) que $v'(a)=v(a)$, $v\in\mathcal{V}$ et donc $u'=u_a$.
+\end{proof}
+
+\subsection{ppcm et pgcd}
+% passage en environnement exercice
+% \dots > \dotsc (dots with commas) et \cdots > \dotsb (dots with binarx operator) pour suivre les recommandations en vigueur (voir en particulier https://en.wikibooks.org/wiki/LaTeX/Mathematics#Dots)
+\begin{exercice}
+  Soit $A$ un anneau factoriel.
+  \begin{enumerate}
+  \item Montrer que $Aa\cap Ab$ est un idéal principal engendré par
+    $$\ppcm(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize max}\{v_p(a),v_p(b)\}}.$$
+    On dit que les éléments de $A^\times \ppcm(a, b) $ sont les plus petits communs multiples de $a$ et $b$.
+  \item Montrer que l'ensemble des idéaux principaux de $A$ qui contiennent $Aa+ Ab$ admet un plus petit élément, engendré par
+    $$\pgcd(a, b):=\prod_{p\in\mathcal{P}_A}p^{\hbox{\rm \footnotesize min}\{ v_p(a),v_p(b)\}}.$$
+    On dit que les éléments de $A^\times \pgcd(a, b) $ sont les plus grands communs diviseurs de $a$ et $b$. Montrer sur un exemple qu'en général l'inclusion $Aa+Ab\subsetneq A\pgcd(a,b)$ est stricte.
+  \item Généraliser  (1) et (2) à un nombre fini $a_1,\dotsc, a_r$ d'éléments de $A$.
+  \item (Bézout) Supposons $A$ principal. Montrer que $\pgcd(a_1,\dotsc, a_r)A^\times= A^\times$ si et seulement si il existe $u_1,\dotsc, u_r\in A$ tels que $u_1a_1+\dotsb+u_ra_r=1$.
+  \end{enumerate}
+\end{exercice}

@@ -1,0 +1,322 @@
+\chapter{Produit tensoriel}\index{Produit tensoriel (Modules)}
+
+\section{Construction}
+
+Soient $M_1,\dotsc, M_r$ une famille de $A$-modules et $M$ un $A$-module. Notons $$L_{r,A}(M_1\times\dotsb\times M_r,M)$$ l'ensemble des applications $f:M_1\times\cdots\times M_r\rightarrow M$ qui sont $r$-$A$-multilinéaires \ie{} telles que $f\circ \iota_i:M_i\rightarrow M$ est un morphisme de $A$-modules, $i=1,\dotsc,r$. \\
+
+Notons $$\Sigma:= A^{(M_1\times\dotsb\times M_r)},$$
+le $A$-module libre engendré par $M_1\times\dotsc\times M_r$, $(m_1,\dots, m_r)\in M_{0}$ l'élément correspondant au terme avec des $0$ partout sauf en l'indice $(m_1,\dotsc, m_r)$
+ et $R \subset \Sigma$ le sous $A$-module engendré par les éléments de la forme
+$$(m_{1},\dotsc, a_{i}m_{i}+a_{i}'m_{i}',\dotsc, m_{r})-a_{i}(m_{1},\dotsc, m_{i},\dotsc, m_{r})-a_{i}'(m_{1},\dotsc, m_{i}',\dotsc, m_{r}).$$
+En posant $M_1\otimes_{A}\dotsb \otimes_{A} M_r:=\Sigma/R$ et $$\begin{tabular}[t]{llllll}
+$p:$&$M_1\times\dotsb\times M_r$&$\rightarrow$&$A^{(M_1\times\dotsb\times M_r)}$&$\rightarrow$&$M_1\otimes_{A}\dotsb \otimes_{A} M_r$\\
+&$(m_{1},\dots,m_{r})$&$\mapsto$&$1\cdot (m_{1},\dots,m_{r})$&$\mapsto$&$(m_{1},\dots,m_{r})$ mod $M_{00}=:m_{1}\otimes\cdots\otimes m_{r}$
+\end{tabular}$$
+on vérifie facilement que $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ est une application $A$-$r$-linéaire. On prendra garde que $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes _{A}M_r$  n'est pas surjective en général mais que, $M_1\otimes_{A}\cdots \otimes_{A} M_r$ est engendré comme $A$-module par les éléments de la forme $m_{1}\otimes\cdots\otimes m_{r}$.
+
+\begin{remarque}
+  Les éléments de $M_1\otimes_A\dotsb\otimes_A M_r$ ne sont pas tous de la forme $m_1\otimes\dotsb\otimes m_r$ pour $(m_1,\dotsc,m_r)\in M_1\times\dotsb\times M_r$ (\ie{} $p$ n'est en général pas surjective).
+  En effet, il n'y a aucune raison pour que $a\cdot m_1\otimes\dotsb\otimes m_r+b\cdot n_1\otimes\dotsb\otimes n_r$ soit de la forme $\mu_1\otimes\dotsb\otimes \mu_r$. Par contre, $M_1 \otimes_A \dotsb\otimes_A M_r$ est un quotient de $\Sigma:=\bigoplus_{\underline{m}\in M_1\times\dotsb\times M_r} Ae_{\underline{m}}$. Il est engendré, comme $A$-module, par les $m_1\otimes\dotsb\otimes m_r$
+\end{remarque}
+
+\begin{definition}[tenseurs élémentaires]
+  On dit parfois que les éléments de la forme $m_1\otimes\dotsb\otimes m_r$ sont des tenseurs élémentaires.
+\end{definition}
+
+\begin{lemme}[propriété universelle du produit tensoriel]\label{PTUniv}
+  Pour toute famille $M_1 ,\dots, M_r$ de $A$-modules, il existe un
+  $A$-module $T$ et une application $r$-$A$-linéaire
+  $p:M_1\times\cdots\times M_r\rightarrow T$ tels que pour tout
+  $A$-module $M$ et pour toute application $r$-$A$-linéaire
+  $f:M_1\times\cdots\times M_r\rightarrow M$ il existe un unique
+  morphisme de $A$-modules $\overline{f}:T\rightarrow M$ tel que
+  $\overline{f}\circ p=f$.
+\end{lemme}
+
+\begin{remarque}
+  Notons $$L_{r,A}(M_1\times\cdots\times M_r,M)$$ l'ensemble des
+  applications $f:M_1\times\cdots\times M_r\rightarrow M$ qui
+  sont $r$-$A$-linéaires \ie{} telles que
+  $f\circ \iota_{i}:M_{i}\rightarrow M$ est un morphisme de
+  $A$-modules, $i=1,\dots,r$. La structure de $A$-module sur $M$
+  induit une structure de $A$-module sur
+  $L_{r,A}(M_1\times\cdots\times M_r,M)$ et on vérifie
+  immédiatement que
+  $$L_{r,A}(M_1\times\cdots\times M_r,-):Mod_{/A}\rightarrow Mod_{/A}$$
+  est un foncteur.
+\end{remarque}
+
+\begin{proof}Vérifions  que $T:=M_1\otimes_{A}\cdots \otimes_{A} M_r$ et  l'application $r$-$A$-linéaire $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ conviennent. Si $\overline{f}:M_1\otimes\cdots \otimes M_r\rightarrow M$, la condition $p\circ \overline{f}=f$ impose $\overline{f}(m_1\otimes\cdots\otimes m_r)=f(m_1,\dots, m_r)$. Comme $M_1\otimes_{A}\cdots \otimes_{A} M_r$  est engendré, comme $A$-module, par les éléments de la forme $m_1\otimes\cdots\otimes m_r$, cela montre l'unicité de $\overline{f}$ sous réserve de son existence. Par propriété universelle des $\iota_{\underline{m}}:A\hookrightarrow A^{(M_1\times\cdots\times M_r)}$, $\underline{m}=(m_1,\dots, m_r)\in M_1\times\cdots\times M_r$, il existe un unique morphisme de $A$-modules $F:M_{0}=A^{(M_1\times\cdots\times M_r)}\rightarrow M$ tel que $F\circ \iota_{\underline{m}}:A\rightarrow M$ est le morphisme qui envoie $1$ sur $f(m_1,\dots, m_r)$. Comme $f:M_1\times\cdots\times M_r\rightarrow M$ est $r$-$A$-linéaire,  $M_{00}\subset \ker(F)$ donc $F:M_{0} \rightarrow M $ se factorise en un morphisme de $A$-modules $\overline{f}:M_1\otimes_{A} \cdots\otimes_{A} M_r\rightarrow M$ tel que $p\circ \overline{f}=F$; en particulier  $$p\circ \overline{f}(m_1,\dots,m_r)=F(m_1,\dots, m_r)=f(m_1,\dots, m_r),\; (m_1,\dots, m_r)\in M_1\times\cdots\times M_r.$$
+\end{proof}
+
+ Comme d'habitude, $p:M_1\times\cdots\times M_r\rightarrow M_1\otimes_{A}\cdots \otimes_{A} M_r$ est unique à unique isomorphisme près.\\
+
+
+ On peut aussi réécrire \ref{PTUniv} en disant que pour tout $A$-module $M$ l'application canonique
+$$\SHom_A(M_1\times\cdots\times M_r,M)\rightarrow L_{r,A}(M_1\times\cdots\times M_r,M),\; f\rightarrow p\circ f$$
+est bijective ou encore, plus visuellement,
+$$\xymatrix{M_1\times\cdots\times M_r\ar[r]^{\forall f}\ar[d]_{p}&M\\
+M_1\otimes_{A}\cdots\otimes_{A}M_r\ar@{.>}[ur]_{\exists ! \overline{f}}}$$
+
+
+ Si $f_{i}:M_{i}\rightarrow N_{i}$, $i=1,\dots ,r $ sont $r$ morphismes de $A$-modules, l'application
+$$\begin{tabular}[t]{llll}
+$(f_{1},\dots, f_{r})$&$M_1\times\dots\times M_r$&$\rightarrow$&$N_{1}\otimes_{A}\dots\otimes_{A}N_{r}$\\
+&$(m_{1},\dots,m_{r})$&$\rightarrow$&$f_{1}(m_{1})\otimes\dots\otimes f_{r}(m_{r})$
+\end{tabular}$$
+est $r$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $f_{1}\otimes_{A}\dots\otimes_{A}f_{r}:M_1\otimes_{A}\dots\otimes_{A}M_r\rightarrow N_{1}\otimes_{A}\dots\otimes_{A}N_{r}$ tel que $f_{1}\otimes_{A}\dots\otimes_{A}f_{r}(m_{1}\otimes\dots m_{r})=(f_{1},\dots, f_{r})(m_{1},\dots,m_{r})=f_{1}(m_{1})\otimes\dots\otimes f_{r}(m_{r})$.
+
+
+\section{Propriétés élémentaires}\label{Ad1}
+\subsection{Propriétés}
+
+\begin{lemme}[\og commutation\fg{} du produit tensoriel aux sommes directes]\label{PTSum}
+Soit $M_i$, $i\in I$ et $M$ des $A$-modules. On a un isomorphisme canonique
+$$\begin{tabular}[t]{lll}
+$M\otimes_A(\bigoplus_{i\in I}M_{i})$&$\tilde{\rightarrow}$&$\bigoplus_{i\in I}(M\otimes_AM_{i})$\\
+$m\otimes(m_i)_{i\in I}$&$\rightarrow$&$(m\otimes m_i)_{i\in I}$\\
+\end{tabular}$$
+\end{lemme}
+
+\begin{proof}Vérifions d'abord que $\phi:M\otimes_A(\bigoplus_{i\in I}M_{i}) \rightarrow  \bigoplus_{i\in I}(M\otimes_AM_{i})$ est bien définie. L'application $\Phi:M\times \bigoplus_{i\in I}M_{i}\rightarrow  \bigoplus_{i\in I}(M\otimes_AM_{i})$, $(m,(m_i)_{i\in I})\rightarrow (m\otimes m_i)_{i\in I}$ est $2$-$A$-linéaire donc par propriété universelle de $p:M\times (\bigoplus_{i\in I}M_{i})\rightarrow M\otimes_A(\bigoplus_{i\in I}M_{i})$ se factorise effectivement en un morphisme de $A$-module $\phi:M\otimes_A(\bigoplus_{i\in I}M_{i}) \rightarrow  \bigoplus_{i\in I}(M\otimes_AM_{i})$ tel que $p\circ \phi=\Phi$. Inversement, pour tout $i\in I$ l'application $\Psi_i:M\times M_i\rightarrow M\otimes_A(\bigoplus_{i\in I}M_{i})$, $(m,m_i)\rightarrow m\otimes \iota_i(m_i)$ est $2$-$A$-linéaire donc  par propriété universelle de $p:M\times M_{i}\rightarrow M\otimes_A M_i$ se factorise  en un morphisme de $A$-module $\psi_i:M\otimes_A M_{i} \rightarrow  M\otimes_A(\bigoplus_{i\in I}M_{i})$ tel que $p\circ \psi_i=\Psi_i$. Puis, par propriété universelle de $\iota_i:M\otimes_A M_i\rightarrow \bigoplus_{i\in I}(M\otimes_AM_{i}) $, $i\in I$ on obtient un unique morphisme de $A$-module $\psi:\bigoplus_{i\in I}(M\otimes_AM_{i})\rightarrow M\otimes_A(\bigoplus_{i\in I}M_{i})$ tel que $\psi\circ \iota_i=\Psi_i$, $i\in I$. On vérifie sur les constructions que $\phi$, $\psi$ sont inverses l'un de l'autre.\end{proof}
+
+
+
+ Les preuves des lemmes suivant sont du même acabit \ie{} purement formelles et laissées en exercice au lecteur.
+
+
+\begin{lemme}[commutativité et associativité]\label{PTComAss}
+Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques
+$$\begin{tabular}[t]{ccc}
+$L\otimes_{A}(M\otimes_A N)$&$\tilde{\rightarrow}$&$(L\otimes_A M)\otimes_A N$\\
+$l \otimes(m\otimes n)$&$\mapsto$&$(l\otimes m )\otimes n$\\
+&&\\
+$M\otimes_{A}N$&$\tilde{\rightarrow}$&$N\otimes_A M $\\
+$m \otimes n$&$\mapsto$&$n\otimes m  $\\
+\end{tabular}$$
+\end{lemme}
+
+\begin{lemme}\label{PTTaut}
+$A$ est l'\og unité\fg{} pour le produit tensoriel, c'est-à-dire que pour tout $A$-module $M$, on a un isomorphisme canonique
+$$\begin{tabular}[t]{ccc}
+$A\otimes_{A}M$&$\tilde{\rightarrow}$&$M$\\
+$a\otimes m$&$\mapsto$&$am$
+\end{tabular}$$
+\end{lemme}
+
+
+
+\subsection{Espace dual}Soit $I$ un ensemble. Pour $i\in I$ on rappelle qu'on note $e_i:=(\delta_{i,j})_{j\in I}\in A^{(I)}$ le $i$-ème élément de la base canonique de $A^{(I)}$.\\
+
+
+
+
+\textbf{Lemme.} \textit{Soit $I_1,\dots, I_r$ des ensembles. On a un isomorphisme de $A$-modules canonique}
+$$A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}\tilde{\rightarrow}A^{(I_1\times\dots\times  I_r)}$$
+\textit{qui envoie $e_{i_1}\otimes\cdots\otimes e_{i_r}$ sur $e_{(i_1,\dots, i_r)}$, $(i_1,\dots, i_r)\in I_1\times\cdots\times I_r$. }
+\begin{proof}On peut le déduire formellement des Lemmes \ref{PTSum}, \ref{PTComAss}, \ref{PTTaut}: $$\begin{tabular}[t]{ll}
+$A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}$ &$(\tilde{\rightarrow}A^{(I_1)}\otimes_{A}\cdots\otimes_A A^{(I_{r-1})})\otimes_{A}A^{(I_r)}$\\
+&$\tilde{\rightarrow} ((A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_{r-1}})\otimes_AA)^{(I_r)}$\\
+&$\tilde{\rightarrow} (A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_{r-1}}) )^{(I_r)}$\\
+&$\tilde{\rightarrow}\cdots  \tilde{\rightarrow}A^{(I_1\times\dots\times  I_r)}$.
+\end{tabular}$$
+On peut aussi donner un argument direct. En effet, l'application  $A^{(I_1)}\times \cdots\times A^{(I_r)}\tilde{\rightarrow}A^{(I_1\times\dots\times  I_r)}$, $((a_{i_1})_{i_1\in I_1}, \cdots,(a_{i_r})_{i_r\in I_r})\rightarrow (a_{i_1}\cdots a_{i_r})_{(i_1,\dots, i_r)\in I_1\times\cdots\times I_r}$ est $r$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $\phi:A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)} \rightarrow A^{(I_1\times\dots\times  I_r)}$ tel que $\phi((a_{i_1})_{i_1\in I_1}\otimes \cdots \otimes (a_{i_r})_{i_r\in I_r})= (a_{i_1}\cdots a_{i_r})_{(i_1,\dots, i_r)\in I_1\times\cdots\times I_r})$. Inversement, pour chaque $(i_1,\dots, i_r)\in I_1\times\cdots\times I_r$ on dispose du morphisme de $A$-modules $\psi_{(i_1,\dots, i_r)}:A\rightarrow A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}\tilde{\rightarrow}A^{(I_1\times\dots\times  I_r)}$, $a\rightarrow a e_{i_1}\otimes\cdots\otimes e_{i_r}$ donc, par propriété universelle de la somme directe, d'un morphisme de $A$-modules $\psi=\oplus_{(i_1,\dots, i_r)\in I_1\times\cdots\times I_r}\psi_{(i_1,\dots, i_r)}: A^{(I_1\times\dots\times  I_r)}\rightarrow A^{(I_1)}\otimes_{A}\cdots\otimes_{A}A^{(I_r)}$ tel que $\psi\circ \iota_{(i_1,\dots, i_r)}=\psi_{(i_1,\dots, i_r)}$, $(i_1,\dots, i_r)\in I_1\times\cdots\times I_r$. On vérifie sur les définitions que $\phi$ et $\psi$ sont inverses l'une de l'autre. \end{proof}
+
+En particulier, si $M_i$ est un $A$-module  libre  de rang fini $d_i$, $i=1,\dots, r$, $M_1\otimes_{A}\cdots\otimes_{A}M_r$ est un $A$-module libre de rang $d_1\dots d_r$.
+
+\begin{definition}
+  Soient $M$ un $A$-module. On note $M^\vee:=\mathrm{Hom}_A(M,A)$ qu'on appelle le dual de $M$.
+\end{definition}
+ 
+\begin{lemme}
+  Soit $M,N$ des $A$-modules. On a des morphismes de $A$-modules canoniques
+  $$ \begin{tabular}[t]{cll}
+       $M^{\vee}\otimes_AN$&$ \rightarrow $&$\SHom_A(M,N)$\\
+       $f\otimes n $&$\mapsto$&$f(-)n$;\\
+     \end{tabular},\;\;
+     \begin{tabular}[t]{cll}
+       $M^{\vee}\otimes_AN^{\vee}$&$ \rightarrow $&$(M\otimes_AN)^{\vee}$\\
+       $f\otimes g $&$\mapsto$&$m\otimes n\rightarrow f(m)g(n)$.\\
+     \end{tabular}$$
+     et $$\begin{tabular}[t]{cll}
+            $\SEnd_A(M)\otimes_A\SEnd_A(N)$&$ \rightarrow $&$\SEnd_A(M\otimes_AN)$\\
+            $f\otimes g $&$\mapsto$&$m\otimes n\mapsto f(m)\otimes g(n)$;\\
+          \end{tabular}$$
+          Si de plus $M$ et $N$ sont libres de rang fini, ces trois morphismes sont des isomorphismes.
+        \end{lemme}
+
+\begin{proof}Les morphismes se construisent en utilisant la propriété universelle du produit tensoriel. En général, il n'y a par contre pas de façon canonique de construire des inverses de ces morphismes (et d'ailleurs, ce ne sont pas toujours des isomorphismes). Mais si  $M$ et $N$ sont libres de rang fini, on peut vérifier que ces trois morphismes envoient à chaque fois une base sur une base. \end{proof}
+\section{Adjonctions}
+
+
+\subsection{$-\otimes_A M$ versus $\SHom_A(M,-)$}
+
+
+\begin{lemme}[adjonction 1]\label{Ad1Prop}Soit $L,M,N$ des $A$-modules. On a des isomorphismes (de $A$-modules) canoniques\end{lemme}
+$$
+ \begin{tabular}[t]{ccccc}
+$\SHom_{A}(L,\SHom_{A}(M,N))$&$\tilde{\rightarrow}$&$L_{r,A}(L \times M,N)$&$\tilde{\rightarrow}$&$\SHom_{A}(L\otimes_{A}M,N)$\\
+$f$&$\rightarrow$&$(l,m)\rightarrow f(l)(m)$&&\\
+$l\rightarrow \beta(l,-)$&$\leftarrow$&$\beta$&&
+\end{tabular}$$
+\textit{(Le deuxième isomorphisme est simplement la propriété universelle du produit tensoriel).}\\
+
+
+\begin{exercice}Soit $M$ un $A$-module.
+Montrer  que pour toute suite exacte courte de $A$-modules $$0\rightarrow N'\stackrel{u}{\rightarrow} N\stackrel{v}{\rightarrow} N'' \rightarrow 0$$
+\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item La suite $$0\rightarrow \SHom_{A}(M,N')\stackrel{u\circ }{\rightarrow} \SHom_{A}(M,N)\stackrel{v\circ }{\rightarrow} \SHom_{A}(M,N'')$$
+est exacte.
+\item La suite $$M\otimes_AN'\stackrel{\Id\otimes u}{\rightarrow} M\otimes_AN\stackrel{\Id\otimes v}{\rightarrow} M\otimes_AN'' \rightarrow 0$$
+est exacte.
+\end{enumerate}
+\end{exercice}
+
+\subsection{Extension et restriction des scalaires}\label{Ad2} Soit $\phi:A\rightarrow B$ une $A$-algèbre. A tout $B$-module $M$ on peut associer un $A$-module noté $M|_A$ (ou $\phi_*M$) dont le groupe abélien sous-jacent est encore $M$ et dont la structure de $A$-module est définie par $a\cdot m=\phi(a)m$, $a\in A$, $m\in M$. Tout morphisme de $B$-modules $f:M\rightarrow N$ induit alors  tautologiquement un morphisme de $A$-modules $f|_A:M|_A\rightarrow N|_A$. On voudrait, inversement, associer à tout $A$-module $M$ un $B$-module $\phi^*M$ et à tout morphisme de $A$-modules $f:M\rightarrow N$ un morphisme  de  $B$-modules $\phi^*f:\phi^*M\rightarrow \phi^*N$. \\
+
+ Soit $M$ un   $B$-module et $N$ un $A$-module. Pour tout $b_0\in B$, l'application
+$$\begin{tabular}[t]{lll}
+$ M\times N$&$\rightarrow$&$M\otimes_{A}N(:=(M|_A)\otimes_AN)$\\
+$(m,n)$&$\rightarrow$&$(b_{0}m)\otimes n$
+\end{tabular}$$
+est $2$-$A$-linéaire donc  se factorise en un morphisme de $A$-module
+\begin{align*} b_0\cdot : M\otimes_A N &\to  M\otimes_A N \\ m\otimes n &\mapsto b_0\cdot (m\otimes n):=(b_0m)\otimes n\end{align*}
+On vérifie que cela définit une structure de $B$-module sur $M\otimes_AN$. Tout morphisme de $A$-modules $f:N\rightarrow N'$ induit alors un morphisme de $B$-modules $\Id_{M}\otimes f:M\otimes_{A}N\rightarrow M\otimes_{A} N'$. Si $M=B$   muni  de la structure de $A$-module donnée par  $\phi:A\rightarrow B$ ($a\cdot b=\phi(a)b$, $a\in A$, $b\in B$),  on note parfois $\phi^*N:=B\otimes_AN$ et $\phi^*f:=\Id_B\otimes f:\phi^*N\rightarrow \phi^*N'$. \\
+
+
+ Les  constructions $\phi_*$, $\phi^*$ sont liées par le lemme suivant.\\
+
+\begin{lemme}[adjonction 2]\label{Ad2Lemma}Soit $M$ un $A$-module et $N$ un $B$-module. On a un isomorphisme canonique (de $\mathbb{Z}$-modules)
+$$  \begin{tabular}[t]{cll}
+$\SHom_{A}(M, N|_A)$&$\tilde{\rightarrow}$&$ \SHom_{B}(B\otimes_AM,N)$\\
+$f$&$\rightarrow$&$b\otimes m\rightarrow bf(m)$\\
+$f(1\otimes -)$&$\leftarrow$&$f$
+\end{tabular}$$
+\end{lemme}
+
+\begin{exercice}[Transitivité de l'extension des scalaires]
+
+\begin{enumerate}
+\item Soit $M,M' $ des $B$-modules et $N$ un $A$-module. Montrer qu'on a un isomorphisme canonique de $B$-modules
+$$M'\otimes_B(M\otimes_AN)\tilde{\rightarrow} (M'\otimes_B M)\otimes_A N.$$
+En déduire qu'on a un isomorphisme canonique de $B$-modules $M\otimes_B(B\otimes_AN)\tilde{\rightarrow} M\otimes_AN$;
+\item Soit $A\rightarrow B\rightarrow C$ des morphismes d'anneaux et $M$ un $A$-module. Montrer qu'on a un isomorphisme canonique
+$$C\otimes_B(B\otimes_AM)\tilde{\rightarrow} C\otimes_AN.$$
+\end{enumerate}
+\end{exercice}
+
+\subsubsection{Extension des scalaires par un quotient} Soit $M$ un $A$-module et $I\subset A$ un idéal. Notons $IM\subset M$ le sous-$A$-module engendré par les éléments de la forme $am$, $a\in I$, $m\in M$. Par propriété universelle du quotient, l'application $$\begin{tabular}[t]{clc}
+ $A\times M/IM$&$\rightarrow$&$M/IM$\\
+ $(a,\overline{m})$&$\rightarrow$&$a\overline{m}=\overline{am}$
+ \end{tabular}$$
+ donnée par la structure de $A$-module sur $M/IM$ se factorise en une application $A/I\times M/IM\rightarrow M/IM$, qui fait de $M/IM$ un $A/I$-module. 
+
+ \begin{lemme}[Propriété universelle de  $M\rightarrow M/IM$] Pour tout  $A$-module $M$ et idéal $I\subset A$, il existe un $A/I$-module $Q$ et un morphisme de $A$-modules $p:M\rightarrow (p_I)_*Q$ tel que pour tout $A/I$-module $N$ et tout morphisme de $A$-module $\phi:M\rightarrow (p_I)_*N$ il existe un unique morphisme de $A/I$-module $\overline{\phi}:Q\rightarrow N$ tel que $  \overline{\phi}\circ p=\phi$.
+\end{lemme}
+
+\begin{proof}On vérifie que $p_{IM}:M\rightarrow M/IM$ convient. Si $\overline{\phi}:M/IM\rightarrow N$ existe la condition  $  \overline{\phi}\circ p_{IM}=\phi$  impose $  \overline{\phi}(\overline{m})=\phi(m)$, $m\in M$, d'où l'unicité de $\overline{\phi}$ sous réserve de son existence. Par ailleurs, pour tout $a\in I$, $m\in M$, $\phi(am)=p_I(a)\phi(m)=0$ donc $IM\subset \ker(\phi)$ et $\phi:M\rightarrow N$ se factorise en un morphisme de $A$-modules $\overline{\phi}:M/IM\rightarrow (p_I)_*M$ qui induit tautologiquement un morphisme $ \overline{\phi}:M/IM\rightarrow  N$ de $A/I$-modules. \end{proof}
+
+ On peut réécrire le Lemme en disant que pour tout $A/I$-module $N$ l'application canonique
+$$\SHom_{A/I}(M/IM,N)\rightarrow \SHom_{ A}(M ,N) ,\; \phi\rightarrow (\phi\circ p_{IM})$$
+est bijective. Or \ref{Ad2Lemma} dit que le morphisme de $A$-module $p:M\rightarrow A/I\otimes_A M$, $m\rightarrow \overline{1}\otimes m$ vérifie la même propriété. Par unicité des objets universels, on a donc un unique morphisme de $A/I$-modules $\phi:A/I\otimes M\rightarrow M/IM$ tel que $\phi\circ p=p_{IM}$. On peut aussi démontrer cela `à la main', comme suit.\\
+
+ L'application canonique
+$$\begin{tabular}[t]{lll}
+$A\times  M$&$\rightarrow$&$M/IM$\\
+$(a, m)$&$\rightarrow$&$\overline{am}$
+\end{tabular}$$
+est $2$-$A$-linéaire et passe au quotient en une application  $2$-$A$-linéaire $A/I\times M\rightarrow M/IM$ donc se factorise en un morphisme de $A$-modules $f:(A/I)\otimes_A M\rightarrow M/IM$. Inversement, l'application $M\rightarrow (A/I)\otimes_A M$, $m\rightarrow 1\otimes m$ est un morphisme de $A$-modules dont le noyau contient $IM$  donc se factorise en un morphisme de  $A$-modules $M/IM\rightarrow (A/I)\otimes_A M$. Par construction, $f$ et $g$ sont inverses l'une de l'autre. On a donc montré qu'on avait un isomophisme de $A$-modules canoniques
+$$(A/I)\otimes_A M\tilde{\rightarrow} M/IM.$$
+
+\begin{exemple} Soit $A$ un anneau principal, $ a,b\in A$ des éléments premiers entre eux et $M$ un $A$-module tel que $aM=0$. Par Bézout on a alors $bM=M$ donc
+$(A/b)\otimes_AM=0$. Par exemple si $p\not= q$ sont deux nombres premiers, $\Z/p\otimes_\Z \Z/q =0$.
+\end{exemple}
+
+\subsubsection{Extension des scalaires par une localisation}
+Soit $S\subset A$ une partie multiplicative et $M$ un $A$-module.  Munissons le produit cartésien $S\times M$ de la relation  $\sim $ définie par $(s,m)\sim (s',m')$ s'il existe $s''\in S$ tel que $s''(s'm-sm')=0$. \\
+
+ On vérifie que $\sim$ est une relation d'équivalence. On remarquera que si $M$ est sans $S$-torsion, on peut, dans la définition de $\sim$, simplifier par $s''$ et la relation $\sim$ devient simplement $(s,m),(s',m')\in S\times M$, $(s,m)\sim (s',m')$ si $s'm-sm'=0$.  Mais on prendra garde que si $S$ a de la $S$-torsion,  la relation $(s,m)\sim (s',m')$ si $s'm-sm'=0$ n'est pas transitive donc ne définit pas une relation d'équivalence.\\
+
+
+ On note $S^{-1}M:=S\times M/\sim$ et
+$$ \begin{tabular}[t]{llll}
+$-/-$ :&$S\times M$&$\rightarrow$&$S^{-1}M$\\
+ &$(s,m)$&$\rightarrow$&$m/s$
+ \end{tabular}$$
+ la projection canonique.\\
+
+
+
+  On vérifie que les applications $$\begin{tabular}[t]{lclc}
+ $+$&$:S^{-1}M\times S^{-1}M$&$\rightarrow$&$S^{-1}M$\\
+ &$(m/s,n/t)$&$\rightarrow$&$(tm+sn)/(st)$
+ \end{tabular},\;\; \begin{tabular}[t]{lclc}
+ $\cdot $&$:S^{-1}A\times S^{-1}M$&$\rightarrow$&$S^{-1}M$\\
+ &$(a/s,n/t)$&$\rightarrow$&$(an)/(st)$
+ \end{tabular}$$
+munissent $S^{-1}M$ d'une structure de $S^{-1}A$-module et que l'application canonique $\iota_S:=-/1:M\rightarrow (\iota_S)_*S^{-1}M$ est un morphisme de $A$-modules de noyau
+$\ker(\iota_S)=\lbrace m\in M\; |\; \exists s\in S\; \hbox{\rm tel que}\; sm=0\rbrace$.\\
+
+
+\begin{lemme}[Propriété universelle de la localisation des $A$-modules]
+Pour toute partie multiplicative $S\subset A\setminus\lbrace 0\rbrace$ et pour tout $A$-module $M$ il existe un $S^{-1}A$-module $L$ et un morphisme de $A$-modules $\iota_S:M\rightarrow (\iota_S)_*L$ tel que   pour tout $S^{-1}A$-module $N$ et pour tout  morphisme de $A$-module $f:M\rightarrow N$, il  existe un unique morphisme de $S^{-1}A$-modules $\tilde{f}:L\rightarrow N$ tel que $f=  \tilde{f}\circ \iota_S$.
+\end{lemme}
+
+\begin{proof} On vérifie que $\iota_S:=-/1:M\rightarrow (\iota_S)_*S^{-1}M$ convient... \end{proof}
+
+ En particulier,  pour tout morphisme de $A$-modules $f:M\rightarrow N$, en appliquant la propriété universelle de $\iota_S:M\rightarrow S^{-1}M$ au morphisme de $A$-modules $M\stackrel{f}{\rightarrow} N\stackrel{\iota_S}{\rightarrow} S^{-1}N$ on obtient  un morphisme de $S^{-1}A$-modules $S^{-1}f:S^{-1}M\rightarrow S^{-1}N$  donné explicitement par $f(m/s)=f(m)/s$, $s\in S$, $m\in M$. \\
+
+ On peut réécrire le Lemme en disant que pour tout $S^{-1}A$-module $N$ l'application canonique
+$$\SHom_{S^{-1}A}(S^{-1}M,(\iota_S)_*N)\rightarrow \SHom_{ A}(M ,N) ,\; \phi\rightarrow (\phi\circ \iota_S)$$
+est bijective. Or \ref{Ad2Lemma} dit que le morphisme de $A$-modules $\iota:M\rightarrow (\iota_S)_*(S^{-1}A\otimes_A M)$, $m\rightarrow 1/1\otimes m$ vérifie la même propriété. Par unicité des objets universels, on a donc un unique morphisme de $S^{-1}A$-modules $\phi:S^{-1}A\otimes M\rightarrow S^{-1}M$ tel que $\phi\circ \iota=\iota_S$. Là encore, on peut    aussi démontrer cela `à la main'.\\
+
+ L'application canonique
+$$\begin{tabular}[t]{lll}
+$S^{-1}A\times  M$&$\rightarrow$&$S^{-1}M$\\
+$(a/s, m)$&$\rightarrow$&$ (am)/s(=a(m/s)$
+\end{tabular}$$
+est bien définie et $2$-$A$-linéaire donc se factorise en un morphisme de $A$-modules $f:S^{-1}A\otimes_A  M \rightarrow S^{-1}M$ qui est, automatiquement, un morphisme de $S^{-1}A$-modules. Inversement, l'application $S\times M\rightarrow S^{-1}A\otimes_A  M$, $(s,m)\rightarrow (1/s)\otimes m$ se factorise en un morphisme de  $S^{-1}A$-modules $g:S^{-1}M\rightarrow S^{-1}A\otimes_A  M $. Par construction, $f$ et $g$ sont inverses l'une de l'autre. On a donc montré qu'on avait un isomophisme de $S^{-1}A$-modules canonique
+$$S^{-1}A\otimes_A  M\tilde{\rightarrow} S^{-1}M.$$
+
+
+ \textbf{Exemple.} Si pour tout $m\in M$ il existe $s\in S$ tel que $sm=0$, $S^{-1}M=0$. Si pour tout $s\in S$ l'application $s\cdot -:M\rightarrow M$ de multiplication par $s$
+est bijective, $\iota_S:M\rightarrow S^{-1}M$ est un isomorphisme de $A$-modules. En particulier, si $A$ est un anneau principal de corps des fractions $K$ et $M $ est un $A$-module de type fini,   $K\otimes_AM=K^{\oplus r}$ et pour tout $\frak{p}\in \Spec(A)\setminus \lbrace 0\rbrace$, $A_{\frak{p}}\otimes_AM=A_{\frak{p}}^{\oplus r}\oplus M(\frak{p})$, où on a noté $M(\frak{p})$  la $\frak{p}$-partie de $M$ et $r$ le rang de $M$. Par exemple
+$\Q\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=0$, $\Z_{2\Z}\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=\Z/4\times \Z/2\times \Z/2$,  $\Z_{3\Z}\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=\Z/3\times \Z/3$, $\Z_{p\Z}\otimes_\Z (\Z/12\times \Z/6\times\Z/3)=0$ pour $p\not=2,3$.
+
+\section{Produit tensoriel de $A$-algèbres} Soit $\phi:A\rightarrow B$ et $\psi: A\rightarrow C$ deux $A$-algèbres. Les applications produits $B\times B\rightarrow B$ et $C\times C\rightarrow C$ sont $2$-$A$-bilinéaires donc se factorisent en des morphismes de $A$-modules $\mu_B:B\otimes_A B\rightarrow B$ et $\mu_C:C\otimes_A C\rightarrow C$. On en déduit une application
+$$(B\otimes_A C)\otimes_A (B\otimes_A C)\tilde{\rightarrow} (B\otimes_A B)\otimes_A(C\otimes_A C)\stackrel{\mu_B\otimes\mu_C}{\rightarrow}B\otimes_A C$$
+dont on vérifie qu'elle munit le $A$-module $B\otimes_AC$ d'une structure de $A$-algèbre telle que les  applications $\iota_B:B\rightarrow B\otimes_AC$, $b\rightarrow b\otimes 1$ et $\iota_C:C\rightarrow B\otimes_AC$, $c\rightarrow 1\otimes c$ sont des morphismes de $A$-algèbres. \\
+
+\subsection{}\label{PTAlgUniv}\textbf{Lemme.} (Propriété universelle du produit tensoriel de $A$-algèbres) \textit{Pour toutes $A$-algèbres $ A\rightarrow B$ et $ A\rightarrow C$, il existe une $A$-algèbre $T$ et des morphismes de $A$-algèbres $\iota_B:B\rightarrow T$, $\iota_C:C\rightarrow T$ tels que pour toute $A$-algèbre $A\rightarrow D$ et morphismes de $A$-algèbres $\phi_B:B\rightarrow D$, $\phi_C:C\rightarrow D$ il existe un unique morphisme de $A$-algèbres $\phi:T\rightarrow D$ tel que $\phi\circ \iota_B=\phi_B$ et $\phi\circ \iota_C=\phi_C$}
+\begin{proof}On  vérifie comme d'habitude que  $B\otimes_AC$ et $\iota_B:B\rightarrow B\otimes_AC$, $\iota_C:C\rightarrow B\otimes_AC$ conviennent. Si $\phi:B\otimes_AC\rightarrow D$ existe les conditions $\phi\circ \iota_B=\phi_B$ et $\phi\circ \iota_C=\phi_C$ forcent $\phi(b\otimes c)=\phi_B(b)\phi_C(c)$, d'où l'unicité de $\phi$ sous réserve de son existence. Considérons   l'application $ B\times C\rightarrow D$, $(b,c)\rightarrow \phi_B(b)\phi_C(c)$. Elle est $2$-$A$-bilinéaire donc se factorise en un morphisme de $A$-modules $\phi:B\otimes_A C\rightarrow D$ tel que $\phi(b\otimes c)=\phi_B(b)\phi_C(c)$ et on vérifie sur la construction que c'est automatiquement un morphisme de $A$-algèbres.  \end{proof}
+
+
+
+ On peut aussi réécrire \ref{PTAlgUniv} en disant que pour toutes $A$-algèbres $ A\rightarrow B$, $ A\rightarrow C$  et $A\rightarrow C$ l'application canonique
+$$\SHom_{Alg/_A}(B\otimes_AC,D)\rightarrow \SHom_{Alg/_A}(B ,D)\times \SHom_{Alg/_A}( C,D),\; \phi\rightarrow (\phi\circ \iota_B,\phi\circ \iota_C)$$
+est bijective ou encore, plus visuellement,
+$$\xymatrix{&&D\\
+C\ar[r]\ar@/^1pc/[urr]^{\phi_C}&B\otimes_AC\ar@{.>}[ur]{\exists ! \phi}&\\
+A\ar[u]\ar[r]\ar@{}[ur]|{\square}&B\ar[u]\ar@/_1pc/[uur]_{\phi_B}&}$$
+
+
+
+\subsection{}\textbf{Exercice.}
+\begin{enumerate}
+\item Soit $I,J\subset A$ deux idéaux. Montrer qu'on a un isomorphisme canonique de $A$-algèbres
+$$(A/I)\otimes_A (A/J)\tilde{\rightarrow}A/(I+J).$$
+Si $A$ est un anneau principal et $a,b\in A$, calculer
+$(A/a)\otimes_A (A/b)$.
+\item Montrer qu'on a un isomorphisme canonique de $A$-algèbres $A[X_1]\otimes_A\cdots\otimes_AA[X_n]\tilde{\rightarrow} A[X_1,\dots, X_n]$.
+\item Si $\varphi: A\rightarrow B$ est un morphisme d'anneaux et $P\in A[X]$, montrer qu'on a un isomorphisme canonique de $B$-algèbres $$B\otimes_A (A[X]/P)\tilde{\rightarrow} B[X]/\varphi(P)$$ (on note encore $\varphi: A[X]\rightarrow B[X]$ le morphisme obtenu en appliquant $\varphi$ aux coefficients). \\
+Calculer $\CC \otimes_{\R}\CC$. Est-ce un corps? Même question avec $\Q(i)\otimes_{\Q}\Q(\sqrt{2})$.
+\end{enumerate}
+
+\textbf{Remarque.} On notera les similitudes suivantes au niveau des propriétés universelles.
+$$\begin{tabular}[t]{l|l|l}
+&$A$-modules&$A$-algèbres\\
+\hline\\
+Objets libres de rang fini&$A^{\oplus n}$&$A[X_1,\dots, X_n]$\\
+Coproduits finis&$\oplus_{1\leq i\leq n}M_i$&$A_1\otimes_A\cdots\otimes_AA_n$\\
+Produit&$\prod_{i\in I}M_i$&$\prod_{i\in I}A_i$\\
+\end{tabular}$$

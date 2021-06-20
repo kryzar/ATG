@@ -1,0 +1,216 @@
+\chapter{Modules de type fini sur les anneaux principaux}
+
+
+\section{Préambule}\label{Strategy}Supposons que $A$ soit un anneau principal, et soit $M$ un $A$-module. Un élément $m\in M$ est dit \textit{de torsion}\index{Torsion (module)} s'il existe $0\not=a \in A$ tel que $am=0$. On note $T_{M}\subset M$ l'ensemble des éléments de torsion de $M$. On vérifie immédiatement que c'est un sous $A$-module et que le $A$-module $M/T_{M}$ est sans torsion. Le $A$-module $M$ s'insère donc dans la suite exacte courte
+$$(*)\;\; 0\rightarrow T_{M}\rightarrow M\rightarrow M/T_{M}\rightarrow 0,$$
+où $T_{M}$ est de torsion et $M/T_{M}$ est sans torsion. Cela indique la voie pour classifier les $A$-modules de type fini: montrer que la suite exacte courte $(*)$ se scinde, ce qui par  le Lemme \ref{SuiteExacte}.1 impliquera automatiquement que $$M\tilde{\rightarrow }T_{M}\oplus M/T_{M}$$ et réduit donc le problème de la classification des $A$-modules de type fini à
+\begin{itemize}
+\item la classification des $A$-modules de type fini sans torsion;
+\item la classification des $A$-modules de type fini de torsion.\\
+\end{itemize}
+ En fait, on va plutôt procéder dans l'ordre suivant. Notons que comme $A$ est noethérien (car principal) et $M$ de type fini, $M$ est noethérien. Donc $T_M$ et $M/T_M$ sont aussi noethériens donc de type fini.\\
+\begin{enumerate}
+\item Tout d'abord, la raison pour laquelle on se restreint aux $A$-modules de type fini provient du lemme suivant.\\
+
+		\begin{lemme}Un $A$-module de type fini est noethérien. Un $A$-module de type fini et de torsion est noethérien et artinien.\end{lemme}
+
+\begin{proof}   Comme $A$ est principal, tous ses sous $A$-modules (=idéaux) sont de type fini donc $A$ est noethérien; la première partie de l'énoncé résulte donc du Lemme \ref{Exo1}.  Supposons $M$ de torsion. Soit $m_{1},\dots,m_{r}\in M$ un système de générateurs. Pour chaque $i=1,\dots, r$ on peut trouver un élément $0\not=a_{i}\in A$ tel que $a_{i}m_{i}=0$. On a donc une factorisation
+$$\xymatrix{A^{r}\ar@{->>}[r]^{(m_{1},\dots,m_{r})}\ar@{->>}[d]&M\\
+A/Aa_{1}\times\cdots \times A/Aa_{r}\ar@{->>}[ur]&}$$
+D'après le Lemme \ref{Exo1}, il suffit donc de montrer que les $A$-module de la forme $A/Aa$ avec $0\not= a\in A$ sont artiniens. Soit $$A/Aa=:M_{0}\supset M_{1}\supset\cdots\supset M_{n}\supset M_{n+1}\supset \cdots$$
+une suite décroissante de sous $A$-modules. Notons $\pi:A\rightarrow A/Aa$ la projection canonique et posons:
+$$I_{n}:=\pi^{-1}(M_{n}),\; n\geq 0.$$
+Par construction on obtient une suite décroissante d'idéaux
+$$A=I_{0}\supset I_{1}\supset\cdots\supset I_{n}\supset I_{n+1}\supset \cdots Aa.$$
+Chacun de ces idéaux est de la forme $I_{n}=Aa_{n}$ avec $0\not= a_{n}\in A$ et $a_{n}| a$. Mais comme un anneau principal est factoriel, $a$ n'a qu'un nombre fini de diviseurs deux à deux non associés. Il n'y a donc qu'un nombre fini d'idéaux dans la suite $I_{n}$, $n\geq 0$.\end{proof}
+\item On va ensuite montrer que tout  $A$-modules   libre (sur un anneau intègre) est classifié par son rang et qu'un $A$-module de type fini sans torsion sur un anneau principal   est   libre de rang fini. Cela permettra aussi d'appliquer l'observation suivante.\\
+
+
+	\begin{lemme}Si $M''$ est un $A$-module libre alors toute suite exacte courte de $A$-modules $0\rightarrow M'\stackrel{u}{\rightarrow} M\stackrel{v}{\rightarrow} M''\rightarrow 0$ est scindée.\end{lemme}
+\begin{proof}On construit une section en utilisant la propriété universelle de la somme directe. Plus précisément, quitte à composer $v$ par un isomorphisme,  on peut supposer que $M''=A^{(I)}$. Pour chaque $i\in I$ notons $e_i=(\delta_{i,j})_{j\in I}\in A^{(I)}$ et choisissons   $m_i\in I$ tel que $v(m_i)=e_i$. Le choix de $m_i$ définit un   morphisme de $A$-module $s_i:Ae_i\stackrel{e_i\rightarrow m_i}{\rightarrow}Am_i\hookrightarrow M $. Par proprièté universelle des $\iota_i:Ae_i\rightarrow A^{(I)}$, $i\in I$, on en déduit un unique morphisme $s:A^{(I)}\rightarrow M$ tel que $s\circ \iota_i=s_i$, $i\in I$. Par construction $v\circ s=\Id$. On conclut par l'Exercice \ref{SuiteExacte}.1.
+\end{proof}
+\item D'après  le Lemme \ref{Strategy}.1 et le Théorème de Krull-Schmidt \ref{KS}, $T_M$ est totalement décomposable; le point sera donc de classifier les modules indécomposables de torsion sur un anneau principal $A$. On montrera que ce sont exactement les $A$-modules de la forme $A/\frak{p}^n$, où $\frak{p}$ est un idéal premier (=maximal) de $A$ et $n\geq 0$.
+
+\end{enumerate}
+
+
+
+\section{Classification des $A$-modules de type fini sans torsion} Supposons d'abord que $A$ est seulement un anneau commutatif intègre.\\
+
+\begin{lemme}Un $A$-module de type fini sans torsion est isomorphe à un sous $A$-module d'un $A$-module libre de type fini.\end{lemme}
+\begin{proof} Soit $m_{1},\dots m_{r}\in M$ un système de générateur. L'ensemble
+$$\mathcal{S}:=\lbrace I\subset \lbrace 1,\dots, r\rbrace\; |\; A^{I}\stackrel{(m_{i})_{i\in I}}{\hookrightarrow} M\rbrace$$
+est non vide puisque $M$ est sans torsion donc contient un élément $I\subset \lbrace 1,\dots, r\rbrace$ maximal  pour l'inclusion. Notons $$N:=\sum_{i\in I}Am_{i}\simeq A^{I}.$$ Par maximalité de $I$, pour chaque $j\in I^{c}:=\lbrace 1,\dots, r\rbrace\setminus I $ il existe $0\not= a_{j}\in A$ tel que $a_{j}m_{j}\in N$. Notons $a:=\prod_{j\in I^{c}}a_{j}\in A$; c'est un élément non nul de $A$ puisque $A$ est intègre. On en déduit que le morphisme de $A$-module
+$$\begin{tabular}[t]{lll}
+$M$&$\rightarrow$&$N$\\
+$m$&$\rightarrow$&$am$
+\end{tabular}$$
+est injectif, puisque $M$ est sans torsion. \end{proof}
+
+\begin{lemme}[Classification des $A$-modules libres de type fini par le rang]\label{Rang}
+\begin{enumerate}
+\item Le $A$-module libre $A^{(I)}$ est de type fini si et seulement si $|I|<+\infty$.
+\item Soit $I, J $ deux ensembles finis. Alors $A^{(I)}$ et $A^{(J)}$ sont isomorphes comme $A$-modules si et seulement si $|I|=|J|$.
+\end{enumerate}\end{lemme}
+\begin{proof}L'idée est de se ramener au cas des espaces vectoriels sur un corps pour lesquels le lemme est connu. Soit donc $M$ un $A$-module libre de type fini et $\frak{m}\subset A$ un idéal maximal. Comme $M$ est de type fini, le $k:=A/\frak{m}$ espace vectoriel $M/\frak{m}M$ est de dimension finie - disons $r$ - sur $k$. Soit $I$ un ensemble pour lequel on a un isomorphisme de $A$-modules
+$$f:A^{(I)}\tilde{\rightarrow}M.$$
+Posons $m_{i}:=f(e_{i})$, où $e_{i}$ est le '$i$-ème vecteur de la base canonique', $i\in I$. On va montrer que $|I|=r$. Pour cela, il suffit de montrer que les images $\overline{m}_{i}$, $i\in I$ des $m_{i}$, $i\in I$ dans $M/\frak{m}M$ forment une $k$-base de $M/\frak{m}M$. Puisque $f$ est surjective, les $\overline{m}_{i}$, $i\in I$ forment une famille génératrice. Montrons qu'elle est libre. Soit $a:I\rightarrow A$ à support fini telle que
+$$\sum_{i\in I}a(i)m_{i}\in \frak{m}M.$$
+Comme $M=\oplus_{i\in I}Am_{i}$ et $A\tilde{\rightarrow} Am_i$, $a\rightarrow am_i$, $i\in I$, cela implique $a(i)\in \frak{m}$ donc $\overline{a}_{i}=0$, $i\in I$. \end{proof}
+
+ Le Lemme \ref{Rang} montre en particulier que si $M$ est un $A$-module libre de type fini il existe un unique entier $r\geq 1$ tel que $M\simeq A^{\oplus r}$. On appelle cet entier le \textit{rang} du $A$-module libre $M$. C'est également la dimension du $A/\frak{m}$-espace vectoriel $M/\frak{m}M$, pour $\frak{m}$ un idéal maximal de $1$.\\
+
+ Supposons maintenant que \textit{$A$ est principal}.
+
+	\begin{lemme}\label{Free2} Un sous $A$-module d'un $A$-module libre de rang fini $r$ est un $A$-module libre de rang $\leq r$.\end{lemme}
+
+\begin{proof} On procède par récurrence sur  $r$. Si $r=1$, cela résulte du fait que $A$ est principal. Supposons que l'énoncé du Lemme \ref{Free2} est vérifié pour tout $A$-module libre de rang $\leq r$. Soit $M\subset A^{\oplus (r+1)}$ un sous $A$-module. Notons $p_{r+1}:A^{\oplus (r+1)}\twoheadrightarrow A$ la $r+1$-ième projection canonique. Comme $\ker(p_{r+1})\simeq A^{\oplus r}\subset A^{\oplus (r+1)}$ est un $A$-module libre de rang $r$, par hypothèse de récurrence, le sous $A$-module $M\cap \ker(p_{r+1})\subset \ker(p_{r+1})$ est un $A$-module libre de rang $s\leq r$. Comme $p_{r+1}(M)\subset A$ est un idéal et que $A$ est principal, il existe $d_0\in A$ et $m_{0}\in M$ tel que $p_{r+1}(M)=Ad_0\stackrel{\cdot d_0}{\tilde{\leftarrow}}A$ et on conclut par le Lemme \ \ref{Strategy}.2. \end{proof}
+
+
+ On vient donc de montrer
+
+	\begin{corollaire}Un $A$-module de type fini sans torsion est libre de rang fini. Plus précisément, l'application $\Z_{\geq 0}\rightarrow \hbox{\rm Mod}_{/A}$, $r\rightarrow A^{\oplus r}$ induit une bijection de  $\Z_{\geq 0}$ sur l'ensemble des classes d'isomorphismes de $A$-modules de type fini  sans torsion.\end{corollaire}
+
+ En particulier, $M/T_{M}$ est un $A$-module libre de rang fini - disons $r$ - donc, par le Lemme \ref{Strategy}.2 on a $$M\simeq T_{M}\oplus M/T_{M}\simeq T_{M}\oplus A^{\oplus r}.$$
+ Il reste  à classifier les $A$-modules  de type fini qui sont de torsion.
+
+\section{Classification des $A$-modules de type fini de torsion}
+
+ Soit $A$ un anneau principal.
+
+	\begin{theoreme}\label{IndecompPrinc}Les $A$-modules de type fini de torsion qui sont indécomposables sont exactement les $A$-modules de la forme
+$A/\frak{p}^{n}$,
+	où $\frak{p}\subset A$ est un idéal premier non nul et $n\in\mathbb{Z}_{\geq 0}$.\end{theoreme}
+\begin{proof} Vérifions d'abord qu'un $A$-module de la forme $A/\frak{p}^{n}$ est indécomposable. Observons que
+$$\SEnd_{A}(A/\frak{p}^{n})\simeq \SEnd_{A/\frak{p}^{n}}(A/\frak{p}^{n})\simeq A/\frak{p}^{n}$$
+a un unique idéal maximal  (c'est par exemple la factorialité de $A$) - $\frak{p}/\frak{p}^{n}$, donc est local (ici $A/\frak{p}^n$ est commutatif). Le fait que $A/\frak{p}^{n}$ est indécomposable résulte alors du lemme \ref{EndoIndecomp}.\\
+ Montrons maintenant que tout $A$-module indécomposable est de cette forme.  Soit $M$ un $A$-module. Pour tout $m\in M$, on note
+$$Ann_{A}(m):=\lbrace a\in A\; |\; am=0\rbrace\subset A$$
+l'idéal annulateur de $m$ et on se fixe un générateur $a_{m}\in Ann_{A}(m)$. On note également
+$$Ann_{A}(M):=\bigcap_{m\in M}Ann_{A}(m)\subset A$$
+l'idéal annulateur de $M$.\\
+
+	\phantomsection
+\ref{IndecompPrinc}.1.\begin{lemme}
+Il existe $m\in M$ tel que $Ann_{A}(m)=Ann_{A}(M)$.
+\end{lemme}
+
+ Notons $B:=A/Ann_{A}(m)=A/Ann_{A}(M)$ et considérons la suite exacte courte
+$$0\rightarrow B\stackrel{\cdot m}{\rightarrow} M\rightarrow M/Am\rightarrow 0. $$
+On notera que comme $Ann_{A}(M)$ annnule $M$, cette suite est également une suite de $B$-modules.
+
+	\begin{lemme}\label{IndecompPrinc1}La suite exacte courte de $B$-modules $$0\rightarrow B\stackrel{\cdot m}{\rightarrow} M\rightarrow M/Am\rightarrow 0$$
+est scindée.\end{lemme}
+
+ Elle est donc \textit{a fortiori} scindée comme suite exacte courte de $A$-modules \ie{}
+$$M\simeq A/Ann_{A}(M)\oplus M/Am$$
+comme $A$-module. Mais comme $M$ est indécomposable (et non nul), on en déduit $M=Am\simeq A/Ann_{A}(M)=A/Aa_{m}$. On conclut par la factorialité de $A$, le Lemme  des restes Chinois et l'indécomposabilité de $M$. \end{proof}
+
+	\textit{Preuve du lemme \ref{IndecompPrinc1} }Soit $m_{1},\dots, m_{r}$ un système de générateurs de $M$ comme $A$-module. On a $$Ann_{A}(M)=\bigcap_{1\leq i\leq r}Ann_{A}(m_{i}).$$
+ Il suffit donc de montrer que pour tout $m_{1},m_{2}\in M$ il existe $m_{3}\in M$ tel que $$Ann_{A}(m_{1})\cap Ann_{A}(m_{2})=Ann_{A}(m_{3}).$$
+Écrivons $Ann_{A}(m_{i})=Aa_{i}$, $i=1,2$. Comme $A$ est factoriel, en utilisant la décomposition en produit de facteurs irréductibles de $a_{1}$ et $a_{2}$, on peut écrire $a_{1}=\alpha_{1}\beta_{1}$ et $a_{2}=\alpha_{2}\beta_{2}$ avec $\alpha_{1}$, $\alpha_{2}$ premier entre eux de produit 'le' plus petit commun multiple de $a_{1}$ et $a_{2}$. Posons $m_{3}:=\beta_{1}m_{1}+\beta_{2}m_{2}$ et vérifions que $m_{3}$ convient. On a clairement $Ann_{A}(m_{1})\cap Ann_{A}(m_{2})\subset Ann_{A}(m_{3})$. Pour l'inclusion réciproque, soit $a\in Ann_{A}(m_{3})$. On a $a\beta_{1}m_{1}=-a\beta_{2}m_{2}$. Par Bézout, il existe $u,v\in A$ tels que $u\alpha_{1}+v\alpha_{2}=1$. On a donc
+$$a\beta_{1}m_{1}=(u\alpha_{1}+v\alpha_{2})a\beta_{1}m_{1}=au\underbrace{a_{1}m_{1}}_{=0}+v\alpha_{2}a\beta_{1}m_{1}= -av\underbrace{a_{2}m_{2}}_{=0}=0.$$
+Donc $a\beta_{1}\in Ann_{A}(m_{1})=Aa_{1}$ et $a\beta_{2}\in Ann_{A}(m_{2})=Aa_{2}$ en particulier $a$ est un multiple commun de $\alpha_{1}$ et $\alpha_{2}$ donc de $\alpha_{1}\alpha_{2}=\ppcm(a_{1},a_{2})$. Donc $a\in Ann_{A}(m_{1})\cap Ann_{A}(m_{2})$. $\square$\\
+
+\textit{Preuve du Lemme \ref{IndecompPrinc}.2.}  Introduisons l'ensemble $\mathcal{E}$ des couples $(u,N)$ où $m\in N\subset M$ est un sous-$B$-module et $u:N\rightarrow B$ un morphisme de $B$-modules tel que $u(m)=1$. On munit $\mathcal{E}$ de la relation d'ordre $\leq$ définie par $(u_1,N_1)\leq (u_2,N_2)$ si $N_1\subset N_2$ et $u_2|_{N_1}=u_1$. $\mathcal{E}$ est non-vide: par définition $B=A/Ann_Agc(m)$ donc on a un isomorphisme $v : B\tilde{\rightarrow} Am$ et $(Am, v^{-1})\in \mathcal{E}$. Par définition, $\mathcal{E}$ est un
+ensemble ordonné inductif donc admet un élément maximal $(u,N)$ (en fait, ici, on peut invoquer le fait que $M$ est noethérien, ce qui permet d'éviter le Lemme de Zorn). Montrons que $N=M$. Sinon, soit $\mu\in M\setminus N$ et montrons qu'on peut étendre $u:N\rightarrow B$ en $u_1:N+B\mu\rightarrow B$. Pour cela, il faut `deviner' la bonne valeur de $u_1(\mu)$. Introduisons l'idéal
+$$\frak{i}:=\lbrace b\in B\; |\; b\mu\in N\rbrace\subset B.$$
+Écrivons $Ann_Agc(M)=Aa$. Comme $B$ est quotient de l'anneau principal $A$, $\frak{i}=Ab/Aa$ avec $Aa\subset Ab $ \ie{}
+ $a=\alpha   b$ pour un certain $\alpha\in A$.
+Notons $u(b\mu)=\overline{c}$ (on note $\overline{-}$ les classes modulo $Aa$). On a $u(a\mu)=0=\alpha \overline{c}$ donc $\alpha c=qa=q\alpha b$ dans $A$. Mais comme $A$ est intègre $c=q  b$. On a donc envie de poser $u_1(\mu)=\overline{q}$. Définissons $u_0:N\oplus B\rightarrow B$ par $u_0(n\oplus \lambda )=u(n)+   \lambda\overline{q}$. On a $$\ker(N\oplus B \twoheadrightarrow N+B\mu, n\oplus \lambda\rightarrow n+\lambda \mu)=\lbrace \beta b\mu\oplus -\beta b\; |\; \beta\in B\rbrace\subset \ker(u_0)$$
+En effet,  $u_0( \beta b\mu\oplus -\beta b)=u(\beta b\mu)-\beta b\overline{q}=\beta u(b\mu)-\beta b\overline{q}=\beta \overline{c}-\beta b\overline{q}=0$.
+Donc $u_0:N\oplus B\rightarrow B$ passe au quotient en $u_1:N+B\mu\rightarrow B$ avec  $u_1|_N=u$. Cela contredit la maximalité de $(u,N)$. $\square$\\
+
+
+\begin{corollaire}\label{StructureTors}Soit $M$ un $A$-module de type fini de torsion. Il existe une unique suite décroissante d'idéaux
+$$A\supsetneq I_{1}\supset I_{2}\supset\dots\supset I_{r}\supsetneq 0$$
+telle que $$M\simeq A/I_{1}\oplus\dots\oplus A/I_{r}.$$
+\end{corollaire}
+\begin{proof} Comme $M$ est artinien et noethérien, d'après le Théorème de Krull-Schmidt   \ref{KS}, $M$ se décompose de façon unique comme somme directe de modules indécomposables. D'après le Théorème \ref{IndecompPrinc}, cette décomposition s'écrit
+
+$$M\simeq \bigoplus_{\frak{p}}\bigoplus_{n\geq 0}A/\frak{p}^{\alpha_{M,\frak{p}}(n)},$$
+où la première somme est indexée par l'ensemble $\Spec(A)$ des idéaux premiers non nuls de $A$ et $$\alpha_{M,-}:\Spec(A)\rightarrow \mathbb{Z}_{\geq 0}^{(\mathbb{Z}_{\geq 0})}$$ est une application à support fini telle que $ \alpha_{M,\frak{p}}=(\alpha_{M,\frak{p}}(n))_{n\geq 0}$ est une suite décroissante dont les termes sont nuls pour à partir d'un certain rang. Pour chaque $\frak{p}\in \Spec(A)$ choisissons un générateur $p$ de $\frak{p}$ comme $A$-module. Soit $n\geq 0$ le plus grand des entiers tels qu'il existe $\frak{p}\in \Spec(A)$ pour lequel $\alpha_{M,\frak{p}}(n)\not=0$ et posons $$a_{n+1-j}:=\prod_{\frak{p}}p^{\alpha_{M,\frak{p}}(j)},\; j=1,\dots, n.$$
+La suite d'idéaux $I_{i}:=Aa_{j}$, $j=1,\dots, n$ vérifie alors la propriété de l'énoncé. Leur unicité résulte de l'unicité dans le théorème de Krull-Schmidt. \end{proof}
+
+ On dit que la suite $A\supsetneq  I_{1}\supset I_{2}\supset\dots\supset I_{r}\supsetneq 0$ est la \textit{suite des invariants}\index{Invariants (Modules)} du $A$-module $M$.\\
+
+
+\section{Applications}
+\subsection{Classification des groupes abéliens de type fini} On peut appliquer la classification des $A$-modules de type fini sur un anneau principal \` a l'anneau $\mathbb{Z}$ pour obtenir le classique théorème de classification des groupes finis.\\
+
+\begin{corollaire}Soit $M$ un groupe abélien de type fini. Il existe un unique $r\in\mathbb{Z}_{\geq 0}$ et une unique suite d'entiers positifs $d_{1}|d_{2}|\dots |d_{s}$ tels que $$M\simeq \mathbb{Z}^{r}\oplus ( \bigoplus_{1\leq i\leq s}\mathbb{Z}/d_{i}).$$
+\end{corollaire}
+\begin{exercice} Donner la liste des groupes abéliens d'ordre $6$, $18$, $24$ et $36$.\end{exercice}
+
+
+\subsection{Algèbre linéaire} On peut également appliquer la classification à l'anneau $k[T]$ des polynômes à une indéterminée sur le corps $k$  pour obtenir la classification des classes de conjugaison des endomorphisme d'un $k$-espace vectoriel de dimension finie par les invariants de similitude. Plus précisément, si $V$ est un $k$-espace vectoriel de dimension finie tout endomorphisme $u:V\rightarrow V$ définit une structure de $k[T]$ module $V_{u}$ sur $V$ par $P(T)v=P(u)(v)$, $P\in k[T]$, $v\in V$. Le $k[T]$-module $V_{u}$ est évidemment de type fini et de torsion. Il existe donc une unique suite de polynômes $P_{u,1}|P_{u,2}|\cdots |P_{u,r_{u}}$ telle que
+$$V_{u}\simeq k[T]/P_{u,1}\oplus\cdots\oplus k[T]/P_{u,r_{u}}.$$
+On dit que la suite $P_{u,1}|P_{u,2}|\cdots |P_{u,r_{u}}$ est la suite des \textit{invariants de similitude} de l'endomorphisme $u$.\\
+
+\begin{exercice}[Classification des classes de conjugaison par les invariants de similitude]
+\begin{enumerate}
+\item Soit $u,u':V\rightarrow V$ deux endomorphismes. Montrer qu'il existe $\phi\in \SAut_{k}(V)$ tel que $u=\phi\circ u'\circ \phi^{-1}$ si et seulement si $u$ et $u'$ ont mêmes invariants de similitude.
+\item Calculer le polynôme minimal et le polynôme caractéristique de $u$ en fonction de sa suite d'invariants de similitude. Montrer plus précisément qu'il existe une base du $k$-espace vectoriel $V$ dans laquelle $u$ a pour matrice la matrice diagonale par blocs dont les blocs diagonaux sont les matrices compagnons des $P_{u,i}$.
+\item Calculer le nombre de classes de conjugaison (sous  $\SGL_n(\F_q)$) dans $M_n(\F_q)$, dans $\SGL_n(\F_q)$.\\
+\end{enumerate}
+\end{exercice}
+
+ Au lieu d'appliquer le Corollaire \ref{StructureTors} sous la forme énoncée, on peut l'appliquer avec la décomposition donnée par Krull-Schmidt (\textit{cf.} preuve) \ie{} il existe une unique famille de polynômes irréductibles $P_1,\dots, P_s$ et des familles d'entiers
+ $n_{i,1}\geq \cdots\geq n_{i,r_i}>0$, $i=1,\dots ,s$
+tels que $$V_u\simeq \bigoplus_{1\leq i\leq s}\bigoplus_{1\leq j\leq r_i}k[T]/P_i^{n_j}.$$
+On retrouve alors la décomposition de Jordan en concaténant les bases $X^jP_i^l$, $0\leq j\leq d_i)-1$, $0\leq l\leq n_i-1$ de $k[T]/P_i^{n_j}$, $i=1,\dots, s$. Dans cette base, la matrice de $u$ est diagonale par blocs avec $s$ blocs $D_1,\dots, D_s$ et chaque bloc $D_i$  de la forme
+$$ \left(\begin{tabular}[c]{ccccc}
+$C(P_i)$&$0$&$\cdots$&$0$&$0$\\
+$U$&$C(P_i)$&&$0$&$0$\\
+$0$&&$\cdots$&&\\
+$0$&&&$U$&$C(P_i)$\\
+\end{tabular}\right),$$
+où   $U$ est ma matrice carrée de taille $d_i\times d_i$ avec $u_{1,d_i}=1$ et $u_{i,j}=0$ sinon.\\
+
+\subsection{Base adaptée\label{BA}} La forme suivante du théorème de structure est aussi très utile en pratique. \\
+
+\begin{theoreme}[base adaptée]
+  Soit $A$ un anneau principal, $M$ un $A$-module libre de rang $r$ et
+  $N\subset M$ un sous-$A$-module. Il existe un unique entier
+  $0\leq s\leq r$, une unique suite
+  $Ad_1\supset Ad_2\supset\cdots \supset Ad_s$ d'idéaux de $A$ et
+  $m_1,\dots,m_r\in M$ tels que
+$$N\simeq\bigoplus_{1\leq i\leq s}Ad_i m_i\subset \bigoplus_{1\leq i\leq r}Am_i\simeq M.$$
+\end{theoreme}
+
+\begin{proof} L'unicité de $s$ et de la suite  $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ résulte du Corollaire \ref{StructureTors} car $r-s$ est le rang de la partie libre de $M/N$ et $Ad_1\supset Ad_2\supset\cdots\supset Ad_s$ est la suite des invariants de la partie de torsion de  $M/N$. L'existence est un peu plus délicate. On procède par reccurence sur $r$. Si $r=1$, c'est la traduction du fait que $A$ est principal. Si $r\geq 1$, l'idée est de construire $d_1, e_1$ à partir de l'inclusion $N\hookrightarrow M$. Pour cela, on introduit l'ensemble $\mathcal{E}$ des idéaux de la forme $f(N)\subset A$, où $f:M\rightarrow A$ est un morphisme de $A$-module. Comme $A$ est noethérien, $\mathcal{E}$ contient au moins un élément maximal $f(N)=Ad=Af(n)$.
+\begin{enumerate}
+\item En fait, pour tout $g:M\rightarrow A$ on a $g(N)\subset f(N)$. En effet, si $\delta$ est le pgcd de $d$ et $g(n)$ il existe $u,v\in A$ tels que $ud+vg(n)=\delta$. Donc $$f(N)=Ad\subset A\delta=A(uf+vg)(n)\subset (uf+vg)(N)$$
+Par maximalité de $f(N)$, cela implique $f(N)= Ad=A\delta=(uf+vg)(N)$. En particulier, pour tout $n'\in N$, $d$ divise $ (uf+vg)(n')$. Mais $f(N)=Ad$, donc $d$ divise aussi $f(n')$. On en déduit que $d$ divise $vg(n')$ et comme $d$ est premier avec $v$, que $d$ divise $g(n')$. \textit{In fine}, on a $g(N)\subset Ad=f(N)$ comme annoncé.\\
+\item Il existe $\mu\in M$ tel que $d\mu=n, \forall n \in N$. Choisissons une  $A$-base quelconque $e_1,\dots, e_r$ de $M$ et notons $p_i:M\twoheadrightarrow Am_i\simeq A$ la projection correspondante sur la $i$-ème coordonnée. On a, dans cette base, $n=\sum_{a\leq i\leq r}a_ie_i$ et en appliquant (1) aux $p_i$, on obtient que $d$ divise $a_i$, $i=1,\dots, r$. Donc en écrivant $a_i=db_i$ pour un certain $b_i\in A$, $i=a,\dots, r$, on peut prendre $\mu=\sum_{1\leq i\leq r} b_ie_i$.\\
+\item De $d\mu=m$, on déduit $f(d\mu)=df(\mu)=f(n)=d$, donc comme $A$ est intègre, $f(\mu)=1$. Cela donne une décomposition $M\simeq \ker(f)\oplus A\mu$ (car $m=(m-f(m)\mu)+f(m)\mu $) telle que $
+	N=\ker(f)\cap N\oplus Ad\mu$. On peut donc appliquer l'hypothèse de recurrence à $\ker(f)\cap N\subset \ker(f)$ puisqu'on sait que $\ker(f)$ est un $A$-module libre de rang $r$ (théorème du rang) pour obtenir une suite $A\supsetneq Ad_2\supset\cdots\supset Ad_s\supsetneq 0 $ d'idéaux de $A$ et $m_2,\dots, m_r\in \ker(f)$ tels que
+$$\ker(f)\cap N=\bigoplus_{2\leq i\leq s}Ad_im_i\subset \bigoplus_{2\leq i\leq r}Am_i=\ker(f).$$
+Enfin, en appliquant à nouveau (1) à la projection $M=A\mu\oplus   \displaystyle{\bigoplus_{2\leq i\leq r}}Am_i\twoheadrightarrow Am_2\simeq A$, on voit que $d$ divise $d_2$.\\
+\end{enumerate}
+\end{proof}
+
+\begin{theoreme}[Classes d'équivalence] \textit{On considère l'action de $\SGL_n(A)\times \SGL_m(A)$ sur $M_{n,m}(A)$ donnée par $(P,Q)\cdot M=PMQ^{-1}$. L'ensemble des classes d'équivalence $M_{n,m}(A)/\SGL_n(A)\times \SGL_m(A)$ est canoniquement en bijection avec les suites $Ad_1\supset Ad_2\supset \dots\supset Ad_n$ d'idéaux de $A$.}\end{theoreme}
+\begin{proof} On suppose $m\geq n$. Notons $M:=A^m$, $N:=A^n$ et soit $f:M\rightarrow N\in \SHom_A(M,N)$. Par le théorème de la base adaptée pour $f(M)\subset N$ il existe un unique $0\leq r\leq n$, une unique suite d'idéaux $A\supsetneq Ad_1\supset Ad_2\supset\dots\supset Ad_r$ et des éléments $\nu_1,\dots, \nu_n\in N$ tels que
+$$f(M)=\bigoplus_{1\leq i\leq r}Ad_i\nu_i\subset \bigoplus_{1\leq i\leq n}A\nu_i=N. $$
+Comme $f(M)$ est un $A$-module libre, la suite exacte courte
+$$0\rightarrow \ker(f)\rightarrow M\stackrel{f}{\rightarrow}f(M)\rightarrow 0$$
+	est scindée. Notons $s:f(M)\rightarrow M$ un scindage. On a alors $M\simeq \ker(f)\oplus f(M)$. Comme $A$ est principal et $M$ est un $A$-module libre, $\ker(f)\subset M$ est encore un $A$-module libre. En concaténant une $A$-base de $\ker(f)$ et la $A$-base $s(\nu_1 d_1),\dots, s(\nu_n d_n)$ de $s(f(M)) = M$, on obtient une $A$-base $\mu_1,\dots, \mu_n$ de $M$. La matrice de $f$ dans les bases $\mu_1,\dots, \mu_m$ et $\nu_1,\dots,\nu_n$ est de la forme
+$$D(d_1,\dots, d_n):=\left(\begin{tabular}[c]{ccccc}
+$d_1$&$0$&$\cdots$&$0$&$0$\\
+$0$&$d_2$&&$0$&$0$\\
+$0$&&$\cdots$&&\\
+$0$&&&$d_n$&$0$\\
+\end{tabular}\right).$$
+On a donc montré que si $f,g:M\rightarrow N$ sont des morphismes de $A$-modules tels que $N/f(M)\simeq N/g(M)$ alors $f,g$ sont équivalents. La réciproque est presque immédiate car s'il existe des automorphismes $\phi\in \SAut_A(M)$, $\psi\in \SAut_A(N)$ tels que $f\circ \phi=\psi\circ g $ alors $\psi:N\tilde{\rightarrow}N$ se restreint en un isomorphisme de $A$-modules $\psi:g(M)\tilde{\rightarrow}f(\phi(M))=f(M)$ donc induit un isomorphisme de $A$-modules $\overline{\psi}:N/g(M)\tilde{\rightarrow} N/f(M)$. \end{proof}
+
+\textbf{Remarque.} Dans le cas où $A=k$ est un corps commutatif, on retrouve le thèorème de classification des classes d'équivalence par le rang de la matrice. \\
+
+\begin{proof}
+  En effet, les seules suites possibles sont $\underset{r}{k\supset\dotsb\supset
+    k}\supset \underset{n-r}{0\supset\dotsb\supset 0}$
+  On retrouve le théorème de classification des classes d'équivalence
+  des matrices sur un corps par le rang.
+\end{proof}
+
+\paragraph{}\textbf{Exercice.} Soit $M$ un $\Z$-module libre de rang fini $m$ et $\phi\in \SEnd_{\Z}(M) $ tel que $\phi\otimes\Q\in\SAut_{\Q}(M\otimes \Q)$ est inversible. Montrer que $\phi(M)\subset M$ est d'indice fini et calculer $[M:\Phi(M)$.\\

@@ -1,0 +1,246 @@
+\chapter{Idéaux et quotients}\label{Ideaux}
+\section{Définitions, premiers exemples}
+\subsection{}Soit $A$ un anneau (commutatif, donc). Un idéal\index{Idéal} de  $A$ est un sous-ensemble $I\subset A$ tel que $a'-b'\in I$,  $a',b'\in I$ et $aa'\in I$, $a\in A$, $a'\in I$. On notera $\mathcal{I}_A$ l'ensemble des idéaux de $A$; l'inclusion ensembliste $\subset$ munit $\mathcal{I}_A$ d'un ordre partiel. Pour un idéal $I\subset A$, on notera $V^{tot}(I)\subset \mathcal{I}_A$ le sous-ensemble des idéaux de $A$ qui contiennent $I$\\
+
+\textbf{Exemples.}
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Le singleton  $\lbrace 0\rbrace$ et $A$ sont  des idéaux de $A$.
+\item Si $k$ est un corps commutatif, les seuls idéaux de $k$ sont  $\lbrace 0\rbrace$ et $k$.
+\item Un idéal $I\subset A$ est en particulier un sous-groupe de $(A,+)$. Par exemple, les seuls candidats possibles pour les idéaux de $\Z$ sont les $n\Z$, $n\geq 0$ (division euclidienne). On vérifie immédiatement que les $n\Z$ sont bien des idéaux de $\Z$. Donc les idéaux de $\Z$ sont exactement les $n\Z$, $n\geq 1$. On notera que $n\Z\subset m\Z$ si et seulement si $m|n$.  La $k$-algèbre $k[X]$ des polynômes à une indéterminée sur un corps est également munie d'une division euclidienne et on verra que dans ce cas aussi, tous les idéaux de $k[X]$ sont de la forme $Pk[X]$, $P\in k[X]$.
+\item Pour tout $a\in A$, $Aa\subset A$ est un idéal. Les idéaux de cette forme sont appelés principaux. On dit qu'un anneau $A$ principal si tous ses idéaux sont principaux et s'il est intègre. Les anneaux $\Z$ et $k[X]$ sont principaux.  Par contre, $k[X,Y]$ n'est pas principal, par exemple l'ensemble $I:=\lbrace XP+YQ\;|\; P,Q\in k[X,Y]\rbrace\subset k[X,Y]$ est un idéal qui n'est pas principal.
+\item Si $A_i$, $i\in I$ est une famille d'anneaux, et, pour chaque $i\in I$, $I_i\subset A_i$ est un idéal, $\prod_{i\in I}I_i\subset \prod_{i\in I}A_i$ est un idéal. Mais les idéaux de $\prod_{i\in I}A_i$ ne sont pas tous de cette forme. Par exemple, $A^{(I)}\subset A^I$ est un idéal de $A^I$ qui n'est pas un produit d'idéaux.
+\item Si $I\subset A$ est un idéal, $I[X_1,\dots, X_r]:=\lbrace\sum_{\underline{n}\in \N^r}a_{\underline{n}}\underline{X}^{\underline{n}}\;|\; a_{\underline{n}}\in I \rbrace \subset A[X_1,\dots,X_r]$ est un idéal.
+
+\end{itemize}
+
+
+\subsection{Idéal engendré par une partie, sommes d'idéaux}Soit $\mathcal{I}\subset \mathcal{I}_A$ une famille d'idéaux. On vérifie immédiatement que $\cap_{I\in \mathcal{I}}I\subset A$ est idéal. Pour tout sous-ensemble $X\subset A$, il existe
+un unique idéal $\langle\langle X\rangle\rangle_A \subset A$, contenant $X$ et minimal pour $\subset$ \ie{} tel que pour  tout idéal $I\subset A$,   $X\subset I$ implique  $\langle\langle X\rangle\rangle_A\subset I$. On dit que $\langle\langle X\rangle\rangle_A\subset A$ est l'idéal engendré par $X$. Explicitement $\langle\langle X\rangle\rangle_A$ est l'intersection de tous les idéaux de $A$ contenant $X$. On peut également décrire $\langle\langle X\rangle\rangle_A$ comme
+$$\langle\langle X\rangle\rangle_A=\lbrace \sum_{x\in X}a(x)x\;|\; a \in A^{(X)}\rbrace,$$
+ce qui justifie la notation plus intuitive $\langle\langle X\rangle\rangle_A:=\sum_{x\in X}Ax\subset A$. Si  $\mathcal{I}\subset \mathcal{I}_A$ une famille d'idéaux, on note en particulier $$ \langle\langle\; \bigcup_{I\in \mathcal{I}}I\;  \rangle\rangle_A :=\sum_{I\in \mathcal{I}}I\subset A.$$ et on dit que $\sum_{I\in \mathcal{I}}I\subset A$ est la somme des $I$, $I\in \mathcal{I}$. Si  $I=\sum_{x\in X} Ax$, on dit que $X$ est un système de générateurs de $I$ et si on peut prendre $X$ fini, on dit que $I$ est un idéal de type fini\index{de type fini (Idéal)}.\\
+
+\textbf{Exemples}  Les idéaux principaux d'un anneau $A$ sont les idéaux engendrés par les singletons $\lbrace a\rbrace$, $a\in A$. En particulier, dans un anneau principal comme $\Z$ ou $k[X]$, tout idéal est de type fini.  De façon plus surprenante, on verra que tous les idéaux de $k[X_1,\cdots, X_r]$ (et, partant, de toute $k$-algèbre de type fini) sont de type fini. Un anneau ayant cette propriété est dit noethérien. Les anneaux qui ne sont pas de type fini, par exemple $A^\N$, fournissent tautologiquement des idéaux qui ne sont pas de type fini. L'idéal $A^{(\N)}\subset A^\N$ n'est pas de type fini.\\
+
+
+\subsection{Produits d'idéaux}Si $I_1,\dots, I_r\subset A$ est une famille finie d'idéaux, on note $I_1\cdots I_r\subset A$ l'idéal engendré par les éléments de la forme $a_1\cdots a_r$, $a_i\in I_i$, $i=1,\dots, r$. On a toujours $$(*)\;\; I_1\cdots I_r\subset \displaystyle{\bigcap_{1\leq i\leq r}I_i}\subset I_i\subset \sum_{1\leq i\leq r} I_i.$$
+
+\textbf{Exemple.} Dans $\Z$, on a pour tout $m_1,\dots, m_r\in \Z$, $m_1\Z\cdots m_r\Z=(m_1\cdot m_r)\Z$, $m_1\Z\cap\cdots\cap  m_r\Z=\ppcm(m_1,\dots, m_r)\Z$, $m_1\Z+\cdots+m_r\Z=\pgcd(m_1,\cdots,m_r)\Z$. Les inclusions $(*)$ ci-dessus correspondent aux relations de divisibilité $$\pgcd(m_1,\cdots,m_r)| m_i|\ppcm(m_1,\cdots,m_r)| m_1\cdots m_r.$$
+
+\subsection{}Si $\phi:A\rightarrow B$ un morphisme d'anneaux, et   $J\subset B$  un idéal alors $\phi^{-1}(J)\subset A$ est un idéal. En particulier,  $\ker(\phi)\subset A$ est un idéal. Si $\phi:A\twoheadrightarrow B$ est surjectif  et   $I\subset A$  est un idéal alors $\phi(I)\subset B$ est un idéal mais montrer par un contre-exemple que ce n'est plus vrai si on ne suppose pas $\phi:A\twoheadrightarrow B$ surjectif. \\
+
+  \section{Quotient}\label{Quot}\index{Quotient (anneaux)}Le noyau d'un morphisme d'anneaux $\phi: A\rightarrow B$ est un idéal. Réciproquement, on va voir que tout idéal est le noyau d'un morphisme d'anneaux. En effet, si $A $ est un anneau, un idéal  $I\subset A$ est en particulier un sous-groupe de $(A,+)$. On dispose donc du groupe  quotient $A/I$, qui est un groupe abélien et de la projection canonique $p_I:=\overline{-}:A\twoheadrightarrow A/I$ qui est un morphisme surjectif de groupes, de noyau $I$.   Le groupe quotient $A/I$ est muni d'une unique structure d'anneau  telle que la projection canonique $p_I:=\overline{-}:A\twoheadrightarrow A/I$ est un morphisme d'anneaux. La condition que   $p_I:=\overline{-}:A\twoheadrightarrow A/I$ soit un morphisme d'anneaux impose que $\overline{ab}=\overline{a}\overline{b}$. Il faut donc vérifier que $\overline{ab}$ ne dépend pas du choix des représentants $a$, $b$ de $\overline{a}$, $\overline{b}$.
+ou encore que  l'application
+  $$\begin{tabular}[t]{lll}
+  $A\times A$&$\rightarrow$&$A/I$\\
+  $(a,b)$&$\rightarrow$&$\overline{ab}$
+  \end{tabular}$$
+se factorise en   $$\xymatrix{A\times A\ar[r]^{(a,b)\rightarrow \overline{ab}}\ar@{->>}[d]_{\overline{-}\times \overline{-}}&A/I\\
+A/I\times A/I\ar[ur]_{(\overline{a},\overline{b})\rightarrow \overline{a}\cdot\overline{b}:=\overline{ab}}}.$$
+Cela résulte de la relation $(a+I)(b+I)=ab+aI+Ib+I^2\subset ab+I$, $a,b\in I$. On vérifie ensuite facilement que $(A/I,+,\cdot)$ ainsi défini vérifie bien les axiomes d'un anneau commutatif de zéro $\overline{0}$ et d'unité $\overline{1}$.     \\
+
+ \ref{Quot}.1 \textbf{Lemme.} (Propriété universelle du quotient) \textit{Pour tout idéal $I\subset A$ il existe un morphisme d'anneaux $p:A\rightarrow Q$ tel  que pour tout  morphisme d'anneaux $\phi:A\rightarrow B$ avec $I\subset \ker(\phi)$, il  existe un unique morphisme d'anneaux $\overline{\phi}:Q\rightarrow B$ tel que $\phi=  \overline{\phi}\circ p$.}
+
+ \begin{proof} Montrons que  $A/I$ muni de la structure d'anneau ci-dessus et la projection canonique $\overline{-}:A\twoheadrightarrow A/I$ conviennent. Soit $\phi:A\rightarrow B$  un morphisme d'anneaux tel que $I\subset \ker(\phi)$. Si
+ $\overline{\phi}:A/I\rightarrow B$ existe, la condition $\phi=  \overline{\phi}\circ p$ force $\overline{\phi}(\overline{a})=\phi(a)$, $a\in A$. Cela montre l'unicité de $\overline{\phi}$ sous réserve de son existence.   Il reste à voir que  $\overline{\phi}:A/I\rightarrow B$ est automatiquement un morphisme d'anneaux. On sait déjà que c'est un morphisme de groupes additifs, donc il suffit de vérifier la compatibilité au produit. Cela résulte des définitions: $$\overline{\phi}(\overline{a}\overline{b})\stackrel{(1)}{=}\overline{\phi}(\overline{a b})\stackrel{(2)}{=} \phi(ab)\stackrel{(3)}{=} \phi(a)\phi(b)\stackrel{(4)}{=}\overline{\phi}(\overline{a})\overline{\phi}(\overline{b}),$$
+ où (1) est par construction du produit sur $A/I$, (2) et (4) est la relation  $\phi=  \overline{\phi}\circ \overline{-}$ et (3) est le fait que $\phi$ est un morphisme d'anneaux. \end{proof}
+
+  Comme d'habitude, la $A$-algèbre quotient   $p_I:=\overline{-}:A\twoheadrightarrow A/I$ est unique à unique isomorphisme près.  Par construction $p_I: A\twoheadrightarrow A/I$ est surjectif de noyau $I$. \\
+
+   On peut aussi réécrire \ref{Quot}.1 en disant que, pour tout anneau $B$ l'application  canonique
+$$\\SHom(A/I,B)\rightarrow \lbrace A\stackrel{\phi}{\rightarrow}B\; |\; I\subset \ker(\phi)  \rbrace,\;\overline{\phi}\rightarrow \overline{\phi}\circ\overline{(-)}  $$
+est bijective  ou encore, plus visuellement:
+
+$$\xymatrix{I\ar[r]\ar@/^1.5pc/[rr]^{0}&A\ar[r]^{\phi}\ar[d]_{\overline{(-)}}&B\\
+&A/I\ar@{.>}[ur]_{\exists ! \overline{\phi}}&}$$
+
+   En particulier, tout  morphisme d'anneaux $\phi:A\rightarrow B$ se décompose de façon canonique sous la forme
+  $$\xymatrix{A\ar@{->>}[r]^{\phi|^{\hbox{\rm \small im}(\phi)}}\ar@{->>}[d]_{\overline{-}}&\im(\phi)\ar@{^{(}->}[r]&B\\
+  A/\ker(\phi)\ar@{^{(}->>}[ur]^\simeq_{\overline{\phi}}&&}$$
+
+  \textbf{Exemples.}\index{Caractéristique} (Caractéristique d'un anneau) Le noyau du morphisme caractéristique $c_A:\Z\rightarrow A$ est un idéal de $\Z$ donc de la forme $\ker(c_A)=n\Z$ pour un unique entier $n\geq 0$, appelé la caractéristique de $A$.
+  \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item $\Z,\Q,\R,\CC$ sont de caractéristique $0$;
+\item $\Z/n$ est de caractéristique $n$, $n\geq 0$;
+\item Si $A'\subset A$ est un sous-anneau, $A$ et $A'$ ont même caractéristique. En particulier $A$, $A^I$, $A[X]$ ont même caractéristique. Si $\mathcal{P}$ est un ensemble infini de nombres premiers distincts, l'anneau produit $\prod_{p\in \mathcal{P}}\Z/p\Z$ est de caractéristique $0$.
+\item  Si $\phi : A\rightarrow B$ est une $A$-algèbre, la caractéristique de $B$ divise la caractéristique de $A$.\\
+\end{itemize}
+
+
+   \textbf{Exercices.}
+     \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+     \item Soit  $I,J\subset A$ des idéaux; notons $\overline{A}:=A/I$ et $\overline{J}:=P_I(J)$. Montrer que si $I\subset J$, on a  un isomorphisme d'anneaux canonique $A/J\tilde{\rightarrow} \overline{A}/\overline{J}$. En déduire qu'on a toujours un isomorphisme d'anneaux canonique $A/(I+J)\tilde{\rightarrow}  \overline{A}/\overline{J}$.\\
+\item Soit $I\subset A$ un idéal. Montrer qu'on a un isomorphisme de $A$-algèbres canonique $A[X]/I[X]\tilde{\rightarrow} (A/I)[X]$.\\
+
+\item Soit $f_1,\dots f_s\in A[X_1,\dots, X_r]$. Montrer que la $A$-algèbre quotient $$A\rightarrow A[X_1,\dots, X_n]/\sum_{1\leq i\leq s}f_iA[X_1,\dots, X_r]$$ munie des images $\overline{X}_1,\cdots, \overline{X}_r$ de $X_1,\dots, X_r$ vérifie la propriété universelle suivante.\\
+
+ (Propriété universelle de $A\rightarrow A[X_1,\dots, X_n]/\sum_{1\leq i\leq s}f_iA[X_1,\dots, X_r]$) Il existe une $A$-algèbre $ A\rightarrow \overline{P}$ munie d'éléments $\overline{p}_1,\dots, \overline{p}_r\in \overline{P}$ tels que pour tout $A$-algèbre $\phi:A\rightarrow B$ et $b_1,\dots, b_r\in B$ vérifiant $ev_{\underline{b}}^\phi(f_i)=0$, $i=1,\dots ,s$ il existe un unique morphisme de $A$-algèbre $\overline{ev}_{\underline{b}}^\phi:\overline{P}\rightarrow B$ tel que $\overline{ev}_{\underline{b}}^\phi(\overline{p}_i)=b_i$, $i=1,\dots, r$.\\
+
+\item Montrer qu'on a un isomorphisme de $A$-algèbres canonique $$A[X_1,Y_1,\dots, X_r,Y_r]/\sum_{1\leq i\leq r}(X_iY_i-1)A[X_1,Y_1,\dots, X_r,Y_r]\tilde{\rightarrow} A[X_1,X_1^{-1},\dots,X_r,X_r^{-1}].$$
+
+\end{enumerate}
+
+
+
+   \ref{Quot}.2 \textbf{Lemme.} \textit{Soit $I\subset A$ un idéal. La projection canonique $p_I :A\twoheadrightarrow A/I$ induit une bijection d'ensembles ordonnés $p_I:(V^{tot}(I),\subset)\tilde{\rightarrow}(\mathcal{I}_{A/I} ,\subset)$.}
+
+   \begin{proof} Le fait que $p_I: V^{tot}(I)  \rightarrow \mathcal{I}_{A/I} $ préserve l'inclusion est immédiat. Pour montrer que c'est une bijection, il suffit d'exhiber l'application inverse. Comme $\ker(p_I)=I$, $p_I^{-1}:\mathcal{I}_{A/I}\rightarrow \mathcal{I}_{A}$ est à valeur dans $V^{tot}(I)$ donc induit une application $p_I^{-1}:\mathcal{I}_{A/I}\rightarrow V^{tot}(I)$;  vérifions que celle-ci convient. Comme $p_I :A\twoheadrightarrow A/I$ est surjective, on a toujours $p_I\circ p_I^{-1}(\overline{J})=\overline{J}$, $\overline{J}\in \mathcal{I}_{A/I}$. Inversement, si $J\in \mathcal{I}_{A} $, on a $ p_I^{-1}\circ p_I(J)=I+J$ donc, si on suppose de plus $I\subset J$, on a $ p_I^{-1}\circ p_I(J)=I+J=J$.  \end{proof}
+
+    Soit $I_1,\dots, I_r\subset A$ des idéaux et considérons le produit des projections canoniques $p:=\prod_{1\leq i\leq r}p_{I_i}:A\rightarrow \prod_{1\leq i\leq r}A/I_i$; c'est un morphisme d'anneaux de noyau $\cap_{1\leq i\leq r}I_i$. De plus\\
+
+
+     \ref{Quot}.3 \textbf{Lemme.} (Restes chinois) \textit{Si $I_i+I_j=A$, $1\leq i\not=j\leq r$ alors $\cap_{1\leq i\leq r}I_i=I_1\cdots I_r$ et  $p :A\rightarrow \prod_{1\leq i\leq r}A/I_i$ est surjective. Inversement, si   $p :A\rightarrow \prod_{1\leq i\leq r}A/I_i$ est surjective alors $I_i+I_j=A$, $1\leq i\not=j\leq r$.}
+
+   \begin{proof} Supposons d'abord que $I_i+I_j=A$, $1\leq i\not=j\leq r$.  On a toujours $\cap_{1\leq i\leq r}I_i\supset I_1\cdots I_r$. Pour l'inclusion inverse et la surjectivité de  $p:=\prod_{1\leq i\leq r}p_{I_i}:A\rightarrow \prod_{1\leq i\leq r}A/I_i$, on procède par récurrence sur $r$. Si $r=2$, il existe $a_i\in I_i$, $i=1,2$ tels que $1=a_1+ a_2$. En particulier,
+   \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+   \item  Pour tout $x\in I_1\cap I_2$, $x=x 1=x  (a_1+ a_2)=xa_1+xa_2=a_1x+xa_2\in I_1\cdot I_2$.
+   \item Soit $x_1,x_2\in A$ arbitraires. En posant $x=a_1x_2+a_2x_1$ on a bien $p_{I_1}(x)=p_{I_1}(a_2)p_{I_1}(x_1)= p_{I_1}(x_1)$ et $p_{I_2}(x)=p_{I_2}(a_1)p_{I_2}(x_2)= p_{I_2}(x_2)$.
+   \end{itemize}
+  Si $r\geq 3$,  on a par hypothèse de récurrence $I_2\cap\cdots \cap I_{r }=I_2\cdots I_{r}$ et   $A/(I_2\cap \cdots\cap I_r)\twoheadrightarrow \prod_{2\leq i\leq r}A/I_i$. Il suffit de montrer que $I_1+I_2\cdots I_r=A$. En effet, le cas $r=2$ (et l'hypothèse de récurrence) nous donnera alors
+     \begin{itemize}
+   \item  $I_1\cap (I_2\cap\cdots \cap I_{r })=I_1\cap (I_1\cdots I_r)=I_1\cdot (I_2\cdots I_r)= I_1\cdots I_r$.
+   \item $A\twoheadrightarrow A/I_1\times A/(I_2\cap\cdots\cap  I_r)\twoheadrightarrow A/I_1\times\prod_{2\leq i\leq r}A/I_i\twoheadrightarrow  \prod_{1\leq i\leq r}A/I_i$
+   \end{itemize}
+    Mais pour $i=2,\dots, r$ il existe $a_i\in I_1$, $b_i\in I_i$ tels que $a_i+b_i=1$. On a donc $1=\prod_{2\leq i\leq r}(a_i+b_i)=\prod_{2\leq i\leq r}a_i+\cdots\in I_1+I_2\cdots I_r$.\\
+     Inversement, si $p :A\rightarrow \prod_{1\leq i\leq r}A/I_i$ est surjective, pour tout $1\leq i\not=j\leq r$, il existe $x\in A$ tel que $p(x)=(\delta_{i,k})_{1\leq k\leq r}\in \prod_{1\leq i\leq r}A/I_i$ \ie{} $x\in 1+I_i$ et $x\in I_j$. Donc $1=(1-x)+x\in I_i+I_j$. \end{proof}
+
+
+
+\section{Corps et idéaux maximaux} \label{Corps}Le singleton $\lbrace 0\rbrace$ et $A$ sont des ideaux de $A$. En général, un anneau contient beaucoup d'idéaux. L'ensemble des idéaux et leur `position' dans l'anneau mesure la complexité de celui-ci.  En ce sens, les anneaux les plus simples sont les corps. \\
+
+\ref{Corps}.1 \textbf{Lemme.} \textit{Les propositions suivantes sont équivalentes :
+\begin{tabular}[t]{ll}
+(i)& $A$ est un corps;\\
+(ii)& Les seuls idéaux de $A$ sont $\lbrace 0\rbrace$ et $A$.
+\end{tabular}}
+\begin{proof}Si $A$ est un corps,  tout idéal $\lbrace 0\rbrace\subsetneq I\subset A$ contient un élément $a\not= 0$ donc inversible. Mais alors $1=a^{-1}a\in AI=I$ donc $A=A1\subset AI=I$. Inversement, si les seuls idéaux de $A$ sont $\lbrace 0\rbrace$ et $A$, pour tout $a\not=0$, $\lbrace 0\rbrace\subsetneq Aa\subset A$ est un idéal donc $Aa=A$. En particulier $1\in Aa$ \ie{} il existe $a^{-1}\in A$ tel que $1=a^{-1}a$.\end{proof}
+
+\ref{Corps}.2 \textbf{Lemme.} \textit{Soit $I\subsetneq A$ un idéal. Les propositions suivantes sont équivalentes
+\begin{tabular}[t]{ll}
+(i)&  $A/I$ est un corps;\\
+(ii)& $I$ est maximal  dans  $(\mathcal{I}_A\setminus \{A\},\subset)$.
+\end{tabular}}
+\begin{proof} Cela résulte de \ref{Quot}.2.  \end{proof}
+
+ On dit qu'un idéal qui vérifie les propriétés (i), (ii) de \ref{Corps}.2 est \textit{maximal}\index{Maximal (Idéal)}.  \\
+
+% Un ensemble ordonné est dit inductif si toute suite croissante admet un majorant. Le Lemme de Zorn (qui est équivalent à l'axiome du choix dénombrable) affirme que tout ensemble non vide ordonné iductif admet un élément maximal.\\
+
+\ref{Corps}.3 \textbf{Lemme.} [Utilise le Lemme de Zorn] \textit{L'ensemble ordonné  $(\mathcal{I}_A\setminus \lbrace A\rbrace,\subset)$ est (non-vide; il contient $\lbrace 0\rbrace$) inductif. En particulier, tout idéal $I\subsetneq A$ est contenu dans un idéal maximal.}
+\begin{proof} Il suffit d'observer que si $I_1\subset I_2\subset\cdots \subsetneq A$ est une suite d'ideaux de $A$ distincts de $A$ et croissante  pour $\subset$, $I:=\cup_{n\geq1}I_n\subsetneq A$ est encore un idéal de $A$ distincts de $A$. En effet, pour tout $a,b\in I$ il existe $n$ tel que $a,b\in I_n$ donc $a-b\in I_n\subset I$ et pour tout $\alpha\in A$, $\alpha a\in I_n\subset I$; cela montre déja que $I\subset A$ est un idéal. Dans ce cas, $I= A$ si et seulement si $1\in I$. Mais si $1\in I$, il existerait $n\geq 1$ tel que $1\in I_n$, ce qui n'est pas possible puisque par hypothèse $I_n\subsetneq A$. \end{proof}
+
+ En particulier, pour tout $a\in A$, $a\notin A^\times$ $\Leftrightarrow$ $Aa\subsetneq A$  $\Leftrightarrow$ $a$ est contenu dans au moins un  idéal maximal de $A$.\\
+
+
+
+
+ On notera $\spm(A)$ l'ensemble des idéaux maximaux de $A$ et on dit que c'est le \textit{spectre maximal}\index{Spectre maximal} de $A$. D'après \ref{Produit}.1, les projections canoniques $p_{\frak{m}}:A\twoheadrightarrow A/\frak{m}$, $\frak{m}\in \spm(A)$ induisent un morphisme d'anneaux canonique
+
+$$p_{max}:A\rightarrow \prod_{\frak{m}\in \spm(A)}A/\frak{m}$$
+dont le noyau  $\mathcal{J}_A:=\ker(p_{max})=\displaystyle{\bigcap_{\frak{m}\in \spm(A)}}\frak{m}\subset A$ est un idéal  appelé \textit{radical de Jacobson}\index{Radical de Jacobson} de $A$.\\
+
+\textbf{Exercice.} Soit $a\in A$. Montrer que $a\in \mathcal{J}_A$ si et seulement si $1-ab\in A^\times$, $b\in A$. \\
+
+
+
+
+% Un anneau $A$  qui possède  un unique idéal maximal $\frak{m} (= \mathcal{J}_A)$ est dit \textit{local} et on dit que $A/\frak{m}$ est le corps résiduel de $A$. Un anneau $A$ est local si et seulement si  $A\setminus A^\times$ est un idéal, auquel cas $A\setminus A^\times$ est l'unique idéal maximal de $A$. \\
+
+
+  \subsection{Anneaux intègres et idéaux premiers}\label{Integre} On dit qu'un élément $t\in A$ est de torsion (ou est un diviseur de zéro)\index{Diviseur de zéro}\index{Torsion} s'il existe $0\not= a\in A$ tel que $at=0$. On notera $A_{tors}\subset A$ l'ensemble des éléments de torsion de $A$. On dit qu'un anneau $A$ est \textit{intègre}\index{Intègre (Anneau)} si $A_{tors}=\lbrace 0\rbrace $.\\
+
+ \textbf{Exemples.}
+   \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+     \item Les corps  sont intègres, $\Z$ est intègre.
+     \item Tout sous-anneau d'un anneau intègre est intègre. Si $A$ est un anneau intègre, $A[X]$ est intègre. Par contre, le produit $A_1\times A_2$ de deux anneaux non nuls n'est jamais intègre.
+     \item $\Z/n$ est intègre si et seulement si $n$ est un nombre premier. \\
+\end{itemize}
+
+
+  \textbf{Remarque.} Pour tout $a\in A\setminus A_{tors}$ et pour tout $b,c\in A$ on a $ab=ac\Leftrightarrow a(b-c)=\Leftrightarrow b-c=0$. Autrement dit, `on peut simplifier par $a$'. En particulier, si $A$ est intègre, on peut simplifier par tout élément $a\not=0$.\\
+
+  \ref{Integre}.1 \textbf{Lemme.} \textit{Soit $I\subsetneq A$ un idéal. Les propositions suivantes sont équivalentes
+\begin{tabular}[t]{ll}
+(i)&  $A/I$ est intègre;\\
+(ii)& Pour tout $a,b\in A$, $ab\in I$ $\Rightarrow$ $a\in I$ ou $b\in I$.
+\end{tabular}}
+\begin{proof} (i) $\Rightarrow$ (ii): Si $ab\in I$ alors $\overline{a}\overline{b}=0$ dans $A/I$. Par (i), on a forcément $\overline{a}=0$ (\ie{} $a\in I$) ou $\overline{b}=0$ (\ie{} $b\in I$) dans $A/I$. (ii) $\Rightarrow$ (i): Pour tout $0\not= \overline{a}, \overline{b}\in A/I$, choisissons $a,b\in A$ relevant $\overline{a}, \overline{b}\in A/I$. On a forcément $a,b\notin I$ donc, par (ii), $an\notin I$ \ie{} $\overline{a}\overline{b}=\overline{ab}\not= 0$ in $A/I$.  \end{proof}
+
+
+ On dit qu'un idéal qui vérifie les propriétés (i), (ii) de \ref{Corps}.2 est \textit{premier}\index{Premier (Idéal)}.  On notera $\Spec(A)$ l'ensemble des idéaux premiers de $A$ et on dit que c'est le \textit{Spectre}\index{Spectre} de $A$. D'après \ref{Produit}.1, les projections canoniques $p_{\frak{p}}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in \Spec(A)$ induisent un morphisme d'anneaux canonique
+$$p_{prem}:A\rightarrow \prod_{\frak{p}\in \Spec(A)}A/\frak{p}$$
+dont le noyau $\mathcal{R}_A:=\ker(p_{prem})=\displaystyle{\bigcap_{\frak{p}\in \Spec(A)}}\frak{p}\subset A$ est un idéal appelé \textit{radical}\index{Radical} de $A$.\\
+
+ On dit qu'un élément $a\in A$ est \textit{nilpotent}\index{Nilpotent} s'il existe un entier $n\geq 1$ tel que $a^n=0$ et, si $a\not=0$, on dit que le plus petit entier $n\geq 1$ tel que $a^{n-1}\not=0$ et $a^n=0$ est l'indice de nilpotence de $a$ (on dit parfois que $0$ est d'indice de nilpotence $1$). On note $\mathcal{N}_A\subset A$ l'ensemble des éléments nilpotents de $A$. On a évidemment $\mathcal{N}_A\subset A_{tors}$ donc, en particulier, si $A$ est un anneau intègre, $\mathcal{N}_A=\lbrace 0\rbrace$. \\
+
+  \ref{Integre}.2 \textbf{Proposition.}  [Utilise le Lemme de Zorn]  \textit{$\mathcal{N}_A\subset A$ est un idéal et $\mathcal{N}_A=\mathcal{R}_A$.}
+
+\begin{proof} Vérifions d'abord que $\mathcal{N}_A\subset A$ est un idéal. Pour tout $a,b \in \mathcal{N}_A$, il existe des entiers $m,n\geq 1$ tel que $a^m=b^n=0$. Donc, par la formule du binôme de Newton $$(a-b)^{m+n-1}=\sum_{0\leq k\leq m+n-1}\binom{k}{m+n-1}(-1)^{m+n-k-1}a^kb^{m+n-k}=0$$
+puisque, si $k<m$, $m+n-k-1>n-1$ donc $m+n-k-1\geq n$.  On a aussi pour tout $\alpha\in A$ $(\alpha a)^m=\alpha^m a^m=0$.\\
+\indent Pour tout morphime d'anneaux $\phi:A\rightarrow B$ on a $\phi(\mathcal{N}_A)\subset \mathcal{N}_B$. En particulier, si $B$ est un anneau intègre, $\mathcal{N}_A\subset \ker(\phi)$. En appliquant cette observation aux projections canoniques $p_\frak{p}:A\twoheadrightarrow A/\frak{p}$, $\frak{p}\in \Spec(A)$, on en déduit l'inclusion $\mathcal{N}_A\subset \mathcal{R}_A$. Inversement, soit $a\notin \mathcal{N}_A$; on veut montrer que $a\notin \mathcal{R}_A$ \ie{} il existe $\frak{p}\in \Spec(A)$ tel que $a\notin\frak{p}$ (ce qui équivaut aussi à $a^n\notin \frak{p}$ pour n'importe quel entier $n\geq 1$). Notons $X_a:=\lbrace a^n\;|\; n\in \Z_{\geq 1}\rbrace $ l'ensemble des puissances de $a$. On a par hypothèse $0\notin X_a$ donc l'ensemble $\Sigma_a\subset \mathcal{I}_A$ des idéaux $I\subset A$ tels que $X_a\cap I=\varnothing$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. On vérifie immédiatement que $(\Sigma_a,\subset)$ est ordonné inductif donc, par le Lemme de Zorn, possède un élément maximal $I\in \Sigma_a$. Puisque  $a\notin I$, il suffit de montrer que $I$ est premier \ie{} que $A/I$ est intègre. Notons $\overline{a}$  l'image de $a$ dans $A/I$. Par définition de $I$, $0\notin X_{\overline{a}}$ mais  pour tout idéal $\lbrace 0\rbrace\subsetneq \overline{J}\subset A/I$, $X_{\overline{a}}\cap \overline{J}\not=\varnothing$. En particulier, pour tout $0\not=\overline{b}\in A/I$, il existe $n_b\geq 1$ tel que $\overline{a}^{n_b}\in (A/I)\overline{b}$ donc pour tout $0\not=\overline{b}, \overline{b'}\in A/I$, $\overline{a}^{n_bn_{b'}}\in (A/I)\overline{b} \overline{b'}$ donc  $\overline{b} \overline{b'}\not= 0$. \end{proof}
+
+\textbf{Exercice.}
+     \begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+     \item Montrer que si $a\in A$ est nilpotent, $1+a\in A^\times$. En déduire que la somme d'un élément nilpotent et d'un élément inversible est encore inversible.
+     \item Montrer que $A[X]^\times$ est l'ensemble des polynômes $P=\sum_{n\geq 0}a_nX^n$ tels que $a_0\in A^\times$ et $a_n$ est nilpotent, $n\geq 1$. Déterminer $A[X_1,\dots, X_r]^\times$. \\
+\end{itemize}
+
+
+\ref{Integre}.3 \textbf{Exercice.}\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Soit $\frak{p}_1,\dots,\frak{p}_r$ des idéaux premiers et $I\subset A$ un idéal. Si $I\subset \cup_{1\leq i\leq r}\frak{p}_i$ il existe $1\leq i\leq r$ tel que $I\subset \frak{p}_i$;
+\item Soit $I_1,\dots, I_r$ des idéaux   et $\frak{p}\subset A$ un idéal premier. Si $\frak{p}\supset \cap_{1\leq i\leq r}I_i$ il existe $1\leq i\leq r$ tel que $\frak{p}\supset I_i$.\\
+\end{enumerate}
+
+
+
+
+%\textbf{Lemme.} \textit{\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+%\item Soit $\frak{p}_1,\dots,\frak{p}_r$ des idéaux premiers et $I\subset A$ un idéal. Si $I\subset \cup_{1\leq i\leq r}\frak{p}_i$ il existe $1\leq i\leq r$ tel que $I\subset \frak{p}_i$;
+%\item Soit $I_1,\dots, I_r$ des idéaux   et $\frak{p}\subset A$ un idéal premier. Si $\frak{p}\supset \cap_{1\leq i\leq r}I_i$ il existe $1\leq i\leq r$ tel que $\frak{p}\supset I_i$;
+%\end{enumerate}}
+%\begin{proof} (1) On procède par réccurrence sur $r$. Si $ r=1$, c'est tautologique. Supposons $r\geq 2$ et   $I\not\subset \frak{p}_i$, $i=1,\dots ,r$. Par hypothèse de récurrence, pour $i=1,\dots, r$ on peut trouver $x_i\in I$, $x_i\notin \cup_{1\leq i\not=j\leq r}\frak{p}_j$. S'il existe $1\leq i\leq r$ tel que $x_i\notin\frak{p}_i$, on a gagné. Sinon, $$x:=\sum_{1\leq i\leq r}x_1\cdots x_{i-1}x_{i+1}\cdots x_r$$
+%est bien dans $I$ par construction mais pas dans $\frak{p}_i$ car $\frak{p}_i$ est premier, $i=1\dots, r$.\\
+% (2) Supposons $\frak{p}\not\supset I_i$, $i=1,\dots, r$. Pour   $i=1,\dots, r$ il existe $x_i\in I_i$, $x_i\not\in\frak{p}$. L'élément $x=x_1\cdots x_r$ est dans $I_1\cdots I_r\subset \cap_{1\leq i\leq r}I_i$ mais, comme $\frak{p}$ est premier, $x\notin\frak{p}$.\end{proof}
+
+  \subsection{Anneaux réduits et idéaux radiciels}\label{Reduit} On dit qu'un anneau $A$ est \textit{réduit}\index{Réduit (Anneau)} si  $\mathcal{R}_A=\mathcal{N}_A=0$. \\
+  \textbf{Exemples.} Les anneaux intègres sont réduits, l'anneau $\Z\times\Z$ est réduit non-intègre. Si $p$ est un nombre premier l'anneau  $\Z/p^n$ n'est  pas réduit et contient un élément d'indice de nilpotence $n$, $n\geq 1$. Si on note $p_n$ le nième nombre premier, l'anneau $\prod_{n\geq 1}\Z/p_n^n $ n'est  pas réduit et contient un élément d'indice de nilpotence $n$ pour tout $n\geq 1$.\\
+
+
+
+   Pour un idéal $I\subset A$, on note
+   $\sqrt{I}:=p_I^{-1}(\mathcal{N}_{A/I})$. Par définition, $$I\subset
+   \sqrt{I}=\bigcup_{n\geq 1}\lbrace a\in A\;|\; a^n\in I\rbrace.$$
+   % correction d'une coquille : racine de I et non de A
+  On dit que $\sqrt{I}$ est la racine de $I$. Avec cette notation, $\mathcal{N}_A=\sqrt{\lbrace 0\rbrace}$.  Il résulte des définitions que pour un idéal $I\subsetneq A$ les propositions suivantes sont équivalentes
+\begin{tabular}[t]{ll}
+(i)&  $A/I$ est réduit;\\
+(ii)& $I=\sqrt{I}$.  \\
+\end{tabular}
+
+ On dit qu'un idéal $I\subsetneq A$ qui vérifie les propriétés (i), (ii) ci-dessus est \textit{radiciel}\index{Radiciel (Idéal)}. On notera $\mathcal{I}_A^{red}$ l'ensemble des idéaux radiciels de $A$.  \\
+
+ En résumé on a
+$$\hbox{\rm Maximal}\; \Rightarrow\;\hbox{\rm Premier}\; \Rightarrow\;\hbox{\rm  Radicie\l};\;i.e.\;\; \spm(A)\subset \Spec(A)\subset \mathcal{I}_A^{red}$$
+et $$\begin{tabular}[t]{l|l}
+$I$&$A/I$\\
+\hline\\
+Maximal&Corps\\
+Premier&Intègre\\
+Radiciel&Réduit
+\end{tabular}$$
+$$\hbox{\rm\small Classification grossière des idéaux}$$
+
+\subsection{} Tout morphisme $\phi:A\rightarrow B$  d'anneaux commutatifs induit une application $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ préservant $\subset$.  De plus, si $I\in \mathcal{I}_B$, le noyau de
+$A\stackrel{\phi}{\rightarrow}B\stackrel{p_I}{\twoheadrightarrow}B/I$ est $\phi^{-1}(I)$, d'où un morphisme d'anneaux injectifs $A/\phi^{-1}(I)\hookrightarrow B/I$. Comme un sous-anneau d'un anneau intègre (resp. réduit) est intègre (resp. réduit), on en déduit que  $\phi^{-1}: (\mathcal{I}_B,\subset)\rightarrow (\mathcal{I}_A,\subset)$ se restreint en des applications
+
+$$ \xymatrix{A \ar[r]^\Phi \ar[rd]_{\pi_A} & B \ar@{->>}[r]^{p_I} & B\big/ J \\ & A\big/\Phi^{-1}(J) \ar@{^{(}->}[ru]^{\tilde{p_i \circ\Phi}} & } $$
+
+\begin{center}
+\begin{tabular}[t]{ccc}
+    $(\mathcal{I}_B,\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A,\subset)$\\
+    $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
+    $(\mathcal{I}_B^{red},\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\mathcal{I}_A^{red},\subset)$\\
+    $\displaystyle{\bigcup}$ &&$\displaystyle{\bigcup}$\\
+    $(\Spec(B),\subset)$&$\stackrel{ \phi^{-1}}{\rightarrow}$&$ (\Spec(A),\subset)$\\
+\end{tabular}
+\end{center}
+Il n'est par contre pas vrai qu'un sous-anneau d'un corps est un corps (\textit{e.g.} $\Z\subset \Q$) donc l'image inverse d'un idéal maximal par un morphisme d'anneau n'est, en général, pas maximal.

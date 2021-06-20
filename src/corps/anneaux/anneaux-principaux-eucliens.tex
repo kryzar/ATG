@@ -1,0 +1,62 @@
+\chapter{Anneaux principaux, euclidiens }
+
+\section{ }On dit qu'un anneau commutatif intègre $A$ est \\
+
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item \textit{euclidien}\index{Euclidien (Anneau)} s'il est munit d'une application - appelée stathme euclidien - $\sigma:A\setminus \lbrace 0\rbrace\rightarrow \N$ vérifiant la propriété suivante (division euclidienne): pour tout $0\not=a,b\in A$ il existe $q,r\in A$ tels que
+ $$\begin{tabular}[t]{l}
+$b=qa+r$\\
+$r=0$ ou $r\not=0$ et $\sigma(r)<\sigma(a)$.
+\end{tabular}$$
+\item \textit{principal}\index{Principal (Anneau)} si tout idéal est de la forme $Aa$, $a\in A$.
+\end{itemize}
+
+\section{Exemples}\label{Ex}\textbf{ } \\
+
+    \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+     \item  La valeur absolue usuelle   $|-|:\Z\setminus\lbrace 0\rbrace\rightarrow \N$ sur $\Z$ est un stathme euclidien. En effet, pour tout $0\not= a,b\in \Z$ notons $R:=\lbrace b-qa\;|\; q\in \Z\rbrace $. On a évidemment $R\cap\N\not=\varnothing$  donc on peut poser $r:=\hbox{\rm min} R\cap\N$. Par définition de $R$, $b=qa+r$ et si $|a|\leq  r$ on aurait $r-|a|\in R$: contradiction.  \\
+
+\item \textbf{Algèbres de polynômes sur un anneau intègre.} Soit $A$ un anneau commutatif et $r\geq 1$ un entier. La $A$-algèbre $A[X_1,\dots, X_r]$ n'est  euclidienne  que si $A$ est un corps et $r=1$ mais, lorsque $A$ est intègre, elle se comporte presque comme un anneau euclidien.
+
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item  $r=1$. On rappelle que tout $P\in A[X]$ s'écrit de façon unique sous la forme $f=\sum_{n\in\N}a_nX^n$ avec $\underline{a}:n\rightarrow a_n\in A^{(\N)}$. Cela permet de définir l'application degré:
+$$ \begin{tabular}[t]{llll}
+$\deg:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$\N$\\
+&$f=\sum_{n\in\N}a_nX^n$&$\rightarrow$&$\hbox{\rm max}\lbrace n\in\N\; |\; a_n\not=0\rbrace$
+\end{tabular}$$
+et une application `coefficient dominant'
+$$ \begin{tabular}[t]{llll}
+$\CD:$&$A[X]\setminus\lbrace 0\rbrace $&$\rightarrow$&$A\setminus \lbrace 0\rbrace$\\
+&$f=\sum_{n\in\N}a_nX^n$&$\rightarrow$&$a_{\deg(f)}$
+\end{tabular}$$
+
+		La définition du produit dans $A[X]$ montre que $\deg(fg)\leq \deg(f)+\deg(g)$ et que si  l'un au moins de $\CD(f),\CD(g)$ n'est  pas  de torsion dans $A$, $\deg(fg)= \deg(f)+\deg(g)$, $\CD(fg)=\CD(f)\CD(g)$. On a aussi toujours $\deg(f+g)\leq \hbox{\rm max}\lbrace \deg(f),\deg(g)\rbrace$.\\
+
+\textbf{Lemme} \textit{Soit $0\not=f,g\in A[X]$ et supposons que $\CD(f)\in A^\times$. Alors il existe un unique couple $q,r\in A[X]$ tel que $g=fq+r$ et $r=0$ ou $\deg(r)<\deg(f)$.}\\
+
+\begin{proof} Montrons l'existence par récurrence sur $deg(g)$. Écrivons $f=\sum_{0\leq n\leq d_f}a_nX^n$, $g=\sum_{0\leq n\leq d_g}b_nX^n$, où $d_f:=\deg(f)$, $d_g:=\deg(g)$. Si $d_g=0$ et $d_f>0$, $q=0$ et $r=g$ conviennent. Si $d_g=d_f=0$, $f=a_0=a_{d_f}\in A^\times\subset A[X]^\times$ donc $q=f^{-1}g$ et $r=0$ conviennent. % coquille corrigée ici
+  Si $d_g\geq 1$ et $d_f>d_g$, $q=0$ et $r=g$ conviennent. Supposons donc $d_f\leq d_g$. Comme $a_{d_f}\in A^\times$ on peut écrire
+$$g=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f+(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f).$$
+Par construction, $g_1:=(g-a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}f)$ est de degré $\leq d_g-1$. Par hypothèse de récurrence il existe donc $q_1,r_1\in A[X]$ tels que $g_1=q_1f+r_1$ et $r_1=0$ ou $\deg(r_1)<\deg(f)$; $q:=a_{d_g}a_{d_f}^{-1}X^{d_g-d_f}+q_1$, $r:=r_1$ conviennent. Il reste à prouver l'unicité. Si $q',r'\in A[X]$ est un autre couple tel que $g=fq'+r'$ et $r'=0$ ou $\deg(r')<\deg(f)$, on a $f(q-q')=r'-r$. Si $r-r'\not= 0$, en prenant le degré $$\deg(f)\geq \deg(f)+\deg(q-q')\stackrel{(1)}{=}\deg(f(q-q')=\deg(r-r')<\deg(f),$$
+où $(1)$ utilise encore que $\CD(f)\in A^\times$. On a donc forcément $r=r'$ donc $f(q-q')=0$ donc, toujours parce que $\CD(f)\in A^\times$, $q=q'$.\\ \end{proof}
+
+ En particulier, si $A=k$ est un corps, le degré $\deg:k[X]\setminus\lbrace 0\rbrace\rightarrow \N$  est un stathme euclidien sur $k[X]$.\\
+
+\item $r\geq 1$. En utilisant les isomorphismes canoniques $A[X_1,\dots, X_r]\tilde{\rightarrow} A[X_1,\dots,\hat{X}_i,\cdots , X_r][X_i]$, $i=1,\dots, r$, on peut encore appliquer le Lemme ci-dessus dans $A[X_1,\dots, X_r]$: les polynômes par lesquels on peut diviser sont ceux de la forme $aX_i^{d}+\sum_{\underline{n}\in \N^r,\;|\; n_i<d}a_{\underline{n}}\underline{X}^{\underline{n}}$, avec $a\in A[X_1,\dots,\hat{X}_i,\cdots , X_r]^\times=A^\times$ (car $A$ est intègre donc réduit).\\
+\end{itemize}
+ \item On peut montrer que le carré de la valeur absolue usuelle  $|-|^2:\Z[w]\rightarrow \N$ est un stathme euclidien sur certains sous-anneaux de $\CC$ de la forme $\Z[w]\subset \CC$; c'est par exemple le cas pour $w=\sqrt{-1},^3\sqrt{-1},\sqrt{-2}$.
+ \end{enumerate}
+
+
+
+\section{Lemme}\label{EuclIsPrinc} \textit{Euclien $\Rightarrow$ Principal.}
+
+ \begin{proof} Soit $A$ un anneau euclidien et soit $I\subset A$ un idéal. Fixons $a\in I$ tel que $\sigma(a)=\hbox{\rm min}\sigma(I)$. Puisque $a\in I$, on a $Aa\subset I$. Réciproquement, pour tout $b\in I$, effectuons la division euclidienne de $b$ par $a$: il existe $q,r\in A$ tels que $b=qa+r$ et $r=0$ ou $\sigma(r)<\sigma(a)$. Mais comme $r=b-qa\in I$, on ne peut pas avoir $\sigma(r)<\sigma(a)$, donc $r=0$.\\
+ \end{proof}
+
+ \textbf{(Contre-)Exemple.} Les anneaux principaux ne sont pas tous euclidiens. Par exemple  $A=\Z[\frac{1+\sqrt{-19}}{2}]$ est principal non euclidien.\\
+
+ \section{Exercice} Montrer que $A[X]$ est principal si et seulement si $A$ est un corps.
+  \section{Lemme}\textit{Si $A$ est un anneau principal, $\spm(A)=\Spec(A)\setminus \lbrace 0\rbrace$.}
+
+  \begin{proof} On a toujours $\spm(A)\subset \Spec(A)$. Soit $\frak{p}=Ap\in \Spec(A)$; on veut montrer que $A/Ap$ est un corps. Supposons le contraire. Alors $A/Ap$ contient un idéal maximal $\lbrace \bar{0}\rbrace\subsetneq\frak{m}\subsetneq A/Ap$. Écrivons $p_{\frak{p}}^{-1}(\frak{m})=Am$. On a des inclusions strictes  $Ap\subsetneq Am\subsetneq A$ donc il existe $a\in A$ tel que $p=am$ donc $\bar{0}=\bar{a}\bar{m}$ dans $A/Ap$. Comme $A/Ap$ est intègre et $\bar{m}\not= 0$, on en déduit $a\in Ap$. Écrivons donc $a=bp$; on a $p=am=pbm$. Comme $A$ est intègre, on peut simplifier par $p$ pour obtenir $1=bm$, ce qui contredit $ Am\subsetneq A$.   \end{proof}
