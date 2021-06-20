@@ -1,0 +1,361 @@
+\chapter{Extensions algébriques, extensions transcendantes}
+
+\begin{definition}
+  Soient $k,K$ deux corps. On dit que $K$ est une extension de $k$ (ou
+  une $k$-extension, ou encore que $k$ est un sous-corps de $K$) si
+  $K$ est une $k$-algèbre \ie{} s'il existe un morphisme d'anneaux
+  $\phi:k\rightarrow K$
+\end{definition}
+
+\begin{remarque}
+  Ce morphisme est alors automatiquement injectif, ce qui justifie la
+  terminologie \og extension / sous-corps \fg{} et le fait que, dans
+  la suite, on notera presque toujours $k\subset K$ ou $K/k$ au lieu
+  de  $\phi:k\rightarrow K$, identifiant implicitement $k$ et son
+  image $\phi(k)\subset K$.\\
+  Un morphisme de $k$-extensions $K/k\rightarrow K'/k$ est, par
+  définition, un morphisme de $k$-algèbres. Un morphisme de
+  $k$-extensions est automatiquement injectif et on dit parfois que
+  c'est un $k$-plongement.\\
+\end{remarque}
+
+
+\section{Degré d'une extension}\label{Dim}
+
+\begin{definition}
+  Si $K/k$ est une extension de corps, on appelle degré de $K/k$, et
+  l'on note $[K:k]$ la dimension de $K$ comme espace vectoriel sur $k$
+  (avec la convention que si $K$ n'est pas de dimension finie sur $k$,
+  $[K:k]=+\infty$).
+\end{definition}
+
+Avec la convention $+\infty\cdot +\infty=+\infty$, on a \\
+
+\begin{lemme}
+  Si $K_3/K_2$ et $K_2/K_1$ sont des extensions de corps,
+  $[K_3:K_1]=[K_3:K_2][K_2:K_1]$.
+\end{lemme}
+
+\begin{proof}
+  Il suffit d'observer que si $e^3_i$, $i\in I_3$ est une $K_2$-base
+  de $K_3$ et $e^2_i$, $i\in I_2$ est une $K_1$-base de $K_2$ alors
+  $e_{i_2}^3e_{i_3}^2$, $i_2\in I_2$, $i_3\in I_3$ est une $K_1$-base
+  de $K_3$.
+\end{proof}
+
+
+\section{Éléments algébriques, éléments transcendants}
+
+Soit $k\subset K$ un sous-corps. On rappelle que si
+$\mathscr{S}\subset K$ est un sous-ensemble, on a noté
+$k[\mathscr{S}]\subset K$ la plus petite sous-$k$-algèbre de $K$
+contenant $\mathscr{S}$ et que c'est aussi l'image de l'unique
+morphisme de $k$-algèbre $ k[T_x,\; x\in \mathscr{S}]\rightarrow K$,
+$T_x\mapsto x $.\\
+
+
+\subsection{Sous-corps engendré par une partie}
+
+Si $k\subset K_i\subset K$, $i\in I$ sont des sous-corps contenant
+$k$, on vérifie immédiatement que
+$k\subset \cap_{i\in I}K_i\subset K $ est encore un sous-corps
+contenant $k$. Il existe donc une unique sous-corps
+$k\subset k(\mathscr{S})\subset K$ contenant $k$, $\mathscr{S}$ et
+minimal pour l'inclusion.
+
+\begin{definition}
+  On dit que $k\subset k(\mathscr{S})\subset K$ est la
+  sous-$k$-extension de $k\subset K$ engendrée par
+  $\mathscr{S}$. Explicitement, $k(\mathscr{S})$ est l'intersection de
+  toutes les sous-corps $k\subset K'\subset K$ tels
+  que $\mathscr{S}\subset K'$.\\
+  Si $K=k(\mathscr{S})$ on dit que $\mathscr{S}$ est un système de
+  générateurs de $K$ comme extension de corps de $k$ (ou que $K$ est
+  engendré par $\mathscr{S}$ comme extension de corps de $k$). Si on
+  peut prendre $\mathscr{S}$ fini, on dit que $K$ est une extension de
+  corps de type fini de $k$.
+\end{definition}
+
+Comme $k[\mathscr{S}]\subset k(\mathscr{S})$ et $k(\mathscr{S})$ est
+un corps, la propriété universelle du corps des fractions d'un anneau
+intègre montre qu'on a
+$k\subset k[\mathscr{S}]\subset \Frac(k[\mathscr{S}])\subset
+k(\mathscr{S})\subset K$ et, comme
+$\mathscr{S}\subset \Frac(k[\mathscr{S}])$, la minimalité de
+$k(\mathscr{S})$ assure que
+$\Frac(k[\mathscr{S}])=k(\mathscr{S})$. \\
+
+
+\subsection{Alternative algébrique/transcendant}\label{AlgTr}
+
+Soit $K/k$ une extension de corps, $x\in K$ et
+$\mathrm{ev}_x:k[X]\twoheadrightarrow k[x]$ l'unique morphisme de
+$k$-algèbres tel que $\mathrm{ev}_x(X)=x$\\
+
+
+\begin{lemme}
+  On a l'alternative suivante.
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item Soit $\mathrm{ev}_x:k[X]\tilde{\longrightarrow} k[x]$ est un
+    isomorphisme de $k$-algèbres et le morphisme
+    $$k[X]\stackrel{ev_x}{\tilde{\longrightarrow}}k[x]\hookrightarrow
+    k(x)$$ se localise en un isomorphisme de corps
+    $k(X)\tilde{\longrightarrow} k(x)$. En particulier $k[x]$ (donc a
+    fortiori $k(x)$) est de dimension infinie sur $k$.
+  \item Soit il existe un unique polynôme irréductible unitaire
+    $P_x\in k[X]$ tel que $\ker(ev_x)=k[X]P_x$ et le morphisme de
+    $k$-algèbres $\mathrm{ev}_x:k[X]\twoheadrightarrow k[x]$ se
+    factorise en un isomorphisme
+    $k[X]/(P_x)\tilde{\longrightarrow} k[x]$. En particulier
+    $k[x]=k(x)$ et $k(x)$ est de dimension finie sur $k$, égale au
+    degré de $P_x$.\\
+  \end{enumerate}
+\end{lemme}
+
+\begin{definition}
+  Dans le cas (1), on dit que $x\in K$ est \textit{transcendant sur $k$}\index{Transcendant (Élément)} et dans le cas (2) que $x\in K$ est \textit{algébrique}\index{Algébrique (Élément)} sur $k$ de degré $[k(x):k]=\deg(P_x)$ et que $P_x$ est le polynôme irréductible (unitaire) de $x$ sur $k$.\\
+\end{definition}
+
+\begin{proof}
+  Si $\ker(\mathrm{ev}_x)=0$ on est dans le cas (1) et les assertions
+  sont immédiates.\\
+  Si  $\ker(\mathrm{ev}_x)\neq 0$, comme $k[X]$ est principal, il existe un unique polynôme unitaire $P_x$ tel que $\ker(\mathrm{ev}_x)=k[X]P_x$ et  le morphisme de $k$-algèbres $\mathrm{ev}_x:k[X]\twoheadrightarrow k[x]$ se factorise en un isomorphisme $k[X]/P_x\tilde{\rightarrow} k[x]$. Comme $k[x]\subset K$ est un sous-anneau d'un corps, il est intègre donc  $P_x$ est premier. Comme $k[X]$ est principal, tout idéal premier est maximal, donc $k[x]\subset K$ est un sous-corps de $K$. Comme $k[x]$ contient  $k$ et $x$, c'est nécessairement $k(x)$. Il reste à voir que $k[X]/P_x $ est de dimension le degré $d$ de $P_x$ sur $k$. Mais en utilisant la division euclidienne de   $k[X]$, on voit immédiatement que les classes de  $1,X,\dots, X^{d-1}$ forment une $k$-base de $k[X]/P_x$.
+\end{proof}
+
+\begin{remarque}
+  On retiendra en particulier que si $x\in K$
+  $$
+  \begin{tabular}[t]{ccccc}
+    $x$ est algébrique sur $k$&$\Leftrightarrow$&$[k(x):k]<+\infty$&$\Leftrightarrow$&$k[x]=k(x)$;\\
+    $x$ est transcendant sur $k$&$\Leftrightarrow$&$[k(x):k]=+\infty$&$\Leftrightarrow$&$k[x]\subsetneq k(x)$;\\
+  \end{tabular}$$
+\end{remarque}
+  
+\begin{exemple}
+  Considérons l'extension $\CC/\Q$. Les nombres $i,\sqrt{2}$
+  \textit{etc} sont algébriques par définition.
+  \begin{itemize}
+  \item Si $a\in \CC$ est algébrique, $\exp(a)$ est transcendant
+    (Lindemann, $\sim 1880$); en particulier, $e$ ($a=1$) et $\pi$
+    ($a=i\pi$) sont transcendants sur $\Q$.
+  \item Si $a,b\in \CC$ sont algébriques sur $\Q$ et $a\not=0,1$,
+    $b\notin \Q$, $a^b=\exp(b\log a)$ est transcendant sur $\Q$
+    (septième problème de Hilbert, Gelfond, $\sim$ 1930); en
+    particulier, $e^\pi$ ($a=e^\pi$, $b=i$) est transcendant sur
+    $\Q$.
+  \item On ne sait pas si $e+\pi$ est transcendant. Il est par
+    contre possible que d'ici la fin de l'année (2020), on sache que
+    si $a,b\in \CC$ sont algébriques sur $\Q$, $\exp(a)\log(b)$ soit
+    transcendant sur $\Q$.
+  \end{itemize}
+  En fait, sauf cas très particulier, on ne sait pas dire si un
+  nombre complexe pris \og au hasard\fg{} est transcendant sur $\Q$ alors
+  que moralement, \og presque tous\fg{} les nombres complexes sont
+  transcendants sur $\Q$ puisque $\Q$ est dénombrable alors que $\R$
+  (donc $\CC) $ n'est pas dénombrable.
+\end{exemple}
+
+\subsection{Indépendance algébrique}
+
+\begin{definition}
+  Soit $K/k$ une extension de corps.\\
+  On dit que les éléments $a_i\in K$, $i\in I$ sont algébriquement
+  indépendants sur $k$ si pour tout sous-ensemble fini $J\subset I$,
+  l'unique morphisme de $k$-algèbre
+  $\psi:k[X_j,\; j\in J]\rightarrow K$ tel que $psi(X_j)= a_j$,
+  $j\in J$ est injectif.
+  Dans le cas contraire, on dit que les $a_i\in K$, $i\in I$ sont
+  algébriquement liés sur $k$.
+\end{definition}
+
+\begin{remarque}
+  Pour $|I|=1$, on retrouve la notion d'élément transcendant sur $k$.\\
+\end{remarque}
+
+\begin{exemple}
+   Considérons encore l'extension $ \CC/\Q$. On en sait encore moins
+   sur l'indépendance algébrique que sur l'alternative
+   algébrique/transcendant. Le seul résultat un peu général dont on
+   dispose est que si $a_1,\dots, a_n\in \CC$ sont algébriques et
+   linéairement indépendants sur $\Q$, les
+   $\exp(a_1),\dots, \exp(a_n)$ sont algébriquement indépendants sur
+   $\Q$ (Lindeman-Weierstrass, $\sim$ 1885).
+ \end{exemple}
+
+\phantomsection{}\label{TrPure}
+\begin{definition}
+  On dit qu'une extension de corps $K/k$ est \textit{transcendante
+    pure}\index{Transcendante pure (Extension de corps)} s'il existe
+  $a_i\in K$, $i\in I$ algébriquement indépendants sur $k$ tels que
+  $K=k(a_i,\; i\in I)$.
+\end{definition}
+
+Le lemme suivant résulte immédiatement de la définition. \\
+
+\begin{lemme}
+  Soit $K_3/K_2$ et $K_2/K_1$ des extensions de corps. Si $K_3/K_2$
+  et $K_2/K_1$ sont transcendantes pures alors $K_3/K_1$ est
+  transcendante pure.
+\end{lemme}
+
+\begin{remarque}
+  La réciproque n'est pas vraie en général mais ce n'est pas
+  évident. En fait, toute sous-extension de $ k(X)/k$ est encore
+  transcendante pure (Luroth $\sim$ 1875). Si $k$ est de
+  caractéristique $0$, toute sous-extension de $ k(X_1,X_2/k$ est
+  encore transcendante pure (Castelnuovo $\sim$ 1940) mais ce n'est
+  plus vrai si $k$ est de caractéristique $p>0$ (Zariski $\sim$ 1958)
+  ou si $n\geq 3$ (Clemens-Griffith $\sim$ 1972).
+\end{remarque}
+
+\begin{exemple}
+  L'extension $k(T)[X]/\langle X^2-T\rangle/k$ est transcendante pure
+  par contre, l'extension $k[X,Y]/\langle Y^2-X^3-X-1\rangle/k$ ne
+  l'est pas.
+\end{exemple}
+
+
+\begin{definition}
+  On dit qu'une extension de corps $K/k$ est
+  \textit{finie}\index{Finie (Extension de corps)} si $[K:k] <+\infty$
+  et que $K/k$ est algébrique si tout $a\in K$ est algébrique sur $k$.\\
+\end{definition}
+
+\phantomsection{}\label{AlgTF}
+\begin{lemme}
+  Soit $K/k$ une extension de corps. Alors $K/k$ est finie si et
+  seulement si $K/k$ est algébrique et de type fini.
+\end{lemme}
+
+\begin{proof}
+  L'implication $\Rightarrow$ est immédiate. Pour l'implication
+  $\Leftarrow$, écrivons $K=k(a_1,\dots, a_n)$. Pour chaque
+  $i=1,\dots, n$, $a_i\in K$ est algébrique sur $k$ donc a fortiori
+  sur $k(a_1,\dots, a_{i-1})$; en particulier, $[ k(a_1,\dots,
+  a_{i-1})(a_i):k(a_1,\dots, a_{i-1}]<+\infty$. Et donc, par \ref{Dim}
+  on a
+  $$[K:k]=\prod_{1\leq i\leq n}[k(a_1,\dots, a_i):k(a_1,\dots, a_{i-1})]<+\infty.$$
+\end{proof}
+
+\paragraph{}\label{AlgExt}\textbf{Lemme.} \textit{Soit $K_3/K_2$ et $K_2/K_1$  des extensions de corps.
+\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item $K_3/K_1$ est finie si et seulement si $K_2/K_1$ et $K_1/K_3$ sont finies, auquel cas on a $[K_3:K_1]=[K_3:K_2][K_2:K_1]$.
+\item $K_3/K_1$ est algébrique si et seulement si $K_2/K_1$ et $K_1/K_3$ sont algébriques.
+\end{enumerate}}
+
+\begin{proof} Les implications $\Rightarrow$   sont immédiates. L'implication $\Leftarrow$  de (1) résulte de \ref{Dim}.  Pour l'implication $\Leftarrow$ de (2), fixons  $a\in K_3$ et montrons que $a$ est algébrique sur $K_1$. Comme $a$ est algébrique sur $K_2$, en écrivant son polynôme minimal sous la forme $P_a=T^d+\sum_{0\leq i\leq d-1}a_iT^i\in K_2[T]$, on voit que  $a$ est aussi algébrique sur le sous-corps  $K_1(a_0,\dots, a_d)  $ de $K_2$ \textit{i.e} $[K_1(a_0,\dots, a_d,a):K_1(a_0,\dots, a_d)]<+\infty$. Mais comme $K_1(a_0,\dots, a_d)/K_1$ est algébrique de type fini, elle est finie par \ref{AlgTF} donc
+$$[K_1(a):K_1]\leq [K_1(a_0,\dots, a_d,a):K_1]=[K_1(a_0,\dots, a_d,a):K_1(a_0,\dots, a_d)][K_1(a_0,\dots, a_d):K_1]<+\infty.$$ \end{proof}
+
+
+\textbf{Corollaire.} \textit{Soit $K/k$ une extension de corps. Alors l'ensemble $\overline{k^K}\subset K$ des $a\in K$ algébrique sur $k$ est un sous-corps de $K$ contenant $k$.}
+
+\begin{proof} La partie non triviale de l'énoncé est l'affirmation que $\overline{k^K}\subset K$ est un sous-corps. Soit donc $a \in \overline{k^K}$, $0\not=b\in \overline{k^K}$. On a $a-b, ab^{-1}\in k(a,b)\subset K$ donc
+$$[k(a-b):k], [k(ab^{-1}):k]\leq [k(a,b):k]\leq [k(a)(b):k(a)][k(a):k]\leq [k(b):k][k(a):k]<+\infty$$
+ \ie{} $a-b, ab^{-1}\in \overline{k}\cap K$ (de degré sur $k$ $\leq  [k(b):k][k(a):k]$). \end{proof}
+
+ \textbf{Exercice.} Notons $\overline{\Q}:=\overline{\Q^\CC}\subset  \CC$. Montrer que $\overline{\Q}\subsetneq \CC$ et que tout élément de $\CC\setminus \overline{\Q}$ est transcendant sur $\overline{\Q}$ mais que  $\overline{\Q}\subset  \CC$ n'est pas une extension transcendante pure.\\
+
+ D'après  \ref{AlgTF}, une extension de corps est finie si et seulement si elle est algébrique et  de type  fini. Si $k\subset K$ est finie  et   si $a_1,\dots, a_n$$K=k(a_1,\dots, a_n)$ est un système de générateurs de $K$ comme extension de corps de $k$, \ref{AlgTr} montre que  $K=k(a_1,\dots, a_n)=k(a_1)\cdots(a_n)=k[a_1]\cdots [a_n]=k[a_1,\dots, a_n]$ donc $K$ est aussi une $k$-algèbre de type fini. Cette dernière propriété suffit en fait  à caractériser les extensions finies; c'est le Théorème des zéros de Hilbert ou Nullstellensatz. \\
+
+\section{Nullstellensatz}
+
+\subsection{}\label{Hilbert1}\textbf{Proposition.} (Nullstellensatz) \textit{Soit $  K/k$ une extension de corps. Si $K$ est une $k$-algèbre de type fini alors $K$ est une extension finie de $k$.}
+
+\begin{proof} Commençons par observer que le corps des fractions $k(X)$ de l'anneau des polynômes à une indéterminée sur $k$ n'est pas une $k$-algèbre de type fini. Sinon, on aurait   $k(X)=k[a_1,\dots, a_n]$ où $a_i=P_i/Q_i$ avec $0\not= P_i,Q_i\in k[X]$, $i=1,\dots, n$. Posons  $Q:=Q_1,\dots Q_n\in k[X]$. Par construction $k(X)\subset k[X]_{Q}$. Mais si $P\in k[X]$ est premier avec $Q$, $1/P\notin k[X]_Q$: contradiction.\\
+\indent On procède par récurrence sur le nombre $n$ de générateurs de $K$ comme $k$-algèbre. Plus précisément, pour tout $n\geq 0$ considérons l'assertion suivante
+$$\begin{tabular}[t]{ll}
+ H(n)&Pour tout corps $k$, toute $k$-algèbre  $K=k[a_1,\dots, a_n]$ qui est un corps est une extension finie de $k$
+ \end{tabular}$$
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item H(0) est trivialement vraie.
+\item  Supposons maintenant $n\geq 2$ et soit   $K=k[a_1,\dots, a_n]$ un corps. Comme $K$ est un corps, on a  $K=k[a_1,\dots, a_n]=k(a_1)[a_2,\dots, a_n]$ et H(n-1) assure que  $[K:k(a_1)]<+\infty$. Il suffit donc de montrer que $[k(a_1):k]<+\infty$ \ie{} \ref{AlgTr} que $a_1\in K$ est algébrique sur $k$. Choisissons une $k(a_1)$-base $b_1,\dots, b_r$ de $K$. Écrivons $a_i=\sum_{1\leq j\leq r}x_{i,j}b_j$ avec $x_{i,j}\in k(a_1)$, $1\leq i\leq n$, $1\leq j \leq r$, $b_ib_j=\sum_{1\leq k\leq r}x_{i,j,k}b_k$ avec $x_{i,j,k}\in k(a_1)$, $1\leq i,j,k\leq r$ et introduisons la sous-$k$-algèbre $$A:=k[x_{i,j}, 1\leq i\leq n ,\; 1\leq j \leq r, x_{i,j,k},\;1\leq i,j,k\leq r]\subset K.$$ Comme $K=k[a_1,\dots, a_n]$ on a  $K= \oplus_{1\leq i\leq r}Ab_i$ donc  $$K= \oplus_{1\leq i\leq r}k(a_1)b_i\subset \oplus_{1\leq i\leq r}Ab_i\subset  \oplus_{1\leq i\leq r}k(a_1)b_i,$$
+ce qui impose $k(a_1)=A$ et contredit notre observation préliminaire.
+\end{itemize}
+\end{proof}
+\subsection{}\label{Hilbert2}\textbf{Corollaire.} \textit{Soit $A$ une $k$-algèbre de type fini. Pour tout $\frak{m}\in \spm(A)$, $A/\frak{m}$ est une extension finie de $k$.}\\
+
+\textbf{Exemple.} En particulier, si $k=\CC$,  \ref{AlgTr}.3 (3) montre que pour tout $\frak{m}\in \spm(A)$, $A/\frak{m}=\CC$. Rappelons qu'une sous-variété algébrique affine de $\CC^n$ est par définition un sous-ensemble $V$ de $\CC^n$ de la forme
+$$V=V(I)=\lbrace \underline{x}\in \CC^n\; |\; P(\underline{x})=0, \; P\in I\rbrace.$$ Notons $\CC[V]:=C[X_1,\dots, X_n]/I$. Les propriétés universelles de la $\CC$-algèbre des polynômes à $n$ indéterminées et du quotient donnent une bijection canonique
+$$V\tilde{\rightarrow}\SHom_{Alg/\CC}(\CC[V],\CC)$$
+et le Corollaire \ref{Hilbert2}, une bijection canonique  $$\SHom_{Alg/\CC}(\CC[V],\CC)\tilde{\rightarrow} \spm(\CC[V]).$$
+La composée $V\tilde{\rightarrow} \spm(\CC[V])$ est donnée explicitement par $\underline{x}\rightarrow \ker(ev_{\underline{x}}:\CC[X_1,\dots,X_n]\rightarrow \CC)/I$. En particulier, comme $\CC[V]$ est noethérien,  $\spm(\CC[V])\not=\varnothing$. Cela montre qu'une sous-variété algébrique affine de $\CC^n$ a  toujours un point. En particulier, les idéaux maximaux de $\CC[X_1,\dots, X_n]$ sont exactement les $\sum_{1\leq i\leq n}\CC[X_1,\dots, X_n](X_i-x_i)$, $\underline{x}\in \CC^n$.
+
+ \subsection{}\label{Hilbert3}\textbf{Corollaire.} \textit{Soit $A$ une $k$-algèbre de type fini. Alors pour tout idéal $I\subset A$, $\sqrt{I}=\displaystyle{\bigcap_{\frak{m}\in \spm(A),\; I\subset \frak{m}}\frak{m}}$.}
+
+ \begin{proof}On peut réécrire le lemme sous la forme $\sqrt{\lbrace 0\rbrace}=\mathcal{J}_{A/I}$. Il suffit donc de montrer que si $A$ est une $k$-algèbre de type fini alors $\mathcal{J}_{A }\subset \sqrt{\lbrace 0\rbrace}$ ou encore $A\setminus \sqrt{\lbrace 0\rbrace}\subset A\setminus \mathcal{J}_A$.  Soit donc  $a\in\setminus \sqrt{\lbrace 0\rbrace}$. Il faut montrer qu'il existe un idéal maximal de $A $ qui ne contient pas $a$. Un tel idéal induit un idéal premier $\frak{m}A_a$. Cela amène naturellement à considérer  le morphisme de localisation  $c_a:A\rightarrow A_a$. \\
+
+\begin{itemize}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item\textbf{Lemme 1.} \textit{$A_a$ est une $k$-algèbre de type fini.}
+
+ \begin{proof} Par la propriété universelle de $ A\rightarrow A[T]$, on a un unique morphisme de $A$-algèbres $ev_{1/a}:A[T]\rightarrow A_a$ tel que $ev_{1/a}(T)=1/a$. Par construction,  $(Ta-1)A[T]\subset \ker(ev_{1/a})$, d'où une factorisation $\phi :=\overline{ev}_{1/a}:A[T]/(Ta-1)\rightarrow A_a$. Inversement, par la propriété universelle de $ A\rightarrow A_a$, le morphisme canonique $ A\stackrel{\iota_A}{\rightarrow}A[T]\twoheadrightarrow A[T]/(Ta-1)$ se factorise en un morphisme $\psi:A_a\rightarrow A[T]/(Ta-1)$ et on vérifie sur les constructions que $\phi: A[T]/(Ta-1)\rightarrow A_a$, $\psi:A_a\rightarrow A[T]/(Ta-1)$ sont inverses l'un de l'autre.\end{proof}
+
+ \item\textbf{Lemme 2.}  \textit{Toute $k$-agèbre intègre de $k$-dimension finie est un corps.}
+
+ \begin{proof} Soit $A$ une $k$-agèbre intègre de $k$-dimension finie et $0\not=a\in A$. La multiplication par $a$ induit un morphisme $\mu_a:A\rightarrow A$ de $k$-espaces vectoriels qui est est injectif puisque $A$ est intègre donc bijectif puisque $A$ est de $k$-dimension finie. En particulier, il existe $b\in A$ tel que $ab=\mu_a(b)=1$. \end{proof}
+ \item Fin de la preuve. D'après le Lemme 1, $A_a$ est encore une $k$-algèbre de type fini. Soit $\frak{m}\in \spm(A_a)$. Alors $\frak{p}:=c_a^{-1}(\frak{m})\in \Spec(A)$ et $a\notin \frak{p}$. De plus, on a des morphismes d'anneaux injectifs $k\hookrightarrow A/\frak{p}\hookrightarrow A_a/\frak{m}$. Par \ref{Hilbert2}, $A_a/\frak{m}$ est une extension finie de $k$. Donc par le Lemme 2, $A/\frak{p}$ est   un corps \ie{} $\frak{p}\in \spm(A)$.
+ \end{itemize}
+ \end{proof}
+
+ \textbf{Exemple.} Reprenons les notations de l'Exemple \ref{Hilbert2}. Considérons le morphisme de $\CC$-algèbres canonique $-|_V:\CC[X_1,\dots,X_n]\rightarrow \CC^V$ qui envoie $P\in \CC[X_1,\dots, X_n]$ sur l'application $ev_-(P)|_V:V\rightarrow \CC$, $\underline{x}\rightarrow ev_{\underline{x}}(P)=P(\underline{x})$. On a clairement $I\subset I(V):=\ker(-|_V)$ et le Corollaire \ref{Hilbert3} montre qu'en fait $I= \ker(-|_V)$ (rappelons qu'on a supposé $I=\sqrt{I}$). Le morphisme de $\CC$-algèbre  $-|_V:\CC[X_1,\dots,X_n]\rightarrow \CC^V$ se factorise donc en un morphisme injectif $\CC[V]\hookrightarrow \CC^V$; on dit que $\CC[V]$ est la $\CC$-algèbre des applications polynômiales sur $V$.  On en déduit aussi que les applications $I\rightarrow V(I)  $ et $V\rightarrow I(V)$ sont des bijections  inverses l'une de l'autres entre l'ensemble des idéaux radiciels de $\CC[X_1,\dots, X_n]$ et les sous-variétés algébriques affines de $\CC^n$.
+
+ \section{Bases de transcendance, degré de transcendance}Soit $K/k$ une extension de corps. Une \textit{base de transcendance}\index{Base de transcendance (Extension de corps)} de $K/k$ est une famille $a_i\in K$, $i\in I$ d'éléments algébriquement indépendants sur $k$ tels que $K/k(a_i,i\in I) $ est algébrique.
+
+ \subsection{}\label{BaseTranscendance} [Utilise le Lemme de Zorn] \textbf{Proposition.} \textit{Les bases de transcendance existent et ont même cardinal.}\\
+
+  On rappelle que deux ensembles $A,B$ ont même cardinal (notation: $|A|=|B|$) s'il existe une application bijective $A\tilde{\rightarrow}B$. On note $|A|\leq |B|$ s'il existe une application injective $A\hookrightarrow B$ et $|A|<|B|$ si $|A|\leq |B|$ et $|A|\not=|B|$. En utilisant l'axiome du choix, on peut montrer que si $A$ et $B$ sont deux ensembles alors on a toujours $|A|\leq |B|$ ou $|B|\leq |A|$. En fait on a même soit $|A|<|B|$ ou $|A|=|B|$ ou $|B|<|A|$ (trichotomie). Cela résulte de ce qu'on vient de dire combiné au lemme de Schr\"{o}der-Bernstein.\\
+
+ \textbf{Exercice.} (Schr\"{o}der-Bernstein) \textit{Montrer que si $|A|\leq |B|$ et $|B|\leq |A|$ alors $|A|= |B|$.}
+
+
+
+ \begin{proof}Montrons d'abord que si $\mathcal{L}\subset K$ est algébriquement indépendant sur $k$ et $\mathcal{G}\subset K$ est un système de générateurs de $k\subset K$ tel que $\mathcal{L}\subset \mathcal{G}\subset K$, il existe une base de transcendance $\mathcal{L}\subset \mathcal{B}\subset \mathcal{G}$. En effet, l'ensemble $\mathcal{E}$ des sous-ensembles $\mathcal{L}\subset \mathcal{U}\subset \mathcal{G}$, algébriquement indépendants sur $k$ est non vide (il contient $\mathcal{L}$) et ordonné inductif pour $\subset $. Par le Lemme de Zorn, il admet donc un élément $\mathcal{B}$ maximal pour $\subset $. La maximalité de $\mathcal{B}$ impose que $K/k(\mathcal{B})$ est algébrique. En effet, s'il existait $x\in K$ transcendant sur $k(\mathcal{B})$, en écrivant $x=y/z$ avec $y,z\in k[\mathcal{G}]$, on voit qu'il existerait forcément un élément $g\in \mathcal{G}$ transcendant sur  $k(\mathcal{B})$ donc tel que $\mathcal{B}\cup\lbrace g\rbrace \in \mathcal{E}$: contradiction.\\
+  Soit maintenant $\mathcal{B},\mathcal{B}'$ deux bases de transcendance. Supposons $|\mathcal{B}'|\leq |\mathcal{B}|$. Pour chaque $b'\in \mathcal{B}'$ il existe une sous-ensemble fini $\mathcal{B}_{b'}\subset \mathcal{B}$ tel que $b'$ est algébrique sur $k(\mathcal{B}_{b'})$. Notons $$\mathcal{B}'':=\bigcup_{b'\in \mathcal{B}'}\mathcal{B}_{b'}\subset \mathcal{B}.$$
+ On a en fait $\mathcal{B}''=\mathcal{B}$. En effet, s'il existait $b\in \mathcal{B}\setminus \mathcal{B}''$, comme $b$ est algébrique sur $k(\mathcal{B}')$ et $k(\mathcal{B}')$ est algébrique sur $k(\mathcal{B}'')$, $b$ est algébrique sur $k(\mathcal{B}'')$ \ref{AlgExt} (2):  contradiction. Cela montre déjà que $\mathcal{B}'$ est fini si et seulement si $\mathcal{B}$ est fini. Supposons d'abord $\mathcal{B},\mathcal{B}'$ infinis. On a alors $|\mathcal{B}|\leq |\mathcal{B}'|$ (quitte à remplacer $\mathcal{B}'$  et les $\mathcal{B}_{b'}$ par des sous-ensembles, on peut supposer que les $\mathcal{B}_{b'}$ sont tous disjoints et l'assertion est alors immédiate) et la conclusion résulte de Schr\"{o}der-Bernstein. Supposons donc $\mathcal{B},\mathcal{B}'$ finis et procédons par réccurence sur $m:=|\mathcal{B}'|\leq n:=|\mathcal{B}|$. Si $m=0$, $k\subset K$ est algébrique donc $n=0$. Si $m>0$, écrivons $\mathcal{B}'=\lbrace b'_1,\dots, b'_m\rbrace$, $\mathcal{B}=\lbrace b_1,\dots, b_n\rbrace$. Comme $b_1'$ est algébrique sur $k(\mathcal{B})$ et transcendant sur $k$, il existe $P\in k[X,Y_1,\dots, Y_n]$ irréductible et vérifiant $P(b_1',b_1,\dots, b_n)=0$ avec   $X$ et au moins l'un des $Y_i$ - disons $Y_1$ - qui apparaissent dans l'expression de $P$; en particulier, $b_1$ est algébrique sur $k(b_1',b_2,\dots, b_n)$. Considérons $\mathcal{B}'':=\lbrace b_1',b_2,\dots, b_n\rbrace$ (on a échangé $b_1$ et $b_1'$) et montrons que c'est encore une base de transcendance de $k\subset K$. En effet,  d'une part $K/k(\mathcal{B}'',b_1)$ et $k(\mathcal{B}'',b_1)/k(\mathcal{B}'')$ sont algébrique donc $K/k(\mathcal{B}'')$ est algébrique \ref{AlgExt} (2). D'autre par, s'il existait $P\in k[X,Y_2,\dots, Y_n]$ irréductible tel que $P(b_1',b_2,\dots, b_n)=0$, comme $ b_2,\dots, b_n$ sont algébriquement indépendants sur $k$, $X$  apparait dans l'expression de $P$ donc $b_1' $ est algébrique sur $k(b_2,\dots, b_n)$ et donc $b_1$ aussi: contradiction. On a donc deux bases de transcendance $\mathcal{B}'$ et $\mathcal{B}''$ de $k\subset K$ qui contiennent $b_1'$; on vérifie immédiatement sur la définition que $\mathcal{B}'\setminus \lbrace b_1'\rbrace$, $\mathcal{B}''\setminus \lbrace b_1'\rbrace$ sont alors des bases de transcendance de $k(b_1')\subset K$. Par hypothèse de récurrence, $m-1=n-1$.  \end{proof}
+
+
+  On dit que le cardinal d'une base de transcendance est le \textit{degré de transcendance}\index{Degré de transcendance (Extension de corps)} de $k\subset K$; on le notera $trdeg_k(K)$.\\
+
+  \textbf{Exemples.}
+ \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+ \item La première partie de la preuve montre que si $k\subset K$ est de type fini alors $trdeg_k(K)$ est fini et $\leq$ au nombre minimal de générateurs de $k\subset K$. Dans ce cas,  si on note $n:=trdeg_k(K)$ on a  $X_1,\dots, X_n\in K$ algébriquement indépendants sur $k$ tels que $K/k(X_1,\dots, X_n)$ est algébrique. Mais comme $K/k$ est de type fini,  $K/k(X_1,\dots, X_n)$ l'est \textit{a fortiori} donc, en fait, $K/k(X_1,\dots, X_n)$ est même finie.
+\item  Comme $\Q(X_1,\dots, X_n)$ est dénombrable et $\CC$ ne l'est pas, on voit par contre que $\CC/\Q$ est de degré de transcendance infini.
+\item On dit qu'une variété algébrique affine $V=V(I)\subset \CC^n$ est irréductible si $\CC[V]:=\CC[X_1,\dots, X_n]/\sqrt{I}$ est intègre. Dans ce cas, on peut introduire le corps des fractions $\CC(V)$ de $\CC[V]$ et définir la dimension  de la variété algébrique affine $V$ comme étant le degré de transcendance de $\CC(V)$ sur $\CC$. Par exemple, l'extension de corps $\CC[X,Y]/\langle Y^2-X^3-X-1\rangle/k$   est de degré de transcendance $1$ - donc $ V(Y^2-X^3-X-1)\subset \CC^2$ est une courbe - mais ce n'est pas une extension transcendante pure, ce qui se traduit par le fait qu'on ne peut pas donner une paramétrisation rationnelle de $ V(Y^2-X^3-X-1)$.
+ \end{enumerate}
+
+ \subsection{}\textbf{Lemme.} \textit{Soit $K_1\subset K_2\subset K_3$ des extensions de corps. On a}
+ $$trdeg_{K_1}(K_3)=trdeg_{K_1}(K_2)+trdeg_{K_2}(K_3).$$
+ \begin{proof} Si $\mathcal{E}_1$ est une base de transcendance de $K_1\subset K_2$ et $\mathcal{E}_2$ est une base de transcendance de $K_2\subset K_3$, il faut vérifier que $\mathcal{E}:=\mathcal{E}_1\cup \mathcal{E}_2$ est une base de transcendance de $K_1\subset K_3$. Les éléments de $\mathcal{E}$ sont clairement algébriquement indépendants sur $K_1$. Soit $x\in K_3$. Comme $\mathcal{E}_2$ est une base de transcendance de $K_2\subset K_3$, il existe un sous-ensemble fini $\mathcal{E}_{2,x}\subset \mathcal{E}_2$ et $P_x=T^d+\sum_{0\leq i\leq d-1}a_iT^i\in K_2(\mathcal{E}_{2,x})[T]$ tel que $\mathrm{ev}_x(P)=0$. En écrivant  $a_i=\frac{b_i}{c_i}$ avec $b_i ,c_i\in K_2[\mathcal{E}_{2,x}]$, on voit qu'il existe un sous-ensemble  fini $A_i\subset K_2$ tel que $a_i\in K_1(A_i)(\mathcal{E}_{2,x})$, $i=0,\dots, d-1$. On a donc $$[K_1(A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})(x):K_1(A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})]<+\infty.$$
+ Comme $\mathcal{E}_1$ est une base de transcendance de $K_1\subset K_2$, on a $[K_1(\mathcal{E}_1)(A_0,\dots, A_{d-1}):K_1(\mathcal{E}_1)]<+\infty$. On en déduit
+ $$\begin{tabular}[t]{l}
+ $[K_1(\mathcal{E}_1, \mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1, \mathcal{E}_{2,x})]$\\
+ $\leq  [K_1(\mathcal{E}_1,A_0,\dots, A_{d-1},\mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1, \mathcal{E}_{2,x})]$\\
+ $=[K_1(\mathcal{E}_1,A_0,\dots, A_{d-1},\mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1,A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})][K_1(\mathcal{E}_1,A_0,\dots, A_{d-1}, \mathcal{E}_{2,x}):K_1(\mathcal{E}_1, \mathcal{E}_{2,x})]$\\
+$=[K_1(\mathcal{E}_1,A_0,\dots, A_{d-1},\mathcal{E}_{2,x})(x):K_1(\mathcal{E}_1,A_0,\dots, A_{d-1}, \mathcal{E}_{2,x})][K_1( \mathcal{E}_{2,x},\mathcal{E}_1)(A_0,\dots, A_{d-1}):K_1( \mathcal{E}_{2,x},\mathcal{E}_1)] <+\infty.$
+ \end{tabular}$$
+   \end{proof}
+
+  \subsection{}\textbf{Lemme.} \textit{Soit $K/k$ une extension de corps. Si  $K$ est de type fini sur $k$ alors $[\overline{k}^K:k]<+\infty$.}
+\begin{proof} Si $\mathcal{B}=\lbrace b_1,\dots, b_n\rbrace $ est  une base de transcendance de $K/k$,   $K/k(\mathcal{B})$ est algébrique de type fini donc finie. Pour toute sous-extension $k\subset k'\subset K$ finie sur $k$ on a
+ $[k':k]= [k'(\mathcal{B}):k(\mathcal{B})]\leq [K:k(\mathcal{B})]<+\infty.$
+\end{proof}
+
+
+ On peut donc toujours décomposer une extension de corps $K/k$ en trois parties
+$$k\subset \overline{k}^K\subset \overline{k}^K(\mathcal{B})\subset K$$
+avec $ \overline{k}^K/k$ algébrique, $ \overline{k}^K(\mathcal{B})/ \overline{k}^K$ transcendante pure et $K/ \overline{k}^K(\mathcal{B})$ algébrique. Si, de plus, $K/k$ est de type fini alors $ \overline{k}^K/k$   et $K/ \overline{k}^K(\mathcal{B})$ sont finies et   $ \overline{k}^K(\mathcal{B})/ \overline{k}^K$ est de degré de transcendance finie. Les extensions de corps de type fini apparaissent naturellement en (et leur étude est motivée par) géométrie algébrique comme dans l'Exemple (3) de \ref{BaseTranscendance}. Il s'agit d'un sujet très vaste et encore largement ouvert. \\
+
+ Dans la suite du cours, nous allons nous intéresser au cas de degré de transcendance $0$, qui est déjà très riche  dès lors que le corps de base $k$ est suffisamment 'compliqué' (on verra   ce que compliqué veut dire plus loin...). Il s'agit donc de comprendre les variétés algébriques de dimension $0$ sur un corps $k$ \ie{} les solutions d'une equation polynômiale à une indéterminée et à coefficients dans $k$. Ce problème concret remonte au 19ème siècle. A cette époque, on savait déjà depuis longtemps résoudre par radicaux (\ie{} en n'utilisant que les opérations $+,-,\times, -/-,^n\sqrt{-}$) des équations de degré $\leq 4$ (les formules de Cardan en degré $3$ et Ferrari en degré 4 remontent au milieu du 16ème siècle) mais pas au-delà.  Ruffini et Abel, au tout début du 19ème siècle, ont annoncé  qu'il `n'existait pas de formule universelle pour résoudre une équation de degré donné $\geq 5$'. Mais c'est Galois, dans son \textit{Mémoire sur les conditions de résolubilité des équations par radicaux} (écrit en 1831; Galois avait $20$ ans et devait mourir tué en duel l'année d'après), qui a eu l'intuition prodigieuse pour l'époque de relier le problème de la résolubilité d'une équation polynomiale aux symétries de ses zéros. Plus précisément, si $P\in \Q[T]$ est de degré $n$ et se factorise en $n$ facteurs de degré $1$ distincts  (ce que l'on appelera un polynôme séparable) dans $\CC$
+$$P=a_n\prod_{1\leq i\leq n}(T-\alpha_i)\in \CC[T]$$
+ on peut considérer le groupe   $\mathcal{S}_n$ des permutations de $\lbrace \alpha_1,\dots, \alpha_n\rbrace$.  On peut alors attacher à $P$ un sous-groupe $G_P\subset \mathcal{S}_n$ qui reflète les symétries de $P$ (et qu'on appelle maintenant le groupe de Galois de $P$). Plus ce groupe est compliqué, plus les racines de $P$ seront difficiles à calculer. Par exemple, l'introduction du groupe $G_P$ permet de résoudre de façon limpide le problème de la résolution par radicaux: `l'équation $P(x)=0$ est résoluble par radicaux dans $\CC$ si et seulement si le groupe $G_P$ est résoluble (\ie{} si $D^nG_P=1$ pour $n\gg 0$ où les $D^nG_P$  sont  les sous-groupes de $G_P $ définis inductivement par $D^0G_P=G_P$, $D^1G_P=[G_P,G_P]$, $D^{n+1} G_P= [D^nG_P,D^nG_P]$)'. En particulier, puisque les groupes $\mathcal{S}_n$ ne sont pas résolubles pour $n\geq 5$ (et qu'il existe des polynômes $P\in \Q[T]$ de degré $n$ tels que $G_P=\mathcal{S}_n$ - c'est en fait le cas `générique'), il n'y a en effet aucune chance de trouver un formule universelle de résolution par radicaux des équations polynômiales de degrés $\geq 5$.\\
+
+ Mais encore faut-il pouvoir calculer ces groupes $G_P$. Sur des exemples simples, on peut deviner intuitivement ce à quoi ressemble ces groupes. Par exemple, les solutions de  $P=(T^2+1)(T^2-2)=0$ sont $\pm i$, $\pm \sqrt{2}$ et si on peut échanger $i$ avec $-i$ (ce sont les racines de $T^2+1$) et $\sqrt{2}$ avec $-\sqrt{2}$ (ce sont les racines de $T^2-2$), on ne peut pas échanger $i$ et $\sqrt{2}$. Dans ce cas, $G_P$ est le sous-groupe de $\mathcal{S}_4$ engendré par les transpositions $(1,2)$ et $(3,4)$ \ie{}  $\Z/2\times \Z/2$. Cependant, très vite  cette approche empirique ne suffit plus. La résolution conceptuelle du problème est donnée par ce qu'on appelle maintenant la correspondance de Galois. Dans le cas particulier considéré ici - $P\in \Q[T]$ est de degré $n$ et a $n$ zéros distincts $\alpha_1,\dots,\alpha_n$ dans  $\CC$ - $G_P$ est isomorphe au groupe $\S\SAut(K_P/\Q)$  des $\Q$-automorphismes de l'extension de corps $K_P:=\Q(\alpha_1,\dots,\alpha_n)/\Q$ et les sous-groupes    $H\subset \SAut(K_P/\Q)$ correspondent bijectivement aux  sous-extensions $\Q\subset L\subset K_P $ par $H\rightarrow K_P^H:=\lbrace x\in K_P\;|\; \sigma (x)=x;\; \sigma\in H\rbrace$ et $L\rightarrow \SAut(K_P/L)$. Par exemple,
+\begin{itemize}
+\item Pour $P=X^5+10X^3-10X^2+35X-18$, $G_P=\mathcal{A}_5$;
+\item Pour $P=X^5+10X^3-15$, $G_P=\mathcal{S}_5$.
+\end{itemize}
+
+
+
+
+
+

@@ -1,0 +1,438 @@
+ \chapter{Extensions algébriques}\textit{}\\
+
+  On rappelle que si $K/k$ est une extension de corps et $x\in K$, on note $\mathrm{ev}_x:k[X]\rightarrow K$ l'unique morphisme de $k$-algèbres qui envoie  $X$ sur $x$ et qu'on écrit en général $\mathrm{ev}_x(P)=:P(x)$, $P\in k[X]$.\\
+
+ \section{Corps algébriquement clos, clôture algébrique}Pour tout $P\in k[X]$ on dit que  $x\in K$ est une \textit{racine}\index{Racine (Polynôme)} de $P$ si $P(x)=0$ (\ie{} $P\in \ker(\mathrm{ev}_x)=k[X](X-1)$).
+
+
+  \subsection{}\label{AlgClos}\textbf{Lemme/définition.} \textit{Soit $ k$ un  corps. Les propriétés suivantes sont équivalentes.
+ \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Tout $P\in k[X]\setminus k$ admet une racine sur $k$;
+\item Les éléments irréductibles de $k[X]$ sont de degré $1$;
+\item La seule extension algébrique $k\subset K$ est $k=K$. \\
+\end{enumerate}}
+
+ Un corps $k$ qui vérifie les propriétés équivalentes du Lemme \ref{AlgClos} est dit \textit{algébriquement clos}\index{Algébriquement clos (Corps)}. \\
+
+\textbf{Exemple.}
+\begin{enumerate}
+\item $\CC$ est algébriquement clos. \\
+
+
+ Utilisons la caractérisation (1). Soit $P=X^n+a_{n-1}X^{n-1}+\dots+a_0\in \CC[X]$.  Dire que $P$ a une racine dans $\CC$ revient à dire que la fonction  continue $x\rightarrow |P(x)|$ atteint son minimum sur $\CC$ et que celui-ci vaut $0$. Observons déjà qu'elle atteint bien son minimum. En effet,   puisque  $\displaystyle{\lim_{|x|\rightarrow +\infty}|P(x)|}=+\infty$, il existe $R>0$ tel que $|x|>r$ implique $|P(x)|>|a_0|=|P(0)|$ donc  la fonction continue $x\rightarrow |P(x)|$ atteint son minimum   sur le compact $B(0,R):=\lbrace x\in \CC\; |\; |x|\leq R\rbrace $ (et ce minimum est $\leq |a_0|$). Quitte à faire un changement de variable de la forme $X\rightarrow X-x$, on peut supposer que $x\rightarrow |P(x)|$ atteint son minimum en $0$ donc que ce minimum vaut $|a_0|$. Si $a_0=0$, on a gagné. Sinon, quitte à remplacer $P$ par $a_0^{-1}P$, on peut supposer que $a_0=1$. Soit $v$ le plus petit entier $\geq 1$ tel que $a_v\not= 0$. Écrivons $a_v=-|a_v|\exp(-iv\theta)$. On a alors $P(r\exp(i\theta))=1-|a_v|r^v+ O_0(r^{v+1}) $ donc, lorsque $x\rightarrow 0$, on a $|P(0)|\leq 1-|a_v|r^v+ O_0(r^{v+1})<1$: contradiction. \\
+\item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K\subset  K$ est un corps algébriquement clos. En effet, on sait déjà que $  \overline{k}^K$ un corps. De plus, comme $K$ est algébriquement clos,  tout $P\in  \overline{k}[T]\setminus k (\subset K[T]\setminus K)$ admet une racine $x\in K$. Mais par construction $x$ est algébrique sur $\overline{k}^K$ et comme $\overline{k}^K$ est par définition algébrique sur $k$, $x$ est algébrique sur $k$ \ie{} $x\in \overline{k}^K$.
+\end{enumerate}
+\subsection{}\label{CloAlgDef} Soit $k$ un corps, une \textit{clôture algébrique}\index{Clôture algébrique (Extension de corps)} de $k$ est une extension algébrique $  \overline{k}/k$ avec $ \overline{k}$ algébriquement clos. Il résulte immédiatement de la définition que si $  \overline{k}/k$ est une clôture algébrique alors pour toute sous extension $K/k$ de $\overline{k}/k$, $\overline{k}/K$ est  une côture algébrique de $K$.\\
+
+\textbf{Exemple.}
+\begin{enumerate}
+\item  $\R\subset \CC$ est une clôture algébrique de $\R$. \\
+\item Soit $K/k$ une extension de corps avec $K$ algébriquement clos. Alors $  \overline{k}^K/k $ est une clôture algébrique de $k$. Par exemple,   $ \overline{\Q}^\CC/\Q $ est une clôture algébrique de $\Q$.
+\end{enumerate}
+
+ L'objectif des deux paragraphes suivants est de démontrer la\\
+
+\subsection{}\label{CloAlgExUni}\textbf{Proposition.} \textit{Tout corps $k$ possède une clôture algébrique $\overline{k}/k$, qui est unique à isomorphisme (non unique!) près.  }
+
+
+
+\subsection{}\textbf{Unicité à isomorphisme près de la clôture  algébrique.}\\
+
+\paragraph{}\label{MonoPlonge}Si $K/k$ est une extension de corps et $P\in k[X]$, on notera $$Z_K(P):=\lbrace x\in K\; |\;  P(x)=0\rbrace\subset K$$
+l'ensemble des racines de $P$ dans $K$. Supposons de plus que $P$ est irréductible sur $k$. Pour tout $x\in Z_K(P)$, $\mathrm{ev}_x:k[T]\rightarrow K$ induit un $k$-plongement $\overline{ev}_x :k[T]/P\rightarrow K$. Inversement, pour tout $k$-pongement $\phi:k[T]/P\rightarrow K$, $x:=\phi(\overline{T})\in Z_K(P)$ et $\phi=\overline{ev}_x$. On a donc montré  \\
+
+
+ \textbf{Lemme.} \textit{Soit $k$ un corps et $P\in k[X]$ un polynôme irréductible. Pour toute extension $K/k$ l'application $\phi\rightarrow \phi(\overline{T})$ induit une bijection
+$$\SHom_{Alg/k}(k[T]/P,K)\tilde{\rightarrow} Z_K(P)$$
+d'inverse $x\rightarrow \overline{ev}_x$.}\\
+
+  Autrement dit, et c'est là l'idée clef de la théorie de Galois, les racines distinctes d'un polynôme irréductible $P\in k[T]$ dans une extension $K/k$  correspondent bijectivement aux $k$-plongement $k[T]/P\rightarrow K$.\\
+
+
+
+
+\paragraph{}\label{CloAlgPlonge}[Utilise le Lemme de Zorn] \textbf{Lemme.} \textit{Soit $k$ un corps et $  \overline{k}/k$ une clôture algébrique de $k$. Alors pour  toute extension algébrique $  K/k $ il existe un $k$-plongement $K \rightarrow \overline{k} $.}
+\begin{proof}  Considérons l'ensemble $\mathcal{E}$ des couples $(K',\phi)$, où $k\subset K'\subset K$ est une sous-extension et $\phi:K'\rightarrow \overline{k}$ un $k$-plongement. On munit $\mathcal{E}$ de la relation d'ordre partiel $(K'_1,\phi_1)\leq (K'_2,\phi_2))$ si  $ K_1'\subset K_2'$ et $\phi_2|_{K_1'}=\phi_1$. L'ensemble $\mathcal{E}$ est non vide   puisqu'il contient $(k,k\subset \overline{k})$ et $(\mathcal{E},\leq)$ est ordonné inductif. Par le Lemme de Zorn, il contient donc un élément maximal $(K',\phi)$. Mais si $K'\subsetneq K$, en appliquant \ref{MonoPlonge} à l'extension $\phi:K'\rightarrow \overline{k}$ (qui est une clôture algébrique de $K'$) et à $x\in K\setminus K'$, on construit un $K'$-plongement $\iota:K'(x)\rightarrow \overline{k}$. Par construction $(K',\phi)\leq (K'(x),\iota\circ \phi)$, ce qui contredit la maximalité de $(K',\phi)$. \end{proof}
+
+\paragraph{}\label{CloAlgUni}\textbf{Lemme.} \textit{Soit $K_1/k$, $K_2/k$ deux  clôtures algébriques de $k$. Alors $Hom_{Alg/k}(K_1,K_2)=\SAut_{Alg/k}(K_1,K_2)$}
+
+\begin{proof} Soit $\phi:K_1/k\rightarrow K_2/k$ un $k$-plongement; il faut montrer qu'il est surjectif. Mais d'une part $ \phi(K_1)$ est   algébriquement clos et, d'autre part, $K_2/\phi(K_1)$ est une extension  algébrique puisque c'est une sous-extension de $K_2/k$. Donc  on a forcément $\phi(K_1)=K_2$. \end{proof}
+
+
+
+ \textbf{Corollaire.} \textit{Les clôtures algébriques de $k$ sont toutes $k$-isomorphes.}
+
+\begin{proof}Soit $K_1/k$, $K_2/k$ deux  clôtures algébriques de $k$. Par \ref{CloAlgPlonge}, il existe un   $k$-plongement $\phi:K_1 \rightarrow K_2 $. Par le lemme précédent, c'est un isomorphisme.   \end{proof}
+
+\subsection{}\textbf{Existence de la clôture  algébrique.}\\
+
+\paragraph{}\label{CorpsInductive}\textbf{Lemme.} (Limite inductive de corps) \textit{Soit $k_0\stackrel{\phi_0}{\rightarrow} k_1\stackrel{\phi_1}{\rightarrow} k_2\stackrel{\phi_2}{\rightarrow}\cdots$ une suite de morphismes de corps. Il existe un corps $k_\infty$ et une suite de morphismes de corps $i_n:k_n\rightarrow k_\infty$, $n\geq 0$ tels que  $i_{n+1}\circ \phi_n= i_n$, $n\geq 0$  pour tout corps $K$ et toute   suite de morphismes de corps $j_n:k_n\rightarrow K$, $n\geq 0$ tels que $j_{n+1}\circ \phi_n = j_n$, $n\geq 0$ on a un unique morphisme de corps $j:k_\infty\rightarrow K$ tel que $j\circ i_n=j_n$, $n\geq 0$.}
+\begin{proof}On commence par faire la construction en oubliant les structures de produit.  Considérons donc la somme directe $\iota_n:k_n\rightarrow \Sigma:=\oplus_{n\geq 0}k_n$ des $k_0$-modules $k_n$, $n\geq 0$ et le sous-$k_0$-module $R$ engendré par les éléments de la forme
+$$\iota_{n+1}\circ \phi_n(x_n)-\iota_n(x_n),\; x_n\in k_n,\; n\geq 0.$$
+Posons $k_\infty:=\Sigma/R$ et $$i_n:k_n\stackrel{\iota_n}{\rightarrow} \Sigma\stackrel{p_R}{\twoheadrightarrow} k_\infty,\; n\geq 0.$$
+Observons que
+\begin{enumerate}
+\item $k_\infty=\cup_{n\geq 0}i_n(k_n)$: cela résulte des relations $\iota_n(x_n)=\iota_{n+1}\circ \phi_n(x_n)+\iota_n(x_n)-\iota_{n+1}\circ \phi_n(x_n)\in \iota_{n+1}\circ \phi_n(x_n)+R$, qui montrent que $i_n(k_n)\subset i_{n+1}(k_{n+1})$, $n\geq 0$.
+\item Pour tout  $n\geq 0$, $\ker(i_n)=\lbrace 0\rbrace$: Tout  $0\not= x\in  R$ s'écrit sous la forme
+$$x=\sum_{1\leq i\leq r} \iota_{n_i+1}\circ \phi_{n_i}(x_{n_i})-\iota_{n_i}(x_{n_i})$$
+avec $0\not=x_{n_i}\in k_{n_i}$, $i=1,\dots, r$ et $n_1<n_2<\dots<n_r$. En particulier, la $n_1$-ième composant de $x$ vaut $-x_{n_1}$ et la $n_r+1$-ième vaut $-\phi_{n_r}(x_{n_r})$. Comme $\phi_{n_r}$ est injective, on en déduit que $ x$ a au moins deux composantes non nulles. En particulier, $\iota_n(k_n)\cap R= 0$.
+\item Produit sur $k_\infty$: On a donc des carrés commutatifs $$\xymatrix{k_{n+1}\ar[r]^\simeq_{i_{n+1}}&i_{n+1}(k_{n+1})\\
+k_n \ar[r]^\simeq_{i_n}\ar[u]^{\phi_n}&i_n(k_n)\ar[u]_{\cup}}$$
+ar (1), pour tout $x,y\in k_\infty$, on peut choisir $n\geq 0$ tel que $x,y\in i_n(k_n)$ et par (2), $xy=i_n(i_n^{-1}(x)i_n^{-1}(y))$. Cette définition est indépendante du choix de $n$ car la commutativité du diagramme ci-dessus et le fait que $\phi_n:k_n\rightarrow k_{n+1}$ est un morphisme de corps montrent que
+$$i_{n+1}(i_{n+1}^{-1}(x)i_{n+1}^{-1}(y))=i_{n+1}(\phi_n(i_n^{-1}(x))\phi_n(i_n^{-1}(x)))=i_{n+1}(\phi_n(i_n^{-1}(x) i_n^{-1}(x)))=i_n(i_n^{-1}(x)i_n^{-1}(y)). $$
+Enfin, on vérifie facilement qu'avec cette loi, $k_\infty$ est un corps et que   $i_n:k_n\rightarrow k_\infty$ est un morphisme  de corps, $n\geq 0$.
+\end{enumerate}
+ Il reste à vérifier que les morphismes de corps $i_n:k_n\rightarrow k_\infty$, $n\geq 0$ ainsi construits vérifient bien la propriété universelle de l'énoncé. Si  $j:k_\infty\rightarrow K$ existe, les conditions $j\circ i_n=j_n$, $n\geq 0$ impose que $j(\overline{(x_n)}_{n\geq 0})=\sum_{n\geq 0}j_n(x_n) $, d'où l'unicité de $j:k_\infty\rightarrow K$ sous réserve de son existence. Par propriété universelle de la somme directe, il existe un unique morphisme de $k_0$-modules $\Sigma \rightarrow K$, $(x_n)_{n\geq 0}\rightarrow \sum_{n\geq 0}j_n(x_n) $ et les conditions $j_{n+1}\circ \phi_n = j_n$, $n\geq 0$ montrent que $R$ est contenu dans le noyau de ce morphisme donc qu'il passe au quotient en un morphisme de $k_0$-module $j:k_\infty\rightarrow K$ tel que $j(\overline{(x_n)}_{n\geq 0})=\sum_{n\geq 0}j_n(x_n) $. Par construction, $j\circ i_n(x_n)=j_n(x_n)$, $n\geq 0$ et on vérifie sur les définitions que $j:k_\infty\rightarrow K$
+ est bien un morphisme de corps.\end{proof}
+
+  Comme d'habitude les $i_n:k_n\rightarrow k_\infty(=:\displaystyle{\lim_{\longrightarrow}k_n})$, $n\geq 0$ sont uniques à unique isomorphisme près et on dit que c'est la limite inductive (ou la limite directe ou simplement la limite) des $k_0\stackrel{\phi_0}{\rightarrow} k_1\stackrel{\phi_1}{\rightarrow} k_2\stackrel{\phi_2}{\rightarrow}\cdots$.\\
+
+ On peut réécrire \ref{CorpsInductive} en disant que l'application canonique
+$$\SHom(k_\infty,K)\rightarrow \lbrace (j_n)_{n\geq 0}\in \prod_{n\geq 0}\SHom(k_n,K)\; |\; j_{n+1}\circ \phi_n=j_n,\; n\geq 0\rbrace,\; j\rightarrow (j\circ i_n)_{n\geq 0}$$
+est bijective ou encore, plus visuellement,
+$$\xymatrix{k_{n+1} \ar[dr]^{i_{n+1}}\ar@/^1pc/[drr]^{j_{n+1}}&& \\
+&k_\infty\ar@{.>}[r]^{\exists ! j}&K\\
+k_n\ar[uu]^{\phi_n}\ar[ur]_{i_n}\ar@/_1pc/[urr]_{j_n}&& }$$
+
+\paragraph{}\label{CorpsInductiveAlgClos}\textbf{Lemme.}   \textit{Avec les notations de \ref{CorpsInductive}, supposons de plus que pour tout $n\geq 0$ et $P_n\in k_n[X]\setminus k_n$, $\phi_n(P_n)\in k_{n+1}[X]$ a une racine dans $k_{n+1}$. Alors $k_\infty$ est algébriquement clos.}
+\begin{proof}Soit $P\in k_\infty[X]\setminus k_\infty$. Comme $k_\infty=\cup_{n\geq 0}i_n(k_n)$ il existe $n\geq 0$ tel que $P\in  i_n(k_n)[X]\setminus k_n$. Mais par hypothèse $\phi_n\circ i_n^{-1}(P)\in k_{n+1}[X] $ a une racine $x_{n+1}\in k_{n+1}$ donc $i_{n+1}(x_{n+1}) \in i_{n+1}(k_{n+1})\subset k_\infty$ est une racine de $i_{n+1}\circ \phi_n\circ i_n^{-1}(P)=P$.\end{proof}
+
+\paragraph{}\label{Contient}[Utilise le Lemme de Zorn] \textbf{Lemme.}   \textit{Pour tout corps $k$ il existe une extension algébrique $K/k$ telle que tout $P\in k[X]\setminus k$ possède une racine dans $K$.}
+\begin{proof} Observons d'abord que si $P\in k[T]\setminus k$, il existe toujours une extension finie $K_P/k$ telle que   $P $ possède une racine dans $K$. En effet, il suffit de considérer l'extension $k\rightarrow K_P:=k[X]/Q$ pour $Q\in k[X]$ un diviseur irréductible unitaire de $P$. En appliquant inductivement ce procédé, pour tout $P_1,\dots, P_r\in k[X]\setminus k$, on peut toujours construire une extension finie $K_{P_1,\dots,P_r}/k$ telle que $P_i$ possède une racine dans $K_{P_1,\dots, P_r}$, $i=1,\dots, r$. En utilisant  \ref{CorpsInductive}, on peut encore étendre cette construction à une suite $(P_n)_{n\geq 0}$ éléments  de $k[X]\setminus k$. Mais  $k[X]\setminus k$ n'est en général pas dénombrable et il faut un peu adapter ces observations.Considérons la $k$-algèbre de  polynômes  $k\rightarrow k[X_P, \; P\in k[X]\setminus k]$ et l'idéal $I\subset  k[X_P, \; P\in k[X]\setminus k]$ engendré par les $P(X_P)$, $P\in \mathcal{P}$. Vérifions d'abord que $I\subsetneq k[X_P, \; P\in k[X]\setminus k]$. Sinon on pourrait écrire $$(*)\;\;1=\sum_{1\leq i\leq r} F_iP_i(X_{P_i})$$ avec $F_i\in k[X_P, \; P\in k[X]\setminus k]$, $i=1,\dots, r$. Chaque $F_i$ ne fait intervenir qu'un sous-ensemble fini   $\mathcal{F}\subset k[X]\setminus k$ et quitte à agrandir $\mathcal{F}$, on peut supposer que $P_1,\dots, P_r\in \mathcal{F}$. On peut donc réécrire la relation précédente sous la forme
+$$(*)\;\; 1=\sum_{P\in\mathcal{F}}F_P P(X_P)$$ avec $F_P\in k[X_Q,\; Q\in \mathcal{F}]$, $P\in \mathcal{F}$.  D'après nos observations préliminaires, il existe une extension finie $K_\mathcal{F}/k$ tel que $P$ possède une racine $x_p\in K_\mathcal{F}$, $P\in \mathcal{F}$. En évaluant $(*)$ en les $x_P$, $P\in \mathcal{F}$, on obtient donc $1=0$. Cela montre que $I\subsetneq  k[X_P, \; P\in k[X]\setminus k]$ donc est contenu dans un idéal maximal $\frak{m}\subset k[X_P, \; P\in k[X]\setminus k]$. Cela nous donne une  extension $k\rightarrow k[X_P, \; P\in k[X]\setminus k]/\frak{m}:=\Omega$ tel que  tout $P\in k[X]\setminus k$ a une racine $ x_P\in \Omega$. De plus, $\Omega$ est engendrée comme extension de $k$ par les $x_P$, $P\in k[X]\setminus k$ donc est algébrique sur $k$.\end{proof}
+
+
+
+\paragraph{}\label{AlgCloExist} \textbf{Proposition.} \textit{Tout corps $k$ admet une clôture algébrique.}
+\begin{proof} Notons $k_0:=k$. D'après \ref{Contient},  il existe une extension $k_1/k$  algébrique sur $k$ et tel que tout $P\in k_0[T]\setminus k_0$ possède une racine dans $k_0$.   En itérant le procédé, on construit une suite de morphisme corps     $k_0\stackrel{\phi_0}{\rightarrow} k_1\stackrel{\phi_1}{\rightarrow} k_2\stackrel{\phi_2}{\rightarrow}\cdots$  telle que pour tout $n\geq 0$ et $P_n\in k_n[X]\setminus k_n$, $\phi_n(P_n)\in k_{n+1}[X]$ a une racine dans $k_{n+1}$. Par \ref{CorpsInductive} et \ref{CorpsInductiveAlgClos},  $ k_\infty/k$ est algébriquement clos.  On peut donc prendre $  \overline{k}:=\overline{k}^{k_\infty}$ (\textit{cf.} \ref{CloAlgDef}).   \end{proof}
+
+
+
+ \section{Automorphismes, Corps de décomposition, extensions normales}\textit{}
+
+ \subsection{}\label{NormalePrel}Pour une extension de corps $K/k$ on notera $\SAut(K/k):=\SAut_{Alg/k}(K)$ le groupe des automorphismes de la $k$-algèbre $k\rightarrow K$. Si $K_1/k$, $K_2/k$ sont deux extensions de corps tout $k$-isomorphisme $\phi:K_1\tilde{\rightarrow }K_2$    induit un isomorphisme de groupes
+ $$\SAut_{Alg/k}(K_1)\tilde{\rightarrow} \SAut_{Alg/k}(K_2),\; \sigma\rightarrow \phi\circ \sigma\circ \phi^{-1}.$$
+ En particulier, si $\overline{k}/k$, $\overline{k}'/k$ sont deux clôtures algébriques de $k$, on sait qu'il existe toujours un $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow }\overline{k}'$  donc que $\SAut(\overline{k}/k)$ ne dépend pas - à isomorphisme près - du choix de la clôture algébrique $\overline{k}/k$.\\
+
+   \textbf{Exemple.} $\CC=\R[T]/T^2+1$. Notons $\overline{T}:= i$.  On a $\SAut(\CC/\R)=\SHom_{Alg/\R}(\R[T]/T^2+1,\CC)=\lbrace \overline{ev}_{i}=\Id, \overline{ev}_{-i}=\overline{-}\rbrace$. \\
+
+  Si $\phi:K_1\tilde{\rightarrow} K_2$ est un isomorphisme de corps, la propriété universelle de $c_1:K_1\rightarrow K_1[T]$ appliquée à la $K_1$-algèbre $K_1\stackrel{\phi}{\rightarrow} K_2\stackrel{c_2}{\rightarrow}  K_2[T]$ donne un unique isomorphisme de $K$-algèbres
+ $\phi:K_1[T]\rightarrow K_2[T]$ tel que $\phi\circ c_1=c_2\circ \phi$ (ici, $c_i:K_i\rightarrow K_i[T]$, $i=1,2$ sont les morphismes canoniques). Explicitement $\phi(\sum_{n\geq 0}a_nT^n)=\sum_{n\geq 0}\phi(a_n)T^n$. Par construction, pour tout $x_1\in K_1$ on a
+ $$\phi\circ ev_{x_1}=ev_{\phi(x_1)}\circ \phi:K_1[T]\rightarrow K_2[T].$$
+ En particulier, $\phi:K_1\tilde{\rightarrow }K_2$  se restreint en une bijection
+ $$\phi:Z_{K_1}(P)\tilde{\rightarrow} Z_{K_2}(\phi(P)).$$
+ Dans le cas particulier où $K_1=K_2=K/k$, $\phi\in \SAut(K/k)$ et
+ $P\in k[T]$, $\phi P=P$, $\phi\in \SAut(K/k)$ induit une perm
+ utation $\phi: Z_K(P)\tilde{\rightarrow} Z_K(P)$. En d'autres termes, $ \SAut(K/k)$ agit sur $ Z_K(P)$ \ie{} on a un morphisme de groupes
+ $$\SAut(K/k)\rightarrow \mathcal{S}(Z_K(P)).$$
+ On peut notamment appliquer cette observation à $K/k=\overline{k}/k$ une clôture algébrique de $k$.
+
+ \subsection{}\textbf{Sous-extensions normales de $\overline{k}/k$.}
+
+
+ \paragraph{}\label{Normale1}\textbf{Lemme.} \textit{Soit $K/k$ une extension algébrique et $\phi_1,\phi_2:K\rightarrow \overline{k}$ deux $k$-plongements. Il existe $\sigma\in  \SAut(\overline{k}/k)$ tel que $\sigma\circ \phi_1=\phi_2$.}
+ \begin{proof} C'est un cas particulier de \ref{CloAlgPlonge}. En effet, comme $\phi_1:K\rightarrow\overline{k}$ est une extension algébrique et $\phi_2:K\rightarrow \overline{k}$ est une clôture algébrique de $K$,  il existe un $K$-plongement $\sigma:\overline{k} \rightarrow \overline{k} $, qui est automatiquement un $K$-automorphisme. Comme à gauche l'extension $\overline{k}/K$ est donnée par $\phi_1 :K\rightarrow \overline{k}$ et à droite est donnée par $ \phi_2:K\rightarrow \overline{k}$, dire que  $\sigma:\overline{k} \rightarrow \overline{k} $ est un $k$-plongement signifie bien que $\sigma\circ \phi_1=\phi_2$.  \end{proof}
+
+  \paragraph{}\label{Normale2}On rappelle que si $x\in\overline{k}$, on note  $P_x\in k[T]$ le polynôme minimal de $x$ sur $k$.\\
+
+  \textbf{Lemme.} \textit{Pour tout $x,y\in\overline{k}$ les propriétés suivantes sont équivalentes.
+ \begin{enumerate}
+\item  Il existe $\sigma\in  \SAut(\overline{k}/k)$ tel que $\sigma(x)=y$;
+\item $P_x=P_y$.
+\end{enumerate}}
+ \begin{proof}   (1) $\Rightarrow $ (2) D'après \ref{NormalePrel}, $y=\sigma(x) \in Z_{\overline{k}}(P_x)$ donc $P_y|P_x$ dans $k[T]$. Mais comme $P_x$ est irréductible  sur $k$ on a nécessairement $P_x=P_y$.\\
+ (2) $\Rightarrow$ (1) Notons $P:=P_x=P_y\in k[T]$. On dispose de deux $k$-plongements $\overline{ev}_x:k[T]/P\rightarrow \overline{k}$, $\overline{T}\rightarrow x$,  $\overline{ev}_y:k[T]/P\rightarrow \overline{k}$, $\overline{T}\rightarrow y$ donc, d'après \ref{Normale1}, il existe $\sigma\in  \SAut(\overline{k}/k)$ tel que $\sigma\circ \overline{ev}_x=\overline{ev}_y$. En particulier $\sigma(x)=\sigma ( \overline{ev}_x(\overline{T}))=\overline{ev}_y(\overline{T})=y$.\end{proof}
+
+
+ On dit que deux éléments $x,y\in \overline{k}$ qui vérifient les propriétés   équivalentes du lemme \ref{Normale2}  sont conjugués sur $k$. Si $x\in \overline{k}$ les conjugués de $x$ sur $k$ sont donc les éléments de
+$$(*)\;\; \mathcal{C}_k(x):=\lbrace \sigma(x)\; |\; \sigma\in \SAut(\overline{k}/k)\rbrace =Z_{\overline{k}}(P_x).$$\\
+
+
+\textbf{Exemple.}\begin{enumerate}
+\item  $  \CC/\R$: les conjugués sur $\R$ de $z\in \CC$ sont $z$ et $\overline{z}$.    \\
+\item $\overline{\Q}/\Q$: les conjugués sur $Q$ de $^3\sqrt{5}$  sont $^3\sqrt{5}$, $j^3\sqrt{5}$, $j^2\;^3\sqrt{5}$ (où $j$ est une racine de $T^2+T+1$ \ie{} une racine primitive $3$ième de l'unité).
+\end{enumerate}
+
+ \paragraph{}\label{Normale3} \textbf{Lemme.} \textit{Soit $k\subset K\subset \overline{k}$ une sous-extension. Les propriétés suivantes sont équivalentes.
+ \begin{enumerate}
+\item  Pour tout $\sigma\in  \SAut(\overline{k}/k)$, $\sigma(K)\subset K$
+\item Pour tout $x\in K$, $Z_K(P_x)=Z_{\overline{k}}(P_x)$ (\ie{} toutes les racines de $P_x$ dans $\overline{k}$ sont contenues dans $K$).
+\end{enumerate}}
+ \begin{proof} (1) $\Rightarrow $ (2)  Cela résulte immédiatement de $(*)$.   (2) $\Rightarrow$ (1) Toujours  d'après $(*)$, pour tout $\sigma\in  \SAut(\overline{k}/k)$ et   tout $x\in K$, $\sigma(x)\in Z_{\overline{k}}(P_x)$ or, par (2) $Z_{\overline{k}}(P_x)=Z_K(P_x)\subset K$. \end{proof}
+
+
+ On dit qu'une sous-extension $k\subset K\subset \overline{k}$ qui  vérifie les propriétés   équivalentes du lemme \ref{Normale3} est une \textit{sous-extension normale}  \index{Normale (Sous-extension)} de $\overline{k}/k$.\\
+
+ \paragraph{}\label{Normale4}\textbf{Corollaire.} \textit{Soit $k\subset K\subset \overline{k}$ une sous-extension normale de   $\overline{k}/k$. Le morphisme de restriction
+ $$\SAut(\overline{k}/k)\rightarrow \SAut(K/k),\; \sigma\rightarrow \sigma|_K$$
+ est un morphisme de groupes bien défini, surjectif et de noyaux $\SAut(\overline{k}/K)$.}
+ \begin{proof}Le fait que $\sigma\rightarrow \sigma|_K$ est bien défini résulte de \ref{Normale3}; c'est alors automatiquement un morphisme de groupes. Soit $\sigma\in \SAut(K/k)$ et notons $\phi:K\rightarrow \overline{k}$ le $k$-plongement définissant $\overline{k}/K$. On dispose donc de deux $k$-plongements $\phi,\phi\circ \sigma:K\rightarrow \overline{k}$ donc, d'après \ref{Normale1}, il existe $\tilde{\sigma}\in \SAut(\overline{k}/k)$ tel que $\tilde{\sigma}\circ \phi=\phi\circ \sigma$. Cela montre la surjectivité. On a immédiatement   $\SAut(\overline{k}/K)=\ker( \sigma\rightarrow \sigma|_K)$. \end{proof}
+
+  La terminologie `normale' vient du fait que le sous-groupe $\SAut(\overline{k}/k)\subset \SAut(\overline{k}/k)$ est normal.  \\
+
+ \textbf{Exemple.}
+ \begin{itemize}
+ \item Toute sous-extension $k\subset K\subset \overline{k}$ de degré $2$ est normale.
+\item  La sous-extension $\Q(^3\sqrt{5})/\Q$ de $\overline{\Q}/\Q$ (de degré $3$) n'est pas normale puisqu'elle ne contient pas $j^3\sqrt{5}$, $j^2 \;^3\sqrt{5}$. Par contre la sous-extension $\Q(^3\sqrt{5}, j^3\sqrt{5})/\Q=\Q(^3\sqrt{5}, j)/\Q$ de $\overline{\Q}/\Q$ (de degré $6$)  est normale.
+\end{itemize}
+ \subsection{}\textbf{Extensions normales, corps de décomposition.}\\
+
+  \paragraph{}\label{Normale5}Si $k$ est un corps et $K/k$ une extension de corps, on dit qu'un polynôme $P\in k[T]$ est totalement décomposé sur $K$ si tous ses facteurs irréductibles dans $ K[T]$ sont de degré $1$ \ie{} $P$ s'écrit sous la forme
+  $$P=a\prod_{1\leq i\leq n}(T-\alpha_i)$$
+  avec $a\in k$, $\alpha_1,\dots, \alpha_n \in k$.\\
+
+     Observons que si $P\in k[T]$ est totalement décomposé sur $K$, pour toute extension de corps $K'/k$ et $k$-plongement $\phi:K\rightarrow K'$, $P\in k[T]$ est encore totalement décomposé sur $K'$ puisque, en utilisant que  $\phi:K[T]\tilde{\rightarrow} K[T]$  est un automorphisme de $k$-algèbre,
+  $$\phi P=P=\phi(a\prod_{1\leq i\leq n}(T-\alpha_i))= a \prod_{1\leq i\leq n}(T-\phi(\alpha_i)). $$
+ En particulie, on a  $\phi (Z_K(P))=Z_{\phi(K)}(P)=Z_{K'}(P)$.\\
+
+   \textbf{Lemme.} \textit{Soit $K/k$ une extension algébrique. Les propriétés suivantes sont équivalentes.
+ \begin{enumerate}
+\item  Pour tout $x\in K$, $P_x\in k[T]$ est totalement décomposé sur $K$;
+\item Si $\overline{k}/k$ est une clôture algébrique et $\phi_1,\phi_2:K\rightarrow \overline{k}$ sont deux $k$-plongements, $\phi_1(K)=\phi_2(K)$;
+\item  Si $\overline{k}/k$ est une clôture algébrique et $\phi:K\rightarrow \overline{k}$ un $k$-plongement, $k\subset \phi(K)\subset \overline{k}$ est une sous-extension normale de $\overline{k}/k$.
+\end{enumerate}}
+ \begin{proof} (1) $\Rightarrow$ (2) D'après l'observation ci-dessus appliquée à un $k$-plongement $\phi :K\rightarrow \overline{k}$, pour tout $x\in K$, $\phi (x)\in \phi_i(Z_K(P_x))=Z_{\overline{k}}(P_x)=Z_{\phi (K)}(P_x)\subset \phi (K)$. Autrement dit
+ $$\phi (K)=\cup_{x\in K}Z_{\overline{k}}(P_x)$$
+ est indépendant du $k$-plongement $\phi :K\rightarrow \overline{k}$.
+  (2) $\Rightarrow$ (3) Pour tout  $\sigma\in  \SAut(\overline{k}/k)$, $\sigma\circ \phi:K\rightarrow \overline{k}$ est un autre $k$-plongement donc par (2) $\sigma(\phi(K))=\phi(K)$ et on utilise la caractérisation (1) de \ref{Normale3}.\\
+    (3) $\Rightarrow$ (1) Par \ref{CloAlgPlonge}, il existe un $k$-plongement $\phi:K\rightarrow \overline{k}$. Par (3) et \ref{Normale3} (2), pour tout $x\in K$, $P_{\phi(x)}=\phi(P_x)=P_x\in k[T]$ est totalement décomposé sur $\phi(K)$ donc $P_x$ est totalement décomposé sur $K$.  \end{proof}
+
+
+ On dit qu'une  extension $ K/k $ qui  vérifie les propriétés   équivalentes du lemme \ref{Normale5} est une \textit{extension normale}\index{Normale (Extension)}.\\
+
+\textbf{Remarque.} On peut reformuler (1) en (1)' pour tout $P\in k[T]$  irréductible si $P$  a une racine dans $K$ alors $P$ est totalement décomposé sur $K$ et (2) en (2)' Si   $\phi :K\rightarrow K'$ est un $k$-plongement alors $\phi(K)\subset K'$ est la sous-extension de $K'/k$ engendrée par les $Z_{K'}(P_x)$, $x\in K$ (et est, en particulier, indépendante du $k$-plongement $\phi :K\rightarrow K'$).\\
+
+  \textbf{Exemple.}
+   \begin{itemize}
+ \item Toute  extension $K/k$ de degré $2$ est normale.
+\item  L'extension $\Q(^3\sqrt{5})\simeq \Q[T]/T^3-5/\Q$  (de degré $3$) n'est pas normale. Par contre    $\Q(^3\sqrt{5}, j^3\sqrt{5})/\Q\simeq\Q(^3\sqrt{5})[T]/\langle T^2+T+1\rangle\simeq \Q[X,T]/\langle X^3-5, T^2+T+1\rangle /\Q  $  (de degré $6$)  est normale.  \\
+
+\end{itemize}
+
+  \textbf{Contre-exemple.} On prendra garde que la propriété d'être normale se comporte mal par transitivié. Plus précisément, si $K_3/K_2$ et $K_2/K_1$ sont deux extensions de corps,
+  \begin{itemize}
+  \item il n'est pas vrai en général que si $K_3/K_2$ et $K_2/K_1$ sont normales alors $K_3/K_1$ est normale (contre-exemple: $\Q(^4\sqrt{2})/\Q(\sqrt{2})$ et $\Q(\sqrt{2})/\Q$ sont normales mais $\Q(^4\sqrt{2})/\Q$ ne l'est pas);
+  \item  il n'est pas vrai non plus en général que si $K_3/K_1$ est normale alors $K_2/K_1$ est normale  (contre-exemple: $\Q(^3\sqrt{5},j)/\Q $ est  normale  mais $\Q(3\sqrt{5})/\Q$ ne l'est pas);
+  \item par contre si $K_3/K_1$ est normale alors $K_3/K_2$ l'est aussi. En effet, pour tout $x\in K_3$ si on note $P_{x,1}\in K_1[T]$ et $P_{x, 2}\in K_2[T]$ les polynômes minimaux de $x$ sur $K_1 $ et $K_2$ respectivement alors $P_{x,2}|P_{x,1}$ dans $K_2[T]$ donc, comme $P_{x,1}$ est totalement décomposé sur $K_3$, $P_{x,2}$ l'est aussi.
+  \end{itemize}
+  \paragraph{}\label{Normale6}Soit $P\in k[T]$. On dit qu'une extension $K/k$ est un \textit{corps de décomposition}\index{Corps de décomposition (Polynôme)} de $P\in k[T]$ sur $k$ si $P$ est totalement décomposé sur $k$ et si $K=k( Z_K(P))/k$.\\
+
+  \textbf{Lemme.} \textit{Tout polynôme $P\in k[T]$ admet un corps de décomposition  sur $k$, qui est unique à $k$-isomorphisme (non-unique) près et est une extension normale de $k$.}
+  \begin{proof}Soit $\overline{k}/k$ une clôture algébrique de $k$ alors $K_0=k(Z_{\overline{k}}(P))/k$ est un corps de décomposition de $P$ sur $k$. Soit $K/k$ un corps de décomposition de $P$ sur $k$.  Par \ref{CloAlgPlonge}, il existe un $k$-plongement $\phi:K\rightarrow  \overline{k} $. Or par $(*)$ et comme $P$ est totalement décomposé sur $K$ donc sur $\phi(K)\subset \overline{k}$,
+   $\phi(K)=\phi(k(Z_K(P)))=k(Z_{\overline{k}}(P))=K_0$.  En particulier, $\phi:K\rightarrow \overline{k}$ induit un $k$-isomorphisme $\phi:K=k(Z_K(P))\tilde{\rightarrow} k(\phi(Z_K(P)))=k(Z_{\overline{k}}(P))=K_0$. Enfin, pour tout   $\sigma\in \SAut(\overline{k}/k)$, $\sigma_{K_0}:K_0\rightarrow \overline{k}$ est un $k$-plongement et l'argument qui précède appliqué avec $K=K_0$ montre que $\sigma(K_0)=K_0$. Donc $K_0/k$ est une sous-extension normale de $\overline{k}/k$ donc une extension normale.  \end{proof}
+
+   Si $K/k$ est un corps de décomposition de $P$, on a une action naturelle $\SAut(K/k)\times Z_K(P)\rightarrow Z_K(P)$ qui est fidèle puisque $K=k(Z_K(P))$ d'où un morphisme de groupes injectif $\SAut(K/k)\hookrightarrow \mathcal{S}(Z_K(P))$. C'est essentiellement ce groupe $\SAut(K/k)$  qui va reflèter  les `symétries' des racines de $P$. \\
+
+  \textbf{Remarque.} Le Lemme \ref{Normale6} montre qu'une extension $K/k$ finie est normale si et seulement si c'est le corps de décomposition d'un polynôme $P\in k[T]$ sur $k$.\\
+
+  \textbf{Exemple.} Le corps de décomposition de $ X^3-5\in \Q[T]$ sur $\Q$ est $\Q(^3\sqrt{5}, j)/\Q$. En considérant l'extension intermédiaire $\Q\subset \Q(j)\subset \Q(j)(^3\sqrt{5})$ et en observant que $\Q(j)/\Q$ est le corps de décomposition de $X^2+X+1\in \Q[T]$ sur $\Q$, on obtient une suite exacte courte de groupes
+  $$1\rightarrow \SAut(\Q(^3\sqrt{5}, j)/\Q(j))\rightarrow \SAut(\Q(^3\sqrt{5}, j)/\Q)\rightarrow \SAut(\Q(j)/\Q)\rightarrow 1.$$
+ Or la bijection $\SAut(\Q(^3\sqrt{5}, j)/\Q(j))\tilde{\rightarrow} Z_{\Q(^3\sqrt{5},j)}(X^3-5)$ montre que  $\SAut(\Q(^3\sqrt{5}, j)/\Q(j))$ est d'ordre $3$ donc cyclique et engendré par $\Q(^3\sqrt{5}, j)=\Q(j)[T]/T^3-5\tilde{\rightarrow} \Q(^3\sqrt{5}, j)$, $\overline{T}=^3\sqrt{5}\rightarrow j\;^3\sqrt{5}$. De même,  la bijection $\SAut(\Q(  j)/\Q )\tilde{\rightarrow} Z_{\Q( j)}(X^2+X+1)$ montre que  $\SAut(\Q(j)/\Q )$ est d'ordre $2$ donc cyclique et engendré par $\Q(  j)=\Q [T]/T^2+T+1\tilde{\rightarrow} \Q( j)$, $\overline{T}=J\rightarrow j^2$. Donc $\SAut(\Q(^3\sqrt{5}, j)/\Q)$ est un sous-groupe d'ordre $6$ de $\mathcal{S}_3$; c'est $\mathcal{S}_3$... On verra bientôt comment mener de façon plus systématique  ce type de calculs.\\
+
+   A ce stade, on aimerait poser, pour un polynôme $P\in k[T]$, $G_P:=\SAut(K/k)$, où $K$ est un corps de décomposition de $P$ sur $k$ et étudier les racines $\alpha_1,\dots , \alpha_n$ de $P$ dans $K$ - ou plutôt les sous-corps $k(\alpha_i)$, $i=1,\dots, n$ de $K$ engendrés par les  racines \textit{via} la structure du groupe $G_P$ en montrant qu'on a une correspondance bijective entre  les sous-groupes $H\subset G_P$ et les sous-corps $k\subset L\subset K$ donnée par $H\rightarrow K^{H}$, $L\rightarrow \SAut(K/L)$. Cependant, ce n'est pas toujours vrai que les applications  $H\rightarrow K^{H}$, $L\rightarrow \SAut(K/L)$ sont bijectives comme le montre l'exemple suivant. Prenons $k:=\F_p(X)$, $P=T^{p^2}-X\in k[T]$ et notons $K/\F_p(X)$ un corps de décomposition. Soit $\alpha\in K$ une racine de $P$. On a alors $P=(T-\alpha)^{p^2}$ sur $K[T]$. En particulier, $K=k(\alpha)=k[T]/P$. Mais comme $P$ n'a qu'une seule racine sur $k$, $\SAut(K/k)=1$ alors que $K/k$ contient est non triviale (et même contient une sous-extension stricte: $k\subsetneq k(\alpha^p)\subsetneq k(\alpha)=K$). Pour faire marcher cette approche, il va falloir imposer une condition supplémentaire sur $P$, celle d'être séparable.\\
+   \section{Extensions séparables}
+
+ \subsection{}\label{Derivations}\textbf{Dérivations.} Soit $A$ une $k$-algèbre. Une \textit{$k$-dérivation sur $A$}\index{Dérivation} est un endomorphisme de $k$-module $\partial: A\rightarrow A$ tel que $$\partial (ab)=a\partial b+(\partial a) b,\; a,b\in A.$$
+Une récurrence facile montre que $\partial (a^n)=na^{n-1}\partial a$, $a\in A$, $n\geq 1$. En particulier, $\partial 1=\partial (1^2)=2\partial 1$ donc $\partial 1=0$ et par $k$-linéarité, $ k\subset \ker(\partial)$.\\
+
+ Sur $A=k[T]$ une dérivation est donc uniquement déterminée par sa valeur en $T$. Considérons la dérivation $\partial : k[T]\rightarrow k[T]$, $T\rightarrow 1$ \ie{}
+$$\partial (\sum_{n\geq 0}a_nT^n)=\sum_{n\geq 1}na_nT^{n-1}. $$
+On note en général $P':=\partial P$, $P\in k[T]$ et on dit que $P'$ est le polynôme dérivé de $P$\index{Polynôme dérivé}.\\
+
+\textbf{Remarques.}
+ \begin{enumerate}
+\item Pour tout morphisme de corps $\phi:k\rightarrow k'$ on vérifie immédiatement que
+ $\phi(P)'=\phi(P')$, $P\in k[T]$.
+\item Notons $p$ la caractéristique de $k$. Soit $P\in k[T]$ tel que $P'=0$.
+
+ \begin{itemize}
+\item Si $p=0$, $P\in k$.
+\item Si $p>0$, il existe - un unique polynôme $Q\in k[T]$ tel que $P=Q_1(T^p)$. Par récurrence il existe donc un unique $r\in\Z_{\geq 1}$ et un unique polynôme $Q_r\in k[T]$ tels que $Q_r'\not= 0$ et $ P=Q_r(T^{p^r})$
+\end{itemize}
+Écrivons $P=\sum_{n\geq 0} a_nT^n$ donc $P'=\sum_{n\geq 1} na_nT^{n-1}=0$ si et seulement si $na_n=0$, $n\geq1$. Si $p=0$, cela impose $a_n=0$, $n\geq 1$ donc $P=a_0$. Si $p>0$, cela impose $a_n=0$, $n\geq 1$, $p\nmid n$ donc $P= \sum_{n\geq 0} a_{np}T^{np}=\sum_{n\geq 0} a_{np}(T^p)^n=Q(T^p)$ avec $Q_1=\sum_{n\geq 0} a_{np}T^n$.\\
+\end{enumerate}
+
+  \subsection{}\label{Separable1}\textbf{Lemme.} \textit{Pour $P\in k[T]$ les propriétés suivantes sont équivalentes.
+  \begin{enumerate}
+  \item $P$ et $P'$ sont premiers entre eux dans $k[T]$;
+  \item Pour toute clôture algébrique $\overline{k}/k$, $P$ et $P'$ sont premiers entre eux dans  $\overline{k}[T]$;
+  \item Pour toute clôture algébrique $\overline{k}/k$, $|Z_{\overline{k}}(P)|=\deg(P)$;
+   \item Pour toute clôture algébrique $\overline{k}/k$, $\overline{k}[T]/P$ est réduite.
+  \end{enumerate}}
+  \begin{proof} (1) $\Rightarrow$ (2) résulte de Bézout: $P$ et $P'$ sont premiers entre eux dans $k[T]$ si et seulement si $k[T]=k[T]P+k[T]P'$ \ie{} il existe $U,V\in k[T]$ tels que $UP+VP'=1$. Mais cette relation est  \textit{a fortiori} vraie dans $ \overline{k}[T]$ donc la conclusion résulte de Bézout dans $\overline{k}[T]$. (2) $\Rightarrow$ (1) Par la contraposé, si $P$ et $P'$ ont un diviseur irréductible commun $Q$ dans $k[T]$, celui-ci est \textit{a fortiori} un diviseur commun (non constant...) de $P$ et $P'$ dans $\overline{k}[T]$.  (2) $\Rightarrow$ (3) Par la contraposée, si  $|Z_{\overline{k}}(P)|<\deg(P)$ cela signifie que $P$ a au moins une racine double $\alpha$ dans $\overline{k}$ \ie{} $(T-\alpha)^2| P$ dans $\overline{k}[T]$. En écrivant $P=(T-\alpha)^2Q$ dans $\overline{k}[T]$ et en dérivant on obtient $P'=2(T-\alpha)Q+tT-\alpha)^2Q'$ donc $(T-\alpha)| P'$ dans $\overline{k}[T]$. (3) $\Rightarrow$ (2) Par la contraposée,  si $P,P'$ ont un diviseur irréductible commun $T-\alpha$ dans $\overline{k}[T]$, on peut écrire
+  $P=(T-\alpha)Q$ dans $\overline{k}[T]$ donc $P'=(T-\alpha)Q'+Q$. Comme $(T-\alpha)|P'$ on a forcément $(T-\alpha)|Q$ donc $(T-\alpha)^2| P$ donc $|Z_{\overline{k}}(P)|\leq \deg(P)-1$.
+    (3) $\Leftrightarrow$ (4) En écrivant $P=a\prod_{1\leq i\leq n}(T-\alpha_i)^{\nu_i}$  dans $\overline{k}[T]$ avec $0\not=a\in k$ et  $\alpha_1,\dots, \alpha_n\in\overline{k}$ deux à deux distincts, le Lemme des restes chinois nous donne un isomorphisme canonique de  $\overline{k}$-algèbres
+  $$\overline{k}[T]/P\tilde{\rightarrow} \prod_{1\leq i\leq n}\overline{k}[T]/(T-\alpha_i)^{\nu_i}.$$
+  En particulier $\overline{k}[T]/P$ est réduit si et seulement si $\overline{k}[T]/(T-\alpha_i)^{\nu_i}$ est réduit, $i=1,\dots, n$ si et seulement si $\nu_1=\dots=\nu_n=1$.  \end{proof}
+
+   On dit qu'un polynôme  $P\in k[T]$  qui vérifie les propriétés équivalentes du Lemme \ref{Separable1} est \textit{séparable}\index{Séparable (Polynôme)}. \\
+
+  \textbf{Exemple.} Si $k$ est de caractéristique $0$ tout polynôme $P\in k[T]$ irréductible est séparable sur $k$. Ce n'est plus vrai si $k$ est de caractéristique $p>0$: le polynôme $P=T^p-X\in \F_p(X)[T]$ est irréductible sur $\F_p(X)$ mais pas séparable.
+
+    \subsection{}\label{Separable2} D'après \ref{Separable1} on a
+  $$\begin{tabular}[t]{c|c|c}
+    $P$&  arbitraire&  séparable\\
+    \hline
+$|Z_{\overline{k}}(P)|$&$\leq \deg(P)$&$=\deg(P)$
+    \end{tabular}$$
+ Si $P\in k[T]$ est irréductible, puisque pour toute clôture algébrique $\overline{k}/k$, $|\SHom_{Alg/k}(k[T]/P,\overline{k})|=|Z_{\overline{k}}(P)|$ et $\deg(P)=[k[T]/P:k]$ on peut réécrire le tableau précédent sous la forme
+    $$\begin{tabular}[t]{c|c|c}
+    $P$&  arbitraire&  séparable\\
+    \hline
+   $|\SHom_{Alg/k}(k[T]/P,\overline{k})|$&$\leq [k[T]/P:k]$&$=[k[T]/P:k]$
+    \end{tabular}$$
+
+
+        \textbf{Lemme.} \textit{Soit $k$ un corps algébriquement clos et $A$ une $k$-algèbre de dimension finie sur $k$. Le morphisme de $k$-algèbres
+        $$A\rightarrow k^{\hbox{\rm \small Hom}_{Alg_{/k}}(A,k)},\; a\rightarrow (\sigma(a))_{\sigma\in \hbox{\rm \small Hom}_{Alg_{/k}}(A,k)}$$
+        est surjectif de noyau le nilradical de $A$. En particulier, $\dim_k(A)\geq |\SHom_{Alg/k}(A,k)|$.}
+
+
+        \begin{proof}Il s'agit de la combinaison d'un cas facile du Nullstellensatz et du Lemme des restes chinois. Plus précisément,  comme $A$ est de $k$-dimension finie - donc en particulier de type fini comme $k$-algèbre - et que $k$ est algébriquement clos, le  Nullstellensatz nous donne une bijection canonique
+        $$\SHom_{Alg/k}(A,k)\tilde{\rightarrow} \spm(A),\; (\phi:A\rightarrow k)\rightarrow \ker(\phi)$$
+        (d'inverse $\frak{m} \rightarrow (A\rightarrow A/\frak{m})=k$). On a vu qu'il résultait aussi du Nullstellensatz
+        que le radical de Jacobson et le nilradical de $A$ coincident, d'où l'assertion sur le noyau.  La surjectivité résultera du Lemme des restes chinois si l'on sait que $A$ n'a qu'un nombre fini d'idéaux maximaux. Mais  en notant $n:=\dim_kA$, $A$ a au plus $n$ idéaux maximaux deux à deux distincts. En effet, si on avait $n+1$ idéaux maximaux  $\frak{m}_1,\dots, \frak{m}_{n+1}$ deux à deux distincts, le Lemme des restes chinois nous donnerait un morphisme surjectif de $k$-algèbres (donc de $k$-espaces vectoriels)
+        $$A\twoheadrightarrow A/\frak{m}_1\times \cdots\times A/\frak{m}_{n+1}=k^{n+1}.$$
+        \end{proof}
+
+   Le corollaire suivant généralise la première colonne du tableau à une extension finie arbitraire.\\
+
+\textbf{Corollaire.} \textit{Si $K/k$ est une  extension finie  et $\overline{k}/k$ une  clôture algébrique, $|\SHom_{Alg/k}(K,\overline{k})|$ est indépendant de $\overline{k}/k$ et $\leq [K:k]$}.
+
+\begin{proof} L'indépendance de la clôture algébrique vient du fait que si $\overline{k}'/k$ est une autre clôture algébrique tout $k$-isomorphisme $\phi:\overline{k}\tilde{\rightarrow}\overline{k}'$  induit une bijection $\phi\circ-:\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow}\SHom_{Alg/k}(K,\overline{k})$. Par la propriété universelle du produit tensoriel de $k$-algèbres on a une bijection canonique
+$$\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow} \SHom_{Alg/\overline{k}}(\overline{k} \otimes_kK,\overline{k}) $$
+Et comme $[K:k]=\dim_{\overline{k}}\overline{k} \otimes_kK$, l'assertion résulte immédiatement du lemme ci-dessous.\end{proof}
+ \subsection{}\label{Separable3}Soit $K/k$ une extension de corps. On dit que $x\in K$ est \textit{séparable sur $k$}\index{Séparable (Élément)} si le polynôme minimal $P_x\in k[T]$ de $x$ sur $k$ est séparable. Le corollaire suivant décrit qu'elle est la bonne généralisation - en termes d'extensions de corps - de la notion de polynômes séparables.\\
+
+     \textbf{Corollaire.} \textit{Soit $K/k$ une extension algébrique. Les propriétés suivantes sont équivalentes.
+    \begin{enumerate}
+    \item Tout élément de $K$ est séparable sur $k$;
+    \item Pour toute clôture algébrique $\overline{k}/k$, $\overline{k}\otimes_kK$ est une $\overline{k}$-algèbre réduite.
+    \end{enumerate}
+     Si, de plus, $K/k$ est finie, ces propriétés sont aussi équivalentes à
+        \begin{enumerate}
+        \setcounter{enumi}{2}
+        \item Pour toute clôture algébrique $\overline{k}/k$, $|\SHom_{Alg/k}(K,\overline{k})|=[K:k]$.
+    \end{enumerate}}
+ \begin{proof} Montrons d'abord   (1) $\Rightarrow$  (3) $\Leftrightarrow$ (2) lorsque $K/k$ est finie. On a déjà observé que $\SHom_{Alg/k}(K,\overline{k})\tilde{\rightarrow} \SHom_{Alg/\overline{k}}(\overline{k}\otimes_kK,\overline{k})$ et que $[K:k]=\dim_{\overline{k}}(\overline{k}\otimes_kK)$ donc (2) $\Leftrightarrow$ (3)  résulte du Lemme \ref{Separable2}.  Pour (1) $\Rightarrow$ (3) rappelons que    si $k\subset K'\subset K$ est une sous-$k$-extension, le morphisme de restriction
+ $$ \SHom_{Alg/k}( K,\overline{k})\rightarrow \SHom_{Alg/k}( K',\overline{k}),\; \phi\rightarrow \phi|_{K'}$$
+ est surjectif et la fibre au-dessus de $\phi:K'\rightarrow \overline{k}$ est l'ensemble $\SHom_{Alg/K',\phi}( K,\overline{k})$ des $k$-plongements avec $\overline{k}$ muni de la structure de $K'$-algèbre donnée par $\phi:K'\rightarrow \overline{k}$. Donc
+ $$(*)\;\;| \SHom_{Alg/k}( K,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/k}( K',\overline{k}) }|\SHom_{Alg/K',\phi}( K,\overline{k})|.$$
+ Cette observation permet de faire un raisonnement par récurrence sur le nombre minimal $n$ de générateurs de $K/k$ comme $k$-extension. Si $n=1$, $K=k(x)=k[T]/P_x$ et on a vu que dans ce cas
+ $$|\SHom_{Alg/k}(K,\overline{k})|=|Z_{\overline{k}}(P_x)|.$$
+ Or   comme $P_x\in k[T]$ est séparable,  $|Z_{\overline{k}}(P_x)|=\deg(P_x)(=[k(x):k])$. Si le nombre minimal de générateurs de $K/k$ comme $k$-extension est $n$, on peut écrire $K=k(x_1,\dots, x_n)=k(x_1,\dots, x_{n-1})(x_n)$. Puisque $K'=k(x_1,\dots, x_{n-1})/k$ est engendrée par $\leq n-1$ générateurs comme $k$-extension et vérifie (1), l'hypothèse de récurrence montre que $|\SHom_{Alg/k}(K',\overline{k})|=[K':K]$ alors que par le cas $n=1$, pour tout $k$-plongement $\phi:K'\rightarrow\overline{k}$, on a $|\SHom_{Alg/K',\phi}( K,\overline{k})|=[K:K']$. De $(*)$ on déduit
+ $$| \SHom_{Alg/k}( K,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/k}( K',\overline{k}) }[K:K']=[K':k][K:K']=[K:k].$$
+ Pour  (2) $\Rightarrow$ (1), on n'a pas besoin de supposer $K/k$ finie. En effet, observons que si $k\subset K'\subset K$ est une sous-$k$-extension, le morphisme de $\overline{k}$-algèbres $\overline{k}\otimes_kK'\rightarrow \overline{k}\otimes_kK$ est injectif. En effet, il suffit pour cela de choisir une $k$-base   $e_i$, $i\in I$ de $K$ telle que $e_i$, $i\in I'$ soit une $k$-base de $K'$ pour un certain sous-ensemble $I'\subset I$ et d'observer que $1\otimes e_i$, $i\in I$ est encore une $\overline{k}$-base de $\overline{k}\otimes K$ (le produit tensoriel commute aux sommes directes). Or, d'après \ref{Separable2}, $x\in K$ est séparable sur $k$ si et seulement si $\overline{k}\otimes_kk(x)$ est réduite.  Comme on vient de voir que $\overline{k}\otimes_kk(x)$  est une sous-$\overline{k}$-algèbre de, cela montre  (2) $\Rightarrow$ (1). Enfin, on sait déjà que (1) $\Rightarrow$ (2) lorsque $K/k$ est finie. Pour le cas général, tout élément  de $\overline{k}\otimes_kK$ s'écrit comme combinaison $k$-linéaire finie d'éléments de la forme $\lambda\otimes x$, $\lambda\in \overline{k}$, $x\in K$ donc il est contenu dans une sous-$\overline{k}$-algèbre de la forme $\overline{k}\otimes_kk(x_1,\dots, x_n)$, où $x_1,\dots, x_n\in K$. Comme les $x_1,\dots, x_n$ sont algébriques sur $k$,  $[k(x_1,\dots, x_n):k]$ est fini et $k(x_1,\dots, x_n)/k$ vérifie  (1) donc l'assertion résulte  de (1) $\Rightarrow$ (2) dans le cas où $K/k$ est finie. \end{proof}
+
+ On dit qu'une extension algébrique $K/k$ qui vérifie les propriétés équivalentes du Corollaire ci-dessus est \textit{séparable}\index{Séparable (Extension de corps)}. L'équivalence (1) $\Rightarrow$ (3) lorsque $K/k$ est finie montre en particulier que $x\in K$ est séparable sur $k$ si et seulement si $k(x)=k[T]/P_x/k$ est une extension séparable puisque
+$$| \SHom_{Alg/k}( k[T]/P_x,\overline{k})|=|Z_{\overline{k}}(P_x)|\leq \deg(P_x)=[k(x):k]$$
+    avec égalité si et seulement si $P_x\in k[T]$ est séparable. \\
+
+    \textbf{Exemple.} Si $k$ est de caractéristique $0$, toute extension algébrique de $k$ est séparable (par la caractérisation (1) de \ref{Separable3}). L'extension $\F_p(X)[T]/T^p-X/\F_p(X)$ n'est pas séparable.
+
+     \subsection{}\label{Separable3}\textbf{Corollaire.} \textit{Soit $K_3/K_2$ et $K_2/K_1$ des extensions algébriques. Alors $K_3/K_1$ est séparable si et seulement si $K_3/K_2$ et $K_2/K_1$ sont séparables. }
+
+     \begin{proof} Si $K_3/K_1$ est séparable, la caractérisation (1) de la séparabilité montre immédiatement que $K_2/K_1$ est séparable et, puisque le polynôme minimal $P_{x,K_2}$ d'un élément $x\in K_3$ sur $K_2$ divise dans $K_2[T]$ le polynôme minimal  $P_{x,K_1}$  de $x$ sur $K_1$, que $K_3/K_2$ est aussi séparable. Réciproquement,  si $K_3/K_1$ est finie, $(*)$ dans la preuve du Corollaire de \ref{Separable2} montre que
+      $$| \SHom_{Alg/K_1}( K_3,\overline{k})|=\sum_{\phi\in\hbox{\rm \small Hom}_{Alg/K_1}( K_2,\overline{k}) }|\SHom_{Alg/K_2,\phi}( K_3,\overline{k})|=[K_3:K_2][K_2:K_1]=[K_3:K_1].$$
+      Si $K_3/K_1$ n'est pas finie, soit $x\in K_3$. Par hypothèse son polynôme minimal sur $K_2$ s'écrit $P_{x,K_2}=T^n+a_{n-1}T^{n-1}+\cdots+a_0\in K_2[T]$ et est séparable donc $x$ est séparable sur $K_2'=K_1(a_{n-1},\dots, a_0)$ (puisque son  polynôme minimal sur $K_2'$ est encore $ P_{x,K_2}$) \ie{} $K_2'(x)/K_2'$ est séparable; $K_2'(x)/K_2'$ et $K_2'/K_1$ sont donc finies (car algébriques de type fini) et séparables donc $K_2'(x)/K_1$ est séparable par transitivité.     \end{proof}
+
+      \subsection{}\label{Separable4}\textbf{Corollaire.} (Élément primitif) \textit{Toute extension $K/k$ séparable finie est monogène \ie{} de la forme $K=k(x)/k$ pour un certain $x\in K$.}
+
+      \begin{proof} Supposons d'abord que $k$ est \textit{infini}. Pour tout $x\in K$, on a vu que  l'application de restriction $$-|_{k(x)}: \SHom_{Alg/k}( K,\overline{k})\rightarrow  \SHom_{Alg/k}( k(x),\overline{k})$$
+      était toujours surjective. De plus, puisque $K/k$ est séparable finie, on a $ |\SHom_{Alg/k}( K,\overline{k})|=[K:k]$ et $|\SHom_{Alg/k}( k(x),\overline{k})|=[k(x):k] $. Donc
+      $$K=k(x) \Leftrightarrow [K:k]=[k(x):k] \Leftrightarrow  -|_{k(x)}: \SHom_{Alg/k}( K,\overline{k})\rightarrow  \SHom_{Alg/k}( k(x),\overline{k})\; \hbox{\rm est injective}$$
+      Mais comme l'évaluation en $x$,  $ \SHom_{Alg/k}( k(x),\overline{k})\rightarrow  \overline{k}$, $\phi\rightarrow \phi(x)$ est injective,  $-|_{k(x)}: \SHom_{Alg/k}( K,\overline{k})\rightarrow  \SHom_{Alg/k}( k(x),\overline{k})$ est injective si et seulement si l'évaluation en $x$ $ \SHom_{Alg/k}( K,\overline{k})\rightarrow \overline{k}$, $\phi\rightarrow \phi(x)$ est injective autrement dit, si et seulement si $x\notin \ker(\phi_1-\phi_2)$, $\phi_1\not=\phi_2\in \SHom_{Alg/k}( K,\overline{k})$. Comme $ \SHom_{Alg/k}( K,\overline{k})$ est fini et que les $ \ker(\phi_1-\phi_2)\subsetneq K$ sont des sous-$k$-espace vectoriels stricts, la conclusion résulte du Lemme 1 ci-dessous. \\
+
+       Supposons maintenant que $k$  est fini. Le corps $K$ est donc également fini (de cardinal $|k|^{[K:k]}$) et, d'après le Lemme 2 ci-dessous, le groupe multiplicatif $K^\times $ est cyclique. Tout générateur $x$ du groupe $K^\times $  vérifie $K=k(x)$.  \end{proof}
+
+    \textbf{Lemme 1.} \textit{Soit $k$ un corps infini et $V$ un $k$-espace vectoriel de dimension finie. Si $W_1,\dots, W_r\subsetneq V$ sont des sous-$k$-espaces vectoriels stricts, $V\setminus \cup_{1\leq i\leq r}V_i\not=\varnothing$.}
+
+    \begin{proof}On procède par récurrence sur la $k$-dimension $n$ de $V$. Si $n=1$, c'est immédiat. Si $n\geq 1$, il suffit de montrer l'énoncé dans le cas où les $W_i$, $i=1,\dots, r$ sont des hyperplans deux à deux distincts. Comme $W_1\cap W_i\subsetneq W_1$, par hypothèse de récurrence il existe $w\in W_1\setminus \cup_{2\leq i\leq r}W_1\cap W_i$. Fixons également $v\in V\setminus W_1$ et notons $D:=v+kw\subset V$. Puisque $v\in V\setminus W_1$, $D\cap W_1=\varnothing $ et, pour $i=1,\dots, r$, $ D\cap W_i $ contient au plus un élément  car si $v+aw,v+bw\in W_i$, $(a-b)w\in W_i$ donc, puisque $w\in V\setminus W_i$, $a=b$. Cela montre que $D\cap \cup_{1\leq i\leq r}W_i$ est fini et on conclut en utilisant que $D$ est infini puisque $k$ l'est.    \end{proof}
+
+        \textbf{Lemme 2.} \textit{Soit $k$ un corps. Tout sous-groupe fini $G$ du groupe multiplicatif $k^\times$ est cyclique.}
+
+    \begin{proof} Notons $n=|G|$ et  $m$ le ppcm des ordres des éléments de $G$. Comme $G$ est un groupe abélien fini, il contient un élément d'ordre $m$ (penser au théorème de structure... ou le vérifier à la main). Il suffit donc de montrer que $m=n$. Mais par définition de $m$,
+  $G\subset Z_k(T^m-1)$. Or $|Z_k(T^m-1)|\leq \deg(T^m-1)=m$. Donc $n=|G|\leq |Z_k(T^m-1)|=m\leq n$ montre bien que $m=n$. \end{proof}
+
+ \textbf{Exemples.}
+ \begin{itemize}
+ \item Une extension finie non séparable n'est en général  pas monogène. Par exemple $K:=\F_p(X,Y)/k:=\F_p(X^p,Y^p))$ est finie, de $\F_p(X^p,Y^p)$-base $X^iY^j$, $0\leq i,j\leq p-1$ mais elle n'est pas monogène car tout $x\in K$ vérifie $x^p\in k$ donc son polynôme minimal sur $k$ divise $T^p-x^p$ et est donc de degré $ \leq p$.
+ \item La  preuve de \ref{Separable4} n'est pas constructive. On verra plus loin comment en trouver. Par exemple, on verra que $[\Q(^3\sqrt{5}+j):\Q]=6$ et donc que $\Q(^2\sqrt{5},j)=\Q(^3\sqrt{5}+j)$.
+ \end{itemize}
+
+
+   \section{Corps finis}
+
+  Soit $k$ un corps et $c_k:\Z\rightarrow k$ le morphisme caractéristique de $k$ et $p$ la caractéristique de $k$. Comme $k$ est intègre,
+  \begin{itemize}
+ \item soit $p=0$, auquel cas, par propriété universelle de l'anneau des fractions, $c_k:\Z\rightarrow k$ se factorise en un morphisme de corps $c_k:\Q\hookrightarrow k$;
+ \item soit $p=0$, auquel cas, par propriété universelle du quotient, $c_k:\Z\rightarrow k$ se factorise en un morphisme de corps $c_k:\F_p\hookrightarrow k$;
+ \end{itemize}
+  Si $p=0$ (resp. $p>0$) on dit que $\Q$ (resp. $\F_p$) est le sous-corps premier de $k$ (c'est le plus petit sous-corps de $k$). \\
+
+  En particulier, un corps fini $\F$   est nécessairement de caractéristique $p>0$ et c'est un $\F_p$-espace vectoriel de dimension finie. On doit donc avoir
+  $|\F|=p^{[\F:\F_p]}$. \\
+
+   L'une des spécificités fondamentales des corps de caractéristique $p>0$ est l'existence du Frobenius.\\
+
+ \subsection{} \textbf{Lemme.} (Frobenius) \textit{Soit $k$ un corps de  caractéristique $p>0$. L'application $F_k:k\rightarrow k$, $x\rightarrow x^p$ est un endomorphisme de $\F_p$-algèbre.}
+ \begin{proof}La seule chose à vérifier est l'additivité. Cela résulte de la formule du binôme de Newton. Pour tout $a,b\in k$
+ $$F_k(a+b)=(a+b)^p=\sum_{0\leq i\leq p} \binom{p}{i}a^ib^{p-i}=a^p+b^p$$
+ puisque $p|\binom{p}{i} $, $i=1,\dots, p-1$. \end{proof}
+
+ \textbf{Remarque.} On prendra garde que si le Frobenius est toujours injectif (puisque c'est un morphisme de corps), il n'est pas toujours surjectif. Par exemple, m'image du Frobenius sur $\F_p(T)$ est le sous-corps strict $\F_p(T^p)\subsetneq \F_p(T)$. Le Frobenius est cependant toujours surjectif sur un corps $\F$ fini (injectif entre deux ensembles de mêmes cardinal) ou algébriquement clos (puisque les polynômes $T^p-x$ ont tous une racine dans $\F$). La surjectivité du Frobenius est lié à la notion de corps parfait.\\
+
+ \subsection{}\label{CF1} \textbf{Lemme.} \textit{Soit $k$ un corps de  caractéristique $p>0$. Pour tout $r\in \Z_{\geq 1}$, le sous-ensemble
+ $\F_p\subset Z_k(T^{p^r}-T)\subset k$ est un sous-corps fini, de cardinal $p^s$ avec $s| r$.}
+ \begin{proof} Puisque  $\F:=Z_k(T^{p^r}-T)$ est l'égalisateur de deux endomorphismes de $\F_p$-algèbres: $F_k^{p^r}, \Id:k\rightarrow k$, c'est une sous-$\F_p$-algèbre (donc un sous-corps) de $k$. Explicitement, $\F=\ker(F_k^{p^r}- \Id)\subset k$ est un sous-$\F_p$-espace vectoriel, $1\in \F$ et pour tout $a, 0\not= b\in \F$, $(ab^{-1})^{p^r}=a^{p^r}(b^{-1})^{p^r}=ab^{-1}$ donc $ab^{-1}\in \F$. Comme $|\F|<+\infty$, $\F$ est un $\F_p$-espace vectoriel de dimension finie - disons $s$ - donc de cardinal $p^s$.  Soit $x\in \F^\times$ un générateur de $\F^\times$. On a donc $\F\subset Z_k(T^{p^s}-T)$. Or $p^s=|\F|\leq |Z_k(T^{p^s}-T)|\leq p^s$ donc $\F=Z_k(T^{p^s}-T)$ et $T^{p^s}-T$ est totalement décomposé sur $\F$. Autrement dit, $\F$ est un corps de décomposition de $T^{p^s}-T$ sur $\F_p$. Comme $  T^{p^s}-T| T^{p^r}-T$ dans $\overline{\F}_p[T]\subset \overline{k}[T]$ donc dans $\F_p[T]$,  on a $$\F_p\subset \F= Z_{k}(T^{p^s}-T)=Z_{\overline{k}}(T^{p^s}-T)\subset Z_{\overline{k}}(T^{p^r}-T)=:\F_{\overline{k}}$$
+ Comme $T^{p^r}-T\in \F_p[T]$ est séparable, $|\F_{\overline{k}}|=p^r$. On doit donc avoir
+ $$r=[\F_{\overline{k}}:\F_p]=[\F_{\overline{k}}:\F][\F:\F_p]=[\F_{\overline{k}}:\F]s$$
+ donc $s|r$. \end{proof}
+
+  \subsection{}\textbf{Corollaire.} (Corps finis) \textit{Pour tout premier $p>0$ et tout $r\in \Z_{\geq 1}$, il existe un corps fini $\F_{p^r}$ à $\F_{p^r}$-éléments, unique à isomorphisme (non-unique près); c'est le corps de décomposition de $T^{p^r}-T\in \F_p[T]$ sur $\F_p$. De plus,
+  \begin{enumerate}
+  \item pour tout $r,s\in \Z_{\geq 1}$, $\F_{p^s}\subset \F_{p^r}$ si et seulement si $s|r$;
+  \item toute extension algébrique $K/\F_p$ est réunion de ses sous-corps finis. En particulier, $\overline{\F}_p=\cup_{r\geq 1}\overline{\F}_{p^r}$.
+  \end{enumerate} }
+
+  \begin{proof}Soit $\overline{\F}_p/\F_p$ une clôture algébrique et $\F_p\subset \F_{p^r}:=\F_p(Z_{\overline{\F}_p}(T^{p^r}-T))\subset \overline{\F}_p$ le  corps de décomposition correspondant de $T?{p^r}-T $ sur $\F_p$. D'après \ref{CF1}, $Z_{\overline{\F}_p}(T^{p^r}-T)$ est une extension algébrique de $\F_p$ vérifiant tautologiquement $Z_{\overline{\F}_p}(T^{p^r}-T)=\F_p(Z_{\overline{\F}_p}(T^{p^r}-T))$;  donc $\F_{p^{r}}=Z_{\overline{\F}_p}(T^{p^r}-T)$. De plus, comme $ T^{p^r}-T\in \F_p[T]$ est séparable et totalement décomposé sur $\overline{\F}_p$, $|\F_{p^{r}}|=|Z_{\overline{\F}_p}(T^{p^r}-T)|=p^r$. Cela montre l'existence de $\F_{p^r}$. Pour l'uncité, soit $\F$ est un corps fini à $p^r$ éléments; c'est une extension finie donc algébrique de $\F_p$ donc on peut le plonger dans $\overline{\F}_p$. Comme $|\F^\times|=p^{r-1}$, tout $0\not= x\in \F$ vérifie $x^{p^r-1}=1$ donc $\F\subset Z_{\overline{\F}_p}(T^{p^r}-T)$. Par cardinalité, $\F=Z_{\overline{\F}_p}(T^{p^r}-T)$. La condition nécessaire de (1) résulte de $$r=[\F_{p^r}:\F_p]=[\F_{p^r}:\F_{p^s}][\F_{p^s}:\F_p]=[\F_{p^r}:\F_{p^s}]s.$$ Pour la condition suffisante, si $s|r$,  on a  $p^s-1|p^r-1$ car
+  $$p^r-1=(p^s)^{r/s}-1=(p^s-1)\sum_{0\leq i\leq r/s-1}p^{si}.$$
+Or $0\not= x\in \F_{p^s}$ $\Rightarrow$ $x^{p^s-1}=1$ $\Rightarrow$ $x^{p^r-1}=(x^{p^s-1})^{(p^r-1)/(p^s-1)}=1$ $\Rightarrow$ $x\in \F_{p^r}$. (2) est immédiat.  \end{proof}
+
+
+
+    \section{Polynôme caractéristique, trace et norme}
+    \subsection{}Soit $A$ une $k$-algèbre de dimension finie. A tout $a\in K$ on peut associer l'automorphisme de $k$-espace vectoriel $L_a:A\rightarrow A$, $b\rightarrow ab$. On note
+ $$\chi_{A/k}(a):=det(L_a-T\Id|A)\in k[T]$$
+ son \textit{polynôme caractéristique}\index{Polynôme caractéristique (Élément)},
+    $tr_{A/k}(a):=tr_k(L_a:A\rightarrow A)\in k $ sa \textit{trace}\index{Trace} et $N_{A/k}:=det(L_a)\in k$ son déterminant - appelé \textit{norme}\index{Norme (Élément)}. On dispose en particulier
+ d'une forme linéaire $tr_{A/k}:A\rightarrow k$ et d'un morphisme de groupes $N_{A/k}:A^\times\rightarrow k^\times$.\\
+
+    \subsection{}\textbf{Lemme.} \textit{Soit $K/k$ une extension finie. Pour tout $x\in K$, on a $\chi_{K/k}(x)=P_x^{[K:k(x)]}$ où $P_x\in k[T]$ est le  polynôme minimal de $x$ sur $k$. En particulier, $tr_{K/k}(x)=[K:k(x)]tr_{k(x)/k}(x)$ et $N_{K/k}(x)=N_{k(x)/k}(x)^{[K:k(x)]}$.}
+    \begin{proof} Notons $n:=[K:k]$, $q_x:=[K:k(x)]$,  $n_x:=[k(x):k]$. Fixons une $k(x)$-base $y_1,\dots, y_{q_x}$ de $K$.  On a une décomposition $K=\oplus_{1\leq i\leq q_x}k(x)y_i$ en  $k$-espaces vectoriels $k(x)y_i\subset K$  $L_x$-stables et pour chaque $i=1,\dots, q_x$, la matrice de  $L_x:k(x)y_i\rightarrow k(x)y_i$ dans la $k$-base $x^jy_i$, $j=0,\dots, n_x-1$ est la matrice compagnon $C(P_x)$ de $P_x$. Donc  la matrice de  $L_x:K\rightarrow K$ dans la $k$-base $y_ix^j$, $1\leq i\leq q_x$, $0\leq j\leq n_x-1$  de $K$ est la matrice diagonale par blocs de taille $n\times n$ dont tous les blocs diagonaux valent $C(P_x)$.  On conclut en utilisant que le polynôme minimal et le polynôme caractéristique d'une  matrice compagnon $C(P)$ coïncident et sont égaux à $P$.   \end{proof}
+
+\subsection{}\textbf{Lemme.} \textit{Soit $K_3/K_2$ et $K_2/K_1$  des extensions finies. Alors $tr_{K_2/K_1}\circ tr_{K_3/K_2}=tr_{K_3/K_1}$.}
+
+\begin{proof}Notons $n_3:=[K_3:K_2]$, $ n_2:=[K_2:K_1]$. Soit $e_{3,i}$, $i=1,\dots, n_3$ une $K_2$-base de $K_3$ et $e_{2,i}$, $i=1,\dots, n_2$ une $K_1$-base de $K_2$. Soit $x\in K_3$. Notons $A_3:=(a_{3,i,j})_{1\leq i,j\leq n_3}\in M_{n_3}(K_2)$ la matrice du $K_2$-endomorphisme $L_x:K_3\rightarrow K_3$ dans $e_{3,i}$, $i=1,\dots, n_3$ et pour chaque $a_{3,i,j}$, notons $A_{2,i,j}:=(a_{2,i,j,r,s})_{1\leq r,s\leq n_2}\in M_{n_2}(K_1)$ la matrice du $K_1$-endomorphisme $L_{a_{3,i,j}}:K_2\rightarrow K_2$ dans $e_{2,i}$, $i=1,\dots, n_2$. Dans la $K_1$-base  $e_{3,i}e_{2,j}$, $1\leq i\leq n_3,1\leq j\leq n_2$   de $K_3$, la matrice du $K_1$-endomorphisme $L_x:K_3\rightarrow K_3$ est la matrice par blocs $(A_{2,i,j})_{1\leq i,j\leq n_3}\in M_{n_2n_3}(K_1)$. En particulier
+$$tr_{K_2/K_1}(tr_{K_3/K_2}(x))= \sum_{1\leq i \leq n_3}tr_{K_2/K_1}(a_{3,i,i})=\sum_{1\leq i\leq n_3}\sum_{1\leq j\leq n_2}a_{2,i,i,j,j}=tr_{K_3/K_1}(x).$$
+\end{proof}
+    \textbf{Remarque.} On peut aussi montrer que   $ N_{K_2/K_1}\circ N_{K_3/K_2}=N_{K_3/K_1}$ mais c'est un peu plus délicat.\\
+
+
+\subsection{}\textbf{Proposition} \textit{Une extension finie $K/k$ est séparable si et seulement si $tr_{K/k}:K\rightarrow k$ est non nulle (\ie{} surjective).}
+
+    \begin{proof} En prenant des bases adaptées, on vérifie facilement que si $k\subset K'\subset K$ est une sous-extension, $tr_{K/k}=tr_{K'/k}\circ tr_{K/K'}$. En particulier, pour tout $x\in K$, $tr_{K/k}=tr_{k(x)/k}\circ tr_{K/k(x)}$. Si $K/k$ est séparable, on sait qu'il existe $x\in K$ tel que $K=k(x)$. Il suffit donc de montrer que $x\in K$ est séparable sur $k$ si et seulement si $tr_{k(x)/k}:k(x)\rightarrow k$ est surjective. De plus, la suite exacte courte de $k$-espaces vectoriels
+    $$0\rightarrow \ker(tr_{K/k})\rightarrow K\stackrel{tr_{K/k}}{\rightarrow}\im(tr_{K/k})\rightarrow 0$$
+    reste exacte après $\overline{k}\otimes_k-$
+    $$0\rightarrow \overline{k}\otimes_k\ker(tr_{K/k}) \rightarrow \overline{k}\otimes_kK\stackrel{\Id\otimes tr_{K/k}}{\rightarrow}\overline{k}\otimes_k\im(tr_{K/k})\rightarrow 0$$
+ Autrement dit, $ \overline{k}\otimes_k\ker(tr_{K/k}) =  \ker(\Id\otimes tr_{K/k}tr_{K/k}) $, $\overline{k}\otimes_k\im(tr_{K/k})=\im(\Id\otimes tr_{K/k}tr_{K/k})$. Il suffit donc de montrer que
+  $x\in K$ est séparable si et seulement si $ \Id\otimes tr_{K/k}tr_{K/k}: \overline{k}\otimes_kK\rightarrow \overline{k}$ est non nulle. P   en écrivant  $P_x=\prod_{1\leq i\leq r}(T-x_i)^{n_i}$  dans $\overline{k}[T]$ avec les $x_1,\dots, x_n\in\overline{k}$ deux à deux distincts, le lemme des restes Chinois nous donne un isomorphisme de $\overline{k}$-algèbres explicite
+  $$ \overline{k}\otimes_kK= \overline{k}\otimes_kk[T]/P_x=  \overline{k}[T]/P_x\tilde{\rightarrow} \prod_{1\leq i\leq r}\overline{k}[T]/(T-x_i)^{n_i}$$
+  et en prenant une $\overline{k}$-base adaptée à cette décomposition, on obtient $ tr_{\overline{k}\otimes_kK/\overline{k} }=\sum_{1\leq i\leq r} tr_{A_i/\overline{k} }$, où $A_i:=\overline{k}[T]/(T-x_i)^{n_i}$, $i=1,\dots ,r$.
+  \begin{itemize}
+  \item Si $x$ est séparable sur $k$, $n_1=\dots=n_r=1$ donc $A_i=\overline{k}$ donc t $ tr_{A_i/\overline{k} }= \Id$, $i=1,\dots, n$ et $ tr_{\overline{k}\otimes_kK/\overline{k} }:\overline{k}^n\rightarrow \overline{k}$, $(a_1,\dots, a_n)\rightarrow a_1+\cdots+a_n$ est clairement surjective.
+  \item Si $x$ n'est pas séparable sur $k$, $k$ est de caractéristique $p>0$ et $P_x=P(T^{p^s})$ avec $P\in k[T]$ séparable et $r\geq 1$ (\textit{cf.} \ref{Derivations}). En écrivant $P=\prod_{1\leq i\leq r}(T-\alpha_i)$ et $\alpha_i=x_i^{p^s}$, $i=1,\dots, r$ dans $\overline{k}$, on en déduit
+  $$P_x(T)=\prod_{1\leq i\leq r}(T^{p^s}-x_i^{p^s})=\prod_{1\leq i\leq r}(T -x_i)^{p^s},$$
+  autrement dit $n_1=\dots=n_r=p^s$. Or tout élément $a\in A_i$ s'écrit sous la forme $a=a_0+\nu$ avec $a_0\in\overline{k}$ et $\nu\in A_i$ nilpotent. Donc $tr_{A_i/\overline{k}}(a)=tr_{A_i/\overline{k}}(a_0)+tr_{A_i/\overline{k}}(\nu)= p^sa_0=0$.
+  \end{itemize}
+  \end{proof}

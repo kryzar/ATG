@@ -1,0 +1,58 @@
+\chapter{Modules indécomposables, Krull-schmidt}
+
+
+\section{Modules indécomposables}  Un $A$-module $M$ est dit \textit{indécomposable} s'il est non nul et ne peut s'écrire sous la forme $M=M'\oplus M''$ avec $M',M''\subset M$ deux sous $A$-modules non nuls. Un $A$-module $M$ est dit \textit{totalement décomposable}\index{Indecomposable (Module)@Indécomposable (Module)} s'il peut s'écrire sous la forme $M=M_{1}\oplus \dots\oplus M_r$ avec $M_{1},\dots,M_r\subset M$ des sous $A$-modules indécomposables.\\
+
+ Un anneau $E$ est dit \textit{local} \index{Local (Anneau)} si  $E\setminus E^\times$ est un idéal; auquel cas, $E\setminus E^\times$ est l'unique idéal  bilatère maximal de $E$.\\
+
+\section{}\textbf{Lemme.}\label{EndoIndecomp} \textit{Soit $M$ un $A$-module. Si $E: =\SEnd_{A}(M)$ est local, $M$ est indécomposable. Réciproquement, si $M$ est indécomposable, artinien et noethérien,  $E$ est local.}
+\begin{proof} Supposons $E$ local et qu'on puisse écrire  $M=M'\oplus M''$ avec $M',M''\subset M$ deux sous $A$-modules non nuls. Notons $e:=\iota_{M'}\circ p_{M'}\in E$ la projection de $M$ sur $M'$ parallèlement à $M''$.
+ On a $e,1-e\in E\setminus E^\times$. Mais si $E$ est local, $E\setminus E^\times$ est un idéal donc $1=e+(1-e)\in E\setminus E^\times$: contradiction.  Supposons maintenant que $M$ est un $A$-module artinien et noethérien indécomposable, d'après l'Lemme \ref{ExoFitting} (3), tout élément non nul de $E$ est soit inversible soit nilpotent. En particulier $J:=E\setminus E^{\times}$ est l'ensemble des éléments nilpotents de $E$. Il suffit de montrer que $J$ est un idéal bilatère. Soit donc $j\in J$ et $e\in E$. Comme $j$ est nilpotent on a $\ker(j)\not=0$ et im$(j)\not= M$ (Lemme \ref{ExoFitting} (1), (2)). Donc aussi $\ker(ej)\not=0$ et im$(je)\not=M$, ce qui montre que $ej,je\in E\setminus E^{\times}=J$. Donc $EJ=JE=J$. Il reste à voir que $J$ est stable par addition. Soit $j,j'\in J$, si $j+j'\in E^{\times}$ il existerait $e\in E$ tel que $ej=1-ej'$. Comme $ej'\in J$, on a forcément $1-ej'\in E^{\times}$ (d'inverse $\sum_{n\geq 0} (ej')^n$), ce qui contredit le fait que $j\in J$. \end{proof}
+
+
+
+\section{Théorème de Krull-Schmidt} Notons $Ind(A)$ l'ensemble des classes d'isomorphismes de $A$-modules indécomposables.
+
+\subsection{}\textbf{Théorème.}  \label{KS}\index{Krull-Schmidt (theoreme, module)@Krull-Schmidt (Théorème, Module)} (Krull-Schmidt) \textit{ Soit $M$ un $A$-module artinien ou noethérien. Alors il existe une application à support finie $\kappa:Ind(A)\rightarrow \mathbb{Z}_{\geq 0}$ telle que
+$$M=\bigoplus_{N\in Ind(A)}N^{\oplus \kappa(N)}.$$
+Si $M$ est à la fois  artinien et noethérien alors $\kappa:Ind(A)\rightarrow \mathbb{Z}_{\geq 0}$ est unique; on la notera $\kappa_{M}:Ind(A)\rightarrow \mathbb{Z}_{\geq 0}$.}
+\begin{proof} Commençons par montrer l'existence de la décomposition. Raisonnons par l'absurde. Si $M$ n'est pas totalement décomposable, $M$ n'est en particulier pas indécomposable donc $$M=M_1^{(0)}\oplus M_2^{(0)}$$
+avec $0\not= M_1^{(0)}, M_2^{(0)}\subset M$ deux sous $A$-modules dont l'un au moins des deux - disons $M_1^{(0)}$ n'est pas totalement décomposable. On itère l'argument pour obtenir une suite de décompositions en sommes directes de sous $A$-modules non nuls
+$$M=M_1^{(1)}\oplus M_2^{(1)}\oplus M_2^{(0)}$$
+$$\cdots$$
+$$M=M_1^{(n+1)}\oplus M_2^{(n+1)}\oplus M_2^{(n)}\oplus M_2^{(n-1)}\oplus\cdots\oplus M_2^{(1)}\oplus  M_2^{(0)}  $$
+avec, à chaque fois, $M_1^{(n)}$ qui n'est pas totalement décomposable. On obtient en particulier une suite strictement croissante de sous $A$-modules
+$$\lbrace 0\rbrace \subset M_2^{(0)} \subset M_2^{(1)}\oplus M_2^{(0)}\subset\cdots\subset   M_2^{(n)}\oplus\cdots M_2^{(1)}\oplus M_2^{(0)}\subset\cdots $$
+et une suite  strictement décroissante de sous $A$-modules
+$$M\supset M_1^{(0)}\supset M_1^{(0)}\supset\cdots\supset M_1^{(n)}\supset M_1^{(n+1)}\supset\cdots $$
+  Supposons maintenant que $M$ est artinien et noethérien et montrons l'unicité de la décomposition. D'après le Lemme \ref{EndoIndecomp} et par récurrence, il suffit de montrer que  si on a un isomorphisme de $A$-modules noethérien et artinien
+$$ M\oplus M'\simeq  N_{1}\oplus\dots\oplus N_{s}=:N$$
+avec  $E:=\SEnd_{A}(M)$ local et les $N_{1},\dots, N_{s}$ indécomposables
+alors  il existe $1\leq i\leq s$ tel que $M \simeq N_{i}$ et $M'\simeq \oplus_{  j\not=i}N_{j}$. Soit $\Phi=(\phi \; \phi'):M\oplus M'\tilde{\rightarrow}N$ un isomorphisme de $A$-modules d'inverse $$\Psi= \left(\begin{tabular}[c]{l}
+$\psi$\\
+$\psi'$\\
+\end{tabular}
+\right):N\tilde{\rightarrow} M\oplus M'.$$
+ Par le lemme \ref{EndoIndecomp},  $E\setminus E^{\times}$ est  un idéal bilatère et l'égalité
+$$\Id_{M}=\psi\circ\phi=\sum_{1\leq i\leq s}\psi\circ \iota_{i}\circ p_{i}\circ \phi$$
+implique que $\chi_{i}:=\psi\circ \iota_{i}\circ p_{i}\circ \phi\in E^{\times}$ pour au moins un $i=1,\dots, s$. On a alors $p_{i}\circ \phi:M\hookrightarrow N_{i}$ injectif, $\psi\circ \iota_{i}:N_{i}\twoheadrightarrow M$ surjectif et
+$$\xymatrix{0\ar[r]& \ker(\psi\circ \iota_{i})\ar[r]&N_{i}\ar[r]^{\psi\circ \iota_{i}}&\im(\psi\circ \iota_{i})\ar[r]\ar@/^1pc/[l]^{p_{i}\circ\phi\circ \chi_i^{-1}}& 0}$$
+donc
+$$N_{i}=\ker(\psi\circ \iota_{i})\oplus\im(p_{i}\circ \phi).$$
+Comme par hypothèse $N_{i}$ est indécomposable on a forcément $\ker(\psi\circ \iota_{i})=0$ et $\im(p_{i}\circ \phi)=N_{i}$.
+Donc $p_{i}\circ \phi:M\tilde{\rightarrow} N_{i}$ et $\psi\circ \iota_{i}:N_{i}\tilde{\rightarrow}  M$ sont des isomorphismes. Il reste \` a voir que $M'\simeq \oplus_{  j\not=i}N_{j}$. Pour cela, considérons les suites exactes courtes de $A$-modules:
+$$0\rightarrow M\stackrel{\iota}{\rightarrow}M\oplus M'\stackrel{p}{\rightarrow}M'\rightarrow 0$$
+$$0\rightarrow\bigoplus_{ i\not= j}N_{j} \stackrel{\Psi\circ\iota_{i}'}{\rightarrow}M\oplus M'\stackrel{p_{i}\circ \Phi}{\rightarrow}N_{i}\rightarrow 0.$$
+On sait que $p_{i}\circ \Phi\circ \iota=p_{i}\circ \phi:M\tilde{\rightarrow} N_{i}$ est un isomorphisme et on voudrait montrer que $p\circ\Psi\circ\iota_{i}':\bigoplus_{ i\not= j}N_{j}\rightarrow M'$ en est un aussi. Cela découle du petit lemme suivant, dont on laisse la preuve en exercice au lecteur. \end{proof}
+
+\subsection{}\textbf{Lemme.}\textit{
+\begin{enumerate}
+\item Soit
+ $0\rightarrow K \stackrel{\alpha}{\rightarrow}M\stackrel{\beta}{\rightarrow}Q $
+et $0\rightarrow K' \stackrel{\alpha'}{\rightarrow}M\stackrel{\beta'}{\rightarrow}Q' $
+deux suites exactes de $A$-modules. Alors $\beta'\alpha$ est injectif si et seulement si $\beta\alpha'$ est injectif.
+\item Soit
+ $  K \stackrel{\alpha}{\rightarrow}M\stackrel{\beta}{\rightarrow}Q\rightarrow 0 $
+et $K' \stackrel{\alpha'}{\rightarrow}M\stackrel{\beta'}{\rightarrow}Q' \rightarrow 0$
+deux suites exactes de $A$-modules. Alors $\beta'\alpha$ est surjectif si et seulement si $\beta\alpha'$ est surjectif.
+\end{enumerate}}

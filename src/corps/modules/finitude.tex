@@ -1,0 +1,109 @@
+\chapter{Conditions de finitude}
+
+ Soit $A$ un anneau commutatif. \\
+
+\section{Lemme}\label{Noetherien}
+
+\begin{lemme}Soit $M$ un $A$-module.
+  Les conditions suivantes sont équivalentes.
+  \begin{enumerate}
+  \item Toute suite croissante de sous-$A$-modules de $M$ est stationnaire.
+  \item Tout ensemble non vide de sous-$A$-modules de $M$ admet un élément
+    maximal pour l'inclusion.
+  \item Tout sous-$A$-module de $M$ est de type fini.
+  \end{enumerate}
+\end{lemme}
+
+\begin{definition}
+   Un $A$-module $M$ vérifiant les conditions équivalentes du lemme \ref{Noetherien} est dit \textit{noethérien}\index{Noethérien (Module)}.\\
+\end{definition}
+
+\begin{proof} (1) $\Rightarrow$ (2): Si (2) n'était pas vrai, il existerait un ensemble non vide $\mathcal{E}$ de sous $A$-modules de $M$ ne contenant aucun élément maximal pour l'inclusion. Soit $M_{0}\in \mathcal{E}$. Comme $M_{0}$ n'est pas maximal pour l'inclusion, il existe $M_{1}\in\mathcal{E}$ tel que $M_{0}\subsetneq M_{1}$. On itère l'argument avec $M_{1}$ et on construit ainsi une suite strictement croissante infinie de sous $A$-modules de $M$, ce qui contredit (1).\\
+ (2) $\Rightarrow$ (3): Soit $M'\subset M$ un sous $A$-module et $\mathcal{E}$ l'ensemble des sous $A$-modules de type fini de $M'$. Comme le module trivial $\lbrace 0\rbrace$ est dans $\mathcal{E}$, $\mathcal{E}$ est non-vide donc admet un élément $M''$ maximal pour l'inclusion. Pour tout $m\in M'$, le $A$-module $M''+Am$ est dans $\mathcal{E}$ et contient $M''$. Par maximalité de $M''$, on a $M''+Am=M''$ donc $m\in M''$.\\
+ (3) $\Rightarrow$ (1): Soit $$M_{0}\subset M_{1}\subset\dots\subset M_{n}\subset M_{n+1}\subset\dots\subset M$$
+une suite croissante de sous $A$-modules. La réunion $$U:=\bigcup_{n\geq 0} M_{n}\subset M$$
+est un sous $A$-module. Soit $m_{1},\dots, m_{r}$ une famille de générateurs de $U$.  Chaque $m_{i}$ est dans $M_{n_{i}}$ pour un certain $n_{i}\geq 0$. Avec
+$$N:=\hbox{\rm max}\lbrace n_{i}\; |\; i=1,\dots, r\rbrace$$
+on a $M_{n}=M_{N}$, $n\geq N$. \end{proof}
+
+\textbf{Remarque.} Un anneau $A$ est en particulier noethérien au sens de \ref{AnneauNoetherien} s'il l'est comme $A$-module sur lui-même.
+
+
+\section{Lemme}\label{Artinien}\textit{Soit $M$ un $A$-module. Les conditions suivantes sont équivalentes.
+\begin{enumerate}
+\item Toute suite décroissante de sous $A$-modules $$M\supset\dots\supset M_{0}\supset M_{1}\supset\dots\supset M_{n}\supset M_{n+1}\supset\dots $$
+est stationnaire à partir d'un certain rang;
+\item Tout ensemble non vide de sous $A$-modules de $M$ possède un élément minimal pour l'inclusion.
+\end{enumerate}}
+
+Un $A$-module $M$ vérifiant les conditions équivalentes du lemme
+\ref{Artinien} est dit \textit{artinien}\index{Artinien (module)}. On
+laisse en exercice la preuve du lemme \ref{Artinien}, qui est
+exactement similaire à celle du lemme \ref{Noetherien}\\
+
+
+
+
+ \section{Exemple}
+ \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+
+	\item Le $\mathbb{Z}$-module $\Q$ n'est ni noetherien ni artinien. En effet, on a la suite infinie de sous $\Z$-modules
+	$$\cdots\subsetneq p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z\subsetneq p^{-1}\Z\subsetneq \cdots\subsetneq p^{-n}\Z\subsetneq p^{-n-1}\Z\subsetneq \cdots $$
+	\item Le $\mathbb{Z}$-module régulier est noetherien mais pas artinien. Il est noetherien car $\Z$ est principal donc tous ses idéaux sont de type fini (et m\^eme engendrés par un seul élément). Il n'est pas artinien car on a toujours la suite infinie
+	$$\cdots\subsetneq p^{n+1}\Z\subsetneq p^n\Z\subsetneq\cdots\subsetneq p\Z\subsetneq \Z$$
+	\item Le $\mathbb{Z}$-module $\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}\subset \Q/\Z$ est artinien mais pas noetherien. En effet, les éléments de $M:=\mathbb{Z}[\frac{1}{p}]/\mathbb{Z}$ sont tous  d'ordre fini, une puissance de $p$. Pour chaque $n\in \Z$, $n\geq 0$ notons $M_n:=\Z\frac{1}{p^n}+\Z/\Z\subset \Z$. On a la suite strictement croissante de sous-$\Z$-modules 
+	$$M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$$
+	donc $M$ n'est pas noetherien. Soit maintenant $N\subset M$ un sous-$\Z$-module. Distinguons deux cas. 
+	\begin{enumerate}
+	\item Le sup des ordres des éléments de $N$ est fini, égal à  $p^n$. Soit $a\in N$ d'ordre maximal $p^n$; on peut donc écrire $a=\frac{b}{p^{n}} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^n-1$, $p\nmid b$. Comme $p$ est premier, il existe $u,v\in \Z$ tels que $ub+vp^n=1$ donc $ua=\frac{1}{p_n}\in N$. Cela montre que $M_n\subset N$. Inversement, tout élément $a\in N$ s'écrit sous la forme $a=\frac{u}{p^m} \in \Z[\frac{1}{p}]+\Z/\Z$ avec $1\leq b\leq p^m-1$, $p\nmid b$ et $m\leq n$. Mais on peut aussi écrire  $a=\frac{up^{n-m}}{p^n}$. Cela montre que $N\subset M_n$.
+	\item Il existe une application strictement croissante $\phi:\N\rightarrow \N$ tel que $N$ contient un élément $a_n$ d'ordre exactement $p^{\phi(n)}$, $n\geq 0$. L'argument précédent montre que $\Z a_n=M_{\phi(n)}\subset N$. Donc $M=\cup_{n\geq 0}M_n\subset N$.
+	\end{enumerate}
+	Les seuls sous $\Z$-modules de $M$ sont donc $M$ et  les $M_n$, $n\geq 0$. Comme ils sont strictement ordonnés pour l'inclusion $ M_0=\lbrace 0\rbrace \subsetneq M_1\subsetneq M_2\subsetneq \cdots M$, on en déduit que $M$ est artinien.
+	\item Tout $\mathbb{Z}$-module fini est à la fois noetherien et artinien. Si $A$ est une algèbre sur un corps $k$, tout $A$-module de $k$-dimension finie est à la fois noetherien et artinien.
+
+\end{enumerate}
+
+\section{Lemme}\label{Exo1}\textit{
+\begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item Soit $0\rightarrow M'\rightarrow M\rightarrow M''\rightarrow 0$ une suite exacte courte de $A$-modules. Alors $M$ est noethérien (resp. artinien) si et seulement si $M'$ et $M''$ sont noethériens (resp. artininens).
+\item Une somme directe finie de $A$-modules noethériens (resp. artiniens) est encore noethérien (resp. artinien).
+\item Tout module de type fini sur un anneau noethérien (resp. artinien) est noethérien (resp. artinien). Montrer que tout module de type fini sur un anneau noethérien est de présentation finie.
+\end{enumerate} }
+
+
+ \begin{proof}
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+\item  Supposons $M$ noethérien (resp. artinien). Toute suite croissante (resp. décroissante) de sous-$A$ modules de $M'$ est une suite de  sous-$A$ modules de $M$ donc stationne à partir d'un certain rang. De même, l'image inverse dans $M$ de toute suite croissante (resp. décroissante) de sous-$A$ modules de $M''$ est une suite de  sous-$A$ modules de $M$ donc stationne à partir d'un certain rang. Supposons $M'$ et $M''$ noethériens (resp. artiniens). Soit $M_1\subset \dots\subset M_n\subset M_{n+1}\subset \dots M$ une suite croissante de sous-$A$ modules de $M$. Il existe un entier $N$ tel que   $M_N\cap M'=M_n\cap M'$ et $(M_N+M')/M'=(M_n+M')/M'$n $n\geq N$. La conclusion résulte du lemme du serpent appliqué à
+$$\xymatrix{0\ar[r]& M_N\cap M'\ar[r]\ar@{=}[d]&M_N\ar[r]\ar@{_{(}->}[d]&(M_N+M')/M'\ar[r]\ar@{=}[d]& 0\\
+0\ar[r]& M_n\cap M'\ar[r]&M_n\ar[r]&(M_n+M')/M'\ar[r]& 0\\}$$
+L'assertion pour `artinien' se montre de la même façon.
+\item  On procède par induction sur $n$ en utilisant  1.3.4 (1) et la suite exacte courte de $A$-modules
+$$0\rightarrow \oplus_{1\leq i\leq n}M_i\rightarrow  \oplus_{1\leq i\leq n+1}M_i\rightarrow M_{n+1}\rightarrow 0.$$
+\item D'après 1.3.4 (2) $A^{\oplus n}$ est noethérien (resp. artinien) et, par définition, tout $A$-module de type fini est quotient d'un $A$-module de la forme $A^{\oplus n}$. Donc la conclusion résulte de 1.3.4 (1).
+\end{enumerate}
+\end{proof}
+
+  La propriété d'être noethérien et artinien est la bonne généralisation de la notion de dimension finie lorsque $A=k$ est un corps. Les points (1) et (2) du lemme suivant, par exemple, servent de substitut au Lemme du rang.
+
+
+
+\section{Lemme} (Fitting)\label{ExoFitting} \textit{Soit $f:M\rightarrow M$ un endomorphisme de $A$-module.
+\begin{enumerate}
+\item Si $M$ est noethérien et $f$ surjectif alors $f$ est un isomorphisme.
+\item Si $M$ est artinien et $f$ injectif alors $f$ est un isomorphisme.
+\item (Lemme de 'Fitting') Si $M$ est artinien et noethérien alors il existe une décomposition $M=f^{\infty}(M)\oplus f^{-\infty}(0)$ en somme directe de deux sous $A$-modules $f$-stables tels que la restriction de $f$ à $f^{\infty}(M)$ soit un automorphisme et la restriction de $f$ à $f^{-\infty}(0)$ soit nilpotente.
+\end{enumerate}}
+
+\begin{proof}
+ \begin{enumerate}
+\item   Il existe un entier $N\geq 1$ tel que $\ker(f^N)=\ker(f^n)$, $n\geq N$ et on applique le lemme du serpent à
+$$\xymatrix{0\ar[r]& \ker(f^N)\ar[r]\ar[d]^\simeq&M \ar[r]^{f^N}\ar[d]^{\Id}_\simeq&M\ar[r]\ar[d]^f& 0\\
+0\ar[r]& \ker(f^{N+1})\ar[r]&M \ar[r]_{f^{N+1}}&M\ar[r]& 0\\}$$
+\item   Il existe un entier $N\geq 1$ tel que $\im(f^N)=\im(f^n)$, $n\geq N$ et on applique le lemme du serpent à
+$$\xymatrix{0\ar[r]& M\ar[r]^{f^{N+1}}\ar[d]^f&M \ar[r] \ar[d]^{\Id}_\simeq&M/\im(f^{N+1})\ar[r]\ar[d]^\simeq & 0\\
+0\ar[r]&M\ar[r]_{f^N}&M \ar[r] &M/\im(f^{N})\ar[r]& 0\\}$$
+\item (3) Comme $M $est artinien et noethérien, il existe un entier $N\geq 1$ tel que $$f^{\infty}(M):=\bigcap_{n\geq 0}\im(f^n)=\im(f^N),\; \; f^{-\infty}(M):=\bigcup_{n\geq 0}\ker(f^n)=\ker(f^N).$$
+On vérifie que $f^{\infty}(M)$, $f^{-\infty}(M)$ ainsi définis conviennent. Le seul point un peu astucieux est $M=f^{\infty}(M)+f^{-\infty}(M)$. On a envie d'écrire $m=f^N(m)+m-f^N(m)$ mais ça ne marche pas. Il faut ajuster en utilisant que $\im(f^N)=\im(f^{2N})$ et donc qu'il existe $\mu\in M$ tel que $f^N(m)=f^{2N}(\mu)$. La décomposition $m=f^N(\mu)+m-f^N(\mu)$ elle, convient.
+
+\end{enumerate}
+\end{proof}
