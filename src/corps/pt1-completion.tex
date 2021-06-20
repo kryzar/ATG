@@ -1,0 +1,67 @@
+ \chapter{Complétion (Hors programme)}
+ \section{Limites projectives}
+ Un système projectif \index{Système Projectif (Ensembles)} d'ensembles est une suite d'applications ensemblistes $$(X_\bullet,\phi_\bullet)\;\; \cdots X_{n+1}\stackrel{\pi_{n+1}}{\rightarrow} X_n\stackrel{\pi_{n }}{\rightarrow}X_{n-1}\stackrel{\pi_{n-1}}{\rightarrow}\cdots \stackrel{\pi_{1}}{\rightarrow}X_0.$$
+  Étant donné un système projectif $(X_\bullet,\phi_\bullet)$ d'ensembles, on note
+  $$\lim X_n :=\lbrace \underline{x}=(x_n)_{n\geq 0}\in\prod_{n\geq 0}X_n\; |\; \pi_{n+1}(x_{n+1})=x_n,\; n\geq 0\rbrace\subset \prod_{n\geq 0}X_n$$
+  et pour chaque $m\geq 0$, on note $p_m:\lim X_n\rightarrow X_m$ la  restriction à $\lim X_n$ de la $m$ième projection $p_m:\prod_{n\geq 0}X_n\rightarrow X_m$.
+
+ \subsection{}\label{LimProj}\textbf{Lemme.} (Propriété universelle de la limite projective) \textit{Pour tout système projectif $(X_\bullet,\phi_\bullet)$ d'ensembles  il existe des applications ensemblistes $p_m:P\rightarrow X_m$, $m\geq 0$ telles que pour toute famille  d'applications ensemblistes $\psi_m:Y\rightarrow X_m$, $m\geq 0$ telles que $\phi_{m+1}\circ \psi_{m+1}=\psi_m$, il existe une unique application ensembliste $\psi:Y\rightarrow \lim X_n$ telle que $p_m\circ \psi=\psi_m$, $m\geq 0$.}\\
+
+  Plus visuellement
+ $$\xymatrix{
+ &&&X_{m+1}\ar[dd]^{\phi_{m+1}}\\
+ Y\ar@{.>}[rr]^{\exists ! \psi}\ar[urrr]^{\psi_{m+1}}\ar[drrr]_{\psi_m}&&\lim X_n\ar[ur]^{p_{m+1}}\ar[dr]_{p_m}&\\
+ &&&X_m
+ }$$
+ \begin{proof} Comme d'habitude, on montre que les $p_m:\lim X_n\rightarrow X_m$, $m\geq 0$ vérifie la propriété universelle. La condition  $\phi_{m+1}\circ \psi_{m+1}=\psi_m$, $m\geq 0$ impose que si $\psi:Y\rightarrow  \lim X_n$ existe, elle est unique, définie par
+  $$\psi:Y\rightarrow\prod_{n\geq 0}X_n,\; y\rightarrow (\psi_n(y))_{n\geq 0}.$$
+  On vérifie ensuite immédiatement que $\psi(Y)\subset  \lim X_n$ et que $p_m\circ \psi=\psi_m$, $m\geq 0.$
+ \end{proof}
+  Comme d'habitude, la suite d'applications  $p_m:\lim X_n\rightarrow X_m$, $m\geq 0$ est unique à unique isomorphisme près et on dit que  c'est `la' limite projective \index{Limite Projective (Ensemble)}  de $(X_\bullet,\phi_\bullet)$.  \\
+
+
+  Si les applications $\phi_{n+1}:X_{n+1}\rightarrow X_n$, $n\geq 0$ sont des morphismes de monoïdes (resp. de groupes, resp. d'anneaux), on verifie immédiatement que   $ \lim X_n\subset \prod_{n\geq 0} X_n$ est un sous-monoïde  (resp. unesous- groupe, resp. un sous-anneaux) et que les projections  $p_m:\prod_{n\geq 0}X_n\rightarrow X_m$, $m\geq 0$ sont des morphismes de monoïdes (resp. de groupes, resp. d'anneaux). Le Lemme \ref{LimProj} admet la variante suivante dont on laisse la preuve en exercice au lecteur.
+
+  \subsection{}\label{LimProj}\textbf{Lemme.}   \textit{Pour tout système projectif $(X_\bullet,\phi_\bullet)$ de monoïdes (resp. de groupes, resp. d'anneaux),  il existe des morphismes de monoïdes (resp. de groupes, resp. d'anneaux) $p_m:P\rightarrow X_m$, $m\geq 0$ telles que pour toute famille  de morphismes de monoïdes (resp. de groupes, resp. d'anneaux) $\psi_m:Y\rightarrow X_m$, $m\geq 0$ telles que $\phi_{m+1}\circ \psi_{m+1}=\psi_m$, il existe un  unique morphismes de monoïdes (resp. de groupes, resp. d'anneaux) $\psi:Y\rightarrow \lim X_n$ tel  que $p_m\circ \psi=\psi_m$, $m\geq 0$.}\\
+
+
+ \section{}Soit $A$ un anneau commutatif et  $$A:=I_0\supset  I_1\supset I_2\supset \cdots \supset I_n\supset I_{n+1}\supset \cdots$$
+une suite décroissante d'idéaux  tels que $I_m I_n\subset I_{m+n}$.
+Par définition, la projection canonique $p_n:A\rightarrow A/I_n$ se factorise en
+$$\xymatrix{A\ar[r]^{p_n}\ar[d]^{p_{n+1}}&A/I_n\\
+A/I_{n+1}\ar[ur]_{\pi_{n+1}}&}$$
+d'où un système projectif de morphismes d'anneaux
+$$\cdots  A/I_{n+1}\stackrel{\pi_{n+1}}{\rightarrow} A/I_n\stackrel{\pi_{n }}{\rightarrow}A/I_{n-1}\stackrel{\pi_{n-1}}{\rightarrow}\cdots \stackrel{\pi_1}{\rightarrow}A/I$$
+et, par propriété universelle de la limite projective, un unique morphisme d'anneaux $$c_I:A\rightarrow \widehat{A}:=\lim A/I_n.$$
+ On note $$\widehat{I}_n:=\lbrace \underline{a}\in \widehat{A}\; |\; a_m=0,\; m\leq n\rbrace $$
+ \subsection{}Toute suite décroissante d'idéaux
+  $$A:=I_0\supset  I_1\supset I_2\supset \cdots \supset I_n\supset I_{n+1}\supset \cdots$$
+  tels que $I_m I_n\subset I_{m+n}$
+ munit $A$ d'une   topologie définie par les systèmes fondamentaux de voisinages $a+I_n$, $n\geq 0$. Pour cette topologie, $+,\cdot: A\times A\rightarrow A$ sont continues. Une suite de Cauchy dans $A$ est alors une suite $\underline{a}\in A^\N$ telle que pour tout $N\geq 0$ il  existe $n\geq 0$ tel que $a_{n+p}-a_n\in I_N$, $p\geq 0$. Si toute suite de Cauchy est convergente dans $A$, on dit que $A$ est complet. On laisse la preuve du lemme suivant en exercice.\\
+
+
+ \textbf{Lemme.} \textit{Avec les notations ci-dessus,  le morphisme canonique d'anneaux $c_I:A\rightarrow \widehat{A}$ est continu (pour les topologies défines par les suites $I_n$, $n\geq 0$ et $\widehat{I}_n$, $n\geq 0$). De plus, $\widehat{A}$ est complet, séparé et $c_I:A\rightarrow \widehat{A}$ induit des isomorphismes canoniques $A/I_n\tilde{\rightarrow} \widehat{A}/\widehat{I}_n$.}\\
+
+    On dit que   $c_I:A\rightarrow \widehat{A}$ est `la' completion de $A$ pour la topologie définie par la suites  $I_n$, $n\geq 0$ (ce morphisme vérifie une propriété universelle que le lecteur devrait à peu près deviner mais que nous ne formulerons pas).\\
+
+ \subsection{}Le cas le plus fréquent d'application de la construction ci-dessus est pour $I_n=I^n $, $n\geq 0$ et $I\subset A$ un  idéal. On parle alors de topologie $I$-adique et de completion $I$-adique. Voici deux exemples importants.
+
+
+ \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+ \item $A=\Z$, $I=p\Z$ pour $p$ un nombre premier. Dans ce cas on note $\widehat{\Z}:= \Z_p$ et on dit que $\Z\rightarrow  \Z_p$ est  la complétion $p$-adique de $\Z$ (ou l'anneau des entiers $p$-adiques). Si on munit $\Z$ de la valeur absolue $p$-adique définie par  $|n|=p^{-v_p(n)}$, on peut vérifier que    $\Z\rightarrow  \Z_p$ est la complétion de $\Z$ (au sens usuel des espaces métriques) pour la distance $d_p(m,n)=|m-n|_p$).\\
+
+ \textbf{Remarque.} On peut montrer (théorème d'Ostrowski) que les seules valeurs absolues sur $\Q$ sont (à équivalence près) la valeur absolue usuelle est les valeurs absolues $p$-adiques.\\
+
+
+
+   \textbf{Exercice.} Montrer que si $n\in \Z$ est premier à $p$ alors $c_{p\Z}(n)\in \Z_p^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{\Z_{p\Z}}\tilde{\rightarrow} \Z_p$, où $\widehat{\Z_{p\Z}}\rightarrow \widehat{\Z_{p\Z}}$ est la complétion $p\Z_{p\Z}$-adique de $\Z_{p\Z}$.\\
+
+ \item Soit $A$ un anneau commutatif intègre. $A=A[X]Z$, $I=XA[X]$. Plus précisément, reprenons les notations du paragraphe \ref{Poly}.   On munit $A^\N$ des lois $+,\cdot: A^\N\times A^\N\rightarrow A^\N$ définies par
+ $$\underline{a}+\underline{b}=(a_n+b_n)_{n\geq 0},\;\; \underline{a}\cdot\underline{b}=(\sum_{0\leq k\leq n}a_kb_{n-k}).$$
+ On vérifie facilement que $(A^\N,+,\cdot)$ est un anneau de zéro la suite nulle et d'unité la suite $e_0$. On note cet anneau  $A[[X]]$  et  ses éléments  $\underline{a}=(a_n)_{n\geq 0} \sum_{n\geq 0}a_n X^n$. L'inclusion naturelle $A^{(\N)}\hookrightarrow A^\N$ induit un morphisme d'anneaux $A[X]\hookrightarrow A[[X]]$, dont on vérifie facilement que c'est la complétion de $A[X]$ par rapport à l'idéal $XA[X]$. On dit que $A[[X]]$ est l'anneau des séries formelles de $A$ en l'indéterminée $X$.\\
+
+
+
+ \textbf{Exercice.} Montrer que si $P\in A[X]$ est premier à $X$ alors $c_{XA[X]}(P)\in A[[X]]^{\times}$. En déduire qu'on a un isomorphisme canonique $\widehat{A[X]_{XA[X]}}\tilde{\rightarrow} A[[X]]$, où $A[X]\rightarrow  A[[X]]$ est la complétion $XA[X]_{XA[X]}$-adique de $A[X]_{XA[X]}$.\\
+
+\end{enumerate}

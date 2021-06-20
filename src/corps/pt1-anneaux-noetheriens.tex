@@ -1,0 +1,86 @@
+\chapter{Anneaux noethériens}\label{AnneauNoetherien}
+\section{Lemme}\label{NoethDef}
+% Passage du lemme dans un environnement
+% \textit{Soit $A$ un anneau. Les propositions suivantes sont équivalentes.
+  % \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  % \item  Tout idéal $I\subset A$ est de type fini.
+  % \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
+  % \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément maximal pour $\subset $.
+  % \end{enumerate}}
+
+\begin{lemme}\label{NoethDef}
+  Soit $A$ un anneau. Les propositions suivantes sont équivalentes.
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item  Tout idéal $I\subset A$ est de type fini.
+  \item  Toute suite  d'idéaux de $A$ croissante pour $\subset$ est stationnaire à partir d'un certain rang.
+  \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément maximal pour $\subset $.
+  \end{enumerate}
+\end{lemme}
+
+\begin{proof} (1) $\Rightarrow$ (2). Supposons que tous les idéaux de $A$ sont de type fini. Soit $I_0\subset\cdots\subset I_n\subset I_{n+1}\subset \cdots\subset A$ une suite croissante d'idéaux pour $\subset $. L'ensemble $I:=\cup_{n\geq 0}I_n\subset A$ est un idéal; il existe donc un ensemble fini $X\subset A$ tels que $I=\sum_{x\in X}Ax$. Mais pour chaque $x\in X$, il existe $n_x\geq 0$ tel que $x\in I_{n_x}$. Donc avec $n:=\hbox{\rm max}\lbrace n_x\;|\; x\in X\rbrace$, on a $X\subset I_n$ donc $I\subset I_n$. \\
+ (2) $\Rightarrow$ (3). Soit $\mathcal{I}\subset \mathcal{I}_A$ un sous-ensemble non-vide. Supposons que $\mathcal{I}$ n'admette pas d'élément maximal pour $\subset$. Soit $I_0\in \mathcal{I}$. Puisque $I_0$ n'est pas maximal pour $\subset$, on peut  trouver $I_1\in \mathcal{I}$ tel que $I_0\subsetneq I_1$. En réitérant l'argument on construit une suite strictement croissante $I_0\subsetneq I_1\subsetneq I_2\subsetneq\cdots\subsetneq I_n\subsetneq I_{n+1}\subsetneq \cdots$ d'élément de $\mathcal{I}$, ce qui contredit (1).\\
+ (3) $\Rightarrow$ (1). Soit $I\subset A$ un idéal. Notons $\mathcal{I}\subset \mathcal{I}_A$ le sous-ensemble des idéaux de type fini de $A$ contenu dans $I$. $\mathcal{I}$ est non-vide puisqu'il contient $\lbrace 0\rbrace$. Par (3), il admet donc un élément $I^\circ$ maximal pour $\subset$. Si $I^\circ\subsetneq I$, il existe $a\in I$ tel que $I^\circ\subsetneq I^\circ+Aa\subset I$. Par construction $I^\circ+Aa$ est de type fini, ce qui contredit la maximalité de $I$.\end{proof}
+
+% définition dans un environnement
+% orthographe
+\begin{definition}[anneau noethérien]
+  On dit qu'un anneau $A$ qui vérifie les propriétés équivalentes du Lemme \ref{NoethDef} est \textit{noethérien}\index{Noethérien (Anneau)}.
+\end{definition}
+
+\section{Éxemples}
+% exemple inclus dans un environnement
+\begin{exemple}\label{NoethEx}
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item  Les anneaux principaux (\textit{e.g.} $k$, $\Z$, $k[X]$, où $k$ est un corps commutatif) sont noethériens.
+  \item  Si $k$ est un corps commutatif, une  $k$-algèbre $\phi:k\rightarrow A$ est toujours munie d'une structure de $k$-espace vectoriel: $k\times A\rightarrow A$, $(\lambda,a)\rightarrow \phi(\lambda)a$. Avec cette structure de $k$-espace vectoriel, les idéaux de $A$ sont automatiquement des sous-$k$-espace vectoriel. Si $A$ est de dimension finie sur $k$, elle est donc noethérienne. Par exemple l'anneau $k[X]/X^nk[X]$ est un  noethérien.
+  \item  Tout quotient d'un anneau noethérien est noethérien. En effet, soit $A$ est un anneau noethérien et $I\subset A$  un idéal; notons $p_I:A\twoheadrightarrow A/I$ la projection canonique. Si $J\subset A/I$ est un idéal, $p_I^{-1}(J)\subset A$ est un idéal donc, en particulier, il est engendré par un nombre fini $a_1,\dots, a_r$ d'éléments. Mais alors, $J=p_Ip_I^{-1}(J)$ est engendré par les  $p_I(a_1),\dots, p_I(a_r)$.
+  \item Par contre un sous-anneau d'un anneau noethérien n'est pas forcément noethérien. Par exemple, on va voir (\ref{NoethTransfert}) que si $k$ est un corps commutatif, l'anneau $k[X_1,X_2]$ est noethérien mais la sous-$k$-algèbre engendrée par les $  X_1X_2^n$, $n\geq 0$ n'est pas un anneau noethérien.\\
+  \end{enumerate}
+\end{exemple}
+
+La proposition suivante et son corollaire fournissent un très grand nombre d'exemples d'anneaux noethériens.
+
+\section{Proposition}
+% proposition dans un environnement
+\begin{proposition}[transfert de noethérianité]\label{NoethTransfert}
+  $A$ noethérien $\Rightarrow$ $A[X]$ noethérien.
+\end{proposition}
+
+\begin{proof}Soit $I\subset A[X]$ un idéal. Pour chaque $n\geq 0$ définissons $\frak{I}_n\setminus \lbrace 0\rbrace\subset A$ comme l'ensemble des $a\in A$ qui apparaissent comme coefficient dominant  d'un polynôme de degré $n$ dand $I$ \ie{} $a\in \frak{I}_n$ si et seulement si il existe $a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I$. Comme $I\subset A[X]$ est un idéal, les $\frak{I}_n\subset A$ sont automatiquement des idéaux. De plus,  $$a_0+a_1X+\cdots+a_{n-1}X^{n-1}+aX^n\in I\Rightarrow a_0X+a_1X^2+\cdots+a_{n-1}X^{n}+aX^{n+1}\in I$$ donc on a
+$$\frak{I}_0\subset \frak{I}_1\subset \cdots\subset \frak{I}_n\subset \frak{I}_{n+1}\subset \cdots$$
+Comme $A$ est noethérien, cette suite devient stationnaire à partir d'un certain rang, disons $n$. De plus,  chaque $\frak{I}_k$ est de type fini; notons $a_{k,1},\dots, a_{k,r_k}\in \frak{I}_k$ un ensemble fini de générateurs de $\frak{I}_k$ . Enfin,  pour  $k=0,\dots, n$, $l=1,\dots, r_k$, fixons un polynôme $P_{k,l}\in I$ de degré $k$ et de coefficient dominant $a_{k,l}$. Il suffit de montrer que $I$ est engendré par les $P_{k,l}$,  $l=1,\dots, r_k$, $k=0,\dots, n$. Notons donc $I^\circ:=\sum AP_{k,l}\subset I$ et montrons par induction sur le degré $d$ de $P\in I$ que $P\in I^\circ$. Si $d=0$, on a par définition $  \frak{I}_0\subset I^\circ$. Supposons que $I^\circ$ contient tous les   éléments de $I$ de degré $\leq d$. Soit $P=a_0+\cdots+a_dX^d+a_{d+1}X^{d+1}\in I$ de degré $d+1$. Si $d+1\geq n$, on a $a_{d+1}\in \frak{I}_{d+1}=\frak{I}_n$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{n,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_iX^{d+1-n}P_{n,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$. Si $d+1\leq n$, $a_{d+1}\in \frak{I}_{d+1}$ donc on peut écrire $a_{d+1}=\sum_{1\leq i\leq r_n}\alpha_ia_{d+1,i}$ et $P-\sum_{1\leq i\leq r_n}\alpha_i P_{d+1,i}$ est encore dans $I$ mais de degré $\leq d$ donc, par hypothèse de récurrence, dans $I^\circ$.
+\end{proof}
+
+\section{Corollaire}
+\begin{corollaire}\label{NoethTransfertCor}
+  Si $A$ est un anneau noethérien, toute $A$-algèbre de type fini est un anneau noethérien.
+\end{corollaire}
+
+% Suppression de majuscules superflues en milieu de phrase
+% Coquilles
+\begin{proof}
+  Observons d'abord qu'en raisonnant par induction sur $n\geq 1$, l'isomorphisme $$A[X_1,\dots, X_n]\tilde{\rightarrow} A[X_1,\cdots,X_{n-1}] [X_n]$$ et la proposition \ref{NoethTransfert} impliquent que $A[X_1,\dots, X_n]$ est un anneau noethérien. On conclut par l'exemple \ref{NoethEx} (3) puisque toute $A$-algèbre de type fini  est quotient d'une $A$-algèbre de la forme $A[X_1,\dots, X_n]$.
+\end{proof}
+
+\section{Exercices}
+
+\begin{exercice}\label{NoethExercices}
+  \begin{enumerate}[leftmargin=* ,parsep=0cm,itemsep=0cm,topsep=0cm]
+  \item Soit $A$ un anneau noethérien. Montrer que pour tout idéal  $I\subsetneq A$, $\sqrt{I}$ est l'intersection d'un nombre fini d'idéaux premiers. En déduire que $A$ possède un nombre fini d'idéaux premiers minimaux pour $\subset$. \\
+  \item (Anneaux artiniens) Soit $A$ un anneau. Montrer que les propositions suivantes sont équivalentes\\
+    % croissante > décroissante
+    % maximal > minimal
+    % les propositions étaient identiques à celles qui définissent un anneau noethérien
+    \begin{enumerate}
+    \item Toute suite d'idéaux de $A$ décroissante pour $\subset$ est stationnaire à partir d'un certain rang.
+    \item Tout sous-ensemble non vide d'idéaux de $A$ admet un élément minimal pour $\subset $.\\
+    \end{enumerate}
+    On dit qu'un anneau $A$ qui vérifie les propriétés équivalente ci-dessus est \textit{artinien}\index{Artinien (Anneau)}. En dépit de la similitude des définitions, les anneaux artiniens et noethériens se comportent très différemment. Soit $A$ un anneau artinien. Montrer que\\
+    \begin{enumerate}
+    \item  Tout idéal premier de $A $ est maximal.
+    \item  $A$ ne possède qu'un nombre fini d'idéaux (premiers=) maximaux.
+    \item  $A$ est noethérien.\\
+    \end{enumerate}
+    En fait, on peut montrer qu'un anneau est artinien si et seulement si il est noethérien et tous ses idéaux premiers sont maximaux.
+  \end{enumerate}
+\end{exercice}

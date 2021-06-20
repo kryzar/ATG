@@ -1,0 +1,228 @@
+\chapter{Un peu de géométrie (Hors programme)}
+
+L'objectif\footnote{Chapitre rédigé par Quentin Dupré, à partir du
+  cours dispensé en classe par Anna Cadoret} de ce chapitre est de
+fournir une motivation géométrique aux (nombreuses) définitions
+algébriques énoncées dans les chapitres précédents.
+
+\begin{definition}[variété algébrique affine]
+  On appelle \textit{variété algébrique (affine)} le lieu d'annulation
+  de $r$ polynômes à $n$ indéterminées
+  $P_1,\dotsc,P_r\in\CC[X_1,\dotsc,X_n]$. On la note
+  $V(P_1,\dotsc,P_r):=\{\underline{x}\in\CC^n:\forall i\in\llbracket
+  1,\dotsc,n\rrbracket, P_i(\underline{x})=0\}$ ou encore $V(\langle
+  P_1,\dotsc,P_r\rangle):=\{\underline{x}\in\CC^n:\forall P\in\langle
+  P_1,\dotsc,P_r\rangle, P(\underline{x})=0\}$.
+\end{definition}
+
+\begin{remarque}
+  Les deux définitions sont bien équivalentes. Le lecteur est invité à
+  le vérifier.
+\end{remarque}
+
+On peut vouloir munir une telle variété d'une topologie. La topologie
+de Zariski répond à cette volonté.
+
+\begin{definition}[topologie de Zariski]
+  Soient $P_1,\dotsc,P_r\in\CC[X_1,\dotsc,x_n]$. La topologie de
+  Zariski sur la variété algébrique $V(P_1,\dotsc,P_r)$ est la
+  topologie dont les fermés sont les idéaux $V(I)$ où $I$ est un idéal
+  de $\CC[X_1,\dotsc,X_n]$ contenant l'idéal $\langle P_1,\dotsc,P_r\rangle$.
+\end{definition}
+
+Nous allons maintenant donner un exemple fondamental de variétés
+algébriques que nous reprendrons tout au long du chapitre.
+
+\begin{exemple}[courbes planes dans $\CC^2$]
+  On considère ici des variétés $C=V(P)$ où $P\in\CC[X,Y]$.
+  \begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,rotate=90] plot(\x,0);
+        \draw[red,thick,rotate=90] plot(\x,-1);
+      \end{tikzpicture}
+      \caption{$X^2-X$}
+      \label{fig:non_connexe}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    % (or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick] plot(\x,0);
+        \draw[red,thick,rotate=90] plot(\x,0);
+      \end{tikzpicture}
+      \caption{$XY$}
+      \label{fig:croix}
+    \end{subfigure}
+    ~ %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+    % (or a blank line to force the subfigure onto a new line)
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,smooth] plot(\x,\x*\x);
+      \end{tikzpicture}
+      \caption{$Y-X^2$}
+      \label{fig:parabolle}
+    \end{subfigure}
+
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,domain=-1:1,smooth,samples=400] plot(\x,{sqrt((\x)^2+(\x)^3)});
+        \draw[red,thick,domain=-1:1,smooth,samples=400] plot(\x,{-sqrt((\x)^2+(\x)^3)});
+      \end{tikzpicture}
+      \caption{$Y^2-X^2-X^3$}
+      \label{fig:alpha}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.3\textwidth}
+      \begin{tikzpicture} [scale=1.3,xmin=-1.5,xmax=1.5,ymin=-1.5,ymax=1.5]
+        \axes \fenetre
+        \draw[red,thick,samples=400] plot(\x, {(\x*\x)^(1/3)});
+      \end{tikzpicture}
+      \caption{$X^2-Y^3$}
+      \label{fig:ailes}
+    \end{subfigure}
+    
+    \caption{Courbes algébriques dans $\CC^2$}
+    \label{fig:courbes_algebriques}
+  \end{figure}
+\end{exemple}
+
+\begin{remarque}
+  En général, $V(P_1,\dotsc,P_r)$ est très difficile à
+  comprendre. L'idée fondamentale est donc d'édudier
+  $V:=V(P_1,\dotsc,P_r)$ via les fonctions algébriques sur $V\subset\CC^n$.
+\end{remarque}
+
+\begin{definition}
+  Soit $V:=V(P_1,\dotsc,P_r)$ (où
+  $P_1,\dotsc,P_r\in\CC[X_1,\dotsc,X_r]$) une variété algébrique.
+  On a alors un morphisme d'anneaux
+  \begin{align}
+    I_v: \CC[X_1,\dotsc,X_n] &\to \CC^V \\
+    F &\mapsto \underline{x}\in V\mapsto \underline{F}(\underline{x})\in\CC 
+  \end{align}
+  où la fonction $\underline{F}$ est polynomiale.
+  Ce morphisme se factorise en $\CC[X_1,\dotsc,X_n]/\sqrt{\langle
+    P_1,\dotsc,P_r\rangle}\to \CC[V]$. On dit que $\CC[V]\subset\CC^V$
+  est \textit{l'anneau des fonctions algébriques sur $V$}.
+  $\sqrt{\langle P_1,\dotsc,P_r\rangle}\subset
+  \Ker(I_v:\CC[X_1,\dotsc,X_n]\twoheadrightarrow\CC[V])$ (théorème des
+  zéros de Hilbert).
+\end{definition}
+
+\begin{remarque}
+  Ce qui est remarquable en géométrie algébrique est l'existence d'une
+  correspondance bijective (équivalence de catégories) entre deux
+  mondes a priori distincts.
+  \begin{table}[h]
+    \centering
+    \begin{tabular}[h]{ccc}
+      $\CC$-algèbres de type fini & & variétés algébriques affines \\
+      morphismes de $\CC$-algèbres & $\leftrightarrow$  & morphismes $F_{|V_1}^{V_2}\to
+                                       V_2$\\
+      $\CC[V]$ & & $V$
+    \end{tabular}
+  \end{table}
+
+  On dispose ainsi d'un dictionnaire :
+
+  \begin{table}[h]
+    \centering
+    \begin{tabular}[h]{ccc}
+      propriétés algébriques de $\CC[V]$ & & propriétés géonétriques
+                                             de $V$ \\
+                                         & $\leftrightarrow$ &\\
+      \og preuve \fg{} & & \og intuition\fg{}
+    \end{tabular}
+  \end{table}
+\end{remarque}
+
+\begin{exemple}
+  Si l'on considère les courbes \ref{fig:croix} et \ref{fig:alpha}, on
+  semble y trouver en zéro les mêmes types de propriétés, alors que
+  celles-ci paraissent différentes sur la courbe
+  \ref{fig:ailes}. Cette intuition géométrique et visuelle se montre
+  algébriquement.
+\end{exemple}
+
+% ICI LA TOPOLOGIE : JE NE SAIS PAS COMMENT LE RÉDIGER
+
+Insérer ici le dictionnaire sur la topologie
+
+\begin{exemple}
+  \begin{description}
+  \item[Courbe \ref{fig:non_connexe} ] $\CC[V]=\CC[X,Y]/(X^2-X)\simeq
+    \CC[X,Y]/(X) \times \CC[X,Y]/(X-1)$ d'après le théorème chinois.
+    $V$ n'est pas connexe : il y a deux composantes connexes $V(X)$ et
+    $V(X-1)$.
+  \item[Courbe \ref{fig:croix}] $\CC[V] = \CC[X,Y]/(XY)$ n'est pas
+    intègre car $\overline{XY}=0$ alors que $\overline{X}\neq 0$ et
+    $\overline{Y}\neq 0$.  Deux idéaux premiers minimaux
+    $\langle X\rangle,\langle Y\rangle$ qui correspondent aux deux
+    composantes irréductibles $V(X)$ et
+    $V(Y)$.\\
+    En revanche, $V$ est connexe.
+    $\CC[X,Y]/(XY)\not\simeq A_1\times A_2$ car il n'existe pas
+    d'idempotent.\\
+    $e_1=(1,0), e_2=(0,1)\\
+    e_1^2 = e_1, e_2^2=e_2, e_1e_2=0, e_1,e_2\notin\{0,1\}$\\
+    Soit $\overline{P}\in\CC[X,Y]/(XY)$ tel que
+    $\overline{P}\neq \overline{0},\overline{1}$ et
+    $\overline{P}^2=\overline{P}$. Alors
+    $\overline{P}^2-\overline{P}=\overline{0}$ donc $XY\mid P(P-1)$.
+    En utilisant la factorialité de $\CC[X,Y]$, on a $X\mid P$ ou
+    $X\mid P-1$ et $Y\mid P$ ou $Y\mid P-1$. Les différentes
+    possibilités sont alors :
+    \begin{itemize}
+    \item $X,Y\mid P\implies XY\mid P\implies
+      \overline{P}=\overline{0}$,
+    \item $X,Y\mid P-1\implies XY\mid P-1\implies
+      \overline{P}=\overline{1}$,
+    \item $(X\mid P, Y\mid P-1)\implies P=UX=1+VY$ contradictoire avec le
+    choix d'irréductibles (on peut aussi évaluer ce polynôme en
+    $(0,0)$ pour obtenir une contradiction).
+  \end{itemize}
+  Dans tous les cas, on obtient une contradiction. Un tel
+  $\overline{P}$ n'existe donc pas.
+\item[Courbes \ref{fig:parabolle}, \ref{fig:alpha} et
+  \ref{fig:ailes}] $Y-X^2, Y^2-X^2-X^3$ et $X^2-Y^3$ sont
+  irréductibles dans $\CC[X,Y]$ donc premiers par factorialité de
+  l'anneau, $V$ est par conséquent irréductible et $\CC[V]$ est intègre.    
+\end{description}
+\end{exemple}
+
+Ici le dictionnaire sur les singularités.
+
+\begin{exemple}
+  
+\end{exemple}
+
+\begin{remarque}
+  Pour étudier plus finement les singularités, il faut en quelque
+  sorte zoomer sur celles-ci. Algébriquement, cela correspond à
+  localiser ou à compléter.
+  Pour étudier $V$ en $(0,0)$, on localise $A/I=\CC[V]$ en
+  $\mathfrak{m}/I=\langle \overline{X},\overline{Y}\rangle$ où
+  $\mathfrak{m}/I$ est un idéal maximal, $A=\CC[X_1,\dotsc,X_n],
+  I=\langle P_1,\dotsc,P_r\rangle$ et $\mathfrak{m}=\langle
+  X,Y\rangle$. % n'y a-t-il pas des problèmes de notation entre les X,
+               % Y et les X_i ?
+\end{remarque}
+
+\begin{definition}
+  Une bonne définition de « être lisse » pour une courbe algébrique est : \\
+  V est lisse $\iff$ $\forall m\in \spm(\CC[V])$, $\CC[V]_m$ est un anneau de valuation discrète.
+\end{definition}
+% C'est un test
+Pour la complétion, on a :
+\begin{table}[h]
+  \centering
+  \begin{tabular}[h]{ccc}
+     $\CC[V]_m$ & $\leftrightarrow$ & Complétion par la topologie m-adique $\widehat{\CC[V]_m}$
+  \end{tabular}
+\end{table}
